@@ -1,0 +1,18 @@
+{
+  "retching": {
+    "sounds": [
+      {
+        "name": "create_mix_and_clean:shulker_idle1",
+        "stream": false
+      },
+      {
+        "name": "create_mix_and_clean:shulker_hurt2",
+        "stream": false
+      },
+      {
+        "name": "create_mix_and_clean:shulker_idle3",
+        "stream": false
+      }
+    ]
+  }
+}

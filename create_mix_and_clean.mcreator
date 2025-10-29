@@ -1,0 +1,1141 @@
+{
+  "mod_elements": [
+    {
+      "name": "CreateMixAndClean",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_mix_and_clean",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "WasteRock",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waste_rock",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/WasteRockItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/waste_rock.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PurifiedIronOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_iron_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_iron_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedIronOreItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PurifiedGoldOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_gold_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_gold_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedGoldOreItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PurifiedCopperOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_copper_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_copper_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedCopperOreItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PurifiedZincOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_zinc_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedZincOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_zinc_ore.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DirtyCombinedIron",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_iron",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedIronItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_iron.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DirtyCombinedGold",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_gold",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_gold.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedGoldItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DirtyCombinedCopper",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_copper",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedCopperItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_copper.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "DirtyCombinedZinc",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_zinc",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedZincItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_zinc.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CombinedIron",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_iron",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_iron.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedIronItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CombinedGold",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_gold",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedGoldItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_gold.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CombinedCopper",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_copper",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_copper.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedCopperItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CombinedZinc",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_zinc",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedZincItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_zinc.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PurifiedIronOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_iron_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_iron_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedGoldOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_gold_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_gold_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedCopperOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_copper_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_copper_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedZincOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_zinc_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_zinc_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "DirtyCombinedIronCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_iron_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_iron_compacting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "DirtyCombinedGoldCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_gold_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_gold_compacting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "DirtyCombinedCopperCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_copper_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_copper_compacting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "DirtyCombinedZincCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_zinc_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_zinc_compacting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedIronSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_iron_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_iron_splashing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedGoldSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_gold_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_gold_splashing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedCopperSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_copper_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_copper_splashing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedZincSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_zinc_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_zinc_splashing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedIronSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_iron_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_iron_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedGoldSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_gold_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_gold_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedCopperSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_copper_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_copper_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedZincSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_zinc_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_zinc_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedIronSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_iron_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_iron_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedGoldSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_gold_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_gold_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedCopperSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_copper_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_copper_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CombinedZincSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_zinc_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_zinc_smelting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "WasteRockSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "waste_rock_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/waste_rock_splashing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "ChlorineGas",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chlorine_gas",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/chlorine_gas_bucket.json",
+          "src/main/java/net/mcreator/createmixandclean/item/ChlorineGasItem.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/chlorine_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/block/ChlorineGasBlock.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/ChlorineGasFluidType.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/chlorine_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/ChlorineGasFluid.java"
+        ]
+      }
+    },
+    {
+      "name": "HydrogenGas",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hydrogen_gas",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/hydrogen_gas_bucket.json",
+          "src/main/java/net/mcreator/createmixandclean/item/HydrogenGasItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/hydrogen_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/HydrogenGasFluid.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrogen_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/block/HydrogenGasBlock.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrogenGasFluidType.java"
+        ]
+      }
+    },
+    {
+      "name": "HydrogenGasMobplayerCollidesBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hydrochloric_acid_mobplayer_collides_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/procedures/HydrogenGasMobplayerCollidesBlockProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HydrochloricAcid",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hydrochloric_acid",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/block/HydrochloricAcidBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrochloric_acid.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/hydrochloric_acid_bucket.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/hydrochloric_acid.json",
+          "src/main/java/net/mcreator/createmixandclean/item/HydrochloricAcidItem.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/HydrochloricAcidFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrochloricAcidFluidType.java"
+        ]
+      }
+    },
+    {
+      "name": "CausticSoda",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "caustic_soda",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/caustic_soda.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CausticSodaItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "CausticSodaPlayerFinishesUsingItem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "caustic_soda_player_finishes_using_item",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/procedures/CausticSodaPlayerFinishesUsingItemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Desolving",
+      "type": "damagetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dissolving",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/damage_type/dissolving.json"
+        ]
+      }
+    },
+    {
+      "name": "Corrosion",
+      "type": "damagetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "corrosion",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/damage_type/corrosion.json"
+        ]
+      }
+    },
+    {
+      "name": "CorrosionSoundProcedure",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "corrosion_sound_procedure",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/procedures/CorrosionSoundProcedureProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ChlorineHydrogenGasMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "chlorine_hydrogen_gas_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/chlorine_hydrogen_gas_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HydrochloricAcidMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "LogtoPaperMixer",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "logto_paper_mixer",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/logto_paper_mixer.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HydrochloricAcidWithIronMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_iron_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_iron_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HydrochloricAcidWithGoldMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_gold_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_gold_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HydrochloricAcidWithCopperMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_copper_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_copper_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HydrochloricAcidWithZincMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_zinc_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_zinc_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "ConcreteDyeRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "concrete_dye_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/concrete_dye_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "ConcretePowderDyeRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "concrete_powder_dye_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/concrete_powder_dye_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperBlockOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_block_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/copper_block_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CutCopperBlockOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cut_copper_block_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/cut_copper_block_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CutCopperSlabOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cut_copper_slab_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/cut_copper_slab_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CutCopperStairOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cut_copper_stair_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/cut_copper_stair_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperShinglesOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_shingles_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/copper_shingles_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperShingleSlabOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_shingle_slab_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/copper_shingle_slab_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperShingleStairsOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_shingle_stairs_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/copper_shingle_stairs_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperTilesOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_tiles_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/copper_tiles_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperTileSlabOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_tile_slab_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/copper_tile_slab_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "CopperTileStairOxidizationRemovalFilling",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "copper_tile_stair_oxidization_removal_filling",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/copper_tile_stair_oxidization_removal_filling.json"
+        ]
+      },
+      "path": "~/Recipes"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [
+    {
+      "name": "retching",
+      "files": [
+        "shulker_idle1",
+        "shulker_hurt2",
+        "shulker_idle3"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    }
+  ],
+  "tag_elements": {
+    "ITEMS:minecraft:oxidized/cut_slab": [
+      "Blocks.EXPOSED_CUT_COPPER_SLAB",
+      "Blocks.WEATHERED_CUT_COPPER_SLAB",
+      "Blocks.OXIDIZED_CUT_COPPER_SLAB",
+      "Blocks.WAXED_EXPOSED_CUT_COPPER_SLAB",
+      "Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB",
+      "Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB"
+    ],
+    "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:HydrochloricAcid",
+      "~CUSTOM:HydrogenGas",
+      "~CUSTOM:ChlorineGas"
+    ],
+    "ITEMS:create:oxidized/shingles": [
+      "EXTERNAL:create:exposed_copper_shingles",
+      "EXTERNAL:create:oxidized_copper_shingles",
+      "EXTERNAL:create:waxed_exposed_copper_shingles",
+      "EXTERNAL:create:waxed_oxidized_copper_shingles",
+      "EXTERNAL:create:waxed_weathered_copper_shingles",
+      "EXTERNAL:create:weathered_copper_shingles"
+    ],
+    "ITEMS:forge:buckets/hydrogen": [
+      "CUSTOM:HydrogenGas.bucket"
+    ],
+    "ITEMS:minecraft:colored_blocks/wool": [
+      "Blocks.WOOL#1",
+      "Blocks.WOOL#2",
+      "Blocks.WOOL#3",
+      "Blocks.WOOL#4",
+      "Blocks.WOOL#5",
+      "Blocks.WOOL#6",
+      "Blocks.WOOL#7",
+      "Blocks.WOOL#8",
+      "Blocks.WOOL#9",
+      "Blocks.WOOL#10",
+      "Blocks.WOOL#11",
+      "Blocks.WOOL#12",
+      "Blocks.WOOL#13",
+      "Blocks.WOOL#14",
+      "Blocks.WOOL#15"
+    ],
+    "ITEMS:create:oxidized/shingle_slab": [
+      "EXTERNAL:create:exposed_copper_shingle_slab",
+      "EXTERNAL:create:oxidized_copper_shingle_slab",
+      "EXTERNAL:create:waxed_exposed_copper_shingle_slab",
+      "EXTERNAL:create:waxed_oxidized_copper_shingle_slab",
+      "EXTERNAL:create:waxed_weathered_copper_shingle_slab",
+      "EXTERNAL:create:weathered_copper_shingle_slab"
+    ],
+    "ITEMS:create:oxidized/tiles": [
+      "EXTERNAL:create:exposed_copper_tiles",
+      "EXTERNAL:create:oxidized_copper_tiles",
+      "EXTERNAL:create:waxed_exposed_copper_tiles",
+      "EXTERNAL:create:waxed_oxidized_copper_tiles",
+      "EXTERNAL:create:waxed_weathered_copper_tiles",
+      "EXTERNAL:create:weathered_copper_tiles"
+    ],
+    "ITEMS:minecraft:oxidized/block": [
+      "Blocks.EXPOSED_COPPER",
+      "Blocks.WEATHERED_COPPER",
+      "Blocks.OXIDIZED_COPPER",
+      "Blocks.WAXED_EXPOSED_COPPER",
+      "Blocks.WAXED_WEATHERED_COPPER",
+      "Blocks.WAXED_OXIDIZED_COPPER"
+    ],
+    "BLOCKS:minecraft:logs": [
+      "TAG:minecraft:logs"
+    ],
+    "ITEMS:minecraft:oxidized/cut_block": [
+      "Blocks.EXPOSED_CUT_COPPER",
+      "Blocks.WEATHERED_CUT_COPPER",
+      "Blocks.OXIDIZED_CUT_COPPER",
+      "Blocks.WAXED_EXPOSED_CUT_COPPER",
+      "Blocks.WAXED_WEATHERED_CUT_COPPER",
+      "Blocks.WAXED_OXIDIZED_CUT_COPPER"
+    ],
+    "ITEMS:forge:buckets/hydrochloric_acid": [
+      "CUSTOM:HydrochloricAcid.bucket"
+    ],
+    "ITEMS:forge:buckets/chlorine": [
+      "CUSTOM:ChlorineGas.bucket"
+    ],
+    "ITEMS:minecraft:colored_blocks/concrete": [
+      "Blocks.CONCRETE#1",
+      "Blocks.CONCRETE#2",
+      "Blocks.CONCRETE#3",
+      "Blocks.CONCRETE#4",
+      "Blocks.CONCRETE#5",
+      "Blocks.CONCRETE#6",
+      "Blocks.CONCRETE#7",
+      "Blocks.CONCRETE#8",
+      "Blocks.CONCRETE#9",
+      "Blocks.CONCRETE#10",
+      "Blocks.CONCRETE#11",
+      "Blocks.CONCRETE#12",
+      "Blocks.CONCRETE#13",
+      "Blocks.CONCRETE#14",
+      "Blocks.CONCRETE#15"
+    ],
+    "ITEMS:create:oxidized/shingle_stair": [
+      "EXTERNAL:create:exposed_copper_shingle_stairs",
+      "EXTERNAL:create:oxidized_copper_shingle_stairs",
+      "EXTERNAL:create:waxed_exposed_copper_shingle_stairs",
+      "EXTERNAL:create:waxed_oxidized_copper_shingle_stairs",
+      "EXTERNAL:create:waxed_weathered_copper_shingle_stairs",
+      "EXTERNAL:create:weathered_copper_shingle_stairs"
+    ],
+    "ITEMS:create:oxidized/tile_stair": [
+      "EXTERNAL:create:exposed_copper_tile_stairs",
+      "EXTERNAL:create:oxidized_copper_tile_stairs",
+      "EXTERNAL:create:waxed_exposed_copper_tile_stairs",
+      "EXTERNAL:create:waxed_oxidized_copper_tile_stairs",
+      "EXTERNAL:create:waxed_weathered_copper_tile_stairs",
+      "EXTERNAL:create:weathered_copper_tile_stairs"
+    ],
+    "ITEMS:minecraft:colored_blocks/powdered_concrete": [
+      "Blocks.CONCRETE_POWDER#1",
+      "Blocks.CONCRETE_POWDER#2",
+      "Blocks.CONCRETE_POWDER#3",
+      "Blocks.CONCRETE_POWDER#4",
+      "Blocks.CONCRETE_POWDER#5",
+      "Blocks.CONCRETE_POWDER#6",
+      "Blocks.CONCRETE_POWDER#7",
+      "Blocks.CONCRETE_POWDER#8",
+      "Blocks.CONCRETE_POWDER#9",
+      "Blocks.CONCRETE_POWDER#10",
+      "Blocks.CONCRETE_POWDER#11",
+      "Blocks.CONCRETE_POWDER#12",
+      "Blocks.CONCRETE_POWDER#13",
+      "Blocks.CONCRETE_POWDER#14",
+      "Blocks.CONCRETE_POWDER#15"
+    ],
+    "ITEMS:create:oxidized/tile_slab": [
+      "EXTERNAL:create:exposed_copper_tile_slab",
+      "EXTERNAL:create:oxidized_copper_tile_slab",
+      "EXTERNAL:create:waxed_exposed_copper_tile_slab",
+      "EXTERNAL:create:waxed_oxidized_copper_tile_slab",
+      "EXTERNAL:create:waxed_weathered_copper_tile_slab",
+      "EXTERNAL:create:weathered_copper_tile_slab"
+    ],
+    "ITEMS:minecraft:oxidized/cut_stair": [
+      "Blocks.EXPOSED_CUT_COPPER_STAIRS",
+      "Blocks.WEATHERED_CUT_COPPER_STAIRS",
+      "Blocks.OXIDIZED_CUT_COPPER_STAIRS",
+      "Blocks.WAXED_EXPOSED_CUT_COPPER_STAIRS",
+      "Blocks.WAXED_WEATHERED_CUT_COPPER_STAIRS",
+      "Blocks.WAXED_OXIDIZED_CUT_COPPER_STAIRS"
+    ]
+  },
+  "tab_element_order": {
+    "CUSTOM:CreateMixAndClean": [
+      "WasteRock",
+      "CausticSoda",
+      "PurifiedIronOre",
+      "DirtyCombinedIron",
+      "CombinedIron",
+      "PurifiedGoldOre",
+      "DirtyCombinedGold",
+      "CombinedGold",
+      "PurifiedCopperOre",
+      "DirtyCombinedCopper",
+      "CombinedCopper",
+      "PurifiedZincOre",
+      "DirtyCombinedZinc",
+      "CombinedZinc",
+      "ChlorineGas",
+      "HydrogenGas",
+      "HydrochloricAcid"
+    ]
+  },
+  "language_map": {
+    "en_us": {
+      "death.attack.corrosion.player": "%1$s of corrosion, while %2$s watched",
+      "item.create_mix_and_clean.waste_rock": "Waste Rock",
+      "fluid.create_mix_and_clean.hydrogen_gas": "Hydrogen Gas",
+      "item.create_mix_and_clean.combined_iron": "Combined Iron",
+      "item.create_mix_and_clean.chlorine_gas_bucket": "Chlorine Gas Bucket",
+      "block.create_mix_and_clean.hydrogen_gas": "Hydrogen Gas",
+      "item.create_mix_and_clean.purified_iron_ore": "Purified Iron Ore",
+      "item.create_mix_and_clean.dirty_combined_copper": "Dirty Combined Copper",
+      "item.create_mix_and_clean.dirty_combined_iron": "Dirty Combined Iron",
+      "death.attack.dissolving.item": "%1$s was dissolved by %2$s using %3$s",
+      "item.create_mix_and_clean.combined_copper": "Combined Copper",
+      "item.create_mix_and_clean.hydrochloric_acid_bucket": "Hydrochloric Acid Bucket",
+      "item.create_mix_and_clean.purified_gold_ore": "Purified Gold Ore",
+      "item.create_mix_and_clean.purified_zinc_ore": "Purified Zinc Ore",
+      "death.attack.corrosion.item": "%1$s was fully corroded, %2$s did it. He used %3$s",
+      "fluid.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
+      "fluid.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
+      "block.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
+      "subtitles.retching": "",
+      "item.create_mix_and_clean.combined_gold": "Combined Gold",
+      "item.create_mix_and_clean.caustic_soda": "Caustic Soda",
+      "item.create_mix_and_clean.combined_zinc": "Combined Zinc",
+      "death.attack.dissolving": "%1$s has dissolved",
+      "item.create_mix_and_clean.purified_copper_ore": "Purified Copper Ore",
+      "item.create_mix_and_clean.dirty_combined_zinc": "Dirty Combined Zinc",
+      "item_group.create_mix_and_clean.mix_and_clean": "Mix And Clean",
+      "item.create_mix_and_clean.caustic_soda.description_0": "DO NOT CONSUME IN ANY WAY!",
+      "block.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
+      "item_group.create_mix_and_clean.create_mix_and_clean": "Create Mix and Clean",
+      "item.create_mix_and_clean.hydrogen_gas_bucket": "Hydrogen Gas Bucket",
+      "item.create_mix_and_clean.dirty_combined_gold": "Dirty Combined Gold",
+      "death.attack.dissolving.player": "%1$s dissolved whilst trying to escape %2$s",
+      "death.attack.corrosion": "%1$s corroded away"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Items",
+        "children": []
+      },
+      {
+        "name": "Recipes",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "create_mix_and_clean",
+    "modName": "Create Mix And Clean",
+    "version": "1.0.0",
+    "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 3 new fluids.",
+    "author": "Trowa8",
+    "websiteURL": "https://mcreator.net",
+    "license": "MIT License",
+    "serverSideOnly": false,
+    "modPicture": "create_mix_and_clean_icon",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [
+      "createnew"
+    ],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "Created using MCreator",
+    "modElementsPackage": "net.mcreator.createmixandclean"
+  },
+  "mcreatorVersion": 202500113416
+}

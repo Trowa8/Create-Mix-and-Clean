@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "create:exposed_copper_tile_stairs",
+    "create:oxidized_copper_tile_stairs",
+    "create:waxed_exposed_copper_tile_stairs",
+    "create:waxed_oxidized_copper_tile_stairs",
+    "create:waxed_weathered_copper_tile_stairs",
+    "create:weathered_copper_tile_stairs"
+  ]
+}

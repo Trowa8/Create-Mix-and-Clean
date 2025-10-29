@@ -1,0 +1,22 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:purified_gold_ore"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:lava",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:dirty_combined_gold"
+    },
+    {
+      "chance": 0.35,
+	  "item": "create_mix_and_clean:dirty_combined_gold"
+    }
+  ]
+}

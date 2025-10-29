@@ -1,0 +1,22 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:purified_zinc_ore"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:lava",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:dirty_combined_zinc"
+    },
+    {
+      "chance": 0.35,
+	  "item": "create_mix_and_clean:dirty_combined_zinc"
+    }
+  ]
+}

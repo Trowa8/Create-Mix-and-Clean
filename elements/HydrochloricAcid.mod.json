@@ -1,0 +1,62 @@
+{
+  "_fv": 77,
+  "_type": "fluid",
+  "definition": {
+    "name": "Hydrochloric Acid",
+    "bucketName": "Hydrochloric Acid Bucket",
+    "textureStill": "hydrochloric_acid_still",
+    "textureFlowing": "hydrochloric_acid_flowing",
+    "textureRenderOverlay": "",
+    "hasFog": true,
+    "fogColor": {
+      "value": -2829416,
+      "falpha": 0.0
+    },
+    "fogStartDistance": {
+      "fixedValue": 0.0
+    },
+    "fogEndDistance": {
+      "fixedValue": 80.0
+    },
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 5,
+    "levelDecrease": 1,
+    "slopeFindDistance": 3,
+    "spawnParticles": false,
+    "dripParticle": {
+      "value": "ASH"
+    },
+    "flowStrength": 0.5,
+    "luminosity": 0,
+    "density": 1100,
+    "viscosity": 200,
+    "temperature": 300,
+    "type": "WATER",
+    "generateBucket": true,
+    "textureBucket": "hydrochloric_acid_bucket_texture",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CreateMixAndClean"
+      }
+    ],
+    "emptySound": {
+      "value": ""
+    },
+    "rarity": "COMMON",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "resistance": 100.0,
+    "luminance": 0,
+    "lightOpacity": 1,
+    "emissiveRendering": false,
+    "tickRate": 0,
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "colorOnMap": "AIR",
+    "onEntityCollides": {
+      "name": "HydrogenGasMobplayerCollidesBlock"
+    }
+  }
+}

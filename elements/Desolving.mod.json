@@ -1,0 +1,12 @@
+{
+  "_fv": 77,
+  "_type": "damagetype",
+  "definition": {
+    "exhaustion": 0.4,
+    "scaling": "never",
+    "effects": "freezing",
+    "normalDeathMessage": "%1$s has dissolved",
+    "itemDeathMessage": "%1$s was dissolved by %2$s using %3$s",
+    "playerDeathMessage": "%1$s dissolved whilst trying to escape %2$s"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "_fv": 77,
+  "_type": "fluid",
+  "definition": {
+    "name": "Chlorine Gas",
+    "bucketName": "Chlorine Gas Bucket",
+    "textureStill": "chlorine_gas_still",
+    "textureFlowing": "chlorine_gas_flowing",
+    "textureRenderOverlay": "",
+    "hasFog": true,
+    "fogColor": {
+      "value": -3355648,
+      "falpha": 0.0
+    },
+    "fogStartDistance": {
+      "fixedValue": 0.0
+    },
+    "fogEndDistance": {
+      "fixedValue": 20.0
+    },
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 5,
+    "levelDecrease": 1,
+    "slopeFindDistance": 1,
+    "spawnParticles": false,
+    "dripParticle": {
+      "value": "ASH"
+    },
+    "flowStrength": 0.7000000000000001,
+    "luminosity": 0,
+    "density": 3,
+    "viscosity": 200,
+    "temperature": 300,
+    "type": "WATER",
+    "generateBucket": true,
+    "textureBucket": "chlorine_gas_bucket_texture",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CreateMixAndClean"
+      }
+    ],
+    "emptySound": {
+      "value": ""
+    },
+    "rarity": "COMMON",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "resistance": 100.0,
+    "luminance": 0,
+    "lightOpacity": 1,
+    "emissiveRendering": false,
+    "tickRate": 0,
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "colorOnMap": "YELLOW"
+  }
+}

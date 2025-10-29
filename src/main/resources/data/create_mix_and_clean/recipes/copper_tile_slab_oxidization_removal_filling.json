@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "tag": "create:oxidized/tile_slab"
+    },
+    {
+      "amount": 125,
+      "fluid": "create_mix_and_clean:hydrochloric_acid"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:copper_tile_slab"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "create:mixing",  
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "tag": "minecraft:logs"
+    },
+    {
+      "item": "create_mix_and_clean:caustic_soda"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:paper",
+ 	  "count": 3
+    },
+    {
+      "chance": 0.20,
+      "item": "minecraft:paper",
+ 	  "count": 4
+    }
+  ]
+}

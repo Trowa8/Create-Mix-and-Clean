@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "create_mix_and_clean:item/hydrogen_gas_bucket_texture"
+  }
+}

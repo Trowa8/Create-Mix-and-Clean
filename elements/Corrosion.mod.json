@@ -1,0 +1,12 @@
+{
+  "_fv": 77,
+  "_type": "damagetype",
+  "definition": {
+    "exhaustion": 5.0,
+    "scaling": "never",
+    "effects": "drowning",
+    "normalDeathMessage": "%1$s corroded away",
+    "itemDeathMessage": "%1$s was fully corroded, %2$s did it. He used %3$s",
+    "playerDeathMessage": "%1$s of corrosion, while %2$s watched"
+  }
+}

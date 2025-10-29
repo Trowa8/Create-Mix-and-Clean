@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "tag": "minecraft:colored_blocks/powdered_concrete"
+    },
+    {
+      "amount": 125,
+      "fluid": "create_mix_and_clean:hydrochloric_acid"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:white_concrete_powder"
+    }
+  ]
+}

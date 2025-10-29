@@ -1,0 +1,35 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:waste_rock"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:iron_nugget",
+      "count": 1
+    },
+    {
+      "chance": 0.15,
+      "item": "create:copper_nugget",
+      "count": 1
+    },
+    {
+      "chance": 0.15,
+      "item": "minecraft:gold_nugget",
+      "count": 1
+    },
+    {
+      "chance": 0.15,
+      "item": "create:zinc_nugget",
+      "count": 1
+    },
+    {
+      "chance": 0.7,
+      "item": "minecraft:stone",
+      "count": 1
+    }
+  ]
+}

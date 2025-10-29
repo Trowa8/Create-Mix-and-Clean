@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT License"
+
+[[mods]]
+modId="create_mix_and_clean"
+version="1.0.0"
+displayName="Create Mix And Clean"
+displayURL="https://mcreator.net"
+logoFile="logo.png"
+credits="Created using MCreator"
+authors="Trowa8"
+description="A create addon that allows for ore refining, dye/oxidation removal and adds 3 new fluids."
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.create_mix_and_clean]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+[[dependencies.create_mix_and_clean]]
+    modId="createnew"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

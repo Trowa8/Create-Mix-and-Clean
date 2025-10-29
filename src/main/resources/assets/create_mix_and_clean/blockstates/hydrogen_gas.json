@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "create_mix_and_clean:block/hydrogen_gas"
+    }
+  }
+}

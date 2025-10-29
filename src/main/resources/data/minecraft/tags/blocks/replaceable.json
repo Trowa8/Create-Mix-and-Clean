@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "create_mix_and_clean:hydrochloric_acid",
+    "create_mix_and_clean:hydrogen_gas",
+    "create_mix_and_clean:chlorine_gas"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:dirty_combined_zinc"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:combined_zinc"
+    }
+  ]
+}

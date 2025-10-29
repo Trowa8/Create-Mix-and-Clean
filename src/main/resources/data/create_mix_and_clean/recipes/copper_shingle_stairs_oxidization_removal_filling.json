@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "tag": "create:oxidized/shingle_stair"
+    },
+    {
+      "amount": 125,
+      "fluid": "create_mix_and_clean:hydrochloric_acid"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:copper_shingle_stairs"
+    }
+  ]
+}
