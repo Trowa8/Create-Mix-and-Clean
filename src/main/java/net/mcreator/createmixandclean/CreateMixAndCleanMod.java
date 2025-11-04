@@ -17,12 +17,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
-import net.mcreator.createmixandclean.init.CreateMixAndCleanModTabs;
-import net.mcreator.createmixandclean.init.CreateMixAndCleanModSounds;
-import net.mcreator.createmixandclean.init.CreateMixAndCleanModItems;
-import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
-import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluidTypes;
-import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlocks;
+import net.mcreator.createmixandclean.init.*;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -38,21 +33,17 @@ public class CreateMixAndCleanMod {
 	public static final Logger LOGGER = LogManager.getLogger(CreateMixAndCleanMod.class);
 	public static final String MODID = "create_mix_and_clean";
 
-	public CreateMixAndCleanMod() {
+	public CreateMixAndCleanMod(FMLJavaModLoadingContext context) {
 		// Start of user code block mod constructor
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus bus = context.getModEventBus();
 		CreateMixAndCleanModSounds.REGISTRY.register(bus);
 		CreateMixAndCleanModBlocks.REGISTRY.register(bus);
-
 		CreateMixAndCleanModItems.REGISTRY.register(bus);
-
 		CreateMixAndCleanModTabs.REGISTRY.register(bus);
-
 		CreateMixAndCleanModFluids.REGISTRY.register(bus);
 		CreateMixAndCleanModFluidTypes.REGISTRY.register(bus);
-
 		// Start of user code block mod init
 		// End of user code block mod init
 	}
@@ -60,7 +51,7 @@ public class CreateMixAndCleanMod {
 	// Start of user code block mod methods
 	// End of user code block mod methods
 	private static final String PROTOCOL_VERSION = "1";
-	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
+	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(ResourceLocation.fromNamespaceAndPath(MODID, MODID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 	private static int messageID = 0;
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder, BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {

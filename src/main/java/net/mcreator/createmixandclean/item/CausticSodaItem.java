@@ -1,10 +1,8 @@
-
 package net.mcreator.createmixandclean.item;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
@@ -17,7 +15,7 @@ import java.util.List;
 
 public class CausticSodaItem extends Item {
 	public CausticSodaItem() {
-		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(6).saturationMod(2f).alwaysEat().meat().build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(6).saturationMod(2f).alwaysEat().meat().build()));
 	}
 
 	@Override

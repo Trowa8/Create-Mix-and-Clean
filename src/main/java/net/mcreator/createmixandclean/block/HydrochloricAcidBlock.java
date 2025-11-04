@@ -1,4 +1,3 @@
-
 package net.mcreator.createmixandclean.block;
 
 import net.minecraft.world.level.material.PushReaction;

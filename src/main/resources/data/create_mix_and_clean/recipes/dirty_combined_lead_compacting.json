@@ -1,0 +1,28 @@
+{
+  "type": "create:compacting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:purified_lead_ore"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:lava",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:dirty_combined_lead"
+    },
+    {
+      "chance": 0.35,
+	  "item": "create_mix_and_clean:dirty_combined_lead"
+    }
+  ]
+}

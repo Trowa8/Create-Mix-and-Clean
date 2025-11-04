@@ -18,8 +18,8 @@
       "registry_name": "waste_rock",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/WasteRockItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/waste_rock.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/waste_rock.json",
+          "src/main/java/net/mcreator/createmixandclean/item/WasteRockItem.java"
         ]
       },
       "path": "~/Items"
@@ -88,8 +88,8 @@
       "registry_name": "dirty_combined_iron",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedIronItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_iron.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_iron.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedIronItem.java"
         ]
       },
       "path": "~/Items"
@@ -102,8 +102,8 @@
       "registry_name": "dirty_combined_gold",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_gold.json",
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedGoldItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedGoldItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_gold.json"
         ]
       },
       "path": "~/Items"
@@ -116,8 +116,8 @@
       "registry_name": "dirty_combined_copper",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedCopperItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_copper.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_copper.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedCopperItem.java"
         ]
       },
       "path": "~/Items"
@@ -144,8 +144,8 @@
       "registry_name": "combined_iron",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_iron.json",
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedIronItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedIronItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_iron.json"
         ]
       },
       "path": "~/Items"
@@ -172,8 +172,8 @@
       "registry_name": "combined_copper",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_copper.json",
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedCopperItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedCopperItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_copper.json"
         ]
       },
       "path": "~/Items"
@@ -473,13 +473,13 @@
       "registry_name": "chlorine_gas",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/chlorine_gas_bucket.json",
-          "src/main/java/net/mcreator/createmixandclean/item/ChlorineGasItem.java",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/chlorine_gas.json",
-          "src/main/java/net/mcreator/createmixandclean/block/ChlorineGasBlock.java",
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/ChlorineGasFluidType.java",
           "src/main/resources/assets/create_mix_and_clean/models/block/chlorine_gas.json",
-          "src/main/java/net/mcreator/createmixandclean/fluid/ChlorineGasFluid.java"
+          "src/main/resources/assets/create_mix_and_clean/models/item/chlorine_gas_bucket.json",
+          "src/main/java/net/mcreator/createmixandclean/block/ChlorineGasBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/chlorine_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/ChlorineGasFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/ChlorineGasFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/item/ChlorineGasItem.java"
         ]
       }
     },
@@ -491,13 +491,13 @@
       "registry_name": "hydrogen_gas",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/hydrogen_gas_bucket.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/HydrogenGasFluid.java",
           "src/main/java/net/mcreator/createmixandclean/item/HydrogenGasItem.java",
           "src/main/resources/assets/create_mix_and_clean/models/block/hydrogen_gas.json",
-          "src/main/java/net/mcreator/createmixandclean/fluid/HydrogenGasFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrogenGasFluidType.java",
           "src/main/resources/assets/create_mix_and_clean/blockstates/hydrogen_gas.json",
           "src/main/java/net/mcreator/createmixandclean/block/HydrogenGasBlock.java",
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrogenGasFluidType.java"
+          "src/main/resources/assets/create_mix_and_clean/models/item/hydrogen_gas_bucket.json"
         ]
       }
     },
@@ -531,13 +531,13 @@
       "registry_name": "hydrochloric_acid",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/block/HydrochloricAcidBlock.java",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrochloric_acid.json",
-          "src/main/resources/assets/create_mix_and_clean/models/item/hydrochloric_acid_bucket.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/hydrochloric_acid.json",
           "src/main/java/net/mcreator/createmixandclean/item/HydrochloricAcidItem.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrochloric_acid.json",
+          "src/main/java/net/mcreator/createmixandclean/block/HydrochloricAcidBlock.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrochloricAcidFluidType.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/hydrochloric_acid.json",
           "src/main/java/net/mcreator/createmixandclean/fluid/HydrochloricAcidFluid.java",
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrochloricAcidFluidType.java"
+          "src/main/resources/assets/create_mix_and_clean/models/item/hydrochloric_acid_bucket.json"
         ]
       }
     },
@@ -883,46 +883,534 @@
       "path": "~/Recipes"
     },
     {
-      "name": "HydrochloricAcidDraining",
+      "name": "PurifiedLeadOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_lead_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedLeadOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_lead_ore.json"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedOsmiumOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_osmium_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedOsmiumOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_osmium_ore.json"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedTinOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_tin_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_tin_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedTinOreItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedUraniumOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_uranium_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedUraniumOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_uranium_ore.json"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedLead",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_lead",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedLeadItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_lead.json"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedOsmium",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_osmium",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_osmium.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedOsmiumItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedTin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_tin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_tin.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedTinItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedUranium",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_uranium",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_uranium.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedUraniumItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "CombinedLead",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_lead",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_lead.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedLeadItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "CombinedOsmium",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_osmium",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_osmium.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedOsmiumItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "CombinedTin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_tin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_tin.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedTinItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "CombinedUranium",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_uranium",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedUraniumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_uranium.json"
+        ]
+      },
+      "path": "~/Items/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedLeadOreMixing",
       "type": "recipe",
       "compiles": true,
       "locked_code": true,
-      "registry_name": "hydrochloric_acid_draining",
+      "registry_name": "purified_lead_ore_mixing",
       "metadata": {
         "files": [
-          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_draining.json"
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_lead_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedLeadCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_lead_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_lead_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedLeadSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_lead_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_lead_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "HydrochloricAcidWithLeadMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_lead_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_lead_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedOsmiumOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_osmium_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_osmium_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedOsmiumCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_osmium_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_osmium_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedOsmiumSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_osmium_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_osmium_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "HydrochloricAcidWithOsmiumMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_osmium_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_osmium_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "HydrochloricAcidWithAcientDebrisMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_acient_debris_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_acient_debris_mixing.json"
         ]
       },
       "path": "~/Recipes"
     },
     {
-      "name": "HydrogenGasDraining",
+      "name": "NetheriteCrystal",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "netherite_crystal",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/netherite_crystal.json",
+          "src/main/java/net/mcreator/createmixandclean/item/NetheriteCrystalItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "NetheriteCrystalMixing",
       "type": "recipe",
       "compiles": true,
       "locked_code": true,
-      "registry_name": "hydrogen_gas_draining",
+      "registry_name": "netherite_crystal_mixing",
       "metadata": {
         "files": [
-          "src/main/resources/data/create_mix_and_clean/recipes/hydrogen_gas_draining.json"
+          "src/main/resources/data/create_mix_and_clean/recipes/netherite_crystal_mixing.json"
         ]
       },
       "path": "~/Recipes"
     },
     {
-      "name": "ChlorineGasDraining",
+      "name": "PurifiedTinOreMixing",
       "type": "recipe",
       "compiles": true,
       "locked_code": true,
-      "registry_name": "chlorine_gas_draining",
+      "registry_name": "purified_tin_ore_mixing",
       "metadata": {
         "files": [
-          "src/main/resources/data/create_mix_and_clean/recipes/chlorine_gas_draining.json"
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_tin_ore_mixing.json"
         ]
       },
-      "path": "~/Recipes"
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedTinCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_tin_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_tin_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedTinSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_tin_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_tin_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "HydrochloricAcidWithTinMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_tin_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_tin_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedUraniumOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_uranium_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_uranium_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "DirtyCombinedUraniumCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_uranium_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_uranium_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedUraniumSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_uranium_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_uranium_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "HydrochloricAcidWithUraniumMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_uranium_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_uranium_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedLeadSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_lead_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_lead_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedOsmiumSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_osmium_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_osmium_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedTinSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_tin_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_tin_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "PurifiedUraniumSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_uranium_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_uranium_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedLeadSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_lead_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_lead_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedOsmiumSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_osmium_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_osmium_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedTinSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_tin_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_tin_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CombinedUraniumSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_uranium_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_uranium_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Mekanism"
     }
   ],
-  "variable_elements": [],
+  "variable_elements": [
+    {
+      "name": "Mekanism_compat",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    }
+  ],
   "sound_elements": [
     {
       "name": "retching",
@@ -944,11 +1432,6 @@
       "Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB",
       "Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB"
     ],
-    "BLOCKS:minecraft:replaceable": [
-      "~CUSTOM:HydrochloricAcid",
-      "~CUSTOM:HydrogenGas",
-      "~CUSTOM:ChlorineGas"
-    ],
     "ITEMS:create:oxidized/shingles": [
       "EXTERNAL:create:exposed_copper_shingles",
       "EXTERNAL:create:oxidized_copper_shingles",
@@ -959,6 +1442,11 @@
     ],
     "ITEMS:forge:buckets/hydrogen": [
       "CUSTOM:HydrogenGas.bucket"
+    ],
+    "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:HydrochloricAcid",
+      "~CUSTOM:HydrogenGas",
+      "~CUSTOM:ChlorineGas"
     ],
     "ITEMS:minecraft:colored_blocks/wool": [
       "Blocks.WOOL#1",
@@ -1083,6 +1571,9 @@
       "Blocks.WAXED_EXPOSED_CUT_COPPER_STAIRS",
       "Blocks.WAXED_WEATHERED_CUT_COPPER_STAIRS",
       "Blocks.WAXED_OXIDIZED_CUT_COPPER_STAIRS"
+    ],
+    "ITEMS:minecraft:piglin_loved": [
+      "~CUSTOM:NetheriteCrystal"
     ]
   },
   "tab_element_order": {
@@ -1090,20 +1581,17 @@
       "WasteRock",
       "CausticSoda",
       "PurifiedIronOre",
-      "DirtyCombinedIron",
-      "CombinedIron",
       "PurifiedGoldOre",
-      "DirtyCombinedGold",
-      "CombinedGold",
       "PurifiedCopperOre",
-      "DirtyCombinedCopper",
-      "CombinedCopper",
       "PurifiedZincOre",
-      "DirtyCombinedZinc",
-      "CombinedZinc",
+      "NetheriteCrystal",
       "ChlorineGas",
       "HydrogenGas",
-      "HydrochloricAcid"
+      "HydrochloricAcid",
+      "PurifiedLeadOre",
+      "PurifiedOsmiumOre",
+      "PurifiedTinOre",
+      "PurifiedUraniumOre"
     ]
   },
   "language_map": {
@@ -1126,7 +1614,7 @@
       "fluid.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
       "fluid.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
       "block.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
-      "subtitles.retching": "",
+      "subtitles.retching": "Retching",
       "item.create_mix_and_clean.combined_gold": "Combined Gold",
       "item.create_mix_and_clean.caustic_soda": "Caustic Soda",
       "item.create_mix_and_clean.combined_zinc": "Combined Zinc",
@@ -1140,26 +1628,77 @@
       "item.create_mix_and_clean.hydrogen_gas_bucket": "Hydrogen Gas Bucket",
       "item.create_mix_and_clean.dirty_combined_gold": "Dirty Combined Gold",
       "death.attack.dissolving.player": "%1$s dissolved whilst trying to escape %2$s",
-      "death.attack.corrosion": "%1$s corroded away"
+      "death.attack.corrosion": "%1$s corroded away",
+      "fluid_type.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
+      "fluid_type.create_mix_and_clean.hydrogen_gas": "Hydrogen Gas",
+      "fluid_type.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
+      "item.create_mix_and_clean.purified_lead_ore": "Purified Lead Ore",
+      "item.create_mix_and_clean.purified_osmium_ore": "Purified Osmium Ore",
+      "item.create_mix_and_clean.purified_tin_ore": "Purified Tin Ore",
+      "item.create_mix_and_clean.purified_uranium_ore": "Purified Uranium Ore",
+      "item.create_mix_and_clean.dirty_combined_lead": "Dirty Combined Lead",
+      "item.create_mix_and_clean.dirty_combined_osmium": "Dirty Combined Osmium",
+      "item.create_mix_and_clean.dirty_combined_tin": "Dirty Combined Tin",
+      "item.create_mix_and_clean.dirty_combined_uranium": "Dirty Combined Uranium",
+      "item.create_mix_and_clean.combined_lead": "Combined Lead",
+      "item.create_mix_and_clean.combined_osmium": "Combined Osmium",
+      "item.create_mix_and_clean.combined_tin": "Combined Tin",
+      "item.create_mix_and_clean.combined_uranium": "Combined Uranium",
+      "item.create_mix_and_clean.netherite_crystal": "Netherite Crystal"
     }
+  },
+  "metadata": {
+    "files": [
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluidTypes.java",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluids.java",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlocks.java",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModItems.java",
+      "src/main/java/net/mcreator/createmixandclean/network/CreateMixAndCleanModVariables.java",
+      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModSounds.java",
+      "src/main/java/net/mcreator/createmixandclean/CreateMixAndCleanMod.java",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModTabs.java",
+      "src/main/resources/assets/create_mix_and_clean/sounds.json",
+      "src/main/resources/META-INF/mods.toml"
+    ]
   },
   "foldersRoot": {
     "name": "~",
     "children": [
       {
         "name": "Items",
-        "children": []
+        "children": [
+          {
+            "name": "compat",
+            "children": [
+              {
+                "name": "Mekanism",
+                "children": []
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "Recipes",
-        "children": []
+        "children": [
+          {
+            "name": "compat",
+            "children": [
+              {
+                "name": "Mekanism",
+                "children": []
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   "workspaceSettings": {
     "modid": "create_mix_and_clean",
-    "modName": "Create Mix And Clean",
-    "version": "1.0.1",
+    "modName": "Create: Mix And Clean",
+    "version": "1.1.0",
     "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 3 new fluids.",
     "author": "Trowa8",
     "websiteURL": "https://mcreator.net",
@@ -1169,12 +1708,10 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [
-      "createnew"
-    ],
+    "mcreatorDependencies": [],
     "currentGenerator": "forge-1.20.1",
     "credits": "Created using MCreator",
     "modElementsPackage": "net.mcreator.createmixandclean"
   },
-  "mcreatorVersion": 202500113416
+  "mcreatorVersion": 202500344519
 }

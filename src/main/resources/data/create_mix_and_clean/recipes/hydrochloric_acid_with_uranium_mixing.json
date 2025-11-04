@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ],
+  "ingredients": [
+    {
+      "fluid": "create_mix_and_clean:hydrochloric_acid",
+      "amount": 125
+    },
+    {
+      "item": "create_mix_and_clean:combined_uranium"
+    }
+  ],
+  "results": [
+	{
+      "item": "mekanism:ingot_uranium",
+      "count": 2
+    },
+	{
+	  "chance": 0.1,
+      "item": "mekanism:ingot_uranium"
+    }
+  ]
+}

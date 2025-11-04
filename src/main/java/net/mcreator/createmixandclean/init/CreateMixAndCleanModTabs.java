@@ -1,4 +1,3 @@
-
 /*
  *    MCreator note: This file will be REGENERATED on each build.
  */
@@ -21,19 +20,16 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.WASTE_ROCK.get());
 				tabData.accept(CreateMixAndCleanModItems.CAUSTIC_SODA.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_IRON_ORE.get());
-				tabData.accept(CreateMixAndCleanModItems.DIRTY_COMBINED_IRON.get());
-				tabData.accept(CreateMixAndCleanModItems.COMBINED_IRON.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_GOLD_ORE.get());
-				tabData.accept(CreateMixAndCleanModItems.DIRTY_COMBINED_GOLD.get());
-				tabData.accept(CreateMixAndCleanModItems.COMBINED_GOLD.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_COPPER_ORE.get());
-				tabData.accept(CreateMixAndCleanModItems.DIRTY_COMBINED_COPPER.get());
-				tabData.accept(CreateMixAndCleanModItems.COMBINED_COPPER.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_ZINC_ORE.get());
-				tabData.accept(CreateMixAndCleanModItems.DIRTY_COMBINED_ZINC.get());
-				tabData.accept(CreateMixAndCleanModItems.COMBINED_ZINC.get());
+				tabData.accept(CreateMixAndCleanModItems.NETHERITE_CRYSTAL.get());
 				tabData.accept(CreateMixAndCleanModItems.CHLORINE_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.HYDROGEN_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.HYDROCHLORIC_ACID_BUCKET.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_LEAD_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_OSMIUM_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_TIN_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_URANIUM_ORE.get());
 			}).build());
 }

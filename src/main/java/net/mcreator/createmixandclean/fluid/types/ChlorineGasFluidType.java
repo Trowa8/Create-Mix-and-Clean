@@ -1,4 +1,3 @@
-
 package net.mcreator.createmixandclean.fluid.types;
 
 import org.joml.Vector3f;
@@ -29,8 +28,8 @@ public class ChlorineGasFluidType extends FluidType {
 	@Override
 	public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
 		consumer.accept(new IClientFluidTypeExtensions() {
-			private static final ResourceLocation STILL_TEXTURE = new ResourceLocation("create_mix_and_clean:block/chlorine_gas_still");
-			private static final ResourceLocation FLOWING_TEXTURE = new ResourceLocation("create_mix_and_clean:block/chlorine_gas_flowing");
+			private static final ResourceLocation STILL_TEXTURE = ResourceLocation.parse("create_mix_and_clean:block/chlorine_gas_still");
+			private static final ResourceLocation FLOWING_TEXTURE = ResourceLocation.parse("create_mix_and_clean:block/chlorine_gas_flowing");
 
 			@Override
 			public ResourceLocation getStillTexture() {

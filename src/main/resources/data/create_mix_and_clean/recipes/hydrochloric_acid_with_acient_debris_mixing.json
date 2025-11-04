@@ -1,0 +1,23 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "create_mix_and_clean:hydrochloric_acid",
+      "amount": 500
+    },
+    {
+      "item": "minecraft:ancient_debris"
+    }
+  ],
+  "results": [
+	{
+      "item": "create_mix_and_clean:netherite_crystal",
+      "count": 2
+    },
+	{
+	  "chance": 0.2,
+      "item": "create_mix_and_clean:netherite_crystal",
+      "count": 2
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "experience": 1,
+  "cookingtime": 140,
+  "ingredient": {
+    "item": "create_mix_and_clean:purified_uranium_ore"
+  },
+  "result": "mekanism:ingot_uranium"
+}

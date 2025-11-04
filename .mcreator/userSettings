@@ -2,15 +2,11 @@
   "workspacePanelIconSize": "TILES",
   "workspacePanelSortType": "CREATED",
   "workspacePanelSortAscending": true,
-  "projectBrowserSplitPos": 0,
+  "projectBrowserSplitPos": 3,
   "projectBrowserState": {
     "expandedPaths": [
       "[, Create Mix And Clean]",
-      "[, Create Mix And Clean, Source (Gradle)]",
-      "[, Create Mix And Clean, Source (Gradle), E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net]",
-      "[, Create Mix And Clean, Source (Gradle), E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net, E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net\\mcreator]",
-      "[, Create Mix And Clean, Source (Gradle), E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net, E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net\\mcreator, E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net\\mcreator\\createmixandclean]",
-      "[, Create Mix And Clean, Source (Gradle), E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net, E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net\\mcreator, E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net\\mcreator\\createmixandclean, E:\\MCreator\\Workspaces\\Create-Mix-And-Clean\\src\\main\\java\\net\\mcreator\\createmixandclean\\block]"
+      "[, Create Mix And Clean, Source (Gradle)]"
     ]
   }
 }

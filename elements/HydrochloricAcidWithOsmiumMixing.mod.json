@@ -1,10 +1,11 @@
 {
-  "_fv": 77,
+  "_fv": 79,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 1,
     "group": "",
+    "unlockingItems": [],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
     "cookingTime": 200,
@@ -42,7 +43,7 @@
     "recipeReturnStack": {
       "value": "CUSTOM:PurifiedIronOre"
     },
-    "name": "hydrogen_gas_draining",
+    "name": "hydrochloric_acid_with_osmium_mixing",
     "namespace": "mod"
   }
 }

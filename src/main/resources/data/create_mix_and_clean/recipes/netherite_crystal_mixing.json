@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:netherite_crystal"
+    },
+    {
+      "item": "create_mix_and_clean:netherite_crystal"
+    }
+  ],
+  "results": [
+	{
+      "item": "minecraft:netherite_scrap"
+    },
+	{
+	  "chance": 0.3,
+      "item": "minecraft:netherite_scrap"
+    }
+  ]
+}

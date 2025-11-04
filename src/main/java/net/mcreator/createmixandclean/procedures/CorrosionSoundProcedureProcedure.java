@@ -35,14 +35,14 @@ public class CorrosionSoundProcedureProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, DamageSource damagesource) {
 		if (damagesource == null)
 			return;
-		if (damagesource.is(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))) {
+		if (damagesource.is(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))) {
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("create_mix_and_clean:retching")), SoundSource.NEUTRAL, Mth.nextInt(RandomSource.create(), 1, 2),
+					_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.parse("create_mix_and_clean:retching")), SoundSource.NEUTRAL, Mth.nextInt(RandomSource.create(), 1, 2),
 							Mth.nextInt(RandomSource.create(), 1, 3));
 				} else {
-					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("create_mix_and_clean:retching")), SoundSource.NEUTRAL, Mth.nextInt(RandomSource.create(), 1, 2), Mth.nextInt(RandomSource.create(), 1, 3),
-							false);
+					_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.parse("create_mix_and_clean:retching")), SoundSource.NEUTRAL, Mth.nextInt(RandomSource.create(), 1, 2),
+							Mth.nextInt(RandomSource.create(), 1, 3), false);
 				}
 			}
 		}

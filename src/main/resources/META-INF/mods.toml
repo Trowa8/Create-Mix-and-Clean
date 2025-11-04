@@ -4,8 +4,8 @@ license="MIT License"
 
 [[mods]]
 modId="create_mix_and_clean"
-version="1.0.1"
-displayName="Create Mix And Clean"
+version="1.1.0"
+displayName="Create: Mix And Clean"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
 credits="Created using MCreator"
@@ -23,12 +23,6 @@ description="A create addon that allows for ore refining, dye/oxidation removal 
     side="BOTH"
 
 
-[[dependencies.create_mix_and_clean]]
-    modId="createnew"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
 
 
 # Start of user code block dependencies configuration

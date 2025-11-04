@@ -1,4 +1,3 @@
-
 /*
  *    MCreator note: This file will be REGENERATED on each build.
  */
@@ -17,9 +16,14 @@ import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
 public class CreateMixAndCleanModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, CreateMixAndCleanMod.MODID);
-	public static final RegistryObject<Block> CHLORINE_GAS = REGISTRY.register("chlorine_gas", () -> new ChlorineGasBlock());
-	public static final RegistryObject<Block> HYDROGEN_GAS = REGISTRY.register("hydrogen_gas", () -> new HydrogenGasBlock());
-	public static final RegistryObject<Block> HYDROCHLORIC_ACID = REGISTRY.register("hydrochloric_acid", () -> new HydrochloricAcidBlock());
+	public static final RegistryObject<Block> CHLORINE_GAS;
+	public static final RegistryObject<Block> HYDROGEN_GAS;
+	public static final RegistryObject<Block> HYDROCHLORIC_ACID;
+	static {
+		CHLORINE_GAS = REGISTRY.register("chlorine_gas", ChlorineGasBlock::new);
+		HYDROGEN_GAS = REGISTRY.register("hydrogen_gas", HydrogenGasBlock::new);
+		HYDROCHLORIC_ACID = REGISTRY.register("hydrochloric_acid", HydrochloricAcidBlock::new);
+	}
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
 }

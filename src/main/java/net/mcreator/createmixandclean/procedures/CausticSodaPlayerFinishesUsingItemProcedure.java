@@ -14,37 +14,39 @@ public class CausticSodaPlayerFinishesUsingItemProcedure {
 		if (entity == null)
 			return;
 		CreateMixAndCleanMod.queueServerWork(400, () -> {
-			entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+			entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 			CreateMixAndCleanMod.queueServerWork(60, () -> {
-				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+				entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 				CreateMixAndCleanMod.queueServerWork(60, () -> {
-					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+					entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 					CreateMixAndCleanMod.queueServerWork(60, () -> {
-						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+						entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 						CreateMixAndCleanMod.queueServerWork(60, () -> {
-							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+							entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 							CreateMixAndCleanMod.queueServerWork(60, () -> {
-								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+								entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 								CreateMixAndCleanMod.queueServerWork(60, () -> {
-									entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+									entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))),
+											2);
 									CreateMixAndCleanMod.queueServerWork(60, () -> {
-										entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))),
+										entity.hurt(
+												new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))),
 												2);
 										CreateMixAndCleanMod.queueServerWork(60, () -> {
-											entity.hurt(
-													new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))),
-													2);
+											entity.hurt(new DamageSource(
+													world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 											CreateMixAndCleanMod.queueServerWork(60, () -> {
-												entity.hurt(new DamageSource(
-														world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+												entity.hurt(
+														new DamageSource(
+																world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))),
+														2);
 												CreateMixAndCleanMod.queueServerWork(60, () -> {
-													entity.hurt(
-															new DamageSource(
-																	world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))),
-															2);
+													entity.hurt(new DamageSource(
+															world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))), 2);
 													CreateMixAndCleanMod.queueServerWork(60, () -> {
 														entity.hurt(new DamageSource(
-																world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:corrosion")))), 2);
+																world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:corrosion")))),
+																2);
 													});
 												});
 											});

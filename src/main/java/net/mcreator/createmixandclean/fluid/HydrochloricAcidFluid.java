@@ -1,4 +1,3 @@
-
 package net.mcreator.createmixandclean.fluid;
 
 import net.minecraftforge.fluids.ForgeFlowingFluid;

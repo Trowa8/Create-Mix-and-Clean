@@ -14,7 +14,7 @@ public class HydrogenGasMobplayerCollidesBlockProcedure {
 		if (entity == null)
 			return;
 		CreateMixAndCleanMod.queueServerWork(5, () -> {
-			entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("create_mix_and_clean:dissolving")))), 2);
+			entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("create_mix_and_clean:dissolving")))), 2);
 		});
 	}
 }
