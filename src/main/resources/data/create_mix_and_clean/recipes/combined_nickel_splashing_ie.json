@@ -1,0 +1,19 @@
+{
+  "type": "create:splashing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:dirty_combined_nickel"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:combined_nickel"
+    }
+  ]
+}

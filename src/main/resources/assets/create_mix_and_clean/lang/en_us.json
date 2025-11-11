@@ -47,5 +47,21 @@
   "item.create_mix_and_clean.combined_osmium": "Combined Osmium",
   "item.create_mix_and_clean.combined_tin": "Combined Tin",
   "item.create_mix_and_clean.combined_uranium": "Combined Uranium",
-  "item.create_mix_and_clean.netherite_crystal": "Netherite Crystal"
+  "item.create_mix_and_clean.netherite_crystal": "Netherite Crystal",
+  "item.create_mix_and_clean.crushed_raw_cobalt": "Crushed Raw Cobalt",
+  "item.create_mix_and_clean.purified_cobalt_ore": "Purified Cobalt Ore",
+  "item.create_mix_and_clean.dirty_combined_cobalt": "Dirty Combined Cobalt",
+  "item.create_mix_and_clean.combined_cobalt": "Combined Cobalt",
+  "item.create_mix_and_clean.purified_aluminum_ore": "Purified Aluminum Ore",
+  "item.create_mix_and_clean.dirty_combined_aluminum": "Dirty Combined Aluminum",
+  "item.create_mix_and_clean.combined_aluminum": "Combined Aluminum",
+  "item.create_mix_and_clean.purified_silver_ore": "Purified Silver Ore",
+  "item.create_mix_and_clean.dirty_combined_silver": "Dirty Combined Silver",
+  "item.create_mix_and_clean.combined_silver": "Combined Silver",
+  "item.create_mix_and_clean.purified_nickel_ore": "Purified Nickel Ore",
+  "item.create_mix_and_clean.dirty_combined_nickel": "Dirty Combined Nickel",
+  "item.create_mix_and_clean.combined_nickel": "Combined Nickel",
+  "item.create_mix_and_clean.purified_platinum_ore": "Purified Platinum Ore",
+  "item.create_mix_and_clean.dirty_combined_platinum": "Dirty Combined Platinum",
+  "item.create_mix_and_clean.combined_platinum": "Combined Platinum"
 }

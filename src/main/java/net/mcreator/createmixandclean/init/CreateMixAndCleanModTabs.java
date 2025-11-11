@@ -24,12 +24,18 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_COPPER_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_ZINC_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.NETHERITE_CRYSTAL.get());
+				tabData.accept(CreateMixAndCleanModItems.CRUSHED_RAW_COBALT.get());
 				tabData.accept(CreateMixAndCleanModItems.CHLORINE_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.HYDROGEN_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.HYDROCHLORIC_ACID_BUCKET.get());
-				tabData.accept(CreateMixAndCleanModItems.PURIFIED_LEAD_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_OSMIUM_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_PLATINUM_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_SILVER_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_TIN_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_LEAD_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_ALUMINUM_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_URANIUM_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_NICKEL_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.PURIFIED_COBALT_ORE.get());
 			}).build());
 }

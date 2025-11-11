@@ -1,0 +1,32 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:crushed_raw_cobalt"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:purified_cobalt_ore"
+    },
+    {
+      "chance": 0.25,
+	  "item": "create_mix_and_clean:purified_cobalt_ore"
+    },
+    {
+      "chance": 0.7,
+	  "item": "create_mix_and_clean:waste_rock"
+    },
+    {
+      "chance": 0.6,
+      "item": "create:experience_nugget"
+    }
+  ]
+}

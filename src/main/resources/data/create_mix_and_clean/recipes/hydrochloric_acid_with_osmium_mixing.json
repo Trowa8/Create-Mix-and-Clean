@@ -17,12 +17,12 @@
   ],
   "results": [
 	{
-      "item": "mekanism:ingot_osmium",
-      "count": 2
+      "item": "mekanism:ingot_osmium"
     },
 	{
-	  "chance": 0.1,
-      "item": "mekanism:ingot_osmium"
+	  "chance": 0.4,
+      "item": "mekanism:ingot_osmium",
+      "count": 2
     }
   ]
 }

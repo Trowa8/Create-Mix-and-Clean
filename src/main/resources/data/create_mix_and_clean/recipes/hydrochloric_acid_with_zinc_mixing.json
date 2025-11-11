@@ -11,12 +11,12 @@
   ],
   "results": [
 	{
-      "item": "create:zinc_ingot",
-      "count": 2
+      "item": "create:zinc_ingot"
     },
 	{
-	  "chance": 0.1,
-      "item": "create:zinc_ingot"
+	  "chance": 0.4,
+      "item": "create:zinc_ingot",
+      "count": 2
     }
   ]
 }

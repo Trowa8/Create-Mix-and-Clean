@@ -17,12 +17,12 @@
   ],
   "results": [
 	{
-      "item": "mekanism:ingot_uranium",
-      "count": 2
+      "item": "mekanism:ingot_uranium"
     },
 	{
-	  "chance": 0.1,
-      "item": "mekanism:ingot_uranium"
+	  "chance": 0.4,
+      "item": "mekanism:ingot_uranium",
+      "count": 2
     }
   ]
 }

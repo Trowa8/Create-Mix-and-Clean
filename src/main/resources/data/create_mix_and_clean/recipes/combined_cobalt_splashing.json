@@ -1,0 +1,19 @@
+{
+  "type": "create:splashing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:dirty_combined_cobalt"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:combined_cobalt"
+    }
+  ]
+}

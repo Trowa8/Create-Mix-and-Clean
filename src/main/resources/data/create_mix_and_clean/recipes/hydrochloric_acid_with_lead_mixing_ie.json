@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ],
+  "ingredients": [
+    {
+      "fluid": "create_mix_and_clean:hydrochloric_acid",
+      "amount": 125
+    },
+    {
+      "item": "create_mix_and_clean:combined_lead"
+    }
+  ],
+  "results": [
+	{
+      "item": "immersiveengineering:ingot_lead"
+    },
+	{
+	  "chance": 0.4,
+      "item": "immersiveengineering:ingot_lead",
+      "count": 2
+    }
+  ]
+}

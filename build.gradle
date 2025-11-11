@@ -56,11 +56,12 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
-repositories {
+repositories { 
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
     maven { url = "https://maven.ithundxr.dev/mirror" } // Registrate
     maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // ForgeConfigAPIPort
     maven { url = "https://modmaven.dev" } 
+    maven { url = "https://dvs1.progwml6.com/files/maven"}
 }
 
 dependencies {
@@ -74,6 +75,9 @@ dependencies {
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     modCompileOnly("mekanism:Mekanism:${mekanism_version}:api")
     modRuntimeOnly("mekanism:Mekanism:${mekanism_version}")
+    modRuntimeOnly("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_build}")
+    modRuntimeOnly("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tinkers_build}")
+    modRuntimeOnly("blusunrize.immersiveengineering:ImmersiveEngineering:${minecraft_version}-${ie_build}")
 }
 
 jar {

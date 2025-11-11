@@ -17,12 +17,12 @@
   ],
   "results": [
 	{
-      "item": "mekanism:ingot_lead",
-      "count": 2
+      "item": "mekanism:ingot_lead"
     },
 	{
-	  "chance": 0.1,
-      "item": "mekanism:ingot_lead"
+	  "chance": 0.4,
+      "item": "mekanism:ingot_lead",
+      "count": 2
     }
   ]
 }

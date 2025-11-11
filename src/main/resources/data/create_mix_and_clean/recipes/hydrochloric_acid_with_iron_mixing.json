@@ -11,12 +11,12 @@
   ],
   "results": [
 	{
-      "item": "minecraft:iron_ingot",
-      "count": 2
+      "item": "minecraft:iron_ingot"
     },
 	{
-	  "chance": 0.1,
-      "item": "minecraft:iron_ingot"
+	  "chance": 0.4,
+      "item": "minecraft:iron_ingot",
+      "count": 2
     }
   ]
 }

@@ -894,7 +894,7 @@
           "src/main/resources/assets/create_mix_and_clean/models/item/purified_lead_ore.json"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "PurifiedOsmiumOre",
@@ -908,7 +908,7 @@
           "src/main/resources/assets/create_mix_and_clean/models/item/purified_osmium_ore.json"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "PurifiedTinOre",
@@ -922,7 +922,7 @@
           "src/main/java/net/mcreator/createmixandclean/item/PurifiedTinOreItem.java"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "PurifiedUraniumOre",
@@ -936,7 +936,7 @@
           "src/main/resources/assets/create_mix_and_clean/models/item/purified_uranium_ore.json"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "DirtyCombinedLead",
@@ -950,7 +950,7 @@
           "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_lead.json"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "DirtyCombinedOsmium",
@@ -964,7 +964,7 @@
           "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedOsmiumItem.java"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "DirtyCombinedTin",
@@ -978,7 +978,7 @@
           "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedTinItem.java"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "DirtyCombinedUranium",
@@ -992,7 +992,7 @@
           "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedUraniumItem.java"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "CombinedLead",
@@ -1006,7 +1006,7 @@
           "src/main/java/net/mcreator/createmixandclean/item/CombinedLeadItem.java"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "CombinedOsmium",
@@ -1020,7 +1020,7 @@
           "src/main/java/net/mcreator/createmixandclean/item/CombinedOsmiumItem.java"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "CombinedTin",
@@ -1034,7 +1034,7 @@
           "src/main/java/net/mcreator/createmixandclean/item/CombinedTinItem.java"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "CombinedUranium",
@@ -1048,7 +1048,7 @@
           "src/main/resources/assets/create_mix_and_clean/models/item/combined_uranium.json"
         ]
       },
-      "path": "~/Items/compat/Mekanism"
+      "path": "~/Items/compat"
     },
     {
       "name": "PurifiedLeadOreMixing",
@@ -1401,6 +1401,750 @@
         ]
       },
       "path": "~/Recipes/compat/Mekanism"
+    },
+    {
+      "name": "CrushedRawCobalt",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crushed_raw_cobalt",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/CrushedRawCobaltItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/crushed_raw_cobalt.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "PurifiedCobaltOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_cobalt_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedCobaltOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_cobalt_ore.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "DirtyCombinedCobalt",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_cobalt",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedCobaltItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_cobalt.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "CombinedCobalt",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_cobalt",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_cobalt.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedCobaltItem.java"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "PurifiedCobaltOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_cobalt_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_cobalt_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "DirtyCombinedCobaltCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_cobalt_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_cobalt_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "CombinedCobaltSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_cobalt_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_cobalt_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "HydrochloricAcidWithCobaltMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_cobalt_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_cobalt_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "CobaltOreCrushing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cobalt_ore_crushing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/cobalt_ore_crushing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "CombinedCobaltSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_cobalt_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_cobalt_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "PurifiedCobaltSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_cobalt_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_cobalt_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "PurifiedAluminumOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_aluminum_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedAluminumOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_aluminum_ore.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "DirtyCombinedAluminum",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_aluminum",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedAluminumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_aluminum.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "CombinedAluminum",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_aluminum",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedAluminumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_aluminum.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "HydrochloricAcidWithLeadMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_lead_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_lead_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "HydrochloricAcidWithUraniumMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_uranium_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_uranium_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedLeadSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_lead_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_lead_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedLeadSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_lead_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_lead_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedUraniumSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_uranium_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_uranium_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedUraniumSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_uranium_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_uranium_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CrushedCobaltSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "crushed_cobalt_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/crushed_cobalt_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "CobaltOreBlockCrushing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cobalt_ore_block_crushing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/cobalt_ore_block_crushing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "CobaltOreNonStorageBlockCrushing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cobalt_ore_non_storage_block_crushing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/cobalt_ore_non_storage_block_crushing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Tinkers Construct"
+    },
+    {
+      "name": "PurifiedLeadOreMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_lead_ore_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_lead_ore_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "DirtyCombinedLeadCompactingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_lead_compacting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_lead_compacting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedLeadSplashingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_lead_splashing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_lead_splashing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedUraniumOreMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_uranium_ore_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_uranium_ore_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "DirtyCombinedUraniumCompactingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_uranium_compacting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_uranium_compacting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedUraniumSplashingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_uranium_splashing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_uranium_splashing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedAluminumOreMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_aluminum_ore_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_aluminum_ore_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "DirtyCombinedAluminumCompactingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_aluminum_compacting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_aluminum_compacting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedAluminumSplashingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_aluminum_splashing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_aluminum_splashing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "HydrochloricAcidWithAluminumMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_aluminum_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_aluminum_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedSilverOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_silver_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_silver_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedSilverOreItem.java"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "DirtyCombinedSilver",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_silver",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedSilverItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_silver.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "CombinedSilver",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_silver",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_silver.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedSilverItem.java"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "PurifiedNickelOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_nickel_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_nickel_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedNickelOreItem.java"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "DirtyCombinedNickel",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_nickel",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedNickelItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_nickel.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "CombinedNickel",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_nickel",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedNickelItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_nickel.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "PurifiedSilverOreMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_silver_ore_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_silver_ore_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "DirtyCombinedSilverCompactingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_silver_compacting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_silver_compacting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedSilverSplashingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_silver_splashing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_silver_splashing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "HydrochloricAcidWithSilverMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_silver_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_silver_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedNickelOreMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_nickel_ore_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_nickel_ore_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "DirtyCombinedNickelCompactingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_nickel_compacting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_nickel_compacting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedNickelSplashingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_nickel_splashing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_nickel_splashing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "HydrochloricAcidWithNickelMixingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_nickel_mixing_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_nickel_mixing_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedPlatinumOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_platinum_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedPlatinumOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_platinum_ore.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "DirtyCombinedPlatinum",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_platinum",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedPlatinumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_platinum.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "CombinedPlatinum",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_platinum",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedPlatinumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_platinum.json"
+        ]
+      },
+      "path": "~/Items/compat"
+    },
+    {
+      "name": "PurifiedSilverSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_silver_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_silver_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedNickelSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_nickel_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_nickel_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedSilverSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_silver_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_silver_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedNickelSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_nickel_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_nickel_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "PurifiedAluminumSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_aluminum_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_aluminum_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
+    },
+    {
+      "name": "CombinedAluminumSmeltingIE",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_aluminum_smelting_ie",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_aluminum_smelting_ie.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Immersive Engineering"
     }
   ],
   "variable_elements": [
@@ -1574,6 +2318,9 @@
     ],
     "ITEMS:minecraft:piglin_loved": [
       "~CUSTOM:NetheriteCrystal"
+    ],
+    "ITEMS:create:crushed_raw_materials": [
+      "CUSTOM:CrushedRawCobalt"
     ]
   },
   "tab_element_order": {
@@ -1585,13 +2332,19 @@
       "PurifiedCopperOre",
       "PurifiedZincOre",
       "NetheriteCrystal",
+      "CrushedRawCobalt",
       "ChlorineGas",
       "HydrogenGas",
       "HydrochloricAcid",
-      "PurifiedLeadOre",
       "PurifiedOsmiumOre",
+      "PurifiedPlatinumOre",
+      "PurifiedSilverOre",
       "PurifiedTinOre",
-      "PurifiedUraniumOre"
+      "PurifiedLeadOre",
+      "PurifiedAluminumOre",
+      "PurifiedUraniumOre",
+      "PurifiedNickelOre",
+      "PurifiedCobaltOre"
     ]
   },
   "language_map": {
@@ -1644,7 +2397,23 @@
       "item.create_mix_and_clean.combined_osmium": "Combined Osmium",
       "item.create_mix_and_clean.combined_tin": "Combined Tin",
       "item.create_mix_and_clean.combined_uranium": "Combined Uranium",
-      "item.create_mix_and_clean.netherite_crystal": "Netherite Crystal"
+      "item.create_mix_and_clean.netherite_crystal": "Netherite Crystal",
+      "item.create_mix_and_clean.crushed_raw_cobalt": "Crushed Raw Cobalt",
+      "item.create_mix_and_clean.purified_cobalt_ore": "Purified Cobalt Ore",
+      "item.create_mix_and_clean.dirty_combined_cobalt": "Dirty Combined Cobalt",
+      "item.create_mix_and_clean.combined_cobalt": "Combined Cobalt",
+      "item.create_mix_and_clean.purified_aluminum_ore": "Purified Aluminum Ore",
+      "item.create_mix_and_clean.dirty_combined_aluminum": "Dirty Combined Aluminum",
+      "item.create_mix_and_clean.combined_aluminum": "Combined Aluminum",
+      "item.create_mix_and_clean.purified_silver_ore": "Purified Silver Ore",
+      "item.create_mix_and_clean.dirty_combined_silver": "Dirty Combined Silver",
+      "item.create_mix_and_clean.combined_silver": "Combined Silver",
+      "item.create_mix_and_clean.purified_nickel_ore": "Purified Nickel Ore",
+      "item.create_mix_and_clean.dirty_combined_nickel": "Dirty Combined Nickel",
+      "item.create_mix_and_clean.combined_nickel": "Combined Nickel",
+      "item.create_mix_and_clean.purified_platinum_ore": "Purified Platinum Ore",
+      "item.create_mix_and_clean.dirty_combined_platinum": "Dirty Combined Platinum",
+      "item.create_mix_and_clean.combined_platinum": "Combined Platinum"
     }
   },
   "metadata": {
@@ -1670,12 +2439,7 @@
         "children": [
           {
             "name": "compat",
-            "children": [
-              {
-                "name": "Mekanism",
-                "children": []
-              }
-            ]
+            "children": []
           }
         ]
       },
@@ -1688,6 +2452,14 @@
               {
                 "name": "Mekanism",
                 "children": []
+              },
+              {
+                "name": "Tinkers Construct",
+                "children": []
+              },
+              {
+                "name": "Immersive Engineering",
+                "children": []
               }
             ]
           }
@@ -1698,14 +2470,16 @@
   "workspaceSettings": {
     "modid": "create_mix_and_clean",
     "modName": "Create: Mix And Clean",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 3 new fluids.",
     "author": "Trowa8",
     "websiteURL": "https://mcreator.net",
     "license": "MIT License",
     "serverSideOnly": false,
     "modPicture": "create_mix_and_clean_icon",
-    "requiredMods": [],
+    "requiredMods": [
+      "create"
+    ],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],

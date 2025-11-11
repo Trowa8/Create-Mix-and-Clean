@@ -1,0 +1,29 @@
+{
+  "type": "create:crushing",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/raw_cobalt"
+      }
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/raw_cobalt"
+    }
+  ],
+  "processingTime": 400,
+  "results": [
+    {
+      "item": "create_mix_and_clean:crushed_raw_cobalt",
+      "count": 9
+    },
+    {
+      "chance": 0.75,
+      "item": "create:experience_nugget",
+      "count": 9
+    }
+  ]
+}

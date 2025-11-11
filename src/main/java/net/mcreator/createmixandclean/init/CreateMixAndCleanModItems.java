@@ -44,6 +44,22 @@ public class CreateMixAndCleanModItems {
 	public static final RegistryObject<Item> COMBINED_TIN;
 	public static final RegistryObject<Item> COMBINED_URANIUM;
 	public static final RegistryObject<Item> NETHERITE_CRYSTAL;
+	public static final RegistryObject<Item> CRUSHED_RAW_COBALT;
+	public static final RegistryObject<Item> PURIFIED_COBALT_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_COBALT;
+	public static final RegistryObject<Item> COMBINED_COBALT;
+	public static final RegistryObject<Item> PURIFIED_ALUMINUM_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_ALUMINUM;
+	public static final RegistryObject<Item> COMBINED_ALUMINUM;
+	public static final RegistryObject<Item> PURIFIED_SILVER_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_SILVER;
+	public static final RegistryObject<Item> COMBINED_SILVER;
+	public static final RegistryObject<Item> PURIFIED_NICKEL_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_NICKEL;
+	public static final RegistryObject<Item> COMBINED_NICKEL;
+	public static final RegistryObject<Item> PURIFIED_PLATINUM_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_PLATINUM;
+	public static final RegistryObject<Item> COMBINED_PLATINUM;
 	static {
 		WASTE_ROCK = REGISTRY.register("waste_rock", WasteRockItem::new);
 		PURIFIED_IRON_ORE = REGISTRY.register("purified_iron_ore", PurifiedIronOreItem::new);
@@ -75,6 +91,22 @@ public class CreateMixAndCleanModItems {
 		COMBINED_TIN = REGISTRY.register("combined_tin", CombinedTinItem::new);
 		COMBINED_URANIUM = REGISTRY.register("combined_uranium", CombinedUraniumItem::new);
 		NETHERITE_CRYSTAL = REGISTRY.register("netherite_crystal", NetheriteCrystalItem::new);
+		CRUSHED_RAW_COBALT = REGISTRY.register("crushed_raw_cobalt", CrushedRawCobaltItem::new);
+		PURIFIED_COBALT_ORE = REGISTRY.register("purified_cobalt_ore", PurifiedCobaltOreItem::new);
+		DIRTY_COMBINED_COBALT = REGISTRY.register("dirty_combined_cobalt", DirtyCombinedCobaltItem::new);
+		COMBINED_COBALT = REGISTRY.register("combined_cobalt", CombinedCobaltItem::new);
+		PURIFIED_ALUMINUM_ORE = REGISTRY.register("purified_aluminum_ore", PurifiedAluminumOreItem::new);
+		DIRTY_COMBINED_ALUMINUM = REGISTRY.register("dirty_combined_aluminum", DirtyCombinedAluminumItem::new);
+		COMBINED_ALUMINUM = REGISTRY.register("combined_aluminum", CombinedAluminumItem::new);
+		PURIFIED_SILVER_ORE = REGISTRY.register("purified_silver_ore", PurifiedSilverOreItem::new);
+		DIRTY_COMBINED_SILVER = REGISTRY.register("dirty_combined_silver", DirtyCombinedSilverItem::new);
+		COMBINED_SILVER = REGISTRY.register("combined_silver", CombinedSilverItem::new);
+		PURIFIED_NICKEL_ORE = REGISTRY.register("purified_nickel_ore", PurifiedNickelOreItem::new);
+		DIRTY_COMBINED_NICKEL = REGISTRY.register("dirty_combined_nickel", DirtyCombinedNickelItem::new);
+		COMBINED_NICKEL = REGISTRY.register("combined_nickel", CombinedNickelItem::new);
+		PURIFIED_PLATINUM_ORE = REGISTRY.register("purified_platinum_ore", PurifiedPlatinumOreItem::new);
+		DIRTY_COMBINED_PLATINUM = REGISTRY.register("dirty_combined_platinum", DirtyCombinedPlatinumItem::new);
+		COMBINED_PLATINUM = REGISTRY.register("combined_platinum", CombinedPlatinumItem::new);
 	}
 	// Start of user code block custom items
 	// End of user code block custom items
