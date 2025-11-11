@@ -42,7 +42,7 @@ Crushed Raw Cobalt - newly added support for any cobalt ore to be crushed into c
 ## Recipes
 Adds 50+ new recipes, including mixer recipes, Spout recipes, and other.
 
-# <ins>***Recommended Mods***</ins>:
+# <ins>***Recommended Mods***</ins>
 [*JEI*](https://www.curseforge.com/minecraft/mc-mods/jei) - HIGHLY recommended.
 
 [*Polymorph*](https://www.curseforge.com/minecraft/mc-mods/polymorph) - recommended if you use more than 1 of the supported mods since some recipes overlap.
