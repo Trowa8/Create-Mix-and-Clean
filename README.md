@@ -19,7 +19,8 @@ Right now it supports these types of ore:
 
 **Immersive Engineering**: Lead, Aluminum, Silver, Nickel and Uranium.
 
-> And with time I will try adding all the other Create-supported ores. 
+> And with time I will try adding all the other Create-supported ores.
+
 Newly added spout recipes allow for the removal of dye from Concrete and Concrete Powder, as well as for deoxidizing copper using Hydrochloric Acid.
 
 ## New Fluids
