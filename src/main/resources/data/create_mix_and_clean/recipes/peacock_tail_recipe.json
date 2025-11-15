@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "efe"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "b": {
+      "item": "minecraft:slime_ball"
+    },
+    "c": {
+      "item": "create_mix_and_clean:netherite_crystal"
+    },
+    "d": {
+      "item": "create_mix_and_clean:hydrochloric_acid_bucket"
+    },
+    "e": {
+      "item": "minecraft:diamond"
+    },
+    "f": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "create_mix_and_clean:peacock_tail_chestplate",
+    "count": 1
+  }
+}

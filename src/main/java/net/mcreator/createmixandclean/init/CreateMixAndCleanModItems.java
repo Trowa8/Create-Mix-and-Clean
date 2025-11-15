@@ -60,6 +60,7 @@ public class CreateMixAndCleanModItems {
 	public static final RegistryObject<Item> PURIFIED_PLATINUM_ORE;
 	public static final RegistryObject<Item> DIRTY_COMBINED_PLATINUM;
 	public static final RegistryObject<Item> COMBINED_PLATINUM;
+	public static final RegistryObject<Item> PEACOCK_TAIL_CHESTPLATE;
 	static {
 		WASTE_ROCK = REGISTRY.register("waste_rock", WasteRockItem::new);
 		PURIFIED_IRON_ORE = REGISTRY.register("purified_iron_ore", PurifiedIronOreItem::new);
@@ -107,6 +108,7 @@ public class CreateMixAndCleanModItems {
 		PURIFIED_PLATINUM_ORE = REGISTRY.register("purified_platinum_ore", PurifiedPlatinumOreItem::new);
 		DIRTY_COMBINED_PLATINUM = REGISTRY.register("dirty_combined_platinum", DirtyCombinedPlatinumItem::new);
 		COMBINED_PLATINUM = REGISTRY.register("combined_platinum", CombinedPlatinumItem::new);
+		PEACOCK_TAIL_CHESTPLATE = REGISTRY.register("peacock_tail_chestplate", PeacockTailItem.Chestplate::new);
 	}
 	// Start of user code block custom items
 	// End of user code block custom items
