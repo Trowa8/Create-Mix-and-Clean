@@ -2497,7 +2497,7 @@
   "workspaceSettings": {
     "modid": "create_mix_and_clean",
     "modName": "Create: Mix And Clean",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 3 new fluids.",
     "author": "Trowa8",
     "websiteURL": "https://mcreator.net",
