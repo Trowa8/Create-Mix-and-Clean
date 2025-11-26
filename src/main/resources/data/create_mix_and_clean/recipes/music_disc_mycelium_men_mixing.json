@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "tag": "minecraft:music_discs"
+    },
+    {
+      "item": "minecraft:brown_mushroom",
+      "count": 2
+    }
+  ],
+  "results": [
+	{
+      "item": "create_mix_and_clean:music_disc_mycelium_men"
+    }
+  ]
+}

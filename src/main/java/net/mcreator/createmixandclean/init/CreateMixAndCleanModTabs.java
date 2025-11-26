@@ -37,5 +37,6 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_URANIUM_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_NICKEL_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_COBALT_ORE.get());
+				tabData.accept(CreateMixAndCleanModItems.MUSIC_DISC_MYCELIUM_MEN.get());
 			}).build());
 }

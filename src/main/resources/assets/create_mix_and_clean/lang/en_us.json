@@ -17,7 +17,7 @@
   "fluid.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
   "fluid.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
   "block.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
-  "subtitles.retching": "Retching",
+  "subtitles.retching": "someone retchets nearby",
   "item.create_mix_and_clean.combined_gold": "Combined Gold",
   "item.create_mix_and_clean.caustic_soda": "Caustic Soda",
   "item.create_mix_and_clean.combined_zinc": "Combined Zinc",
@@ -64,5 +64,8 @@
   "item.create_mix_and_clean.purified_platinum_ore": "Purified Platinum Ore",
   "item.create_mix_and_clean.dirty_combined_platinum": "Dirty Combined Platinum",
   "item.create_mix_and_clean.combined_platinum": "Combined Platinum",
-  "item.create_mix_and_clean.peacock_tail_chestplate": "Peacock Tail"
+  "item.create_mix_and_clean.peacock_tail_chestplate": "Peacock Tail",
+  "subtitles.mycelium_men_music": "Shroomy Music Plays",
+  "item.create_mix_and_clean.music_disc_mycelium_men.desc": "Mycelious - Mycelium Men",
+  "item.create_mix_and_clean.music_disc_mycelium_men": "Music Disc"
 }

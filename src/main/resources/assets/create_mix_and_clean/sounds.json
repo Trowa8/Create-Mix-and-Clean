@@ -1,5 +1,6 @@
 {
   "retching": {
+    "subtitle": "subtitles.retching",
     "sounds": [
       {
         "name": "create_mix_and_clean:shulker_idle1",
@@ -12,6 +13,15 @@
       {
         "name": "create_mix_and_clean:shulker_idle3",
         "stream": false
+      }
+    ]
+  },
+  "mycelium_men_music": {
+    "subtitle": "subtitles.mycelium_men_music",
+    "sounds": [
+      {
+        "name": "create_mix_and_clean:mycelious-mycelium-men",
+        "stream": true
       }
     ]
   }

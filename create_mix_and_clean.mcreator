@@ -2157,7 +2157,8 @@
           "src/main/java/net/mcreator/createmixandclean/item/PeacockTailItem.java",
           "src/main/resources/assets/create_mix_and_clean/models/item/peacock_tail_chestplate.json"
         ]
-      }
+      },
+      "path": "~/Items"
     },
     {
       "name": "PeacockTailRecipe",
@@ -2169,7 +2170,48 @@
         "files": [
           "src/main/resources/data/create_mix_and_clean/recipes/peacock_tail_recipe.json"
         ]
-      }
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "MusicDiscMyceliumMen",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "music_disc_mycelium_men",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/music_disc_mycelium_men.json",
+          "src/main/java/net/mcreator/createmixandclean/item/MusicDiscMyceliumMenItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "RoseQuartzBlockCrushing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "rose_quartz_block_crushing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/rose_quartz_block_crushing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "MusicDiscMyceliumMenMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "music_disc_mycelium_men_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/music_disc_mycelium_men_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
     }
   ],
   "variable_elements": [
@@ -2189,7 +2231,15 @@
         "shulker_idle3"
       ],
       "category": "neutral",
-      "subtitle": ""
+      "subtitle": "someone retchets nearby"
+    },
+    {
+      "name": "mycelium_men_music",
+      "files": [
+        "mycelious-mycelium-men"
+      ],
+      "category": "music",
+      "subtitle": "Shroomy Music Plays"
     }
   ],
   "tag_elements": {
@@ -2346,6 +2396,9 @@
     ],
     "ITEMS:create:crushed_raw_materials": [
       "CUSTOM:CrushedRawCobalt"
+    ],
+    "ITEMS:minecraft:music_discs": [
+      "~CUSTOM:MusicDiscMyceliumMen"
     ]
   },
   "tab_element_order": {
@@ -2369,7 +2422,8 @@
       "PurifiedAluminumOre",
       "PurifiedUraniumOre",
       "PurifiedNickelOre",
-      "PurifiedCobaltOre"
+      "PurifiedCobaltOre",
+      "MusicDiscMyceliumMen"
     ]
   },
   "language_map": {
@@ -2392,7 +2446,7 @@
       "fluid.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
       "fluid.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
       "block.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
-      "subtitles.retching": "Retching",
+      "subtitles.retching": "someone retchets nearby",
       "item.create_mix_and_clean.combined_gold": "Combined Gold",
       "item.create_mix_and_clean.caustic_soda": "Caustic Soda",
       "item.create_mix_and_clean.combined_zinc": "Combined Zinc",
@@ -2439,7 +2493,10 @@
       "item.create_mix_and_clean.purified_platinum_ore": "Purified Platinum Ore",
       "item.create_mix_and_clean.dirty_combined_platinum": "Dirty Combined Platinum",
       "item.create_mix_and_clean.combined_platinum": "Combined Platinum",
-      "item.create_mix_and_clean.peacock_tail_chestplate": "Peacock Tail"
+      "item.create_mix_and_clean.peacock_tail_chestplate": "Peacock Tail",
+      "subtitles.mycelium_men_music": "Shroomy Music Plays",
+      "item.create_mix_and_clean.music_disc_mycelium_men.desc": "Mycelious - Mycelium Men",
+      "item.create_mix_and_clean.music_disc_mycelium_men": "Music Disc"
     }
   },
   "metadata": {
@@ -2504,9 +2561,7 @@
     "license": "MIT License",
     "serverSideOnly": false,
     "modPicture": "create_mix_and_clean_icon",
-    "requiredMods": [
-      "create"
-    ],
+    "requiredMods": [],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
