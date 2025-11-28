@@ -6,9 +6,17 @@
       "tag": "minecraft:music_discs"
     },
     {
-      "item": "minecraft:brown_mushroom",
-      "count": 2
-    }
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    }    
   ],
   "results": [
 	{

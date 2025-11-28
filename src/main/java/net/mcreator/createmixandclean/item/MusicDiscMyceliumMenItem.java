@@ -9,6 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public class MusicDiscMyceliumMenItem extends RecordItem {
 	public MusicDiscMyceliumMenItem() {
-		super(9, () -> ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.parse("create_mix_and_clean:mycelium_men_music")), new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 2300);
+		super(9, () -> ForgeRegistries.SOUND_EVENTS.getValue(ResourceLocation.parse("create_mix_and_clean:mycelium_men_music")), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 2300);
 	}
 }

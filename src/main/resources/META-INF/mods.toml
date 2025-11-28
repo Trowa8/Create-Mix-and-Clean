@@ -4,7 +4,7 @@ license="MIT License"
 
 [[mods]]
 modId="create_mix_and_clean"
-version="1.2.2"
+version="1.2.3"
 displayName="Create: Mix And Clean"
 displayURL="https://mcreator.net"
 logoFile="logo.png"

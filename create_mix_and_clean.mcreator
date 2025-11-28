@@ -2212,6 +2212,366 @@
         ]
       },
       "path": "~/Recipes"
+    },
+    {
+      "name": "PurifiedDeshOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_desh_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_desh_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "DirtyCombinedDeshCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_desh_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_desh_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "CombinedDeshSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_desh_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_desh_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedDeshSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_desh_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_desh_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "CombinedDeshSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_desh_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_desh_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "HydrochloricAcidWithDeshMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_desh_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_desh_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedDeshOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_desh_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedDeshOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_desh_ore.json"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "DirtyCombinedDesh",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_desh",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedDeshItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_desh.json"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "CombinedDesh",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_desh",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_desh.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedDeshItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedOstrumOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_ostrum_ore",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_ostrum_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedOstrumOreItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "DirtyCombinedOstrum",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_ostrum",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedOstrumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_ostrum.json"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "CombinedOstrum",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_ostrum",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_ostrum.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedOstrumItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedCaloriteOre",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "purified_calorite_ore",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedCaloriteOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_calorite_ore.json"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "DirtyCombinedCalorite",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dirty_combined_calorite",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedCaloriteItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_calorite.json"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "CombinedCalorite",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combined_calorite",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_calorite.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedCaloriteItem.java"
+        ]
+      },
+      "path": "~/Items/compat/Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedOstrumOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_ostrum_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_ostrum_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "DirtyCombinedOstrumCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_ostrum_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_ostrum_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "CombinedOstrumSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_ostrum_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_ostrum_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedOstrumSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_ostrum_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_ostrum_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "CombinedOstrumSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_ostrum_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_ostrum_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "HydrochloricAcidWithOstrumMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_ostrum_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_ostrum_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedCaloriteOreMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_calorite_ore_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_calorite_ore_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "DirtyCombinedCaloriteCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "dirty_combined_calorite_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/dirty_combined_calorite_compacting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "CombinedCaloriteSplashing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_calorite_splashing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_calorite_splashing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "PurifiedCaloriteSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_calorite_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_calorite_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "CombinedCaloriteSmelting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "combined_calorite_smelting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/combined_calorite_smelting.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "HydrochloricAcidWithCaloriteMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_calorite_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_calorite_mixing.json"
+        ]
+      },
+      "path": "~/Recipes/compat/Create Ad Astra Compat"
     }
   ],
   "variable_elements": [
@@ -2231,7 +2591,7 @@
         "shulker_idle3"
       ],
       "category": "neutral",
-      "subtitle": "someone retchets nearby"
+      "subtitle": "Retching"
     },
     {
       "name": "mycelium_men_music",
@@ -2423,7 +2783,10 @@
       "PurifiedUraniumOre",
       "PurifiedNickelOre",
       "PurifiedCobaltOre",
-      "MusicDiscMyceliumMen"
+      "MusicDiscMyceliumMen",
+      "PurifiedDeshOre",
+      "PurifiedOstrumOre",
+      "PurifiedCaloriteOre"
     ]
   },
   "language_map": {
@@ -2446,7 +2809,7 @@
       "fluid.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
       "fluid.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
       "block.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
-      "subtitles.retching": "someone retchets nearby",
+      "subtitles.retching": "Retching",
       "item.create_mix_and_clean.combined_gold": "Combined Gold",
       "item.create_mix_and_clean.caustic_soda": "Caustic Soda",
       "item.create_mix_and_clean.combined_zinc": "Combined Zinc",
@@ -2496,7 +2859,16 @@
       "item.create_mix_and_clean.peacock_tail_chestplate": "Peacock Tail",
       "subtitles.mycelium_men_music": "Shroomy Music Plays",
       "item.create_mix_and_clean.music_disc_mycelium_men.desc": "Mycelious - Mycelium Men",
-      "item.create_mix_and_clean.music_disc_mycelium_men": "Music Disc"
+      "item.create_mix_and_clean.music_disc_mycelium_men": "Music Disc",
+      "item.create_mix_and_clean.purified_desh_ore": "Purified Desh Ore",
+      "item.create_mix_and_clean.dirty_combined_desh": "Dirty Combined Desh",
+      "item.create_mix_and_clean.combined_desh": "Combined Desh",
+      "item.create_mix_and_clean.purified_ostrum_ore": "Purified Ostrum Ore",
+      "item.create_mix_and_clean.dirty_combined_ostrum": "Dirty Combined Ostrum",
+      "item.create_mix_and_clean.combined_ostrum": "Combined Ostrum",
+      "item.create_mix_and_clean.purified_calorite_ore": "Purified Calorite Ore",
+      "item.create_mix_and_clean.dirty_combined_calorite": "Dirty Combined Calorite",
+      "item.create_mix_and_clean.combined_calorite": "Combined Calorite"
     }
   },
   "metadata": {
@@ -2523,7 +2895,12 @@
         "children": [
           {
             "name": "compat",
-            "children": []
+            "children": [
+              {
+                "name": "Ad Astra Compat",
+                "children": []
+              }
+            ]
           }
         ]
       },
@@ -2544,6 +2921,10 @@
               {
                 "name": "Immersive Engineering",
                 "children": []
+              },
+              {
+                "name": "Create Ad Astra Compat",
+                "children": []
               }
             ]
           }
@@ -2554,14 +2935,16 @@
   "workspaceSettings": {
     "modid": "create_mix_and_clean",
     "modName": "Create: Mix And Clean",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 3 new fluids.",
     "author": "Trowa8",
     "websiteURL": "https://mcreator.net",
     "license": "MIT License",
     "serverSideOnly": false,
     "modPicture": "create_mix_and_clean_icon",
-    "requiredMods": [],
+    "requiredMods": [
+      "create"
+    ],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],

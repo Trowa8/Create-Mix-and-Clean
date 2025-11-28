@@ -17,7 +17,7 @@
   "fluid.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
   "fluid.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
   "block.create_mix_and_clean.chlorine_gas": "Chlorine Gas",
-  "subtitles.retching": "someone retchets nearby",
+  "subtitles.retching": "Retching",
   "item.create_mix_and_clean.combined_gold": "Combined Gold",
   "item.create_mix_and_clean.caustic_soda": "Caustic Soda",
   "item.create_mix_and_clean.combined_zinc": "Combined Zinc",
@@ -67,5 +67,14 @@
   "item.create_mix_and_clean.peacock_tail_chestplate": "Peacock Tail",
   "subtitles.mycelium_men_music": "Shroomy Music Plays",
   "item.create_mix_and_clean.music_disc_mycelium_men.desc": "Mycelious - Mycelium Men",
-  "item.create_mix_and_clean.music_disc_mycelium_men": "Music Disc"
+  "item.create_mix_and_clean.music_disc_mycelium_men": "Music Disc",
+  "item.create_mix_and_clean.purified_desh_ore": "Purified Desh Ore",
+  "item.create_mix_and_clean.dirty_combined_desh": "Dirty Combined Desh",
+  "item.create_mix_and_clean.combined_desh": "Combined Desh",
+  "item.create_mix_and_clean.purified_ostrum_ore": "Purified Ostrum Ore",
+  "item.create_mix_and_clean.dirty_combined_ostrum": "Dirty Combined Ostrum",
+  "item.create_mix_and_clean.combined_ostrum": "Combined Ostrum",
+  "item.create_mix_and_clean.purified_calorite_ore": "Purified Calorite Ore",
+  "item.create_mix_and_clean.dirty_combined_calorite": "Dirty Combined Calorite",
+  "item.create_mix_and_clean.combined_calorite": "Combined Calorite"
 }

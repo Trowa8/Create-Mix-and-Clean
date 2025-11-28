@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ad_astra"
+    }
+  ],
+  "ingredients": [
+    {
+      "fluid": "create_mix_and_clean:hydrochloric_acid",
+      "amount": 125
+    },
+    {
+      "item": "create_mix_and_clean:combined_calorite"
+    }
+  ],
+  "results": [
+	{
+      "item": "ad_astra:calorite_ingot"
+    },
+	{
+	  "chance": 0.4,
+      "item": "ad_astra:calorite_ingot",
+      "count": 2
+    }
+  ]
+}

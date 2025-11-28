@@ -62,6 +62,15 @@ public class CreateMixAndCleanModItems {
 	public static final RegistryObject<Item> COMBINED_PLATINUM;
 	public static final RegistryObject<Item> PEACOCK_TAIL_CHESTPLATE;
 	public static final RegistryObject<Item> MUSIC_DISC_MYCELIUM_MEN;
+	public static final RegistryObject<Item> PURIFIED_DESH_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_DESH;
+	public static final RegistryObject<Item> COMBINED_DESH;
+	public static final RegistryObject<Item> PURIFIED_OSTRUM_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_OSTRUM;
+	public static final RegistryObject<Item> COMBINED_OSTRUM;
+	public static final RegistryObject<Item> PURIFIED_CALORITE_ORE;
+	public static final RegistryObject<Item> DIRTY_COMBINED_CALORITE;
+	public static final RegistryObject<Item> COMBINED_CALORITE;
 	static {
 		WASTE_ROCK = REGISTRY.register("waste_rock", WasteRockItem::new);
 		PURIFIED_IRON_ORE = REGISTRY.register("purified_iron_ore", PurifiedIronOreItem::new);
@@ -111,6 +120,15 @@ public class CreateMixAndCleanModItems {
 		COMBINED_PLATINUM = REGISTRY.register("combined_platinum", CombinedPlatinumItem::new);
 		PEACOCK_TAIL_CHESTPLATE = REGISTRY.register("peacock_tail_chestplate", PeacockTailItem.Chestplate::new);
 		MUSIC_DISC_MYCELIUM_MEN = REGISTRY.register("music_disc_mycelium_men", MusicDiscMyceliumMenItem::new);
+		PURIFIED_DESH_ORE = REGISTRY.register("purified_desh_ore", PurifiedDeshOreItem::new);
+		DIRTY_COMBINED_DESH = REGISTRY.register("dirty_combined_desh", DirtyCombinedDeshItem::new);
+		COMBINED_DESH = REGISTRY.register("combined_desh", CombinedDeshItem::new);
+		PURIFIED_OSTRUM_ORE = REGISTRY.register("purified_ostrum_ore", PurifiedOstrumOreItem::new);
+		DIRTY_COMBINED_OSTRUM = REGISTRY.register("dirty_combined_ostrum", DirtyCombinedOstrumItem::new);
+		COMBINED_OSTRUM = REGISTRY.register("combined_ostrum", CombinedOstrumItem::new);
+		PURIFIED_CALORITE_ORE = REGISTRY.register("purified_calorite_ore", PurifiedCaloriteOreItem::new);
+		DIRTY_COMBINED_CALORITE = REGISTRY.register("dirty_combined_calorite", DirtyCombinedCaloriteItem::new);
+		COMBINED_CALORITE = REGISTRY.register("combined_calorite", CombinedCaloriteItem::new);
 	}
 	// Start of user code block custom items
 	// End of user code block custom items

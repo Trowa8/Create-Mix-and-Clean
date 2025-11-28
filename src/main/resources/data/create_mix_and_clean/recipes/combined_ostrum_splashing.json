@@ -1,0 +1,19 @@
+{
+  "type": "create:splashing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ad_astra"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:dirty_combined_ostrum"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:combined_ostrum"
+    }
+  ]
+}
