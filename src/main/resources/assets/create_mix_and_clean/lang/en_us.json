@@ -76,5 +76,6 @@
   "item.create_mix_and_clean.combined_ostrum": "Combined Ostrum",
   "item.create_mix_and_clean.purified_calorite_ore": "Purified Calorite Ore",
   "item.create_mix_and_clean.dirty_combined_calorite": "Dirty Combined Calorite",
-  "item.create_mix_and_clean.combined_calorite": "Combined Calorite"
+  "item.create_mix_and_clean.combined_calorite": "Combined Calorite",
+  "block.create_mix_and_clean.electrolyzer": "Electrolyzer"
 }

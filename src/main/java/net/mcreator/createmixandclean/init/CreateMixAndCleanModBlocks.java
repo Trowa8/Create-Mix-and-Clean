@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 
 import net.mcreator.createmixandclean.block.HydrogenGasBlock;
 import net.mcreator.createmixandclean.block.HydrochloricAcidBlock;
+import net.mcreator.createmixandclean.block.ElectrolyzerBlock;
 import net.mcreator.createmixandclean.block.ChlorineGasBlock;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
@@ -19,10 +20,12 @@ public class CreateMixAndCleanModBlocks {
 	public static final RegistryObject<Block> CHLORINE_GAS;
 	public static final RegistryObject<Block> HYDROGEN_GAS;
 	public static final RegistryObject<Block> HYDROCHLORIC_ACID;
+	public static final RegistryObject<Block> ELECTROLYZER;
 	static {
 		CHLORINE_GAS = REGISTRY.register("chlorine_gas", ChlorineGasBlock::new);
 		HYDROGEN_GAS = REGISTRY.register("hydrogen_gas", HydrogenGasBlock::new);
 		HYDROCHLORIC_ACID = REGISTRY.register("hydrochloric_acid", HydrochloricAcidBlock::new);
+		ELECTROLYZER = REGISTRY.register("electrolyzer", ElectrolyzerBlock::new);
 	}
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

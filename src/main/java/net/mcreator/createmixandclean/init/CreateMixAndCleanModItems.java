@@ -7,7 +7,9 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
 
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.createmixandclean.item.*;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
@@ -71,6 +73,7 @@ public class CreateMixAndCleanModItems {
 	public static final RegistryObject<Item> PURIFIED_CALORITE_ORE;
 	public static final RegistryObject<Item> DIRTY_COMBINED_CALORITE;
 	public static final RegistryObject<Item> COMBINED_CALORITE;
+	public static final RegistryObject<Item> ELECTROLYZER;
 	static {
 		WASTE_ROCK = REGISTRY.register("waste_rock", WasteRockItem::new);
 		PURIFIED_IRON_ORE = REGISTRY.register("purified_iron_ore", PurifiedIronOreItem::new);
@@ -129,7 +132,16 @@ public class CreateMixAndCleanModItems {
 		PURIFIED_CALORITE_ORE = REGISTRY.register("purified_calorite_ore", PurifiedCaloriteOreItem::new);
 		DIRTY_COMBINED_CALORITE = REGISTRY.register("dirty_combined_calorite", DirtyCombinedCaloriteItem::new);
 		COMBINED_CALORITE = REGISTRY.register("combined_calorite", CombinedCaloriteItem::new);
+		ELECTROLYZER = block(CreateMixAndCleanModBlocks.ELECTROLYZER);
 	}
+
 	// Start of user code block custom items
 	// End of user code block custom items
+	private static RegistryObject<Item> block(RegistryObject<Block> block) {
+		return block(block, new Item.Properties());
+	}
+
+	private static RegistryObject<Item> block(RegistryObject<Block> block, Item.Properties properties) {
+		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), properties));
+	}
 }

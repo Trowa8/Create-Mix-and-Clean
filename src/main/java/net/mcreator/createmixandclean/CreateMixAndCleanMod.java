@@ -17,6 +17,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
+import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;
 import net.mcreator.createmixandclean.init.*;
 
 import java.util.function.Supplier;
@@ -35,6 +36,9 @@ public class CreateMixAndCleanMod {
 
 	public CreateMixAndCleanMod(FMLJavaModLoadingContext context) {
 		// Start of user code block mod constructor
+		CreateMixAndCleanModBlockEntities.REGISTRY.register(bus);
+		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(bus);
+		CreateMixAndCleanModRecipeTypes.TYPES.register(bus);
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = context.getModEventBus();
@@ -45,6 +49,9 @@ public class CreateMixAndCleanMod {
 		CreateMixAndCleanModFluids.REGISTRY.register(bus);
 		CreateMixAndCleanModFluidTypes.REGISTRY.register(bus);
 		// Start of user code block mod init
+		// In CreateMixAndCleanMod or a setup event:
+		ElectrolyzerRecipe.TYPE = CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get();
+		ElectrolyzerRecipe.SERIALIZER = CreateMixAndCleanModRecipeTypes.ELECTROLYZING_SERIALIZER.get();
 		// End of user code block mod init
 	}
 

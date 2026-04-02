@@ -2572,6 +2572,22 @@
         ]
       },
       "path": "~/Recipes/compat/Create Ad Astra Compat"
+    },
+    {
+      "name": "Electrolyzer",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "electrolyzer",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/blockstates/electrolyzer.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/electrolyzer.json",
+          "src/main/resources/data/create_mix_and_clean/loot_tables/blocks/electrolyzer.json",
+          "src/main/java/net/mcreator/createmixandclean/block/ElectrolyzerBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/electrolyzer.json"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -2868,7 +2884,8 @@
       "item.create_mix_and_clean.combined_ostrum": "Combined Ostrum",
       "item.create_mix_and_clean.purified_calorite_ore": "Purified Calorite Ore",
       "item.create_mix_and_clean.dirty_combined_calorite": "Dirty Combined Calorite",
-      "item.create_mix_and_clean.combined_calorite": "Combined Calorite"
+      "item.create_mix_and_clean.combined_calorite": "Combined Calorite",
+      "block.create_mix_and_clean.electrolyzer": "Electrolyzer"
     }
   },
   "metadata": {

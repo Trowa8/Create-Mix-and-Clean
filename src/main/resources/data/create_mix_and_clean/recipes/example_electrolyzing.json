@@ -1,0 +1,12 @@
+{
+  "type": "create_mix_and_clean:electrolyzing",
+  "processingTime": 200,
+  "ingredients": [
+    { "item": "minecraft:iron_ingot" },
+    { "item": "minecraft:iron_ingot" }
+  ],
+  "results": [
+    { "item": "create_mix_and_clean:purified_iron_ore", "count": 3 },
+    { "item": "create_mix_and_clean:waste_rock",        "count": 1 }
+  ]
+}

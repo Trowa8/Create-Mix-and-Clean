@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "create_mix_and_clean:blocks/electrolyzer",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "create_mix_and_clean:electrolyzer"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "create_mix_and_clean:block/electrolyzer" },
+    "facing=south": { "model": "create_mix_and_clean:block/electrolyzer", "y": 180 },
+    "facing=east":  { "model": "create_mix_and_clean:block/electrolyzer", "y": 90 },
+    "facing=west":  { "model": "create_mix_and_clean:block/electrolyzer", "y": 270 }
+  }
+}
