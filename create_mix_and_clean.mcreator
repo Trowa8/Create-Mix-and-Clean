@@ -2576,7 +2576,7 @@
     {
       "name": "Electrolyzer",
       "type": "block",
-      "compiles": true,
+      "compiles": false,
       "locked_code": true,
       "registry_name": "electrolyzer",
       "metadata": {
