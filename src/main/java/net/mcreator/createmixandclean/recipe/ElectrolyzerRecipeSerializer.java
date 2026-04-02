@@ -1,4 +1,4 @@
-package main.java.net.mcreator.createmixandclean.recipe;
+package net.mcreator.createmixandclean.recipe;  // ← was main.java.net.mcreator...
 
 import com.google.gson.*;
 import net.minecraft.core.NonNullList;
@@ -20,17 +20,15 @@ public class ElectrolyzerRecipeSerializer
     @Override
     public ElectrolyzerRecipe fromJson(ResourceLocation id, JsonObject json) {
         NonNullList<Ingredient> ingredients = NonNullList.create();
-        for (JsonElement el : GsonHelper.getAsJsonArray(json, "ingredients")) {
+        for (JsonElement el : GsonHelper.getAsJsonArray(json, "ingredients"))
             ingredients.add(Ingredient.fromJson(el));
-        }
 
         List<ItemStack> results = new ArrayList<>();
         for (JsonElement el : GsonHelper.getAsJsonArray(json, "results")) {
-            JsonObject obj    = el.getAsJsonObject();
+            JsonObject obj = el.getAsJsonObject();
             ResourceLocation itemId = new ResourceLocation(GsonHelper.getAsString(obj, "item"));
             int count = GsonHelper.getAsInt(obj, "count", 1);
-            ItemStack stack = new ItemStack(ForgeRegistries.ITEMS.getValue(itemId), count);
-            results.add(stack);
+            results.add(new ItemStack(ForgeRegistries.ITEMS.getValue(itemId), count));
         }
 
         int processingTime = GsonHelper.getAsInt(json, "processingTime", 200);
@@ -50,20 +48,15 @@ public class ElectrolyzerRecipeSerializer
         for (int i = 0; i < resCount; i++)
             results.add(buf.readItem());
 
-        int time = buf.readVarInt();
-        return new ElectrolyzerRecipe(id, ingredients, results, time);
+        return new ElectrolyzerRecipe(id, ingredients, results, buf.readVarInt());
     }
 
     @Override
     public void toNetwork(FriendlyByteBuf buf, ElectrolyzerRecipe recipe) {
         buf.writeVarInt(recipe.getIngredients().size());
-        for (Ingredient ing : recipe.getIngredients())
-            ing.toNetwork(buf);
-
+        for (Ingredient ing : recipe.getIngredients()) ing.toNetwork(buf);
         buf.writeVarInt(recipe.getResults().size());
-        for (ItemStack stack : recipe.getResults())
-            buf.writeItem(stack);
-
+        for (ItemStack stack : recipe.getResults()) buf.writeItem(stack);
         buf.writeVarInt(recipe.getProcessingTime());
     }
 }

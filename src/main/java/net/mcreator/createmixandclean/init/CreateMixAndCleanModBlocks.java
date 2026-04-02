@@ -25,8 +25,16 @@ public class CreateMixAndCleanModBlocks {
 		CHLORINE_GAS = REGISTRY.register("chlorine_gas", ChlorineGasBlock::new);
 		HYDROGEN_GAS = REGISTRY.register("hydrogen_gas", HydrogenGasBlock::new);
 		HYDROCHLORIC_ACID = REGISTRY.register("hydrochloric_acid", HydrochloricAcidBlock::new);
-		ELECTROLYZER = REGISTRY.register("electrolyzer", ElectrolyzerBlock::new);
-	}
 	// Start of user code block custom blocks
+		ELECTROLYZER = REGISTRY.register("electrolyzer", () ->
+    	new ElectrolyzerBlock(
+       		net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+            	.strength(3.5f, 6f)
+            	.requiresCorrectToolForDrops()
+            	.sound(net.minecraft.world.level.block.SoundType.METAL)
+    	)
+		);
 	// End of user code block custom blocks
+	}
+
 }

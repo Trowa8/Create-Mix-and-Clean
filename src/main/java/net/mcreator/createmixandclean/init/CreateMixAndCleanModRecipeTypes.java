@@ -1,4 +1,4 @@
-package main.java.net.mcreator.createmixandclean.init;
+package net.mcreator.createmixandclean.init;
 
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;

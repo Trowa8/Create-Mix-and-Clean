@@ -1,4 +1,4 @@
-package main.java.net.mcreator.createmixandclean.init;
+package net.mcreator.createmixandclean.init;
 
 import net.mcreator.createmixandclean.block.ElectrolyzerBlock;
 import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
