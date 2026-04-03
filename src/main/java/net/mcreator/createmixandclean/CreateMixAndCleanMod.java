@@ -46,10 +46,12 @@ public class CreateMixAndCleanMod {
 		CreateMixAndCleanModFluids.REGISTRY.register(bus);
 		CreateMixAndCleanModFluidTypes.REGISTRY.register(bus);
 		// Start of user code block mod init
-		// In CreateMixAndCleanMod or a setup event:
 		CreateMixAndCleanModBlockEntities.REGISTRY.register(bus);
 		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(bus);
 		CreateMixAndCleanModRecipeTypes.TYPES.register(bus);
+		if (net.minecraftforge.fml.loading.FMLEnvironment.dist.isClient()) {
+    		CreateMixAndCleanPartialModels.init();
+		}
 		bus.addListener(this::commonSetup);
 		// End of user code block mod init
 	}

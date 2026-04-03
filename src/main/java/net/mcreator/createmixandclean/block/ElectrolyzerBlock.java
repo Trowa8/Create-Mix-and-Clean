@@ -9,6 +9,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.item.PickaxeItem;
 
 public class ElectrolyzerBlock extends HorizontalKineticBlock
         implements IBE<ElectrolyzerBlockEntity> {
@@ -16,7 +17,7 @@ public class ElectrolyzerBlock extends HorizontalKineticBlock
     public ElectrolyzerBlock() {
         this(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
                 .strength(3.5f, 6f)
-                .requiresCorrectToolForDrops()
+                .requiresCorrectToolForDrops(PickaxeItem)
                 .sound(net.minecraft.world.level.block.SoundType.METAL));
     }
 
