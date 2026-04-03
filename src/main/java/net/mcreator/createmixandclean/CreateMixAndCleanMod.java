@@ -36,9 +36,6 @@ public class CreateMixAndCleanMod {
 
 	public CreateMixAndCleanMod(FMLJavaModLoadingContext context) {
 		// Start of user code block mod constructor
-		CreateMixAndCleanModBlockEntities.REGISTRY.register(bus);
-		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(bus);
-		CreateMixAndCleanModRecipeTypes.TYPES.register(bus);
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = context.getModEventBus();
@@ -50,12 +47,19 @@ public class CreateMixAndCleanMod {
 		CreateMixAndCleanModFluidTypes.REGISTRY.register(bus);
 		// Start of user code block mod init
 		// In CreateMixAndCleanMod or a setup event:
-		ElectrolyzerRecipe.TYPE = CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get();
-		ElectrolyzerRecipe.SERIALIZER = CreateMixAndCleanModRecipeTypes.ELECTROLYZING_SERIALIZER.get();
+		CreateMixAndCleanModBlockEntities.REGISTRY.register(bus);
+		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(bus);
+		CreateMixAndCleanModRecipeTypes.TYPES.register(bus);
+		bus.addListener(this::commonSetup);
 		// End of user code block mod init
 	}
 
 	// Start of user code block mod methods
+	private void commonSetup(net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) {
+		ElectrolyzerRecipe.TYPE = CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get();
+		ElectrolyzerRecipe.SERIALIZER = CreateMixAndCleanModRecipeTypes.ELECTROLYZING_SERIALIZER.get();
+	}
+
 	// End of user code block mod methods
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(ResourceLocation.fromNamespaceAndPath(MODID, MODID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);

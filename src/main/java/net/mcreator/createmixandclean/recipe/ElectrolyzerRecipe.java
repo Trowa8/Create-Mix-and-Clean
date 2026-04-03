@@ -76,7 +76,10 @@ public class ElectrolyzerRecipe implements Recipe<Container> {
     }
 
     @Override public boolean matches(Container c, Level l) { return false; }
-    @Override public ItemStack assemble(Container c, net.minecraft.world.item.crafting.RecipeManager.CachedCheck<Container, ?> check) { return ItemStack.EMPTY; }
+    @Override
+    public ItemStack assemble(Container container, net.minecraft.core.RegistryAccess registryAccess) {
+        return ItemStack.EMPTY;
+    }
     @Override public boolean canCraftInDimensions(int w, int h) { return true; }
     @Override public ItemStack getResultItem(net.minecraft.core.RegistryAccess a) {
         return results.isEmpty() ? ItemStack.EMPTY : results.get(0);

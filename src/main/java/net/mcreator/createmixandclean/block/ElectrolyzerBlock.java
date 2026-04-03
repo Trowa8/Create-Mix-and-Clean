@@ -13,6 +13,13 @@ import net.minecraft.world.level.block.state.BlockState;
 public class ElectrolyzerBlock extends HorizontalKineticBlock
         implements IBE<ElectrolyzerBlockEntity> {
 
+    public ElectrolyzerBlock() {
+        this(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
+                .strength(3.5f, 6f)
+                .requiresCorrectToolForDrops()
+                .sound(net.minecraft.world.level.block.SoundType.METAL));
+    }
+
     public ElectrolyzerBlock(Properties properties) {
         super(properties);
     }

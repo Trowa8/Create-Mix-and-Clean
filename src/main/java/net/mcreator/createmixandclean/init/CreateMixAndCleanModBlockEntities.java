@@ -14,10 +14,10 @@ public class CreateMixAndCleanModBlockEntities {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES,
                     CreateMixAndCleanMod.MODID);
 
-    public static final RegistryObject<BlockEntityType<ElectrolyzerBlockEntity>> ELECTROLYZER =
-            REGISTRY.register("electrolyzer", () ->
-                    BlockEntityType.Builder
-                            .of(ElectrolyzerBlockEntity::new,
-                                    CreateMixAndCleanModBlocks.ELECTROLYZER.get())
-                            .build(null));
+        public static final RegistryObject<BlockEntityType<ElectrolyzerBlockEntity>> ELECTROLYZER =
+                REGISTRY.register("electrolyzer", () ->
+                        BlockEntityType.Builder
+                                .of((pos, state) -> new ElectrolyzerBlockEntity(pos, state),
+                                        CreateMixAndCleanModBlocks.ELECTROLYZER.get())
+                                .build(null));
 }
