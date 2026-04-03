@@ -1,51 +1,73 @@
 package net.mcreator.createmixandclean.block;
 
-import com.simibubi.create.content.kinetics.base.HorizontalKineticBlock;
-import com.simibubi.create.foundation.block.IBE;
-import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
-import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlockEntities;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.Containers;
+import net.minecraft.core.BlockPos;
 
-public class ElectrolyzerBlock extends HorizontalKineticBlock
-        implements IBE<ElectrolyzerBlockEntity> {
+import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
+import net.mcreator.createmixandclean.block.entity.ElectrolyzerBlockEntity;
 
-    public ElectrolyzerBlock() {
-        this(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of()
-                .strength(3.5f, 6f)
-                .requiresCorrectToolForDrops(PickaxeItem)
-                .sound(net.minecraft.world.level.block.SoundType.METAL));
-    }
+public class ElectrolyzerBlock extends Block implements EntityBlock {
+	public ElectrolyzerBlock() {
+		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(2f, 6f).instrument(NoteBlockInstrument.BASEDRUM));
+	}
 
-    public ElectrolyzerBlock(Properties properties) {
-        super(properties);
-    }
+	@Override
+	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
+		return 12;
+	}
 
-    // ── IBE wiring ──────────────────────────────────────────────
-    @Override
-    public Class<ElectrolyzerBlockEntity> getBlockEntityClass() {
-        return ElectrolyzerBlockEntity.class;
-    }
+	@Override
+	public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
+		BlockEntity tileEntity = worldIn.getBlockEntity(pos);
+		return tileEntity instanceof MenuProvider menuProvider ? menuProvider : null;
+	}
 
-    @Override
-    public BlockEntityType<? extends ElectrolyzerBlockEntity> getBlockEntityType() {
-        return CreateMixAndCleanModBlockEntities.ELECTROLYZER.get();
-    }
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new ElectrolyzerBlockEntity(pos, state);
+	}
 
-    // ── Kinetics ─────────────────────────────────────────────────
-    @Override
-    public Direction.Axis getRotationAxis(BlockState state) {
-        // Shaft runs along the horizontal facing axis (N↔S or E↔W)
-        return state.getValue(HORIZONTAL_FACING).getAxis();
-    }
+	@Override
+	public boolean triggerEvent(BlockState state, Level world, BlockPos pos, int eventID, int eventParam) {
+		super.triggerEvent(state, world, pos, eventID, eventParam);
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		return blockEntity != null && blockEntity.triggerEvent(eventID, eventParam);
+	}
 
-    @Override
-    public boolean hasShaftTowards(LevelReader world, BlockPos pos,
-                                    BlockState state, Direction face) {
-        return face.getAxis() == getRotationAxis(state);
-    }
+	@Override
+	public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
+		if (state.getBlock() != newState.getBlock()) {
+			BlockEntity blockEntity = world.getBlockEntity(pos);
+			if (blockEntity instanceof ElectrolyzerBlockEntity be) {
+				Containers.dropContents(world, pos, be);
+				world.updateNeighbourForOutputSignal(pos, this);
+			}
+			super.onRemove(state, world, pos, newState, isMoving);
+		}
+	}
+
+	@Override
+	public boolean hasAnalogOutputSignal(BlockState state) {
+		return true;
+	}
+
+	@Override
+	public int getAnalogOutputSignal(BlockState blockState, Level world, BlockPos pos) {
+		BlockEntity tileentity = world.getBlockEntity(pos);
+		if (tileentity instanceof ElectrolyzerBlockEntity be)
+			return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
+		else
+			return 0;
+	}
 }

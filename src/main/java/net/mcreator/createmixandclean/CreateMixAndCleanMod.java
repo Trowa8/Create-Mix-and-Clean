@@ -41,6 +41,7 @@ public class CreateMixAndCleanMod {
 		IEventBus bus = context.getModEventBus();
 		CreateMixAndCleanModSounds.REGISTRY.register(bus);
 		CreateMixAndCleanModBlocks.REGISTRY.register(bus);
+		CreateMixAndCleanModBlockEntities.REGISTRY.register(bus);
 		CreateMixAndCleanModItems.REGISTRY.register(bus);
 		CreateMixAndCleanModTabs.REGISTRY.register(bus);
 		CreateMixAndCleanModFluids.REGISTRY.register(bus);
@@ -50,7 +51,7 @@ public class CreateMixAndCleanMod {
 		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(bus);
 		CreateMixAndCleanModRecipeTypes.TYPES.register(bus);
 		if (net.minecraftforge.fml.loading.FMLEnvironment.dist.isClient()) {
-    		CreateMixAndCleanPartialModels.init();
+			CreateMixAndCleanPartialModels.init();
 		}
 		bus.addListener(this::commonSetup);
 		// End of user code block mod init

@@ -2581,6 +2581,7 @@
       "registry_name": "electrolyzer",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/createmixandclean/block/entity/ElectrolyzerBlockEntity.java",
           "src/main/resources/assets/create_mix_and_clean/blockstates/electrolyzer.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/electrolyzer.json",
           "src/main/resources/data/create_mix_and_clean/loot_tables/blocks/electrolyzer.json",
@@ -2775,6 +2776,9 @@
     ],
     "ITEMS:minecraft:music_discs": [
       "~CUSTOM:MusicDiscMyceliumMen"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:Electrolyzer"
     ]
   },
   "tab_element_order": {
@@ -2802,7 +2806,8 @@
       "MusicDiscMyceliumMen",
       "PurifiedDeshOre",
       "PurifiedOstrumOre",
-      "PurifiedCaloriteOre"
+      "PurifiedCaloriteOre",
+      "Electrolyzer"
     ]
   },
   "language_map": {
@@ -2893,6 +2898,7 @@
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluidTypes.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluids.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlocks.java",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlockEntities.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModItems.java",
       "src/main/java/net/mcreator/createmixandclean/network/CreateMixAndCleanModVariables.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModModels.java",
