@@ -47,7 +47,6 @@ public class CreateMixAndCleanMod {
 		CreateMixAndCleanModFluids.REGISTRY.register(bus);
 		CreateMixAndCleanModFluidTypes.REGISTRY.register(bus);
 		// Start of user code block mod init
-		CreateMixAndCleanModBlockEntities.REGISTRY.register(bus);
 		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(bus);
 		CreateMixAndCleanModRecipeTypes.TYPES.register(bus);
 		if (net.minecraftforge.fml.loading.FMLEnvironment.dist.isClient()) {

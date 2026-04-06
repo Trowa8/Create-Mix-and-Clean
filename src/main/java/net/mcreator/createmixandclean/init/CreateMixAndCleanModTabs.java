@@ -41,5 +41,6 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_DESH_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_OSTRUM_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_CALORITE_ORE.get());
+				tabData.accept(CreateMixAndCleanModBlocks.ELECTROLYZER.get().asItem());
 			}).build());
 }

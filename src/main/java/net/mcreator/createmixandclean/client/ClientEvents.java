@@ -1,6 +1,6 @@
 package net.mcreator.createmixandclean.client;
 
-import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
+import net.mcreator.createmixandclean.block.entity.ElectrolyzerBlockEntity;
 import net.mcreator.createmixandclean.client.renderer.ElectrolyzerRenderer;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlockEntities;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;

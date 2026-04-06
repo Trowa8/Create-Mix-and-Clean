@@ -1,73 +1,90 @@
 package net.mcreator.createmixandclean.block;
 
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.Containers;
-import net.minecraft.core.BlockPos;
-
-import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
+import com.simibubi.create.content.kinetics.base.HorizontalKineticBlock;
+import com.simibubi.create.foundation.block.IBE;
 import net.mcreator.createmixandclean.block.entity.ElectrolyzerBlockEntity;
+import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlockEntities;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class ElectrolyzerBlock extends Block implements EntityBlock {
-	public ElectrolyzerBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(2f, 6f).instrument(NoteBlockInstrument.BASEDRUM));
-	}
+public class ElectrolyzerBlock extends HorizontalKineticBlock
+        implements IBE<ElectrolyzerBlockEntity> {
 
-	@Override
-	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		return 12;
-	}
+    // No-arg constructor so MCreator's ElectrolyzerBlock::new in
+    // CreateMixAndCleanModBlocks.java still compiles after regeneration
+    public ElectrolyzerBlock() {
+        this(BlockBehaviour.Properties.of()
+                .strength(3.5f, 6f)
+                .requiresCorrectToolForDrops()
+                .sound(SoundType.METAL));
+    }
 
-	@Override
-	public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
-		BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-		return tileEntity instanceof MenuProvider menuProvider ? menuProvider : null;
-	}
+    public ElectrolyzerBlock(Properties properties) {
+        super(properties);
+    }
 
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new ElectrolyzerBlockEntity(pos, state);
-	}
+    // ── IBE ─────────────────────────────────────────────────────────────────
+    // IBE implements EntityBlock for us — no need for newBlockEntity or
+    // EntityBlock separately.
 
-	@Override
-	public boolean triggerEvent(BlockState state, Level world, BlockPos pos, int eventID, int eventParam) {
-		super.triggerEvent(state, world, pos, eventID, eventParam);
-		BlockEntity blockEntity = world.getBlockEntity(pos);
-		return blockEntity != null && blockEntity.triggerEvent(eventID, eventParam);
-	}
+    @Override
+    public Class<ElectrolyzerBlockEntity> getBlockEntityClass() {
+        return ElectrolyzerBlockEntity.class;
+    }
 
-	@Override
-	public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
-		if (state.getBlock() != newState.getBlock()) {
-			BlockEntity blockEntity = world.getBlockEntity(pos);
-			if (blockEntity instanceof ElectrolyzerBlockEntity be) {
-				Containers.dropContents(world, pos, be);
-				world.updateNeighbourForOutputSignal(pos, this);
-			}
-			super.onRemove(state, world, pos, newState, isMoving);
-		}
-	}
+    @Override
+    public BlockEntityType<? extends ElectrolyzerBlockEntity> getBlockEntityType() {
+        return CreateMixAndCleanModBlockEntities.ELECTROLYZER.get();
+    }
 
-	@Override
-	public boolean hasAnalogOutputSignal(BlockState state) {
-		return true;
-	}
+    // ── Kinetics ─────────────────────────────────────────────────────────────
+    // Shaft runs along the axis of the horizontal facing direction,
+    // connecting on both sides (N↔S or E↔W depending on placement).
 
-	@Override
-	public int getAnalogOutputSignal(BlockState blockState, Level world, BlockPos pos) {
-		BlockEntity tileentity = world.getBlockEntity(pos);
-		if (tileentity instanceof ElectrolyzerBlockEntity be)
-			return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
-		else
-			return 0;
-	}
+    @Override
+    public Direction.Axis getRotationAxis(BlockState state) {
+        return state.getValue(HORIZONTAL_FACING).getAxis();
+    }
+
+    @Override
+    public boolean hasShaftTowards(LevelReader world, BlockPos pos,
+                                    BlockState state, Direction face) {
+        return face.getAxis() == getRotationAxis(state);
+    }
+
+    // ── From MCreator element config ─────────────────────────────────────────
+    // lightOpacity: 12
+    @Override
+    public int getLightBlock(BlockState state, BlockGetter world, BlockPos pos) {
+        return 12;
+    }
+
+    // inventoryComparatorPower: true — output based on FE stored
+    @Override
+    public boolean hasAnalogOutputSignal(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public int getAnalogOutputSignal(BlockState state, Level world, BlockPos pos) {
+        return getBlockEntityOptional(world, pos)
+                .map(be -> (int) (((float) be.getEnergyStored() / 10000f) * 15))
+                .orElse(0);
+    }
+
+    @Override
+    public boolean triggerEvent(BlockState state, Level world,
+                              BlockPos pos, int eventID, int eventParam) {
+        super.triggerEvent(state, world, pos, eventID, eventParam);
+        return getBlockEntityOptional(world, pos)
+                .map(be -> be.triggerEvent(eventID, eventParam))
+                .orElse(false);
+    }
 }

@@ -5,7 +5,7 @@ import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import net.createmod.catnip.render.CachedBuffers;
 import net.createmod.catnip.render.SuperByteBuffer;
-import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
+import net.mcreator.createmixandclean.block.entity.ElectrolyzerBlockEntity;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanPartialModels;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;

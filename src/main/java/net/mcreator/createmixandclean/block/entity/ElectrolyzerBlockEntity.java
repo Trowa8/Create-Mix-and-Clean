@@ -1,165 +1,183 @@
 package net.mcreator.createmixandclean.block.entity;
 
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.energy.EnergyStorage;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.capabilities.Capability;
-
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.WorldlyContainer;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.network.chat.Component;
-import net.minecraft.nbt.IntTag;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-
+import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlockEntities;
-import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
+import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.items.IItemHandler;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Optional;
 
-import java.util.stream.IntStream;
+public class ElectrolyzerBlockEntity extends KineticBlockEntity {
 
-public class ElectrolyzerBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
-	private NonNullList<ItemStack> stacks = NonNullList.withSize(9, ItemStack.EMPTY);
-	private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
+    private static final int   BUFFER_SIZE   = 10_000;
+    private static final int   FE_PER_RECIPE = 100;
+    private static final float FE_PER_RPM    = 0.5f;
 
-	public ElectrolyzerBlockEntity(BlockPos position, BlockState state) {
-		super(CreateMixAndCleanModBlockEntities.ELECTROLYZER.get(), position, state);
-	}
+    private final EnergyStorage energyStorage = new EnergyStorage(BUFFER_SIZE);
+    private LazyOptional<IEnergyStorage> lazyEnergy = LazyOptional.empty();
+    private float feAccumulator = 0f;
 
-	@Override
-	public void load(CompoundTag compound) {
-		super.load(compound);
-		if (!this.tryLoadLootTable(compound))
-			this.stacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-		ContainerHelper.loadAllItems(compound, this.stacks);
-		if (compound.get("energyStorage") instanceof IntTag intTag)
-			energyStorage.deserializeNBT(intTag);
-	}
+    private int    processingTick = 0;
+    private int    processingTime = 200;
+    private boolean processing    = false;
+    private ElectrolyzerRecipe currentRecipe = null;
 
-	@Override
-	public void saveAdditional(CompoundTag compound) {
-		super.saveAdditional(compound);
-		if (!this.trySaveLootTable(compound)) {
-			ContainerHelper.saveAllItems(compound, this.stacks);
-		}
-		compound.put("energyStorage", energyStorage.serializeNBT());
-	}
+    // Synced to client for head animation interpolation
+    public float headOffset     = 0f;
+    public float prevHeadOffset = 0f;
 
-	@Override
-	public ClientboundBlockEntityDataPacket getUpdatePacket() {
-		return ClientboundBlockEntityDataPacket.create(this);
-	}
+    // Two-arg constructor — matches BlockEntityType.BlockEntitySupplier<T>
+    public ElectrolyzerBlockEntity(BlockPos pos, BlockState state) {
+        super(CreateMixAndCleanModBlockEntities.ELECTROLYZER.get(), pos, state);
+    }
 
-	@Override
-	public CompoundTag getUpdateTag() {
-		return this.saveWithFullMetadata();
-	}
+    // ── Tick ─────────────────────────────────────────────────────────────────
 
-	@Override
-	public int getContainerSize() {
-		return stacks.size();
-	}
+    @Override
+    public void tick() {
+        super.tick();
+        if (level == null || level.isClientSide()) return;
 
-	@Override
-	public boolean isEmpty() {
-		for (ItemStack itemstack : this.stacks)
-			if (!itemstack.isEmpty())
-				return false;
-		return true;
-	}
+        generateFE();
 
-	@Override
-	public Component getDefaultName() {
-		return Component.literal("electrolyzer");
-	}
+        if (!processing) {
+            tryStartProcessing();
+        } else {
+            advanceProcessing();
+        }
+    }
 
-	@Override
-	public AbstractContainerMenu createMenu(int id, Inventory inventory) {
-		return ChestMenu.threeRows(id, inventory);
-	}
+    private void generateFE() {
+        float rpm = Math.abs(getSpeed());
+        if (rpm <= 0) return;
+        feAccumulator += rpm * FE_PER_RPM;
+        int toStore = (int) feAccumulator;
+        if (toStore > 0) {
+            energyStorage.receiveEnergy(toStore, false);
+            feAccumulator -= toStore;
+            setChanged();
+        }
+    }
 
-	@Override
-	public Component getDisplayName() {
-		return Component.literal("Electrolyzer");
-	}
+    private void tryStartProcessing() {
+        if (energyStorage.getEnergyStored() < FE_PER_RECIPE) return;
+        if (Math.abs(getSpeed()) == 0) return;
+        Optional<ElectrolyzerRecipe> match = findRecipe();
+        if (match.isEmpty()) return;
+        currentRecipe  = match.get();
+        processingTime = currentRecipe.getProcessingTime();
+        processingTick = 0;
+        processing     = true;
+        sendData();
+    }
 
-	@Override
-	protected NonNullList<ItemStack> getItems() {
-		return this.stacks;
-	}
+    private void advanceProcessing() {
+        processingTick++;
+        prevHeadOffset = headOffset;
+        float t = (float) processingTick / processingTime;
+        headOffset = (float) Math.sin(t * Math.PI); // smooth 0 → 1 → 0 arc
+        if (processingTick >= processingTime) finishProcessing();
+    }
 
-	@Override
-	protected void setItems(NonNullList<ItemStack> stacks) {
-		this.stacks = stacks;
-	}
+    private void finishProcessing() {
+        if (currentRecipe == null || level == null) { resetProcessing(); return; }
+        Optional<IItemHandler> basinInv = getBasinInventory();
+        if (basinInv.isEmpty() || !currentRecipe.matchesInventory(basinInv.get())) {
+            resetProcessing(); return;
+        }
+        currentRecipe.consumeIngredients(basinInv.get());
+        currentRecipe.depositResults(basinInv.get());
+        energyStorage.extractEnergy(FE_PER_RECIPE, false);
+        setChanged();
+        resetProcessing();
+    }
 
-	@Override
-	public boolean canPlaceItem(int index, ItemStack stack) {
-		return true;
-	}
+    private void resetProcessing() {
+        processing     = false;
+        processingTick = 0;
+        currentRecipe  = null;
+        headOffset     = 0f;
+        prevHeadOffset = 0f;
+        sendData();
+    }
 
-	@Override
-	public int[] getSlotsForFace(Direction side) {
-		return IntStream.range(0, this.getContainerSize()).toArray();
-	}
+    // ── Basin helpers ─────────────────────────────────────────────────────────
 
-	@Override
-	public boolean canPlaceItemThroughFace(int index, ItemStack itemstack, @Nullable Direction direction) {
-		return this.canPlaceItem(index, itemstack);
-	}
+    private Optional<IItemHandler> getBasinInventory() {
+        if (level == null) return Optional.empty();
+        var be = level.getBlockEntity(worldPosition.below());
+        if (be == null) return Optional.empty();
+        return be.getCapability(ForgeCapabilities.ITEM_HANDLER, Direction.UP).resolve();
+    }
 
-	@Override
-	public boolean canTakeItemThroughFace(int index, ItemStack itemstack, Direction direction) {
-		return true;
-	}
+    private Optional<ElectrolyzerRecipe> findRecipe() {
+        Optional<IItemHandler> inv = getBasinInventory();
+        if (inv.isEmpty() || level == null) return Optional.empty();
+        return level.getRecipeManager()
+                    .getAllRecipesFor(ElectrolyzerRecipe.TYPE)
+                    .stream()
+                    .filter(r -> r.matchesInventory(inv.get()))
+                    .findFirst();
+    }
 
-	private final EnergyStorage energyStorage = new EnergyStorage(1000, 20, 200, 0) {
-		@Override
-		public int receiveEnergy(int maxReceive, boolean simulate) {
-			int retval = super.receiveEnergy(maxReceive, simulate);
-			if (!simulate) {
-				setChanged();
-				level.sendBlockUpdated(worldPosition, level.getBlockState(worldPosition), level.getBlockState(worldPosition), 2);
-			}
-			return retval;
-		}
+    // ── NBT ──────────────────────────────────────────────────────────────────
 
-		@Override
-		public int extractEnergy(int maxExtract, boolean simulate) {
-			int retval = super.extractEnergy(maxExtract, simulate);
-			if (!simulate) {
-				setChanged();
-				level.sendBlockUpdated(worldPosition, level.getBlockState(worldPosition), level.getBlockState(worldPosition), 2);
-			}
-			return retval;
-		}
-	};
+    @Override
+    protected void read(CompoundTag tag, boolean clientPacket) {
+        super.read(tag, clientPacket);
+        processing     = tag.getBoolean("Processing");
+        processingTick = tag.getInt("ProcessingTick");
+        processingTime = tag.getInt("ProcessingTime");
+        headOffset     = tag.getFloat("HeadOffset");
+        if (tag.contains("Energy"))
+            energyStorage.deserializeNBT(tag.get("Energy"));
+    }
 
-	@Override
-	public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
-		if (!this.remove && facing != null && capability == ForgeCapabilities.ITEM_HANDLER)
-			return handlers[facing.ordinal()].cast();
-		if (!this.remove && capability == ForgeCapabilities.ENERGY)
-			return LazyOptional.of(() -> energyStorage).cast();
-		return super.getCapability(capability, facing);
-	}
+    @Override
+    public void write(CompoundTag tag, boolean clientPacket) {
+        super.write(tag, clientPacket);
+        tag.putBoolean("Processing",    processing);
+        tag.putInt("ProcessingTick",    processingTick);
+        tag.putInt("ProcessingTime",    processingTime);
+        tag.putFloat("HeadOffset",      headOffset);
+        tag.put("Energy", energyStorage.serializeNBT());
+    }
 
-	@Override
-	public void setRemoved() {
-		super.setRemoved();
-		for (LazyOptional<? extends IItemHandler> handler : handlers)
-			handler.invalidate();
-	}
+    // ── Capabilities ──────────────────────────────────────────────────────────
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        lazyEnergy = LazyOptional.of(() -> energyStorage);
+    }
+
+    @Override
+    public void invalidateCaps() {
+        super.invalidateCaps();
+        lazyEnergy.invalidate();
+    }
+
+    @Nonnull
+    @Override
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap,
+                                              @Nullable Direction side) {
+        if (cap == ForgeCapabilities.ENERGY) return lazyEnergy.cast();
+        return super.getCapability(cap, side);
+    }
+
+    // ── Getters for block and renderer ────────────────────────────────────────
+
+    public boolean isProcessing()  { return processing; }
+    public int getEnergyStored()   { return energyStorage.getEnergyStored(); }
 }

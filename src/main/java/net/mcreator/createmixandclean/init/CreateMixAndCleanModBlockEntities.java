@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Block;
 
-import net.mcreator.createmixandclean.blockentity.ElectrolyzerBlockEntity;
+import net.mcreator.createmixandclean.block.entity.ElectrolyzerBlockEntity;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
 public class CreateMixAndCleanModBlockEntities {
