@@ -23,6 +23,7 @@ public class ElectrolyzerBlock extends HorizontalKineticBlock
         this(BlockBehaviour.Properties.of()
                 .strength(3.5f, 6f)
                 .requiresCorrectToolForDrops()
+                .noOcclusion()
                 .sound(SoundType.METAL));
     }
 

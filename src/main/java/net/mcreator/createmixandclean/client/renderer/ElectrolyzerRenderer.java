@@ -1,8 +1,6 @@
 package net.mcreator.createmixandclean.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import dev.engine_room.flywheel.api.visualization.VisualizationManager;
-import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import net.createmod.catnip.render.CachedBuffers;
 import net.createmod.catnip.render.SuperByteBuffer;
 import net.mcreator.createmixandclean.block.entity.ElectrolyzerBlockEntity;
@@ -10,14 +8,16 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanPartialModels;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
+import com.simibubi.create.content.kinetics.base.HorizontalKineticBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 
 public class ElectrolyzerRenderer
         extends KineticBlockEntityRenderer<ElectrolyzerBlockEntity> {
 
-    private static final float MAX_PLUNGE = 0.9375f;
+    // How far the electrode plunges into the basin (in blocks).
+    // 1.0 = full block down. Adjust visually if needed.
+    private static final float MAX_PLUNGE = 1.0f;
 
     public ElectrolyzerRenderer(BlockEntityRendererProvider.Context ctx) {
         super(ctx);
@@ -28,36 +28,48 @@ public class ElectrolyzerRenderer
                                PoseStack ms, MultiBufferSource buffers,
                                int light, int overlay) {
 
-        // Skip if Flywheel is handling visualization
-        if (VisualizationManager.supportsVisualization(be.getLevel())) return;
-
         BlockState state = be.getBlockState();
-        Direction facing = state.getValue(
-                com.simibubi.create.content.kinetics.base.HorizontalKineticBlock.HORIZONTAL_FACING);
 
-        // Render the rotating shaft body via the standard kinetic renderer
-        super.renderSafe(be, partialTicks, ms, buffers, light, overlay);
+        // ── Shaft ────────────────────────────────────────────────────────────
+        // Bypass super.renderSafe() — KineticBlockEntityRenderer.renderSafe()
+        // also exits early when VisualizationManager.supportsVisualization() is
+        // true, which it always is in normal play. Since we have no Flywheel
+        // Visual registered, calling the static method directly is the only path
+        // that produces pixels for the shaft.
+        KineticBlockEntityRenderer.renderRotatingKineticBlock(
+                be,
+                shaft(state.getValue(HorizontalKineticBlock.HORIZONTAL_FACING).getAxis()),
+                ms,
+                buffers.getBuffer(RenderType.solid()),
+                light);
 
-        // Interpolate head plunge offset
-        float headOffset = be.prevHeadOffset
+        // ── Electrode head ────────────────────────────────────────────────────
+        // Use CachedBuffers.partial (NOT partialFacing) — the electrode goes
+        // straight down regardless of which direction the block faces.
+        // partialFacing rotates the model toward a horizontal facing direction,
+        // which is why it was producing a horizontal result.
+        float offset = be.prevHeadOffset
                 + (be.headOffset - be.prevHeadOffset) * partialTicks;
-        float yTranslation = -headOffset * MAX_PLUNGE;
 
-        SuperByteBuffer headRender = CachedBuffers.partialFacing(
+        ((SuperByteBuffer) CachedBuffers.partial(
                 CreateMixAndCleanPartialModels.ELECTROLYZER_HEAD,
-                state,
-                Direction.UP); // UP = model baked upright, facing param rotates it
-
-        ((SuperByteBuffer) headRender.translate(0, yTranslation, 0))
+                state)
+                .translate(0f, -(offset * MAX_PLUNGE) - 0.5f, 0f))
                 .light(light)
                 .renderInto(ms, buffers.getBuffer(RenderType.solid()));
     }
 
     @Override
     protected BlockState getRenderedBlockState(ElectrolyzerBlockEntity be) {
-        // Tell the kinetic base renderer to draw the shaft spinning on the correct axis
         return shaft(be.getBlockState()
-                .getValue(com.simibubi.create.content.kinetics.base.HorizontalKineticBlock.HORIZONTAL_FACING)
+                .getValue(HorizontalKineticBlock.HORIZONTAL_FACING)
                 .getAxis());
+    }
+
+    @Override
+    public boolean shouldRenderOffScreen(ElectrolyzerBlockEntity be) {
+        // Electrode extends below the 1x1x1 bounding box while plunging.
+        // Without this, frustum culling clips it when viewed from certain angles.
+        return true;
     }
 }
