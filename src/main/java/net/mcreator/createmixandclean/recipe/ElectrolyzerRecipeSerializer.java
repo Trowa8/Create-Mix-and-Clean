@@ -1,4 +1,4 @@
-package net.mcreator.createmixandclean.recipe;  // ← was main.java.net.mcreator...
+package net.mcreator.createmixandclean.recipe;
 
 import com.google.gson.*;
 import net.minecraft.core.NonNullList;

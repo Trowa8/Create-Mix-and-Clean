@@ -17,8 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 public class ElectrolyzerBlock extends HorizontalKineticBlock
         implements IBE<ElectrolyzerBlockEntity> {
 
-    // No-arg constructor so MCreator's ElectrolyzerBlock::new in
-    // CreateMixAndCleanModBlocks.java still compiles after regeneration
     public ElectrolyzerBlock() {
         this(BlockBehaviour.Properties.of()
                 .strength(3.5f, 6f)
@@ -31,9 +29,6 @@ public class ElectrolyzerBlock extends HorizontalKineticBlock
         super(properties);
     }
 
-    // ── IBE ─────────────────────────────────────────────────────────────────
-    // IBE implements EntityBlock for us — no need for newBlockEntity or
-    // EntityBlock separately.
 
     @Override
     public Class<ElectrolyzerBlockEntity> getBlockEntityClass() {
@@ -44,10 +39,6 @@ public class ElectrolyzerBlock extends HorizontalKineticBlock
     public BlockEntityType<? extends ElectrolyzerBlockEntity> getBlockEntityType() {
         return CreateMixAndCleanModBlockEntities.ELECTROLYZER.get();
     }
-
-    // ── Kinetics ─────────────────────────────────────────────────────────────
-    // Shaft runs along the axis of the horizontal facing direction,
-    // connecting on both sides (N↔S or E↔W depending on placement).
 
     @Override
     public Direction.Axis getRotationAxis(BlockState state) {
@@ -60,14 +51,11 @@ public class ElectrolyzerBlock extends HorizontalKineticBlock
         return face.getAxis() == getRotationAxis(state);
     }
 
-    // ── From MCreator element config ─────────────────────────────────────────
-    // lightOpacity: 12
     @Override
     public int getLightBlock(BlockState state, BlockGetter world, BlockPos pos) {
-        return 12;
+        return 0;
     }
 
-    // inventoryComparatorPower: true — output based on FE stored
     @Override
     public boolean hasAnalogOutputSignal(BlockState state) {
         return true;

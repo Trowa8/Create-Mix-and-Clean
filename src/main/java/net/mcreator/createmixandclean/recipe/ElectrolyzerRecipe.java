@@ -1,7 +1,4 @@
-package net.mcreator.createmixandclean.recipe;  // ← was main.java.net.mcreator...
-
-// ← REMOVED: import net.mcreator.createmixandclean.init.CreateMixAndCleanModRecipeTypes;
-// That was unused and circular
+package net.mcreator.createmixandclean.recipe;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
