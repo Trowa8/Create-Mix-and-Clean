@@ -77,5 +77,15 @@
   "item.create_mix_and_clean.purified_calorite_ore": "Purified Calorite Ore",
   "item.create_mix_and_clean.dirty_combined_calorite": "Dirty Combined Calorite",
   "item.create_mix_and_clean.combined_calorite": "Combined Calorite",
-  "block.create_mix_and_clean.electrolyzer": "Electrolyzer"
+  "block.create_mix_and_clean.electrolyzer": "Electrolyzer",
+  "subtitles.electrolyzer_processing": "Electricity Hums",
+  "item.create_mix_and_clean.table_salt": "Table Salt",
+  "fluid.create_mix_and_clean.iron_slurry": "Iron Slurry",
+  "block.create_mix_and_clean.iron_slurry": "Iron Slurry",
+  "item.create_mix_and_clean.iron_slurry_bucket": "Iron Slurry Bucket",
+  "fluid_type.create_mix_and_clean.iron_slurry": "Iron Slurry",
+  "block.create_mix_and_clean.oxygen_gas": "Hydrogen Gas",
+  "fluid.create_mix_and_clean.oxygen_gas": "Hydrogen Gas",
+  "item.create_mix_and_clean.oxygen_gas_bucket": "Oxygen Gas Bucket",
+  "fluid_type.create_mix_and_clean.oxygen_gas": "Hydrogen Gas"
 }

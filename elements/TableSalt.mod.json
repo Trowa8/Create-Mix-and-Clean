@@ -3,13 +3,13 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "caustic_soda",
+    "texture": "table_salt",
     "customModelName": "Normal",
     "guiTexture": "",
     "customProperties": {},
     "states": [],
     "animations": [],
-    "name": "Caustic Soda",
+    "name": "Table Salt",
     "rarity": "COMMON",
     "creativeTabs": [
       {
@@ -18,7 +18,7 @@
     ],
     "stackSize": 64,
     "enchantability": 0,
-    "useDuration": 200,
+    "useDuration": 32,
     "toolType": 1.0,
     "damageCount": 0,
     "recipeRemainder": {
@@ -38,10 +38,7 @@
       "fixedValue": false
     },
     "inventorySize": 9,
-    "inventoryStackSize": 64,
-    "onFinishUsingItem": {
-      "name": "CausticSodaPlayerFinishesUsingItem"
-    },
+    "inventoryStackSize": 99,
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,
@@ -50,14 +47,14 @@
     },
     "projectileDisableAmmoCheck": false,
     "isFood": true,
-    "nutritionalValue": 6,
-    "saturation": 2.0,
+    "nutritionalValue": 0,
+    "saturation": 0.5,
     "eatResultItem": {
       "value": ""
     },
     "isMeat": true,
     "isAlwaysEdible": true,
-    "animation": "drink",
+    "animation": "eat",
     "isMusicDisc": false,
     "musicDiscMusic": {
       "value": ""

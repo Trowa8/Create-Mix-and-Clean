@@ -9,10 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 
-import net.mcreator.createmixandclean.block.HydrogenGasBlock;
-import net.mcreator.createmixandclean.block.HydrochloricAcidBlock;
-import net.mcreator.createmixandclean.block.ElectrolyzerBlock;
-import net.mcreator.createmixandclean.block.ChlorineGasBlock;
+import net.mcreator.createmixandclean.block.*;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
 public class CreateMixAndCleanModBlocks {
@@ -21,11 +18,15 @@ public class CreateMixAndCleanModBlocks {
 	public static final RegistryObject<Block> HYDROGEN_GAS;
 	public static final RegistryObject<Block> HYDROCHLORIC_ACID;
 	public static final RegistryObject<Block> ELECTROLYZER;
+	public static final RegistryObject<Block> IRON_SLURRY;
+	public static final RegistryObject<Block> OXYGEN_GAS;
 	static {
 		CHLORINE_GAS = REGISTRY.register("chlorine_gas", ChlorineGasBlock::new);
 		HYDROGEN_GAS = REGISTRY.register("hydrogen_gas", HydrogenGasBlock::new);
 		HYDROCHLORIC_ACID = REGISTRY.register("hydrochloric_acid", HydrochloricAcidBlock::new);
 		ELECTROLYZER = REGISTRY.register("electrolyzer", ElectrolyzerBlock::new);
+		IRON_SLURRY = REGISTRY.register("iron_slurry", IronSlurryBlock::new);
+		OXYGEN_GAS = REGISTRY.register("oxygen_gas", OxygenGasBlock::new);
 	}
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

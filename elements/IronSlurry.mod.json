@@ -2,46 +2,46 @@
   "_fv": 79,
   "_type": "fluid",
   "definition": {
-    "name": "Hydrogen Gas",
-    "bucketName": "Hydrogen Gas Bucket",
-    "textureStill": "hydrogen_gas_still",
-    "textureFlowing": "hydrogen_gas_flowing",
+    "name": "Iron Slurry",
+    "bucketName": "Iron Slurry Bucket",
+    "textureStill": "iron_slurry_still",
+    "textureFlowing": "iron_slurry_still",
     "textureRenderOverlay": "",
     "hasFog": true,
     "fogColor": {
-      "value": -1513240,
+      "value": -12107460,
       "falpha": 0.0
     },
     "fogStartDistance": {
       "fixedValue": 0.0
     },
     "fogEndDistance": {
-      "fixedValue": 80.0
+      "fixedValue": 48.0
     },
     "tintType": "No tint",
     "canMultiply": false,
-    "flowRate": 3,
+    "flowRate": 5,
     "levelDecrease": 1,
-    "slopeFindDistance": 1,
+    "slopeFindDistance": 4,
     "spawnParticles": false,
     "dripParticle": {
       "value": "ASH"
     },
-    "flowStrength": 0.19999999999999998,
+    "flowStrength": 1.0,
     "luminosity": 0,
-    "density": -200,
-    "viscosity": 10,
-    "temperature": 300,
+    "density": 1400,
+    "viscosity": 2000,
+    "temperature": 288,
     "type": "WATER",
     "generateBucket": true,
-    "textureBucket": "hydrogen_gas_bucket_texture",
+    "textureBucket": "iron_slurry_bucket",
     "creativeTabs": [
       {
         "value": "CUSTOM:CreateMixAndClean"
       }
     ],
     "emptySound": {
-      "value": ""
+      "value": "block.fungus.place"
     },
     "rarity": "COMMON",
     "specialInformation": {
@@ -52,9 +52,9 @@
     "lightOpacity": 1,
     "emissiveRendering": false,
     "tickRate": 0,
-    "ignitedByLava": true,
-    "flammability": 20,
-    "fireSpreadSpeed": 10,
-    "colorOnMap": "AIR"
+    "ignitedByLava": false,
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "colorOnMap": "DEFAULT"
   }
 }

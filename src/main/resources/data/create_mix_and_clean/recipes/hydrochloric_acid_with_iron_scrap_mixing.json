@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "create_mix_and_clean:hydrochloric_acid",
+      "amount": 125
+    },
+    {
+      "tag": "create_mix_and_clean:recyclable/iron"
+    }
+  ],
+  "results": [
+	{
+      "fluid": "create_mix_and_clean:iron_slurry",
+      "amount": 250
+    }
+  ]
+}

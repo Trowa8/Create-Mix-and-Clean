@@ -1,9 +1,6 @@
 {
-  "type": "create:mixing",
+  "type": "create_mix_and_clean:electrolysis",
   "ingredients": [
-    {
-      "item": "create:rose_quartz"
-    },
     {
       "item": "create:limestone",
       "count": 4

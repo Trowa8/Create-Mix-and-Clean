@@ -2,10 +2,13 @@ package net.mcreator.createmixandclean.block.entity;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlockEntities;
+import net.mcreator.createmixandclean.init.CreateMixAndCleanModSounds;
 import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
@@ -21,26 +24,27 @@ import java.util.Optional;
 
 public class ElectrolyzerBlockEntity extends KineticBlockEntity {
 
-    private static final int   BUFFER_SIZE    = 10_000;
-    private static final int   FE_PER_RECIPE  = 100;
-    private static final float FE_PER_RPM     = 0.5f;
+    private static final int   BUFFER_SIZE   = 2_000;
+    private static final int   FE_PER_RECIPE = 300;
+    private static final float FE_PER_RPM    = 0.02f;
+    private static final int   PLUNGE_TICKS  = 32;
+    private static final int   RETURN_TICKS  = 32;
 
-    private static final int   PLUNGE_TICKS   = 8;
-    private static final int   RETURN_TICKS   = 8;
-
-    private final EnergyStorage energyStorage  = new EnergyStorage(BUFFER_SIZE);
+    private final EnergyStorage energyStorage = new EnergyStorage(BUFFER_SIZE);
     private LazyOptional<IEnergyStorage> lazyEnergy = LazyOptional.empty();
     private float feAccumulator = 0f;
 
-    private boolean processing   = false;
-    private boolean returning    = false;
-    private int  processingTick  = 0;
-    private int  processingTime  = 200;
-    private int  returnTick      = 0;
+    private boolean processing    = false;
+    private boolean returning     = false;
+    private int     processingTick = 0;
+    private int     processingTime = 200;
+    private int     returnTick     = 0;
     private ElectrolyzerRecipe currentRecipe = null;
 
-    public float headOffset     = 0f;
-    public float prevHeadOffset = 0f;
+    public  float headOffset      = 0f;
+    public  float prevHeadOffset  = 0f;
+    private int   clientPlungeTick = 0;   
+    private boolean clientWasProcessing = false;
 
     public ElectrolyzerBlockEntity(BlockPos pos, BlockState state) {
         super(CreateMixAndCleanModBlockEntities.ELECTROLYZER.get(), pos, state);
@@ -74,6 +78,7 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         }
     }
 
+
     private void generateFE() {
         float rpm = Math.abs(getSpeed());
         if (rpm <= 0) return;
@@ -97,9 +102,26 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         processing     = true;
         sendData();
     }
+    private void playProcessingSound() {
+    if (level == null) return;
+    level.playSound(null,
+            worldPosition,
+            CreateMixAndCleanModSounds.ELECTROLYZER_PROCESSING.get(),
+            net.minecraft.sounds.SoundSource.BLOCKS,
+            0.8f,
+            0.9f + level.getRandom().nextFloat() * 0.2f);
+    }
 
     private void tickProcessing() {
         processingTick++;
+        if (processingTick > PLUNGE_TICKS) {
+            if (processingTick % 4 == 0) {
+                spawnProcessingParticles();
+            }
+            if (processingTick % 20 == 0) {
+                playProcessingSound();
+            }
+        }
 
         if (processingTick >= processingTime + PLUNGE_TICKS) {
             finishProcessing();
@@ -137,10 +159,10 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
     }
 
     private void startReturn() {
-        processing    = false;
-        currentRecipe = null;
-        returning     = true;
-        returnTick    = 0;
+        processing     = false;
+        currentRecipe  = null;
+        returning      = true;
+        returnTick     = 0;
         processingTick = 0;
         sendData();
     }
@@ -148,9 +170,34 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
     private void tickReturn() {
         returnTick++;
         if (returnTick >= RETURN_TICKS) {
-            returning = false;
+            returning  = false;
             returnTick = 0;
             sendData();
+        }
+    }
+
+    private void spawnProcessingParticles() {
+        if (!(level instanceof net.minecraft.server.level.ServerLevel serverLevel)) return;
+        BlockPos basinPos = worldPosition.below(2);
+        RandomSource rand = serverLevel.getRandom();
+
+        for (int i = 0; i < 3; i++) {
+            double x = basinPos.getX() + 0.2 + rand.nextDouble() * 0.6;
+            double y = basinPos.getY() + 0.9 + rand.nextDouble() * 0.2;
+            double z = basinPos.getZ() + 0.2 + rand.nextDouble() * 0.6;
+
+            double vx = (rand.nextDouble() - 0.5) * 0.1;
+            double vy = rand.nextDouble() * 0.05;
+            double vz = (rand.nextDouble() - 0.5) * 0.1;
+
+            serverLevel.sendParticles(ParticleTypes.ELECTRIC_SPARK,
+                    x, y, z, 1, vx, vy, vz, 0.01);
+
+            if (i == 0) {
+                serverLevel.sendParticles(ParticleTypes.BUBBLE,
+                        x, basinPos.getY() + 0.5, z,
+                        1, vx, vy * 2, vz, 0.01);
+            }
         }
     }
 
@@ -158,20 +205,27 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         prevHeadOffset = headOffset;
 
         if (processing) {
-            if (processingTick < PLUNGE_TICKS) {
-                float t = (float) processingTick / PLUNGE_TICKS;
-                headOffset = easeIn(t);
+            if (!clientWasProcessing) {
+                clientPlungeTick = 0;
+            }
+            clientWasProcessing = true;
+
+            if (clientPlungeTick < PLUNGE_TICKS) {
+                headOffset = easeIn((float) clientPlungeTick / PLUNGE_TICKS);
+                clientPlungeTick++;
             } else {
                 headOffset = 1.0f;
             }
-            processingTick++;
 
         } else if (returning) {
-            float t = (float) returnTick / RETURN_TICKS;
+            clientWasProcessing = false;
+            float t = (float) returnTick / Math.max(RETURN_TICKS, 1);
             headOffset = 1.0f - easeIn(t);
-            returnTick++;
+            returnTick = Math.min(returnTick + 1, RETURN_TICKS);
 
         } else {
+            clientWasProcessing = false;
+            clientPlungeTick = 0;
             headOffset = 0f;
         }
     }
@@ -179,6 +233,7 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
     private float easeIn(float t) {
         return (float) Math.sin(t * Math.PI / 2f);
     }
+
 
     private Optional<IItemHandler> getBasinInventory() {
         if (level == null) return Optional.empty();
@@ -197,6 +252,7 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
                     .findFirst();
     }
 
+
     @Override
     protected void read(CompoundTag tag, boolean clientPacket) {
         super.read(tag, clientPacket);
@@ -205,7 +261,6 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         processingTick = tag.getInt("ProcessingTick");
         processingTime = tag.getInt("ProcessingTime");
         returnTick     = tag.getInt("ReturnTick");
-        headOffset     = tag.getFloat("HeadOffset");
         if (!clientPacket && tag.contains("Energy"))
             energyStorage.deserializeNBT(tag.get("Energy"));
     }
@@ -218,10 +273,10 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         tag.putInt("ProcessingTick",    processingTick);
         tag.putInt("ProcessingTime",    processingTime);
         tag.putInt("ReturnTick",        returnTick);
-        tag.putFloat("HeadOffset",      headOffset);
         if (!clientPacket)
             tag.put("Energy", energyStorage.serializeNBT());
     }
+
 
     @Override
     public void onLoad() {

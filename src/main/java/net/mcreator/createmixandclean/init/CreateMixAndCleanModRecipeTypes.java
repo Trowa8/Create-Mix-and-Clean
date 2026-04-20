@@ -20,10 +20,10 @@ public class CreateMixAndCleanModRecipeTypes {
                     CreateMixAndCleanMod.MODID);
 
     public static final RegistryObject<RecipeType<ElectrolyzerRecipe>> ELECTROLYZING =
-            TYPES.register("electrolyzing", () -> RecipeType.simple(
+            TYPES.register("electrolysis", () -> RecipeType.simple(
                     new net.minecraft.resources.ResourceLocation(
-                            CreateMixAndCleanMod.MODID, "electrolyzing")));
+                            CreateMixAndCleanMod.MODID, "electrolysis")));
 
     public static final RegistryObject<RecipeSerializer<ElectrolyzerRecipe>> ELECTROLYZING_SERIALIZER =
-            SERIALIZERS.register("electrolyzing", ElectrolyzerRecipeSerializer::new);
+            SERIALIZERS.register("electrolysis", ElectrolyzerRecipeSerializer::new);
 }

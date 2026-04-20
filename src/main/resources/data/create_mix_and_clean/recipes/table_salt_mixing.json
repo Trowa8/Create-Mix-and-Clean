@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "create_mix_and_clean:hydrochloric_acid",
+      "amount": 25
+    },
+    {
+      "item": "create_mix_and_clean:caustic_soda"
+    }
+  ],
+  "results": [
+	{
+      "item": "create_mix_and_clean:table_salt"
+    }
+  ]
+}

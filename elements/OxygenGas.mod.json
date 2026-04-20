@@ -3,11 +3,11 @@
   "_type": "fluid",
   "definition": {
     "name": "Hydrogen Gas",
-    "bucketName": "Hydrogen Gas Bucket",
-    "textureStill": "hydrogen_gas_still",
-    "textureFlowing": "hydrogen_gas_flowing",
+    "bucketName": "Oxygen Gas Bucket",
+    "textureStill": "oxygen_gas_still",
+    "textureFlowing": "oxygen_gas_still",
     "textureRenderOverlay": "",
-    "hasFog": true,
+    "hasFog": false,
     "fogColor": {
       "value": -1513240,
       "falpha": 0.0
@@ -20,21 +20,21 @@
     },
     "tintType": "No tint",
     "canMultiply": false,
-    "flowRate": 3,
+    "flowRate": 2,
     "levelDecrease": 1,
     "slopeFindDistance": 1,
     "spawnParticles": false,
     "dripParticle": {
       "value": "ASH"
     },
-    "flowStrength": 0.19999999999999998,
+    "flowStrength": 0.0,
     "luminosity": 0,
     "density": -200,
-    "viscosity": 10,
+    "viscosity": 2,
     "temperature": 300,
     "type": "WATER",
     "generateBucket": true,
-    "textureBucket": "hydrogen_gas_bucket_texture",
+    "textureBucket": "oxygen_gas_bucket",
     "creativeTabs": [
       {
         "value": "CUSTOM:CreateMixAndClean"
@@ -47,7 +47,7 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "resistance": 100.0,
+    "resistance": 99.0,
     "luminance": 0,
     "lightOpacity": 1,
     "emissiveRendering": false,

@@ -16,4 +16,6 @@ public class CreateMixAndCleanModSounds {
 	public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, CreateMixAndCleanMod.MODID);
 	public static final RegistryObject<SoundEvent> RETCHING = REGISTRY.register("retching", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "retching")));
 	public static final RegistryObject<SoundEvent> MYCELIUM_MEN_MUSIC = REGISTRY.register("mycelium_men_music", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "mycelium_men_music")));
+	public static final RegistryObject<SoundEvent> ELECTROLYZER_PROCESSING = REGISTRY.register("electrolyzer_processing",
+			() -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "electrolyzer_processing")));
 }

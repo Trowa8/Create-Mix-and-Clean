@@ -2589,6 +2589,95 @@
           "src/main/resources/assets/create_mix_and_clean/models/item/electrolyzer.json"
         ]
       }
+    },
+    {
+      "name": "TableSalt",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "table_salt",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/table_salt.json",
+          "src/main/java/net/mcreator/createmixandclean/item/TableSaltItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "TableSaltMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "table_salt_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/table_salt_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HydrochloricAcidWithIronScrapMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hydrochloric_acid_with_iron_scrap_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/hydrochloric_acid_with_iron_scrap_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "IronSlurry",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iron_slurry",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/fluid/IronSlurryFluid.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/iron_slurry.json",
+          "src/main/java/net/mcreator/createmixandclean/item/IronSlurryItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/iron_slurry.json",
+          "src/main/java/net/mcreator/createmixandclean/block/IronSlurryBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/iron_slurry_bucket.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/IronSlurryFluidType.java"
+        ]
+      }
+    },
+    {
+      "name": "IronSlurryElectrolysis",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "iron_slurry_electrolysis",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/iron_slurry_electrolysis.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "OxygenGas",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oxygen_gas",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/OxygenGasItem.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/oxygen_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/OxygenGasFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/block/OxygenGasBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/oxygen_gas_bucket.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/OxygenGasFluid.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/oxygen_gas.json"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -2617,6 +2706,14 @@
       ],
       "category": "music",
       "subtitle": "Shroomy Music Plays"
+    },
+    {
+      "name": "electrolyzer_processing",
+      "files": [
+        "electrolyzer_processing"
+      ],
+      "category": "block",
+      "subtitle": "Electricity Hums"
     }
   ],
   "tag_elements": {
@@ -2640,6 +2737,8 @@
       "CUSTOM:HydrogenGas.bucket"
     ],
     "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:OxygenGas",
+      "~CUSTOM:IronSlurry",
       "~CUSTOM:HydrochloricAcid",
       "~CUSTOM:HydrogenGas",
       "~CUSTOM:ChlorineGas"
@@ -2779,6 +2878,21 @@
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
       "~CUSTOM:Electrolyzer"
+    ],
+    "ITEMS:mod:recyclable/iron": [
+      "Blocks.IRON_DOOR",
+      "Blocks.IRON_TRAPDOOR",
+      "Blocks.IRON_BARS",
+      "Items.IRON_SWORD",
+      "Items.IRON_SHOVEL",
+      "Items.IRON_PICKAXE",
+      "Items.IRON_AXE",
+      "Items.IRON_HOE",
+      "Items.IRON_HELMET",
+      "Items.IRON_CHESTPLATE",
+      "Items.IRON_LEGGINGS",
+      "Items.IRON_BOOTS",
+      "Items.IRON_HORSE_ARMOR"
     ]
   },
   "tab_element_order": {
@@ -2807,7 +2921,10 @@
       "PurifiedDeshOre",
       "PurifiedOstrumOre",
       "PurifiedCaloriteOre",
-      "Electrolyzer"
+      "Electrolyzer",
+      "TableSalt",
+      "IronSlurry",
+      "OxygenGas"
     ]
   },
   "language_map": {
@@ -2890,7 +3007,17 @@
       "item.create_mix_and_clean.purified_calorite_ore": "Purified Calorite Ore",
       "item.create_mix_and_clean.dirty_combined_calorite": "Dirty Combined Calorite",
       "item.create_mix_and_clean.combined_calorite": "Combined Calorite",
-      "block.create_mix_and_clean.electrolyzer": "Electrolyzer"
+      "block.create_mix_and_clean.electrolyzer": "Electrolyzer",
+      "subtitles.electrolyzer_processing": "Electricity Hums",
+      "item.create_mix_and_clean.table_salt": "Table Salt",
+      "fluid.create_mix_and_clean.iron_slurry": "Iron Slurry",
+      "block.create_mix_and_clean.iron_slurry": "Iron Slurry",
+      "item.create_mix_and_clean.iron_slurry_bucket": "Iron Slurry Bucket",
+      "fluid_type.create_mix_and_clean.iron_slurry": "Iron Slurry",
+      "block.create_mix_and_clean.oxygen_gas": "Hydrogen Gas",
+      "fluid.create_mix_and_clean.oxygen_gas": "Hydrogen Gas",
+      "item.create_mix_and_clean.oxygen_gas_bucket": "Oxygen Gas Bucket",
+      "fluid_type.create_mix_and_clean.oxygen_gas": "Hydrogen Gas"
     }
   },
   "metadata": {

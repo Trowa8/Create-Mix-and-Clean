@@ -24,5 +24,14 @@
         "stream": true
       }
     ]
+  },
+  "electrolyzer_processing": {
+    "subtitle": "subtitles.electrolyzer_processing",
+    "sounds": [
+      {
+        "name": "create_mix_and_clean:electrolyzer_processing",
+        "stream": false
+      }
+    ]
   }
 }

@@ -42,5 +42,8 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_OSTRUM_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_CALORITE_ORE.get());
 				tabData.accept(CreateMixAndCleanModBlocks.ELECTROLYZER.get().asItem());
+				tabData.accept(CreateMixAndCleanModItems.TABLE_SALT.get());
+				tabData.accept(CreateMixAndCleanModItems.IRON_SLURRY_BUCKET.get());
+				tabData.accept(CreateMixAndCleanModItems.OXYGEN_GAS_BUCKET.get());
 			}).build());
 }

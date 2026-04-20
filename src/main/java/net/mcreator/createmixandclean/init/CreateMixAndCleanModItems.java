@@ -74,6 +74,9 @@ public class CreateMixAndCleanModItems {
 	public static final RegistryObject<Item> DIRTY_COMBINED_CALORITE;
 	public static final RegistryObject<Item> COMBINED_CALORITE;
 	public static final RegistryObject<Item> ELECTROLYZER;
+	public static final RegistryObject<Item> TABLE_SALT;
+	public static final RegistryObject<Item> IRON_SLURRY_BUCKET;
+	public static final RegistryObject<Item> OXYGEN_GAS_BUCKET;
 	static {
 		WASTE_ROCK = REGISTRY.register("waste_rock", WasteRockItem::new);
 		PURIFIED_IRON_ORE = REGISTRY.register("purified_iron_ore", PurifiedIronOreItem::new);
@@ -133,6 +136,9 @@ public class CreateMixAndCleanModItems {
 		DIRTY_COMBINED_CALORITE = REGISTRY.register("dirty_combined_calorite", DirtyCombinedCaloriteItem::new);
 		COMBINED_CALORITE = REGISTRY.register("combined_calorite", CombinedCaloriteItem::new);
 		ELECTROLYZER = block(CreateMixAndCleanModBlocks.ELECTROLYZER);
+		TABLE_SALT = REGISTRY.register("table_salt", TableSaltItem::new);
+		IRON_SLURRY_BUCKET = REGISTRY.register("iron_slurry_bucket", IronSlurryItem::new);
+		OXYGEN_GAS_BUCKET = REGISTRY.register("oxygen_gas_bucket", OxygenGasItem::new);
 	}
 
 	// Start of user code block custom items

@@ -2,16 +2,12 @@ package net.mcreator.createmixandclean.item;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.network.chat.Component;
 
 import net.mcreator.createmixandclean.procedures.CausticSodaPlayerFinishesUsingItemProcedure;
-
-import java.util.List;
 
 public class CausticSodaItem extends Item {
 	public CausticSodaItem() {
@@ -26,12 +22,6 @@ public class CausticSodaItem extends Item {
 	@Override
 	public int getUseDuration(ItemStack itemstack) {
 		return 200;
-	}
-
-	@Override
-	public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag flag) {
-		super.appendHoverText(itemstack, level, list, flag);
-		list.add(Component.translatable("item.create_mix_and_clean.caustic_soda.description_0"));
 	}
 
 	@Override

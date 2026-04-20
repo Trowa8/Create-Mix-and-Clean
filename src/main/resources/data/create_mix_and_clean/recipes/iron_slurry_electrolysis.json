@@ -1,0 +1,15 @@
+{
+  "type": "create_mix_and_clean:electrolysis",
+  "processingTime": 200,
+  "ingredients": [
+	{
+      "fluid": "create_mix_and_clean:iron_slurry",
+      "amount": 150
+    }
+  ],
+  "results": [
+	{
+	  "item": "create_mix_and_clean:purified_iron_ore"
+	}
+  ]
+}
