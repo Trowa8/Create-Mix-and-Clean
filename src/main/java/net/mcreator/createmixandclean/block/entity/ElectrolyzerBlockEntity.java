@@ -16,6 +16,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.IItemHandler;
 
 import javax.annotation.Nonnull;
@@ -43,19 +44,17 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
 
     public  float headOffset      = 0f;
     public  float prevHeadOffset  = 0f;
-    private int   clientPlungeTick = 0;   
+    private int   clientPlungeTick = 0;
     private boolean clientWasProcessing = false;
 
     public ElectrolyzerBlockEntity(BlockPos pos, BlockState state) {
         super(CreateMixAndCleanModBlockEntities.ELECTROLYZER.get(), pos, state);
     }
 
-
     @Override
     public AABB getRenderBoundingBox() {
         return new AABB(worldPosition).inflate(1, 0, 1).expandTowards(0, -3, 0);
     }
-
 
     @Override
     public void tick() {
@@ -77,7 +76,6 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
             tryStartProcessing();
         }
     }
-
 
     private void generateFE() {
         float rpm = Math.abs(getSpeed());
@@ -102,27 +100,23 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         processing     = true;
         sendData();
     }
+
     private void playProcessingSound() {
-    if (level == null) return;
-    level.playSound(null,
-            worldPosition,
-            CreateMixAndCleanModSounds.ELECTROLYZER_PROCESSING.get(),
-            net.minecraft.sounds.SoundSource.BLOCKS,
-            0.8f,
-            0.9f + level.getRandom().nextFloat() * 0.2f);
+        if (level == null) return;
+        level.playSound(null,
+                worldPosition,
+                CreateMixAndCleanModSounds.ELECTROLYZER_PROCESSING.get(),
+                net.minecraft.sounds.SoundSource.BLOCKS,
+                0.8f,
+                0.9f + level.getRandom().nextFloat() * 0.2f);
     }
 
     private void tickProcessing() {
         processingTick++;
         if (processingTick > PLUNGE_TICKS) {
-            if (processingTick % 4 == 0) {
-                spawnProcessingParticles();
-            }
-            if (processingTick % 20 == 0) {
-                playProcessingSound();
-            }
+            if (processingTick % 4 == 0) spawnProcessingParticles();
+            if (processingTick % 20 == 0) playProcessingSound();
         }
-
         if (processingTick >= processingTime + PLUNGE_TICKS) {
             finishProcessing();
         }
@@ -143,15 +137,14 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         energyStorage.extractEnergy(FE_PER_RECIPE, false);
         setChanged();
 
-        if (energyStorage.getEnergyStored() >= FE_PER_RECIPE
-                && Math.abs(getSpeed()) > 0) {
-            Optional<ElectrolyzerRecipe> next = findRecipe();
-            if (next.isPresent()) {
-                currentRecipe  = next.get();
-                processingTime = next.get().getProcessingTime();
-                processingTick = 0;
-                sendData();
-                return;
+        if (!currentRecipe.getFluidIngredients().isEmpty()) {
+            var basinBE = level.getBlockEntity(worldPosition.below(2));
+            if (basinBE != null) {
+                basinBE.getCapability(ForgeCapabilities.FLUID_HANDLER, Direction.UP)
+                        .ifPresent(tank -> {
+                            for (FluidStack fs : currentRecipe.getFluidIngredients())
+                                tank.drain(fs, net.minecraftforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
+                        });
             }
         }
 
@@ -185,14 +178,11 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
             double x = basinPos.getX() + 0.2 + rand.nextDouble() * 0.6;
             double y = basinPos.getY() + 0.9 + rand.nextDouble() * 0.2;
             double z = basinPos.getZ() + 0.2 + rand.nextDouble() * 0.6;
-
             double vx = (rand.nextDouble() - 0.5) * 0.1;
             double vy = rand.nextDouble() * 0.05;
             double vz = (rand.nextDouble() - 0.5) * 0.1;
-
             serverLevel.sendParticles(ParticleTypes.ELECTRIC_SPARK,
                     x, y, z, 1, vx, vy, vz, 0.01);
-
             if (i == 0) {
                 serverLevel.sendParticles(ParticleTypes.BUBBLE,
                         x, basinPos.getY() + 0.5, z,
@@ -205,24 +195,19 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         prevHeadOffset = headOffset;
 
         if (processing) {
-            if (!clientWasProcessing) {
-                clientPlungeTick = 0;
-            }
+            if (!clientWasProcessing) clientPlungeTick = 0;
             clientWasProcessing = true;
-
             if (clientPlungeTick < PLUNGE_TICKS) {
                 headOffset = easeIn((float) clientPlungeTick / PLUNGE_TICKS);
                 clientPlungeTick++;
             } else {
                 headOffset = 1.0f;
             }
-
         } else if (returning) {
             clientWasProcessing = false;
             float t = (float) returnTick / Math.max(RETURN_TICKS, 1);
             headOffset = 1.0f - easeIn(t);
             returnTick = Math.min(returnTick + 1, RETURN_TICKS);
-
         } else {
             clientWasProcessing = false;
             clientPlungeTick = 0;
@@ -234,7 +219,6 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         return (float) Math.sin(t * Math.PI / 2f);
     }
 
-
     private Optional<IItemHandler> getBasinInventory() {
         if (level == null) return Optional.empty();
         var be = level.getBlockEntity(worldPosition.below(2));
@@ -245,13 +229,18 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
     private Optional<ElectrolyzerRecipe> findRecipe() {
         Optional<IItemHandler> inv = getBasinInventory();
         if (inv.isEmpty() || level == null) return Optional.empty();
+
+        var basinBE = level.getBlockEntity(worldPosition.below(2));
+        var fluidTank = basinBE == null ? null :
+                basinBE.getCapability(ForgeCapabilities.FLUID_HANDLER, Direction.UP)
+                        .resolve().orElse(null);
+
         return level.getRecipeManager()
                     .getAllRecipesFor(ElectrolyzerRecipe.TYPE)
                     .stream()
-                    .filter(r -> r.matchesInventory(inv.get()))
+                    .filter(r -> r.matchesInventory(inv.get()) && r.matchesFluids(fluidTank))
                     .findFirst();
     }
-
 
     @Override
     protected void read(CompoundTag tag, boolean clientPacket) {
@@ -276,7 +265,6 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         if (!clientPacket)
             tag.put("Energy", energyStorage.serializeNBT());
     }
-
 
     @Override
     public void onLoad() {

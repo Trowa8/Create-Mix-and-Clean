@@ -6,8 +6,11 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandler;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +21,20 @@ public class ElectrolyzerRecipe implements Recipe<Container> {
 
     private final ResourceLocation            id;
     private final NonNullList<Ingredient>     ingredients;
+    private final List<FluidStack>            fluidIngredients;
     private final List<ItemStack>             results;
     private final int                         processingTime;
 
     public ElectrolyzerRecipe(ResourceLocation id,
                                NonNullList<Ingredient> ingredients,
+                               List<FluidStack> fluidIngredients,
                                List<ItemStack> results,
                                int processingTime) {
-        this.id             = id;
-        this.ingredients    = ingredients;
-        this.results        = results;
-        this.processingTime = processingTime;
+        this.id               = id;
+        this.ingredients      = ingredients;
+        this.fluidIngredients = fluidIngredients;
+        this.results          = results;
+        this.processingTime   = processingTime;
     }
 
     public boolean matchesInventory(IItemHandler inv) {
@@ -46,6 +52,24 @@ public class ElectrolyzerRecipe implements Recipe<Container> {
                 }
             }
             return false;
+        }
+        return true;
+    }
+
+    public boolean matchesFluids(@Nullable IFluidHandler tank) {
+        if (fluidIngredients.isEmpty()) return true;
+        if (tank == null) return false;
+        for (FluidStack required : fluidIngredients) {
+            boolean found = false;
+            for (int i = 0; i < tank.getTanks(); i++) {
+                FluidStack inTank = tank.getFluidInTank(i);
+                if (inTank.getFluid() == required.getFluid()
+                        && inTank.getAmount() >= required.getAmount()) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return false;
         }
         return true;
     }
@@ -73,19 +97,15 @@ public class ElectrolyzerRecipe implements Recipe<Container> {
     }
 
     @Override public boolean matches(Container c, Level l) { return false; }
-    @Override
-    public ItemStack assemble(Container container, net.minecraft.core.RegistryAccess registryAccess) {
-        return ItemStack.EMPTY;
-    }
+    @Override public ItemStack assemble(Container container, net.minecraft.core.RegistryAccess registryAccess) { return ItemStack.EMPTY; }
     @Override public boolean canCraftInDimensions(int w, int h) { return true; }
-    @Override public ItemStack getResultItem(net.minecraft.core.RegistryAccess a) {
-        return results.isEmpty() ? ItemStack.EMPTY : results.get(0);
-    }
-    @Override public ResourceLocation getId()               { return id; }
-    @Override public RecipeSerializer<?> getSerializer()    { return SERIALIZER; }
-    @Override public RecipeType<?> getType()                { return TYPE; }
+    @Override public ItemStack getResultItem(net.minecraft.core.RegistryAccess a) { return results.isEmpty() ? ItemStack.EMPTY : results.get(0); }
+    @Override public ResourceLocation getId()            { return id; }
+    @Override public RecipeSerializer<?> getSerializer() { return SERIALIZER; }
+    @Override public RecipeType<?> getType()             { return TYPE; }
     @Override public NonNullList<Ingredient> getIngredients() { return ingredients; }
 
-    public int getProcessingTime()   { return processingTime; }
-    public List<ItemStack> getResults() { return results; }
+    public int getProcessingTime()            { return processingTime; }
+    public List<ItemStack> getResults()       { return results; }
+    public List<FluidStack> getFluidIngredients() { return fluidIngredients; }
 }

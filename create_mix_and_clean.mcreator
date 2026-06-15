@@ -2876,9 +2876,7 @@
     "ITEMS:minecraft:music_discs": [
       "~CUSTOM:MusicDiscMyceliumMen"
     ],
-    "BLOCKS:minecraft:mineable/pickaxe": [
-      "~CUSTOM:Electrolyzer"
-    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [],
     "ITEMS:mod:recyclable/iron": [
       "Blocks.IRON_DOOR",
       "Blocks.IRON_TRAPDOOR",
@@ -2955,7 +2953,6 @@
       "item.create_mix_and_clean.purified_copper_ore": "Purified Copper Ore",
       "item.create_mix_and_clean.dirty_combined_zinc": "Dirty Combined Zinc",
       "item_group.create_mix_and_clean.mix_and_clean": "Mix And Clean",
-      "item.create_mix_and_clean.caustic_soda.description_0": "DO NOT CONSUME IN ANY WAY!",
       "block.create_mix_and_clean.hydrochloric_acid": "Hydrochloric Acid",
       "item_group.create_mix_and_clean.create_mix_and_clean": "Create Mix and Clean",
       "item.create_mix_and_clean.hydrogen_gas_bucket": "Hydrogen Gas Bucket",
@@ -3014,16 +3011,18 @@
       "block.create_mix_and_clean.iron_slurry": "Iron Slurry",
       "item.create_mix_and_clean.iron_slurry_bucket": "Iron Slurry Bucket",
       "fluid_type.create_mix_and_clean.iron_slurry": "Iron Slurry",
-      "block.create_mix_and_clean.oxygen_gas": "Hydrogen Gas",
-      "fluid.create_mix_and_clean.oxygen_gas": "Hydrogen Gas",
+      "block.create_mix_and_clean.oxygen_gas": "Oxygen Gas",
+      "fluid.create_mix_and_clean.oxygen_gas": "Oxygen Gas",
       "item.create_mix_and_clean.oxygen_gas_bucket": "Oxygen Gas Bucket",
-      "fluid_type.create_mix_and_clean.oxygen_gas": "Hydrogen Gas"
+      "fluid_type.create_mix_and_clean.oxygen_gas": "Oxygen Gas",
+      "jei.create_mix_and_clean.electrolysis": "Electrolysis"
     }
   },
   "metadata": {
     "files": [
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluidTypes.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluids.java",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBrewingRecipes.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlocks.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlockEntities.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModItems.java",
@@ -3097,7 +3096,9 @@
     ],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "jei"
+    ],
     "currentGenerator": "forge-1.20.1",
     "credits": "Created using MCreator",
     "modElementsPackage": "net.mcreator.createmixandclean"
