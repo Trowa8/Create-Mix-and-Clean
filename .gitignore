@@ -13,6 +13,7 @@ run/
 build/
 out/
 logs/
+bin/
 
 # --- Gradle caches and wrappers ---
 .gradle/
