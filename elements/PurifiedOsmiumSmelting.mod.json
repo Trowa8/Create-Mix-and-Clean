@@ -12,10 +12,10 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedZincOre"
+      "value": "CUSTOM:PurifiedOsmiumOre"
     },
     "smeltingReturnStack": {
-      "value": "Items.COPPER_INGOT"
+      "value": "Items.OSMIUM_INGOT"
     },
     "name": "purified_osmium_smelting",
     "namespace": "mod"

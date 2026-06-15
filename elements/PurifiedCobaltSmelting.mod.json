@@ -12,10 +12,10 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedZincOre"
+      "value": "CUSTOM:PurifiedCobaltOre"
     },
     "smeltingReturnStack": {
-      "value": "Items.COPPER_INGOT"
+      "value": "Items.COBALT_INGOT"
     },
     "name": "purified_cobalt_smelting",
     "namespace": "mod"

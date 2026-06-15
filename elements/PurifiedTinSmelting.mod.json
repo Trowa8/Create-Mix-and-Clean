@@ -12,10 +12,10 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedZincOre"
+      "value": "CUSTOM:PurifiedTinOre"
     },
     "smeltingReturnStack": {
-      "value": "Items.COPPER_INGOT"
+      "value": "Items.TIN_INGOT"
     },
     "name": "purified_tin_smelting",
     "namespace": "mod"

@@ -12,10 +12,10 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedZincOre"
+      "value": "CUSTOM:PurifiedLeadOre"
     },
     "smeltingReturnStack": {
-      "value": "Items.COPPER_INGOT"
+      "value": "Items.LEAD_INGOT"
     },
     "name": "combined_lead_smelting_ie",
     "namespace": "mod"

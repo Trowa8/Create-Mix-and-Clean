@@ -15,7 +15,7 @@
       "value": "CUSTOM:PurifiedZincOre"
     },
     "smeltingReturnStack": {
-      "value": "Items.COPPER_INGOT"
+      "value": "Items.ZINC_INGOT"
     },
     "name": "combined_zinc_smelting",
     "namespace": "mod"
