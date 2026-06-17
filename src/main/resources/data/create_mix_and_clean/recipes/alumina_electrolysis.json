@@ -1,0 +1,25 @@
+{
+  "type": "create_mix_and_clean:electrolysis",
+  "processingTime": 300,
+  "ingredients": [
+	{
+      "fluid": "create_mix_and_clean:chlorine_gas",
+      "amount": 250
+    },
+    {
+      "item": "create_mix_and_clean:alumina"
+    },
+    {
+      "item": "create_mix_and_clean:table_salt"
+    }
+  ],
+  "results": [
+	{
+	  "item": "create_mix_and_clean:aluminum_ingot"
+	},
+	{
+      "fluid": "create_mix_and_clean:oxygen_gas",
+      "amount": 200
+    }
+  ]
+}

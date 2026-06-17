@@ -2678,6 +2678,505 @@
           "src/main/resources/assets/create_mix_and_clean/models/block/oxygen_gas.json"
         ]
       }
+    },
+    {
+      "name": "Bauxite",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bauxite",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/loot_tables/blocks/bauxite.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/bauxite.json",
+          "src/main/resources/data/create_mix_and_clean/worldgen/configured_feature/bauxite.json",
+          "src/main/resources/data/create_mix_and_clean/forge/biome_modifier/bauxite_biome_modifier.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/bauxite.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/bauxite.json",
+          "src/main/java/net/mcreator/createmixandclean/block/BauxiteBlock.java",
+          "src/main/resources/data/create_mix_and_clean/worldgen/placed_feature/bauxite.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "PurifiedBauxiteMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purified_bauxite_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/purified_bauxite_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Alumina",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "alumina",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/AluminaItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/alumina.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminaElectrolysis",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "alumina_electrolysis",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/alumina_electrolysis.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "AluminumIngot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aluminum_ingot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/AluminumIngotItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_ingot.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminaSandPaper",
+      "type": "item",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "alumina_sand_paper",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/alumina_sand_paper.json",
+          "src/main/java/net/mcreator/createmixandclean/item/AluminaSandPaperItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminumBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aluminum_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_block.json",
+          "src/main/java/net/mcreator/createmixandclean/block/AluminumBlockBlock.java",
+          "src/main/resources/data/create_mix_and_clean/loot_tables/blocks/aluminum_block.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_block.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_block.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminumDoor",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aluminum_door",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_right_open.json",
+          "src/main/resources/data/create_mix_and_clean/loot_tables/blocks/aluminum_door.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_left_open.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_left_open.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_right.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_right_open.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_right.json",
+          "src/main/java/net/mcreator/createmixandclean/block/AluminumDoorBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_door.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_left.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_door.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_left.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminumTrapdoor",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aluminum_trapdoor",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/loot_tables/blocks/aluminum_trapdoor.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_trapdoor_top.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_trapdoor.json",
+          "src/main/java/net/mcreator/createmixandclean/block/AluminumTrapdoorBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_trapdoor.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_trapdoor.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_trapdoor_open.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminumDoorRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "aluminum_door_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/advancements/recipes/aluminum_door_recipe.json",
+          "src/main/resources/data/create_mix_and_clean/recipes/aluminum_door_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "AluminumTrapdoorRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "aluminum_trapdoor_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/advancements/recipes/aluminum_trapdoor_recipe.json",
+          "src/main/resources/data/create_mix_and_clean/recipes/aluminum_trapdoor_recipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "BauxiteCrushing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "bauxite_crushing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/bauxite_crushing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "AirCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "air_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/air_compacting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "LiquidAir",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "liquid_air",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/LiquidAirFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/LiquidAirFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/block/LiquidAirBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/liquid_air.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/liquid_air_bucket.json",
+          "src/main/java/net/mcreator/createmixandclean/item/LiquidAirItem.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/liquid_air.json"
+        ]
+      }
+    },
+    {
+      "name": "NitrogenGas",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nitrogen_gas",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/NitrogenGasFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/NitrogenGasFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/block/NitrogenGasBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/nitrogen_gas_bucket.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/nitrogen_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/item/NitrogenGasItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/nitrogen_gas.json"
+        ]
+      }
+    },
+    {
+      "name": "LiquidAirMixing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "liquid_air_mixing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/liquid_air_mixing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "AmmoniaCompacting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "ammonia_compacting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/ammonia_compacting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Ammonia",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "ammonia",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/block/ammonia.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/ammonia.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/AmmoniaFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/AmmoniaFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/item/AmmoniaItem.java",
+          "src/main/java/net/mcreator/createmixandclean/block/AmmoniaBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/ammonia_bucket.json"
+        ]
+      }
+    },
+    {
+      "name": "OGI",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ogi",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/ogi_helmet.json",
+          "src/main/java/net/mcreator/createmixandclean/item/OGIItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AmmoniaEffectsHandler",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "ammonia_effects_handler",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/AmmoniaEffectsHandler.java"
+        ]
+      }
+    },
+    {
+      "name": "AluminumBlockrecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aluminum_blockrecipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/aluminum_block.json",
+          "src/main/resources/data/create_mix_and_clean/advancements/recipes/aluminum_blockrecipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "OGIGoggleSequenceCraft",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "ogi_goggle_sequence_craft",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/ogi_goggle_sequence_craft.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "UnfinishedOGIGoggles",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "unfinished_ogi_goggles",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/unfinished_ogi_goggles.json",
+          "src/main/java/net/mcreator/createmixandclean/item/UnfinishedOGIGogglesItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminumSheet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aluminum_sheet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_sheet.json",
+          "src/main/java/net/mcreator/createmixandclean/item/AluminumSheetItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminumIngotPressing",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "aluminum_ingot_pressing",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/aluminum_ingot_pressing.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "HazardProtection",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hazard_protection",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/item/HazardProtectionItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/hazard_protection_helmet.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "GasmaskFilter",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gasmask_filter",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/gasmask_filter.json",
+          "src/main/java/net/mcreator/createmixandclean/item/GasmaskFilterItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "HazardHelmetHandler",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hazard_helmet_handler",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/createmixandclean/HazardHelmetHandler.java"
+        ]
+      }
+    },
+    {
+      "name": "GasmaskMechanicalCrafting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "gasmask_mechanical_crafting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/gasmask_mechanical_crafting.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "GasmaskFilterrecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "gasmask_filterrecipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/gasmask_filterrecipe.json",
+          "src/main/resources/data/create_mix_and_clean/advancements/recipes/gasmask_filterrecipe.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "Electrode",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "electrode",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/electrode.json",
+          "src/main/java/net/mcreator/createmixandclean/item/ElectrodeItem.java"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "AluminaSandPaperCraft",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "alumina_sand_paper_craft",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/advancements/recipes/alumina_sand_paper_craft.json",
+          "src/main/resources/data/create_mix_and_clean/recipes/alumina_sand_paper.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "ElectrodeCraft",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "electrode_craft",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/recipes/electrode.json",
+          "src/main/resources/data/create_mix_and_clean/advancements/recipes/electrode_craft.json"
+        ]
+      },
+      "path": "~/Recipes"
+    },
+    {
+      "name": "EletrolyzerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "eletrolyzer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/create_mix_and_clean/advancements/recipes/eletrolyzer_recipe.json",
+          "src/main/resources/data/create_mix_and_clean/recipes/eletrolyzer.json"
+        ]
+      },
+      "path": "~/Recipes"
     }
   ],
   "variable_elements": [
@@ -2714,6 +3213,18 @@
       ],
       "category": "block",
       "subtitle": "Electricity Hums"
+    },
+    {
+      "name": "coughing",
+      "files": [
+        "cough1",
+        "cough2",
+        "cough3",
+        "cough4",
+        "cough5"
+      ],
+      "category": "player",
+      "subtitle": "Cough"
     }
   ],
   "tag_elements": {
@@ -2737,6 +3248,9 @@
       "CUSTOM:HydrogenGas.bucket"
     ],
     "BLOCKS:minecraft:replaceable": [
+      "~CUSTOM:Ammonia",
+      "~CUSTOM:NitrogenGas",
+      "~CUSTOM:LiquidAir",
       "~CUSTOM:OxygenGas",
       "~CUSTOM:IronSlurry",
       "~CUSTOM:HydrochloricAcid",
@@ -2783,9 +3297,6 @@
       "Blocks.WAXED_EXPOSED_COPPER",
       "Blocks.WAXED_WEATHERED_COPPER",
       "Blocks.WAXED_OXIDIZED_COPPER"
-    ],
-    "BLOCKS:minecraft:logs": [
-      "TAG:minecraft:logs"
     ],
     "ITEMS:minecraft:oxidized/cut_block": [
       "Blocks.EXPOSED_CUT_COPPER",
@@ -2876,7 +3387,12 @@
     "ITEMS:minecraft:music_discs": [
       "~CUSTOM:MusicDiscMyceliumMen"
     ],
-    "BLOCKS:minecraft:mineable/pickaxe": [],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:AluminumTrapdoor",
+      "~CUSTOM:AluminumDoor",
+      "~CUSTOM:AluminumBlock",
+      "~CUSTOM:Bauxite"
+    ],
     "ITEMS:mod:recyclable/iron": [
       "Blocks.IRON_DOOR",
       "Blocks.IRON_TRAPDOOR",
@@ -2891,21 +3407,47 @@
       "Items.IRON_LEGGINGS",
       "Items.IRON_BOOTS",
       "Items.IRON_HORSE_ARMOR"
+    ],
+    "BLOCKS:minecraft:needs_stone_tool": [
+      "~CUSTOM:Bauxite"
+    ],
+    "ITEMS:create:sandpaper": [
+      "CUSTOM:AluminaSandPaper"
+    ],
+    "BLOCKS:minecraft:needs_iron_tool": [
+      "~CUSTOM:AluminumBlock"
+    ],
+    "BLOCKS:minecraft:doors": [
+      "~CUSTOM:AluminumDoor"
+    ],
+    "BLOCKS:forge:ores/aluminum": [
+      "CUSTOM:Bauxite"
+    ],
+    "ITEMS:forge:ores/aluminum": [
+      "CUSTOM:Bauxite"
+    ],
+    "BLOCKS:minecraft:trapdoors": [
+      "~CUSTOM:AluminumTrapdoor"
     ]
   },
   "tab_element_order": {
     "CUSTOM:CreateMixAndClean": [
       "WasteRock",
       "CausticSoda",
-      "PurifiedIronOre",
-      "PurifiedGoldOre",
-      "PurifiedCopperOre",
-      "PurifiedZincOre",
       "NetheriteCrystal",
       "CrushedRawCobalt",
       "ChlorineGas",
       "HydrogenGas",
       "HydrochloricAcid",
+      "IronSlurry",
+      "OxygenGas",
+      "LiquidAir",
+      "NitrogenGas",
+      "Ammonia",
+      "PurifiedIronOre",
+      "PurifiedGoldOre",
+      "PurifiedCopperOre",
+      "PurifiedZincOre",
       "PurifiedOsmiumOre",
       "PurifiedPlatinumOre",
       "PurifiedSilverOre",
@@ -2915,14 +3457,24 @@
       "PurifiedUraniumOre",
       "PurifiedNickelOre",
       "PurifiedCobaltOre",
-      "MusicDiscMyceliumMen",
       "PurifiedDeshOre",
       "PurifiedOstrumOre",
       "PurifiedCaloriteOre",
+      "MusicDiscMyceliumMen",
       "Electrolyzer",
       "TableSalt",
-      "IronSlurry",
-      "OxygenGas"
+      "Bauxite",
+      "Alumina",
+      "AluminumIngot",
+      "AluminumSheet",
+      "AluminaSandPaper",
+      "AluminumBlock",
+      "AluminumDoor",
+      "AluminumTrapdoor",
+      "OGI",
+      "HazardProtection",
+      "GasmaskFilter",
+      "Electrode"
     ]
   },
   "language_map": {
@@ -3015,7 +3567,34 @@
       "fluid.create_mix_and_clean.oxygen_gas": "Oxygen Gas",
       "item.create_mix_and_clean.oxygen_gas_bucket": "Oxygen Gas Bucket",
       "fluid_type.create_mix_and_clean.oxygen_gas": "Oxygen Gas",
-      "jei.create_mix_and_clean.electrolysis": "Electrolysis"
+      "jei.create_mix_and_clean.electrolysis": "Electrolysis",
+      "block.create_mix_and_clean.bauxite": "Bauxite",
+      "item.create_mix_and_clean.alumina": "Alumina",
+      "item.create_mix_and_clean.aluminum_ingot": "Aluminum Ingot",
+      "item.create_mix_and_clean.alumina_sand_paper": "Alumina Sand Paper",
+      "block.create_mix_and_clean.aluminum_block": "Aluminum Block",
+      "block.create_mix_and_clean.aluminum_door": "Aluminum Door",
+      "block.create_mix_and_clean.aluminum_trapdoor": "Aluminum Trapdoor",
+      "fluid_type.create_mix_and_clean.liquid_air": "Liquid Air",
+      "fluid.create_mix_and_clean.liquid_air": "Liquid Air",
+      "block.create_mix_and_clean.liquid_air": "Liquid Air",
+      "item.create_mix_and_clean.liquid_air_bucket": "Liquid Air Bucket",
+      "fluid_type.create_mix_and_clean.nitrogen_gas": "Nitrogen Gas",
+      "item.create_mix_and_clean.nitrogen_gas_bucket": "Nitrogen Gas Bucket",
+      "block.create_mix_and_clean.nitrogen_gas": "Nitrogen Gas",
+      "fluid.create_mix_and_clean.nitrogen_gas": "Nitrogen Gas",
+      "item.create_mix_and_clean.ammonia_bucket": "Ammonia Gas Bucket",
+      "fluid.create_mix_and_clean.ammonia": "Ammonia",
+      "block.create_mix_and_clean.ammonia": "Ammonia",
+      "fluid_type.create_mix_and_clean.ammonia": "Ammonia",
+      "item.create_mix_and_clean.ogi_goggles": "OGI Goggles",
+      "item.create_mix_and_clean.ogi_helmet": "OGI Goggles",
+      "subtitles.coughing": "Cough",
+      "item.create_mix_and_clean.unfinished_ogi_goggles": "Unfinished OGI Goggles",
+      "item.create_mix_and_clean.aluminum_sheet": "Aluminum Sheet",
+      "item.create_mix_and_clean.hazard_protection_helmet": "Gasmask",
+      "item.create_mix_and_clean.gasmask_filter": "Gasmask Filter",
+      "item.create_mix_and_clean.electrode": "Electrode"
     }
   },
   "metadata": {
@@ -3085,7 +3664,7 @@
     "modid": "create_mix_and_clean",
     "modName": "Create: Mix And Clean",
     "version": "2.0.0",
-    "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 3 new fluids.",
+    "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 8 new fluids.",
     "author": "Trowa8",
     "websiteURL": "https://mcreator.net",
     "license": "MIT License",

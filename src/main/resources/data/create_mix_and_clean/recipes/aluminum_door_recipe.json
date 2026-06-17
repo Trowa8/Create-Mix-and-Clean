@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_door",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:aluminum_ingot"
+    },
+    {
+      "tag": "minecraft:wooden_doors"
+    }
+  ],
+  "result": {
+    "item": "create_mix_and_clean:aluminum_door",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_trapdoor",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:aluminum_ingot"
+    },
+    {
+      "tag": "minecraft:trapdoors"
+    }
+  ],
+  "result": {
+    "item": "create_mix_and_clean:aluminum_trapdoor",
+    "count": 1
+  }
+}

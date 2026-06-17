@@ -11,6 +11,7 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModRecipeTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import com.simibubi.create.AllBlocks;
 
 @JeiPlugin
 public class CreateMixAndCleanJEI implements IModPlugin {
@@ -37,7 +38,8 @@ public class CreateMixAndCleanJEI implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(
-                new ItemStack(CreateMixAndCleanModBlocks.ELECTROLYZER.get().asItem()),
-                ElectrolyzerCategory.RECIPE_TYPE);
+                new ItemStack(CreateMixAndCleanModBlocks.ELECTROLYZER.get().asItem()), ElectrolyzerCategory.RECIPE_TYPE);
+        registration.addRecipeCatalyst(
+                new ItemStack(AllBlocks.BASIN.get().asItem()), ElectrolyzerCategory.RECIPE_TYPE);
     }
 }

@@ -1,9 +1,10 @@
 {
   "type": "create_mix_and_clean:electrolysis",
+  "processingTime": 250,
   "ingredients": [
     {
       "item": "create:limestone",
-      "count": 4
+      "count": 2
     },
     {
       "fluid": "minecraft:water",
@@ -13,11 +14,11 @@
   "results": [
     {
       "fluid": "create_mix_and_clean:chlorine_gas",
-      "amount": 300
+      "amount": 350
     },
     {
       "fluid": "create_mix_and_clean:hydrogen_gas",
-      "amount": 300
+      "amount": 350
     },
     {
       "chance": 0.6,

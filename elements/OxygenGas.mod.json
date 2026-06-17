@@ -2,7 +2,7 @@
   "_fv": 79,
   "_type": "fluid",
   "definition": {
-    "name": "Hydrogen Gas",
+    "name": "Oxygen Gas",
     "bucketName": "Oxygen Gas Bucket",
     "textureStill": "oxygen_gas_still",
     "textureFlowing": "oxygen_gas_still",

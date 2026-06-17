@@ -1,0 +1,19 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "fluid": "create_mix_and_clean:hydrogen_gas",
+      "amount": 500
+    },
+    {
+      "fluid": "create_mix_and_clean:nitrogen_gas",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "fluid": "create_mix_and_clean:ammonia",
+      "amount": 1000
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "create_mix_and_clean:aluminum_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_mix_and_clean:aluminum_sheet"
+    }
+  ]
+}

@@ -1,8 +1,9 @@
 package net.mcreator.createmixandclean.compat.jei;
 
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
+
+import mezz.jei.api.forge.ForgeTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
@@ -15,10 +16,11 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlocks;
 import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraft.ChatFormatting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ElectrolyzerCategory implements mezz.jei.api.recipe.category.IRecipeCategory<ElectrolyzerRecipe> {
@@ -27,15 +29,23 @@ public class ElectrolyzerCategory implements mezz.jei.api.recipe.category.IRecip
             CreateMixAndCleanMod.MODID, "electrolyzing", ElectrolyzerRecipe.class);
 
     private static final int WIDTH  = 177;
-    private static final int HEIGHT = 70;
+    private static final int HEIGHT = 90;
 
     private final IDrawable background;
     private final IDrawable icon;
 
     public ElectrolyzerCategory(IGuiHelper guiHelper) {
         background = guiHelper.createBlankDrawable(WIDTH, HEIGHT);
-        icon = guiHelper.createDrawableItemStack(
+        IDrawable rawIcon = guiHelper.createDrawableItemStack(
             new ItemStack(CreateMixAndCleanModBlocks.ELECTROLYZER.get()));
+
+        icon = new IDrawable() {
+            @Override public int getWidth()  { return rawIcon.getWidth(); }
+            @Override public int getHeight() { return rawIcon.getHeight(); }
+            @Override public void draw(GuiGraphics graphics, int xOffset, int yOffset) {
+                rawIcon.draw(graphics, xOffset, yOffset + 2);
+            }
+        };
     }
 
     @Override
@@ -58,23 +68,84 @@ public class ElectrolyzerCategory implements mezz.jei.api.recipe.category.IRecip
         return icon;
     }
 
+    private IDrawable getChanceSlot(float chance) {
+        if (chance >= 1.0f) {
+            return CreateRecipeCategory.getRenderedSlot();
+        }
+        return new IDrawable() {
+            @Override
+            public int getWidth() { return 18; }
+
+            @Override
+            public int getHeight() { return 18; }
+
+            @Override
+            public void draw(GuiGraphics graphics, int xOffset, int yOffset) {
+                AllGuiTextures.JEI_CHANCE_SLOT.render(graphics, xOffset, yOffset);
+            }
+        };
+    }
+
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder,
                           ElectrolyzerRecipe recipe,
                           IFocusGroup focuses) {
 
-        List<Ingredient> ingredients = recipe.getIngredients();
+        List<ElectrolyzerRecipe.SizedIngredient> ingredients = recipe.getSizedIngredients();
         for (int i = 0; i < ingredients.size(); i++) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 27, 16 + i * 19)
+            ElectrolyzerRecipe.SizedIngredient sizedIng = ingredients.get(i);
+            
+            List<ItemStack> sizedStacks = new ArrayList<>();
+            for (ItemStack stack : sizedIng.getIngredient().getItems()) {
+                ItemStack copy = stack.copy();
+                copy.setCount(sizedIng.getCount());
+                sizedStacks.add(copy);
+            }
+
+            builder.addSlot(RecipeIngredientRole.INPUT, 40, 40 + i * 19)
                     .setBackground(CreateRecipeCategory.getRenderedSlot(), -1, -1)
-                    .addIngredients(ingredients.get(i));
+                    .addItemStacks(sizedStacks);
         }
 
-        List<ItemStack> results = recipe.getResults();
+        List<FluidStack> fluids = recipe.getFluidIngredients();
+        for (int i = 0; i < fluids.size(); i++) {
+            builder.addSlot(RecipeIngredientRole.INPUT, 20, 40 + i * 19)
+                    .addIngredient(ForgeTypes.FLUID_STACK, fluids.get(i))
+                    .setFluidRenderer(fluids.get(i).getAmount(), false, 16, 16);
+        }
+
+        int outIndex = 0;
+        
+        List<ElectrolyzerRecipe.ChanceResult> results = recipe.getChanceResults();
         for (int i = 0; i < results.size(); i++) {
-            builder.addSlot(RecipeIngredientRole.OUTPUT, 131, 16 + i * 19)
+            ElectrolyzerRecipe.ChanceResult res = results.get(i);
+            
+            int xOut = 133 + (outIndex % 2) * 19;
+            int yOut = 40 + (outIndex / 2) * 19;
+            
+            builder.addSlot(RecipeIngredientRole.OUTPUT, xOut, yOut)
+                    .setBackground(getChanceSlot(res.getChance()), -1, -1)
+                    .addItemStack(res.getStack())
+                    .addRichTooltipCallback((recipeSlotView, tooltip) -> {
+                        if (res.getChance() < 1.0f) {
+                            tooltip.add(Component.literal(String.format("Chance: %.0f%%", res.getChance() * 100))
+                                    .withStyle(ChatFormatting.GOLD));
+                        }
+                    });
+            outIndex++;
+        }
+
+        List<FluidStack> fluidResults = recipe.getFluidResults();
+        for (int i = 0; i < fluidResults.size(); i++) {
+            
+            int xOut = 133 + (outIndex % 2) * 19;
+            int yOut = 40 + (outIndex / 2) * 19;
+            
+            builder.addSlot(RecipeIngredientRole.OUTPUT, xOut, yOut)
                     .setBackground(CreateRecipeCategory.getRenderedSlot(), -1, -1)
-                    .addItemStack(results.get(i));
+                    .addIngredient(ForgeTypes.FLUID_STACK, fluidResults.get(i))
+                    .setFluidRenderer(fluidResults.get(i).getAmount(), false, 16, 16);
+            outIndex++;
         }
     }
 
@@ -84,9 +155,9 @@ public class ElectrolyzerCategory implements mezz.jei.api.recipe.category.IRecip
                      GuiGraphics graphics,
                      double mouseX, double mouseY) {
 
-        AllGuiTextures.JEI_SHADOW.render(graphics, 62, 30);
-        AllGuiTextures.JEI_LONG_ARROW.render(graphics, 52, 35);
+        AllGuiTextures.JEI_SHADOW.render(graphics, 78, 64);
+        AllGuiTextures.JEI_DOWN_ARROW.render(graphics, 128, 15);
 
-        AnimatedElectrolyzer.INSTANCE.draw(graphics, getBackground().getWidth() / 2, 22);
+        AnimatedElectrolyzer.INSTANCE.draw(graphics, getBackground().getWidth() / 2, 32);
     }
 }

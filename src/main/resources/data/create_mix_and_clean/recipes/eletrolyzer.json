@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+  	" c ",
+  	" b ",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "create_mix_and_clean:electrode"
+    },
+    "b": {
+      "item": "create:copper_casing"
+    },
+    "c": {
+      "item": "create:electron_tube"
+    }
+  },
+  "result": {
+    "item": "create_mix_and_clean:electrolyzer",
+    "count": 1
+  }
+}

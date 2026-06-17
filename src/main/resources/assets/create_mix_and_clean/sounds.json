@@ -33,5 +33,30 @@
         "stream": false
       }
     ]
+  },
+  "coughing": {
+    "subtitle": "subtitles.coughing",
+    "sounds": [
+      {
+        "name": "create_mix_and_clean:cough1",
+        "stream": false
+      },
+      {
+        "name": "create_mix_and_clean:cough2",
+        "stream": false
+      },
+      {
+        "name": "create_mix_and_clean:cough3",
+        "stream": false
+      },
+      {
+        "name": "create_mix_and_clean:cough4",
+        "stream": false
+      },
+      {
+        "name": "create_mix_and_clean:cough5",
+        "stream": false
+      }
+    ]
   }
 }

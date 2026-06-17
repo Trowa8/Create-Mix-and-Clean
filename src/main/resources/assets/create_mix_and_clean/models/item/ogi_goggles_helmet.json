@@ -1,0 +1,9 @@
+{
+  "parent": "create_mix_and_clean:custom/ir_goggles",
+  "textures": {
+    "0": "create_mix_and_clean:block/",
+    "1": "create_mix_and_clean:block/",
+    "missing": "create_mix_and_clean:block/irgoggletexture",
+    "particle": "create_mix_and_clean:item/aluminum_head"
+  }
+}

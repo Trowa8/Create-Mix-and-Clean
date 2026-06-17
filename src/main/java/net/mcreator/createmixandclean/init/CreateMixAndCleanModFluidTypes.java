@@ -8,11 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.fluids.FluidType;
 
-import net.mcreator.createmixandclean.fluid.types.OxygenGasFluidType;
-import net.mcreator.createmixandclean.fluid.types.IronSlurryFluidType;
-import net.mcreator.createmixandclean.fluid.types.HydrogenGasFluidType;
-import net.mcreator.createmixandclean.fluid.types.HydrochloricAcidFluidType;
-import net.mcreator.createmixandclean.fluid.types.ChlorineGasFluidType;
+import net.mcreator.createmixandclean.fluid.types.*;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
 public class CreateMixAndCleanModFluidTypes {
@@ -22,4 +18,7 @@ public class CreateMixAndCleanModFluidTypes {
 	public static final RegistryObject<FluidType> HYDROCHLORIC_ACID_TYPE = REGISTRY.register("hydrochloric_acid", () -> new HydrochloricAcidFluidType());
 	public static final RegistryObject<FluidType> IRON_SLURRY_TYPE = REGISTRY.register("iron_slurry", () -> new IronSlurryFluidType());
 	public static final RegistryObject<FluidType> OXYGEN_GAS_TYPE = REGISTRY.register("oxygen_gas", () -> new OxygenGasFluidType());
+	public static final RegistryObject<FluidType> LIQUID_AIR_TYPE = REGISTRY.register("liquid_air", () -> new LiquidAirFluidType());
+	public static final RegistryObject<FluidType> NITROGEN_GAS_TYPE = REGISTRY.register("nitrogen_gas", () -> new NitrogenGasFluidType());
+	public static final RegistryObject<FluidType> AMMONIA_TYPE = REGISTRY.register("ammonia", () -> new AmmoniaFluidType());
 }

@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.createmixandclean.item.*;
@@ -77,6 +78,22 @@ public class CreateMixAndCleanModItems {
 	public static final RegistryObject<Item> TABLE_SALT;
 	public static final RegistryObject<Item> IRON_SLURRY_BUCKET;
 	public static final RegistryObject<Item> OXYGEN_GAS_BUCKET;
+	public static final RegistryObject<Item> BAUXITE;
+	public static final RegistryObject<Item> ALUMINA;
+	public static final RegistryObject<Item> ALUMINUM_INGOT;
+	public static final RegistryObject<Item> ALUMINA_SAND_PAPER;
+	public static final RegistryObject<Item> ALUMINUM_BLOCK;
+	public static final RegistryObject<Item> ALUMINUM_DOOR;
+	public static final RegistryObject<Item> ALUMINUM_TRAPDOOR;
+	public static final RegistryObject<Item> LIQUID_AIR_BUCKET;
+	public static final RegistryObject<Item> NITROGEN_GAS_BUCKET;
+	public static final RegistryObject<Item> AMMONIA_BUCKET;
+	public static final RegistryObject<Item> OGI_HELMET;
+	public static final RegistryObject<Item> UNFINISHED_OGI_GOGGLES;
+	public static final RegistryObject<Item> ALUMINUM_SHEET;
+	public static final RegistryObject<Item> HAZARD_PROTECTION_HELMET;
+	public static final RegistryObject<Item> GASMASK_FILTER;
+	public static final RegistryObject<Item> ELECTRODE;
 	static {
 		WASTE_ROCK = REGISTRY.register("waste_rock", WasteRockItem::new);
 		PURIFIED_IRON_ORE = REGISTRY.register("purified_iron_ore", PurifiedIronOreItem::new);
@@ -139,6 +156,22 @@ public class CreateMixAndCleanModItems {
 		TABLE_SALT = REGISTRY.register("table_salt", TableSaltItem::new);
 		IRON_SLURRY_BUCKET = REGISTRY.register("iron_slurry_bucket", IronSlurryItem::new);
 		OXYGEN_GAS_BUCKET = REGISTRY.register("oxygen_gas_bucket", OxygenGasItem::new);
+		BAUXITE = block(CreateMixAndCleanModBlocks.BAUXITE);
+		ALUMINA = REGISTRY.register("alumina", AluminaItem::new);
+		ALUMINUM_INGOT = REGISTRY.register("aluminum_ingot", AluminumIngotItem::new);
+		ALUMINA_SAND_PAPER = REGISTRY.register("alumina_sand_paper", AluminaSandPaperItem::new);
+		ALUMINUM_BLOCK = block(CreateMixAndCleanModBlocks.ALUMINUM_BLOCK);
+		ALUMINUM_DOOR = doubleBlock(CreateMixAndCleanModBlocks.ALUMINUM_DOOR);
+		ALUMINUM_TRAPDOOR = block(CreateMixAndCleanModBlocks.ALUMINUM_TRAPDOOR);
+		LIQUID_AIR_BUCKET = REGISTRY.register("liquid_air_bucket", LiquidAirItem::new);
+		NITROGEN_GAS_BUCKET = REGISTRY.register("nitrogen_gas_bucket", NitrogenGasItem::new);
+		AMMONIA_BUCKET = REGISTRY.register("ammonia_bucket", AmmoniaItem::new);
+		OGI_HELMET = REGISTRY.register("ogi_helmet", OGIItem.Helmet::new);
+		UNFINISHED_OGI_GOGGLES = REGISTRY.register("unfinished_ogi_goggles", UnfinishedOGIGogglesItem::new);
+		ALUMINUM_SHEET = REGISTRY.register("aluminum_sheet", AluminumSheetItem::new);
+		HAZARD_PROTECTION_HELMET = REGISTRY.register("hazard_protection_helmet", HazardProtectionItem.Helmet::new);
+		GASMASK_FILTER = REGISTRY.register("gasmask_filter", GasmaskFilterItem::new);
+		ELECTRODE = REGISTRY.register("electrode", ElectrodeItem::new);
 	}
 
 	// Start of user code block custom items
@@ -149,5 +182,13 @@ public class CreateMixAndCleanModItems {
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, Item.Properties properties) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), properties));
+	}
+
+	private static RegistryObject<Item> doubleBlock(RegistryObject<Block> block) {
+		return doubleBlock(block, new Item.Properties());
+	}
+
+	private static RegistryObject<Item> doubleBlock(RegistryObject<Block> block, Item.Properties properties) {
+		return REGISTRY.register(block.getId().getPath(), () -> new DoubleHighBlockItem(block.get(), properties));
 	}
 }

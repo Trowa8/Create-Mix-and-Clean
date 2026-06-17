@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "create_mix_and_clean:block/bauxite_side",
+    "up": "create_mix_and_clean:block/bauxite_side",
+    "north": "create_mix_and_clean:block/bauxite_side",
+    "east": "create_mix_and_clean:block/bauxite_side",
+    "south": "create_mix_and_clean:block/bauxite_side",
+    "west": "create_mix_and_clean:block/bauxite_side",
+    "particle": "create_mix_and_clean:block/bauxite_side"
+  },
+  "render_type": "solid"
+}

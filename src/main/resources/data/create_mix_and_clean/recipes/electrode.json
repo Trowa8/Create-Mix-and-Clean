@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "cac",
+    "b b"
+  ],
+  "key": {
+    "a": {
+      "item": "create:minecart_coupling"
+    },
+    "b": {
+      "item": "create:copper_sheet"
+    },
+    "c": {
+      "item": "create:industrial_iron_block"
+    }
+  },
+  "result": {
+    "item": "create_mix_and_clean:electrode",
+    "count": 1
+  }
+}

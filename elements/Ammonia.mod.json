@@ -1,0 +1,60 @@
+{
+  "_fv": 79,
+  "_type": "fluid",
+  "definition": {
+    "name": "Ammonia",
+    "bucketName": "Ammonia Gas Bucket",
+    "textureStill": "ammonia",
+    "textureFlowing": "ammonia",
+    "textureRenderOverlay": "",
+    "hasFog": false,
+    "fogColor": {
+      "value": -1513240,
+      "falpha": 0.0
+    },
+    "fogStartDistance": {
+      "fixedValue": 0.0
+    },
+    "fogEndDistance": {
+      "fixedValue": 80.0
+    },
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 2,
+    "levelDecrease": 1,
+    "slopeFindDistance": 1,
+    "spawnParticles": false,
+    "dripParticle": {
+      "value": "ASH"
+    },
+    "flowStrength": 0.0,
+    "luminosity": 0,
+    "density": -1,
+    "viscosity": 0,
+    "temperature": 300,
+    "type": "WATER",
+    "generateBucket": true,
+    "textureBucket": "oxygen_gas_bucket",
+    "creativeTabs": [
+      {
+        "value": "CUSTOM:CreateMixAndClean"
+      }
+    ],
+    "emptySound": {
+      "value": ""
+    },
+    "rarity": "COMMON",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "resistance": 99.0,
+    "luminance": 0,
+    "lightOpacity": 1,
+    "emissiveRendering": false,
+    "tickRate": 0,
+    "ignitedByLava": false,
+    "flammability": 20,
+    "fireSpreadSpeed": 10,
+    "colorOnMap": "AIR"
+  }
+}

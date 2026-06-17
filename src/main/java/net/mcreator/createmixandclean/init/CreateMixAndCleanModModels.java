@@ -9,11 +9,15 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.mcreator.createmixandclean.client.model.Modelpeacock_tail;
+import net.mcreator.createmixandclean.client.model.ModelOGI_Goggles;
+import net.mcreator.createmixandclean.client.model.ModelGasMask;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class CreateMixAndCleanModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(Modelpeacock_tail.LAYER_LOCATION, Modelpeacock_tail::createBodyLayer);
+		event.registerLayerDefinition(ModelGasMask.LAYER_LOCATION, ModelGasMask::createBodyLayer);
+		event.registerLayerDefinition(ModelOGI_Goggles.LAYER_LOCATION, ModelOGI_Goggles::createBodyLayer);
 	}
 }

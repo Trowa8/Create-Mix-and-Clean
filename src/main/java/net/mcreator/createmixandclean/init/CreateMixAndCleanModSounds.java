@@ -18,4 +18,5 @@ public class CreateMixAndCleanModSounds {
 	public static final RegistryObject<SoundEvent> MYCELIUM_MEN_MUSIC = REGISTRY.register("mycelium_men_music", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "mycelium_men_music")));
 	public static final RegistryObject<SoundEvent> ELECTROLYZER_PROCESSING = REGISTRY.register("electrolyzer_processing",
 			() -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "electrolyzer_processing")));
+	public static final RegistryObject<SoundEvent> COUGHING = REGISTRY.register("coughing", () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "coughing")));
 }

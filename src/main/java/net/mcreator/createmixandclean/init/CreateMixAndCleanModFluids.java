@@ -16,11 +16,7 @@ import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
-import net.mcreator.createmixandclean.fluid.OxygenGasFluid;
-import net.mcreator.createmixandclean.fluid.IronSlurryFluid;
-import net.mcreator.createmixandclean.fluid.HydrogenGasFluid;
-import net.mcreator.createmixandclean.fluid.HydrochloricAcidFluid;
-import net.mcreator.createmixandclean.fluid.ChlorineGasFluid;
+import net.mcreator.createmixandclean.fluid.*;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
 public class CreateMixAndCleanModFluids {
@@ -35,6 +31,12 @@ public class CreateMixAndCleanModFluids {
 	public static final RegistryObject<FlowingFluid> FLOWING_IRON_SLURRY = REGISTRY.register("flowing_iron_slurry", () -> new IronSlurryFluid.Flowing());
 	public static final RegistryObject<FlowingFluid> OXYGEN_GAS = REGISTRY.register("oxygen_gas", () -> new OxygenGasFluid.Source());
 	public static final RegistryObject<FlowingFluid> FLOWING_OXYGEN_GAS = REGISTRY.register("flowing_oxygen_gas", () -> new OxygenGasFluid.Flowing());
+	public static final RegistryObject<FlowingFluid> LIQUID_AIR = REGISTRY.register("liquid_air", () -> new LiquidAirFluid.Source());
+	public static final RegistryObject<FlowingFluid> FLOWING_LIQUID_AIR = REGISTRY.register("flowing_liquid_air", () -> new LiquidAirFluid.Flowing());
+	public static final RegistryObject<FlowingFluid> NITROGEN_GAS = REGISTRY.register("nitrogen_gas", () -> new NitrogenGasFluid.Source());
+	public static final RegistryObject<FlowingFluid> FLOWING_NITROGEN_GAS = REGISTRY.register("flowing_nitrogen_gas", () -> new NitrogenGasFluid.Flowing());
+	public static final RegistryObject<FlowingFluid> AMMONIA = REGISTRY.register("ammonia", () -> new AmmoniaFluid.Source());
+	public static final RegistryObject<FlowingFluid> FLOWING_AMMONIA = REGISTRY.register("flowing_ammonia", () -> new AmmoniaFluid.Flowing());
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class FluidsClientSideHandler {
@@ -50,6 +52,12 @@ public class CreateMixAndCleanModFluids {
 			ItemBlockRenderTypes.setRenderLayer(FLOWING_IRON_SLURRY.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(OXYGEN_GAS.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(FLOWING_OXYGEN_GAS.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(LIQUID_AIR.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(FLOWING_LIQUID_AIR.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(NITROGEN_GAS.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(FLOWING_NITROGEN_GAS.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(AMMONIA.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(FLOWING_AMMONIA.get(), RenderType.translucent());
 		}
 	}
 }

@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "create_mix_and_clean:electrolyzer"
+    "create_mix_and_clean:aluminum_trapdoor",
+    "create_mix_and_clean:bauxite",
+    "create_mix_and_clean:aluminum_door",
+    "create_mix_and_clean:aluminum_block"
   ]
 }

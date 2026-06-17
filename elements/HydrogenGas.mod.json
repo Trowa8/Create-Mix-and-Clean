@@ -30,7 +30,7 @@
     "flowStrength": 0.19999999999999998,
     "luminosity": 0,
     "density": -200,
-    "viscosity": 10,
+    "viscosity": 3,
     "temperature": 300,
     "type": "WATER",
     "generateBucket": true,

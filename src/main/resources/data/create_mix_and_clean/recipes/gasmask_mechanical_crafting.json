@@ -1,0 +1,36 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "create_mix_and_clean:ogi_helmet"
+    },
+    "A": {
+      "item": "create_mix_and_clean:aluminum_sheet"
+    },
+    "F": {
+      "item": "create_mix_and_clean:gasmask_filter"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "Y": {
+      "item": "create:andesite_alloy"
+    },
+    "E": {
+      "item": "create:electron_tube"
+    }
+  },
+  "pattern": [
+  	"  S  ",
+    " YEY ",
+    "SAGAS",
+    " FYF "
+  ],
+  "result": {
+    "count": 1,
+    "item": "create_mix_and_clean:hazard_protection_helmet"
+  },
+  "show_notification": false
+}

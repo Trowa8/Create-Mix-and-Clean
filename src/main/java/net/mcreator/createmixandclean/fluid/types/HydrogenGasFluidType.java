@@ -21,7 +21,7 @@ import com.mojang.blaze3d.shaders.FogShape;
 
 public class HydrogenGasFluidType extends FluidType {
 	public HydrogenGasFluidType() {
-		super(FluidType.Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true).motionScale(0.0014D).density(-200).viscosity(10).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+		super(FluidType.Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true).motionScale(0.0014D).density(-200).viscosity(3).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 				.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY).sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH));
 	}
 
