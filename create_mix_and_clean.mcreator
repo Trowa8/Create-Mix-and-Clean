@@ -3669,7 +3669,7 @@
     "websiteURL": "https://mcreator.net",
     "license": "MIT License",
     "serverSideOnly": false,
-    "modPicture": "create_mix_and_clean_icon",
+    "modPicture": "create_mix_and_clean_icon_v2",
     "requiredMods": [
       "create"
     ],
