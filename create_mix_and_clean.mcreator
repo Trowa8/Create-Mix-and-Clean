@@ -3437,11 +3437,11 @@
       "NetheriteCrystal",
       "CrushedRawCobalt",
       "ChlorineGas",
-      "HydrogenGas",
       "HydrochloricAcid",
-      "IronSlurry",
-      "OxygenGas",
       "LiquidAir",
+      "IronSlurry",
+      "HydrogenGas",
+      "OxygenGas",
       "NitrogenGas",
       "Ammonia",
       "PurifiedIronOre",
@@ -3462,6 +3462,7 @@
       "PurifiedCaloriteOre",
       "MusicDiscMyceliumMen",
       "Electrolyzer",
+      "Electrode",
       "TableSalt",
       "Bauxite",
       "Alumina",
@@ -3473,8 +3474,7 @@
       "AluminumTrapdoor",
       "OGI",
       "HazardProtection",
-      "GasmaskFilter",
-      "Electrode"
+      "GasmaskFilter"
     ]
   },
   "language_map": {

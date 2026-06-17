@@ -5,10 +5,8 @@ import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.resources.ResourceLocation;
 

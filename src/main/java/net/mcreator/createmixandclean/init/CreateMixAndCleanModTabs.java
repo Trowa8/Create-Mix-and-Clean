@@ -22,11 +22,11 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.NETHERITE_CRYSTAL.get());
 				tabData.accept(CreateMixAndCleanModItems.CRUSHED_RAW_COBALT.get());
 				tabData.accept(CreateMixAndCleanModItems.CHLORINE_GAS_BUCKET.get());
-				tabData.accept(CreateMixAndCleanModItems.HYDROGEN_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.HYDROCHLORIC_ACID_BUCKET.get());
-				tabData.accept(CreateMixAndCleanModItems.IRON_SLURRY_BUCKET.get());
-				tabData.accept(CreateMixAndCleanModItems.OXYGEN_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.LIQUID_AIR_BUCKET.get());
+				tabData.accept(CreateMixAndCleanModItems.IRON_SLURRY_BUCKET.get());
+				tabData.accept(CreateMixAndCleanModItems.HYDROGEN_GAS_BUCKET.get());
+				tabData.accept(CreateMixAndCleanModItems.OXYGEN_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.NITROGEN_GAS_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.AMMONIA_BUCKET.get());
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_IRON_ORE.get());
@@ -47,6 +47,7 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.PURIFIED_CALORITE_ORE.get());
 				tabData.accept(CreateMixAndCleanModItems.MUSIC_DISC_MYCELIUM_MEN.get());
 				tabData.accept(CreateMixAndCleanModBlocks.ELECTROLYZER.get().asItem());
+				tabData.accept(CreateMixAndCleanModItems.ELECTRODE.get());
 				tabData.accept(CreateMixAndCleanModItems.TABLE_SALT.get());
 				tabData.accept(CreateMixAndCleanModBlocks.BAUXITE.get().asItem());
 				tabData.accept(CreateMixAndCleanModItems.ALUMINA.get());
@@ -59,6 +60,5 @@ public class CreateMixAndCleanModTabs {
 				tabData.accept(CreateMixAndCleanModItems.OGI_HELMET.get());
 				tabData.accept(CreateMixAndCleanModItems.HAZARD_PROTECTION_HELMET.get());
 				tabData.accept(CreateMixAndCleanModItems.GASMASK_FILTER.get());
-				tabData.accept(CreateMixAndCleanModItems.ELECTRODE.get());
 			}).build());
 }
