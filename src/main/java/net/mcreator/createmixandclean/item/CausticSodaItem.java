@@ -11,7 +11,7 @@ import net.mcreator.createmixandclean.procedures.CausticSodaPlayerFinishesUsingI
 
 public class CausticSodaItem extends Item {
 	public CausticSodaItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(6).saturationMod(2f).alwaysEat().meat().build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(6).saturationModifier(2f).alwaysEdible().build()));
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class CausticSodaItem extends Item {
 	}
 
 	@Override
-	public int getUseDuration(ItemStack itemstack) {
+	public int getUseDuration(ItemStack itemstack, LivingEntity livingEntity) {
 		return 200;
 	}
 

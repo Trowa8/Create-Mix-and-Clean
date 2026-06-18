@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "create:weathered_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:exposed_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_oxidized_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_weathered_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:oxidized_copper_shingle_slab",
+      "required": false
+    },
+    {
+      "id": "create:waxed_exposed_copper_shingle_slab",
+      "required": false
+    }
+  ]
+}

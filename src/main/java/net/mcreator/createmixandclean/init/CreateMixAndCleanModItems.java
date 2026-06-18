@@ -3,9 +3,13 @@
  */
 package net.mcreator.createmixandclean.init;
 
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.fluids.capability.wrappers.FluidBucketWrapper;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
@@ -15,85 +19,86 @@ import net.minecraft.world.item.BlockItem;
 import net.mcreator.createmixandclean.item.*;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
+@EventBusSubscriber
 public class CreateMixAndCleanModItems {
-	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, CreateMixAndCleanMod.MODID);
-	public static final RegistryObject<Item> WASTE_ROCK;
-	public static final RegistryObject<Item> PURIFIED_IRON_ORE;
-	public static final RegistryObject<Item> PURIFIED_GOLD_ORE;
-	public static final RegistryObject<Item> PURIFIED_COPPER_ORE;
-	public static final RegistryObject<Item> PURIFIED_ZINC_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_IRON;
-	public static final RegistryObject<Item> DIRTY_COMBINED_GOLD;
-	public static final RegistryObject<Item> DIRTY_COMBINED_COPPER;
-	public static final RegistryObject<Item> DIRTY_COMBINED_ZINC;
-	public static final RegistryObject<Item> COMBINED_IRON;
-	public static final RegistryObject<Item> COMBINED_GOLD;
-	public static final RegistryObject<Item> COMBINED_COPPER;
-	public static final RegistryObject<Item> COMBINED_ZINC;
-	public static final RegistryObject<Item> CHLORINE_GAS_BUCKET;
-	public static final RegistryObject<Item> HYDROGEN_GAS_BUCKET;
-	public static final RegistryObject<Item> HYDROCHLORIC_ACID_BUCKET;
-	public static final RegistryObject<Item> CAUSTIC_SODA;
-	public static final RegistryObject<Item> PURIFIED_LEAD_ORE;
-	public static final RegistryObject<Item> PURIFIED_OSMIUM_ORE;
-	public static final RegistryObject<Item> PURIFIED_TIN_ORE;
-	public static final RegistryObject<Item> PURIFIED_URANIUM_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_LEAD;
-	public static final RegistryObject<Item> DIRTY_COMBINED_OSMIUM;
-	public static final RegistryObject<Item> DIRTY_COMBINED_TIN;
-	public static final RegistryObject<Item> DIRTY_COMBINED_URANIUM;
-	public static final RegistryObject<Item> COMBINED_LEAD;
-	public static final RegistryObject<Item> COMBINED_OSMIUM;
-	public static final RegistryObject<Item> COMBINED_TIN;
-	public static final RegistryObject<Item> COMBINED_URANIUM;
-	public static final RegistryObject<Item> NETHERITE_CRYSTAL;
-	public static final RegistryObject<Item> CRUSHED_RAW_COBALT;
-	public static final RegistryObject<Item> PURIFIED_COBALT_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_COBALT;
-	public static final RegistryObject<Item> COMBINED_COBALT;
-	public static final RegistryObject<Item> PURIFIED_ALUMINUM_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_ALUMINUM;
-	public static final RegistryObject<Item> COMBINED_ALUMINUM;
-	public static final RegistryObject<Item> PURIFIED_SILVER_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_SILVER;
-	public static final RegistryObject<Item> COMBINED_SILVER;
-	public static final RegistryObject<Item> PURIFIED_NICKEL_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_NICKEL;
-	public static final RegistryObject<Item> COMBINED_NICKEL;
-	public static final RegistryObject<Item> PURIFIED_PLATINUM_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_PLATINUM;
-	public static final RegistryObject<Item> COMBINED_PLATINUM;
-	public static final RegistryObject<Item> PEACOCK_TAIL_CHESTPLATE;
-	public static final RegistryObject<Item> MUSIC_DISC_MYCELIUM_MEN;
-	public static final RegistryObject<Item> PURIFIED_DESH_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_DESH;
-	public static final RegistryObject<Item> COMBINED_DESH;
-	public static final RegistryObject<Item> PURIFIED_OSTRUM_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_OSTRUM;
-	public static final RegistryObject<Item> COMBINED_OSTRUM;
-	public static final RegistryObject<Item> PURIFIED_CALORITE_ORE;
-	public static final RegistryObject<Item> DIRTY_COMBINED_CALORITE;
-	public static final RegistryObject<Item> COMBINED_CALORITE;
-	public static final RegistryObject<Item> ELECTROLYZER;
-	public static final RegistryObject<Item> TABLE_SALT;
-	public static final RegistryObject<Item> IRON_SLURRY_BUCKET;
-	public static final RegistryObject<Item> OXYGEN_GAS_BUCKET;
-	public static final RegistryObject<Item> BAUXITE;
-	public static final RegistryObject<Item> ALUMINA;
-	public static final RegistryObject<Item> ALUMINUM_INGOT;
-	public static final RegistryObject<Item> ALUMINA_SAND_PAPER;
-	public static final RegistryObject<Item> ALUMINUM_BLOCK;
-	public static final RegistryObject<Item> ALUMINUM_DOOR;
-	public static final RegistryObject<Item> ALUMINUM_TRAPDOOR;
-	public static final RegistryObject<Item> LIQUID_AIR_BUCKET;
-	public static final RegistryObject<Item> NITROGEN_GAS_BUCKET;
-	public static final RegistryObject<Item> AMMONIA_BUCKET;
-	public static final RegistryObject<Item> OGI_HELMET;
-	public static final RegistryObject<Item> UNFINISHED_OGI_GOGGLES;
-	public static final RegistryObject<Item> ALUMINUM_SHEET;
-	public static final RegistryObject<Item> HAZARD_PROTECTION_HELMET;
-	public static final RegistryObject<Item> GASMASK_FILTER;
-	public static final RegistryObject<Item> ELECTRODE;
+	public static final DeferredRegister.Items REGISTRY = DeferredRegister.createItems(CreateMixAndCleanMod.MODID);
+	public static final DeferredItem<Item> WASTE_ROCK;
+	public static final DeferredItem<Item> PURIFIED_IRON_ORE;
+	public static final DeferredItem<Item> PURIFIED_GOLD_ORE;
+	public static final DeferredItem<Item> PURIFIED_COPPER_ORE;
+	public static final DeferredItem<Item> PURIFIED_ZINC_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_IRON;
+	public static final DeferredItem<Item> DIRTY_COMBINED_GOLD;
+	public static final DeferredItem<Item> DIRTY_COMBINED_COPPER;
+	public static final DeferredItem<Item> DIRTY_COMBINED_ZINC;
+	public static final DeferredItem<Item> COMBINED_IRON;
+	public static final DeferredItem<Item> COMBINED_GOLD;
+	public static final DeferredItem<Item> COMBINED_COPPER;
+	public static final DeferredItem<Item> COMBINED_ZINC;
+	public static final DeferredItem<Item> CHLORINE_GAS_BUCKET;
+	public static final DeferredItem<Item> HYDROGEN_GAS_BUCKET;
+	public static final DeferredItem<Item> HYDROCHLORIC_ACID_BUCKET;
+	public static final DeferredItem<Item> CAUSTIC_SODA;
+	public static final DeferredItem<Item> PURIFIED_LEAD_ORE;
+	public static final DeferredItem<Item> PURIFIED_OSMIUM_ORE;
+	public static final DeferredItem<Item> PURIFIED_TIN_ORE;
+	public static final DeferredItem<Item> PURIFIED_URANIUM_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_LEAD;
+	public static final DeferredItem<Item> DIRTY_COMBINED_OSMIUM;
+	public static final DeferredItem<Item> DIRTY_COMBINED_TIN;
+	public static final DeferredItem<Item> DIRTY_COMBINED_URANIUM;
+	public static final DeferredItem<Item> COMBINED_LEAD;
+	public static final DeferredItem<Item> COMBINED_OSMIUM;
+	public static final DeferredItem<Item> COMBINED_TIN;
+	public static final DeferredItem<Item> COMBINED_URANIUM;
+	public static final DeferredItem<Item> NETHERITE_CRYSTAL;
+	public static final DeferredItem<Item> CRUSHED_RAW_COBALT;
+	public static final DeferredItem<Item> PURIFIED_COBALT_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_COBALT;
+	public static final DeferredItem<Item> COMBINED_COBALT;
+	public static final DeferredItem<Item> PURIFIED_ALUMINUM_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_ALUMINUM;
+	public static final DeferredItem<Item> COMBINED_ALUMINUM;
+	public static final DeferredItem<Item> PURIFIED_SILVER_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_SILVER;
+	public static final DeferredItem<Item> COMBINED_SILVER;
+	public static final DeferredItem<Item> PURIFIED_NICKEL_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_NICKEL;
+	public static final DeferredItem<Item> COMBINED_NICKEL;
+	public static final DeferredItem<Item> PURIFIED_PLATINUM_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_PLATINUM;
+	public static final DeferredItem<Item> COMBINED_PLATINUM;
+	public static final DeferredItem<Item> PEACOCK_TAIL_CHESTPLATE;
+	public static final DeferredItem<Item> MUSIC_DISC_MYCELIUM_MEN;
+	public static final DeferredItem<Item> PURIFIED_DESH_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_DESH;
+	public static final DeferredItem<Item> COMBINED_DESH;
+	public static final DeferredItem<Item> PURIFIED_OSTRUM_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_OSTRUM;
+	public static final DeferredItem<Item> COMBINED_OSTRUM;
+	public static final DeferredItem<Item> PURIFIED_CALORITE_ORE;
+	public static final DeferredItem<Item> DIRTY_COMBINED_CALORITE;
+	public static final DeferredItem<Item> COMBINED_CALORITE;
+	public static final DeferredItem<Item> ELECTROLYZER;
+	public static final DeferredItem<Item> TABLE_SALT;
+	public static final DeferredItem<Item> IRON_SLURRY_BUCKET;
+	public static final DeferredItem<Item> OXYGEN_GAS_BUCKET;
+	public static final DeferredItem<Item> BAUXITE;
+	public static final DeferredItem<Item> ALUMINA;
+	public static final DeferredItem<Item> ALUMINUM_INGOT;
+	public static final DeferredItem<Item> ALUMINA_SAND_PAPER;
+	public static final DeferredItem<Item> ALUMINUM_BLOCK;
+	public static final DeferredItem<Item> ALUMINUM_DOOR;
+	public static final DeferredItem<Item> ALUMINUM_TRAPDOOR;
+	public static final DeferredItem<Item> LIQUID_AIR_BUCKET;
+	public static final DeferredItem<Item> NITROGEN_GAS_BUCKET;
+	public static final DeferredItem<Item> AMMONIA_BUCKET;
+	public static final DeferredItem<Item> OGI_HELMET;
+	public static final DeferredItem<Item> UNFINISHED_OGI_GOGGLES;
+	public static final DeferredItem<Item> ALUMINUM_SHEET;
+	public static final DeferredItem<Item> HAZARD_PROTECTION_HELMET;
+	public static final DeferredItem<Item> GASMASK_FILTER;
+	public static final DeferredItem<Item> ELECTRODE;
 	static {
 		WASTE_ROCK = REGISTRY.register("waste_rock", WasteRockItem::new);
 		PURIFIED_IRON_ORE = REGISTRY.register("purified_iron_ore", PurifiedIronOreItem::new);
@@ -176,19 +181,31 @@ public class CreateMixAndCleanModItems {
 
 	// Start of user code block custom items
 	// End of user code block custom items
-	private static RegistryObject<Item> block(RegistryObject<Block> block) {
+	@SubscribeEvent
+	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), CHLORINE_GAS_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), HYDROGEN_GAS_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), HYDROCHLORIC_ACID_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), IRON_SLURRY_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), OXYGEN_GAS_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), LIQUID_AIR_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), NITROGEN_GAS_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), AMMONIA_BUCKET.get());
+	}
+
+	private static DeferredItem<Item> block(DeferredHolder<Block, Block> block) {
 		return block(block, new Item.Properties());
 	}
 
-	private static RegistryObject<Item> block(RegistryObject<Block> block, Item.Properties properties) {
+	private static DeferredItem<Item> block(DeferredHolder<Block, Block> block, Item.Properties properties) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), properties));
 	}
 
-	private static RegistryObject<Item> doubleBlock(RegistryObject<Block> block) {
+	private static DeferredItem<Item> doubleBlock(DeferredHolder<Block, Block> block) {
 		return doubleBlock(block, new Item.Properties());
 	}
 
-	private static RegistryObject<Item> doubleBlock(RegistryObject<Block> block, Item.Properties properties) {
+	private static DeferredItem<Item> doubleBlock(DeferredHolder<Block, Block> block, Item.Properties properties) {
 		return REGISTRY.register(block.getId().getPath(), () -> new DoubleHighBlockItem(block.get(), properties));
 	}
 }

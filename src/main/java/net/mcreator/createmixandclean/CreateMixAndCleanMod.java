@@ -3,93 +3,106 @@ package net.mcreator.createmixandclean;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import net.minecraftforge.network.simple.SimpleChannel;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.fml.util.thread.SidedThreadGroups;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.network.handling.IPayloadHandler;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.fml.util.thread.SidedThreadGroups;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.IEventBus;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.TickTask;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;
+import net.mcreator.createmixandclean.network.CreateMixAndCleanModVariables;
 import net.mcreator.createmixandclean.init.*;
 
-import java.util.function.Supplier;
-import java.util.function.Function;
-import java.util.function.BiConsumer;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.List;
-import java.util.Collection;
-import java.util.ArrayList;
-import java.util.AbstractMap;
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Comparator;
+
+import it.unimi.dsi.fastutil.ints.IntObjectPair;
+import it.unimi.dsi.fastutil.ints.IntObjectImmutablePair;
 
 @Mod("create_mix_and_clean")
 public class CreateMixAndCleanMod {
 	public static final Logger LOGGER = LogManager.getLogger(CreateMixAndCleanMod.class);
 	public static final String MODID = "create_mix_and_clean";
 
-	public CreateMixAndCleanMod(FMLJavaModLoadingContext context) {
+	public CreateMixAndCleanMod(IEventBus modEventBus) {
 		// Start of user code block mod constructor
 		// End of user code block mod constructor
-		MinecraftForge.EVENT_BUS.register(this);
-		IEventBus bus = context.getModEventBus();
-		CreateMixAndCleanModSounds.REGISTRY.register(bus);
-		CreateMixAndCleanModBlocks.REGISTRY.register(bus);
-		CreateMixAndCleanModBlockEntities.REGISTRY.register(bus);
-		CreateMixAndCleanModItems.REGISTRY.register(bus);
-		CreateMixAndCleanModTabs.REGISTRY.register(bus);
-		CreateMixAndCleanModFluids.REGISTRY.register(bus);
-		CreateMixAndCleanModFluidTypes.REGISTRY.register(bus);
+		NeoForge.EVENT_BUS.register(this);
+		modEventBus.addListener(this::registerNetworking);
+		CreateMixAndCleanModSounds.REGISTRY.register(modEventBus);
+		CreateMixAndCleanModBlocks.REGISTRY.register(modEventBus);
+		CreateMixAndCleanModBlockEntities.REGISTRY.register(modEventBus);
+		CreateMixAndCleanModItems.REGISTRY.register(modEventBus);
+		CreateMixAndCleanModTabs.REGISTRY.register(modEventBus);
+		CreateMixAndCleanModVariables.ATTACHMENT_TYPES.register(modEventBus);
+		CreateMixAndCleanModFluids.REGISTRY.register(modEventBus);
+		CreateMixAndCleanModFluidTypes.REGISTRY.register(modEventBus);
 		// Start of user code block mod init
-		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(bus);
-		CreateMixAndCleanModRecipeTypes.TYPES.register(bus);
-		if (net.minecraftforge.fml.loading.FMLEnvironment.dist.isClient()) {
+		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(modEventBus);
+		CreateMixAndCleanModRecipeTypes.TYPES.register(modEventBus);
+		if (net.neoforged.fml.loading.FMLEnvironment.dist.isClient()) {
 			CreateMixAndCleanPartialModels.init();
 		}
-		bus.addListener(this::commonSetup);
+		modEventBus.addListener(this::commonSetup);
 		// End of user code block mod init
 	}
 
 	// Start of user code block mod methods
-	private void commonSetup(net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) {
+	private void commonSetup(net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent event) {
 		ElectrolyzerRecipe.TYPE = CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get();
 		ElectrolyzerRecipe.SERIALIZER = CreateMixAndCleanModRecipeTypes.ELECTROLYZING_SERIALIZER.get();
 	}
 
 	// End of user code block mod methods
-	private static final String PROTOCOL_VERSION = "1";
-	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(ResourceLocation.fromNamespaceAndPath(MODID, MODID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
-	private static int messageID = 0;
+	private static boolean networkingRegistered = false;
+	private static final Map<CustomPacketPayload.Type<?>, NetworkMessage<?>> MESSAGES = new HashMap<>();
 
-	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder, BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
-		PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
-		messageID++;
+	private record NetworkMessage<T extends CustomPacketPayload>(StreamCodec<? extends FriendlyByteBuf, T> reader, IPayloadHandler<T> handler) {
 	}
 
-	private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
+	public static <T extends CustomPacketPayload> void addNetworkMessage(CustomPacketPayload.Type<T> id, StreamCodec<? extends FriendlyByteBuf, T> reader, IPayloadHandler<T> handler) {
+		if (networkingRegistered)
+			throw new IllegalStateException("Cannot register new network messages after networking has been registered");
+		MESSAGES.put(id, new NetworkMessage<>(reader, handler));
+	}
 
-	public static void queueServerWork(int tick, Runnable action) {
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	private void registerNetworking(final RegisterPayloadHandlersEvent event) {
+		final PayloadRegistrar registrar = event.registrar(MODID);
+		MESSAGES.forEach((id, networkMessage) -> registrar.playBidirectional(id, ((NetworkMessage) networkMessage).reader(), ((NetworkMessage) networkMessage).handler()));
+		networkingRegistered = true;
+	}
+
+	private static final Queue<IntObjectPair<Runnable>> workToBeScheduled = new ConcurrentLinkedQueue<>();
+	private static final PriorityQueue<TickTask> workQueue = new PriorityQueue<>(Comparator.comparingInt(TickTask::getTick));
+
+	public static void queueServerWork(int delay, Runnable action) {
 		if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER)
-			workQueue.add(new AbstractMap.SimpleEntry<>(action, tick));
+			workToBeScheduled.add(new IntObjectImmutablePair<>(delay, action));
 	}
 
 	@SubscribeEvent
-	public void tick(TickEvent.ServerTickEvent event) {
-		if (event.phase == TickEvent.Phase.END) {
-			List<AbstractMap.SimpleEntry<Runnable, Integer>> actions = new ArrayList<>();
-			workQueue.forEach(work -> {
-				work.setValue(work.getValue() - 1);
-				if (work.getValue() == 0)
-					actions.add(work);
-			});
-			actions.forEach(e -> e.getKey().run());
-			workQueue.removeAll(actions);
+	public void tick(ServerTickEvent.Post event) {
+		int currentTick = event.getServer().getTickCount();
+		IntObjectPair<Runnable> work;
+		while ((work = workToBeScheduled.poll()) != null) {
+			workQueue.add(new TickTask(currentTick + work.leftInt(), work.right()));
+		}
+		while (!workQueue.isEmpty() && currentTick >= workQueue.peek().getTick()) {
+			workQueue.poll().run();
 		}
 	}
 }

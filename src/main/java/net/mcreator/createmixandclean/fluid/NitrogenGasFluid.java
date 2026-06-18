@@ -1,6 +1,6 @@
 package net.mcreator.createmixandclean.fluid;
 
-import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluid;
@@ -12,8 +12,8 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluidTypes;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlocks;
 
-public abstract class NitrogenGasFluid extends ForgeFlowingFluid {
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.NITROGEN_GAS_TYPE.get(), () -> CreateMixAndCleanModFluids.NITROGEN_GAS.get(),
+public abstract class NitrogenGasFluid extends BaseFlowingFluid {
+	public static final BaseFlowingFluid.Properties PROPERTIES = new BaseFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.NITROGEN_GAS_TYPE.get(), () -> CreateMixAndCleanModFluids.NITROGEN_GAS.get(),
 			() -> CreateMixAndCleanModFluids.FLOWING_NITROGEN_GAS.get()).explosionResistance(99f).tickRate(2).slopeFindDistance(1).bucket(() -> CreateMixAndCleanModItems.NITROGEN_GAS_BUCKET.get())
 			.block(() -> (LiquidBlock) CreateMixAndCleanModBlocks.NITROGEN_GAS.get());
 

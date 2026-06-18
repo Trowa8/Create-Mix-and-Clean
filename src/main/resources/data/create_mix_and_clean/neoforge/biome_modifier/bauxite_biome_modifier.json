@@ -1,0 +1,18 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "badlands",
+    "bamboo_jungle",
+    "jungle",
+    "sparse_jungle",
+    "desert",
+    "savanna",
+    "savanna_plateau",
+    "windswept_savanna",
+    "taiga",
+    "wooded_badlands",
+    "eroded_badlands"
+  ],
+  "features": "create_mix_and_clean:bauxite",
+  "step": "underground_ores"
+}

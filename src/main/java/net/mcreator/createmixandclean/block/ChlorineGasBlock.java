@@ -10,7 +10,6 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 
 public class ChlorineGasBlock extends LiquidBlock {
 	public ChlorineGasBlock() {
-		super(() -> CreateMixAndCleanModFluids.CHLORINE_GAS.get(),
-				BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
+		super(CreateMixAndCleanModFluids.CHLORINE_GAS.get(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
 	}
 }

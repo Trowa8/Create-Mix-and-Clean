@@ -14,7 +14,7 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 
 public class HydrogenGasBlock extends LiquidBlock {
 	public HydrogenGasBlock() {
-		super(() -> CreateMixAndCleanModFluids.HYDROGEN_GAS.get(),
+		super(CreateMixAndCleanModFluids.HYDROGEN_GAS.get(),
 				BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(100f).ignitedByLava().noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
 	}
 

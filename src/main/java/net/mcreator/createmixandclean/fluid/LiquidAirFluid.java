@@ -1,6 +1,6 @@
 package net.mcreator.createmixandclean.fluid;
 
-import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluid;
@@ -12,8 +12,8 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluidTypes;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlocks;
 
-public abstract class LiquidAirFluid extends ForgeFlowingFluid {
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.LIQUID_AIR_TYPE.get(), () -> CreateMixAndCleanModFluids.LIQUID_AIR.get(),
+public abstract class LiquidAirFluid extends BaseFlowingFluid {
+	public static final BaseFlowingFluid.Properties PROPERTIES = new BaseFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.LIQUID_AIR_TYPE.get(), () -> CreateMixAndCleanModFluids.LIQUID_AIR.get(),
 			() -> CreateMixAndCleanModFluids.FLOWING_LIQUID_AIR.get()).explosionResistance(100f).bucket(() -> CreateMixAndCleanModItems.LIQUID_AIR_BUCKET.get()).block(() -> (LiquidBlock) CreateMixAndCleanModBlocks.LIQUID_AIR.get());
 
 	private LiquidAirFluid() {

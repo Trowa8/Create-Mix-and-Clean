@@ -3,9 +3,8 @@
  */
 package net.mcreator.createmixandclean.init;
 
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import net.minecraft.world.level.block.Block;
 
@@ -13,20 +12,20 @@ import net.mcreator.createmixandclean.block.*;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
 public class CreateMixAndCleanModBlocks {
-	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, CreateMixAndCleanMod.MODID);
-	public static final RegistryObject<Block> CHLORINE_GAS;
-	public static final RegistryObject<Block> HYDROGEN_GAS;
-	public static final RegistryObject<Block> HYDROCHLORIC_ACID;
-	public static final RegistryObject<Block> ELECTROLYZER;
-	public static final RegistryObject<Block> IRON_SLURRY;
-	public static final RegistryObject<Block> OXYGEN_GAS;
-	public static final RegistryObject<Block> BAUXITE;
-	public static final RegistryObject<Block> ALUMINUM_BLOCK;
-	public static final RegistryObject<Block> ALUMINUM_DOOR;
-	public static final RegistryObject<Block> ALUMINUM_TRAPDOOR;
-	public static final RegistryObject<Block> LIQUID_AIR;
-	public static final RegistryObject<Block> NITROGEN_GAS;
-	public static final RegistryObject<Block> AMMONIA;
+	public static final DeferredRegister.Blocks REGISTRY = DeferredRegister.createBlocks(CreateMixAndCleanMod.MODID);
+	public static final DeferredBlock<Block> CHLORINE_GAS;
+	public static final DeferredBlock<Block> HYDROGEN_GAS;
+	public static final DeferredBlock<Block> HYDROCHLORIC_ACID;
+	public static final DeferredBlock<Block> ELECTROLYZER;
+	public static final DeferredBlock<Block> IRON_SLURRY;
+	public static final DeferredBlock<Block> OXYGEN_GAS;
+	public static final DeferredBlock<Block> BAUXITE;
+	public static final DeferredBlock<Block> ALUMINUM_BLOCK;
+	public static final DeferredBlock<Block> ALUMINUM_DOOR;
+	public static final DeferredBlock<Block> ALUMINUM_TRAPDOOR;
+	public static final DeferredBlock<Block> LIQUID_AIR;
+	public static final DeferredBlock<Block> NITROGEN_GAS;
+	public static final DeferredBlock<Block> AMMONIA;
 	static {
 		CHLORINE_GAS = REGISTRY.register("chlorine_gas", ChlorineGasBlock::new);
 		HYDROGEN_GAS = REGISTRY.register("hydrogen_gas", HydrogenGasBlock::new);

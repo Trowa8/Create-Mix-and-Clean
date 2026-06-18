@@ -1,6 +1,6 @@
 package net.mcreator.createmixandclean.fluid;
 
-import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluid;
@@ -12,8 +12,8 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluidTypes;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlocks;
 
-public abstract class IronSlurryFluid extends ForgeFlowingFluid {
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.IRON_SLURRY_TYPE.get(), () -> CreateMixAndCleanModFluids.IRON_SLURRY.get(),
+public abstract class IronSlurryFluid extends BaseFlowingFluid {
+	public static final BaseFlowingFluid.Properties PROPERTIES = new BaseFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.IRON_SLURRY_TYPE.get(), () -> CreateMixAndCleanModFluids.IRON_SLURRY.get(),
 			() -> CreateMixAndCleanModFluids.FLOWING_IRON_SLURRY.get()).explosionResistance(100f).bucket(() -> CreateMixAndCleanModItems.IRON_SLURRY_BUCKET.get()).block(() -> (LiquidBlock) CreateMixAndCleanModBlocks.IRON_SLURRY.get());
 
 	private IronSlurryFluid() {

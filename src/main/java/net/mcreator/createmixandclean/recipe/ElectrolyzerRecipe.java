@@ -1,20 +1,19 @@
 package net.mcreator.createmixandclean.recipe;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.items.IItemHandler;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.items.IItemHandler;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElectrolyzerRecipe implements Recipe<Container> {
+public class ElectrolyzerRecipe implements Recipe<RecipeInput> {
 
     public static class SizedIngredient {
         private final Ingredient ingredient;
@@ -41,20 +40,17 @@ public class ElectrolyzerRecipe implements Recipe<Container> {
     public static RecipeType<ElectrolyzerRecipe>       TYPE;
     public static RecipeSerializer<ElectrolyzerRecipe> SERIALIZER;
 
-    private final ResourceLocation            id;
     private final List<SizedIngredient>       ingredients;
     private final List<FluidStack>            fluidIngredients;
     private final List<ChanceResult>          results;
     private final int                         processingTime;
     private final List<FluidStack>            fluidResults;
 
-    public ElectrolyzerRecipe(ResourceLocation id,
-                               List<SizedIngredient> ingredients,
+    public ElectrolyzerRecipe(List<SizedIngredient> ingredients,
                                List<FluidStack> fluidIngredients,
                                List<ChanceResult> results,
                                List<FluidStack> fluidResults,
                                int processingTime) {
-        this.id               = id;
         this.ingredients      = ingredients;
         this.fluidIngredients = fluidIngredients;
         this.results          = results;
@@ -135,18 +131,17 @@ public class ElectrolyzerRecipe implements Recipe<Container> {
         }
     }
 
-    @Override public boolean matches(Container c, Level l) { return false; }
-    @Override public ItemStack assemble(Container container, net.minecraft.core.RegistryAccess registryAccess) { return ItemStack.EMPTY; }
+    @Override public boolean matches(RecipeInput input, Level level) { return false; }
+    @Override public ItemStack assemble(RecipeInput input, HolderLookup.Provider registries) { return ItemStack.EMPTY; }
     @Override public boolean canCraftInDimensions(int w, int h) { return true; }
-    @Override public ItemStack getResultItem(net.minecraft.core.RegistryAccess a) { return results.isEmpty() ? ItemStack.EMPTY : results.get(0).getStack(); }
-    @Override public ResourceLocation getId()            { return id; }
+    @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return results.isEmpty() ? ItemStack.EMPTY : results.get(0).getStack().copy(); }
     @Override public RecipeSerializer<?> getSerializer() { return SERIALIZER; }
     @Override public RecipeType<?> getType()             { return TYPE; }
     
     @Override 
     public NonNullList<Ingredient> getIngredients() { 
         NonNullList<Ingredient> nonNullList = NonNullList.create();
-        for (SizedIngredient sizedIng : ingredients) nonNullList.add(sizedIng.getIngredient());
+        for (SizedIngredient sizedIng : ingredients) {nonNullList.add(sizedIng.getIngredient());}
         return nonNullList; 
     }
 

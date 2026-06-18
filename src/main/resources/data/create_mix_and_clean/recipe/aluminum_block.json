@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "create_mix_and_clean:aluminum_ingot"
+    }
+  },
+  "result": {
+    "id": "create_mix_and_clean:aluminum_block",
+    "count": 1
+  }
+}

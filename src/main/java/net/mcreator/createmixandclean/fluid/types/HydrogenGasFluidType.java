@@ -2,9 +2,12 @@ package net.mcreator.createmixandclean.fluid.types;
 
 import org.joml.Vector3f;
 
-import net.minecraftforge.fluids.FluidType;
-import net.minecraftforge.common.SoundActions;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.common.SoundActions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
@@ -14,20 +17,21 @@ import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.Camera;
 
-import java.util.function.Consumer;
+import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluidTypes;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.shaders.FogShape;
 
+@EventBusSubscriber
 public class HydrogenGasFluidType extends FluidType {
 	public HydrogenGasFluidType() {
 		super(FluidType.Properties.create().fallDistanceModifier(0F).canExtinguish(true).supportsBoating(true).canHydrate(true).motionScale(0.0014D).density(-200).viscosity(3).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 				.sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY).sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH));
 	}
 
-	@Override
-	public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
-		consumer.accept(new IClientFluidTypeExtensions() {
+	@SubscribeEvent
+	public static void registerFluidTypeExtensions(RegisterClientExtensionsEvent event) {
+		event.registerFluidType(new IClientFluidTypeExtensions() {
 			private static final ResourceLocation STILL_TEXTURE = ResourceLocation.parse("create_mix_and_clean:block/hydrogen_gas_still");
 			private static final ResourceLocation FLOWING_TEXTURE = ResourceLocation.parse("create_mix_and_clean:block/hydrogen_gas_flowing");
 
@@ -54,6 +58,6 @@ public class HydrogenGasFluidType extends FluidType {
 				RenderSystem.setShaderFogStart(0f);
 				RenderSystem.setShaderFogEnd(Math.min(80f, renderDistance));
 			}
-		});
+		}, CreateMixAndCleanModFluidTypes.HYDROGEN_GAS_TYPE.get());
 	}
 }

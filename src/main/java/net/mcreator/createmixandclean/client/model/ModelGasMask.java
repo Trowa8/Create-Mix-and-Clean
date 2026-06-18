@@ -82,12 +82,12 @@ public class ModelGasMask<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int rgb) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, rgb);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, rgb);
+		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, rgb);
+		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, rgb);
+		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, rgb);
+		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, rgb);
 	}
 }

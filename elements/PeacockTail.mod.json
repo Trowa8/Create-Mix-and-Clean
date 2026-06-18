@@ -1,5 +1,5 @@
 {
-  "_fv": 79,
+  "_fv": 85,
   "_type": "armor",
   "definition": {
     "enableHelmet": false,
@@ -52,6 +52,10 @@
     "leggingsItemCustomModelName": "Normal",
     "bootsItemRenderType": 0,
     "bootsItemCustomModelName": "Normal",
+    "helmetTranslucency": false,
+    "bodyTranslucency": false,
+    "leggingsTranslucency": false,
+    "bootsTranslucency": false,
     "helmetImmuneToFire": false,
     "bodyImmuneToFire": true,
     "leggingsImmuneToFire": false,
@@ -95,6 +99,7 @@
       {
         "value": "CUSTOM:HydrochloricAcid.bucket"
       }
-    ]
+    ],
+    "rarity": "COMMON"
   }
 }

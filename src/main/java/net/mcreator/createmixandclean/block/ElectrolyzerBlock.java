@@ -14,66 +14,54 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class ElectrolyzerBlock extends HorizontalKineticBlock
-        implements IBE<ElectrolyzerBlockEntity> {
+public class ElectrolyzerBlock extends HorizontalKineticBlock implements IBE<ElectrolyzerBlockEntity> {
 
     public ElectrolyzerBlock() {
         this(BlockBehaviour.Properties.of()
-                .strength(3.5f, 6f)
+                .strength(3.5F, 6F)
                 .requiresCorrectToolForDrops()
                 .noOcclusion()
                 .sound(SoundType.METAL));
     }
 
-    public ElectrolyzerBlock(Properties properties) {
+    public ElectrolyzerBlock(BlockBehaviour.Properties properties) {
         super(properties);
     }
 
-
-    @Override
     public Class<ElectrolyzerBlockEntity> getBlockEntityClass() {
         return ElectrolyzerBlockEntity.class;
     }
 
-    @Override
     public BlockEntityType<? extends ElectrolyzerBlockEntity> getBlockEntityType() {
-        return CreateMixAndCleanModBlockEntities.ELECTROLYZER.get();
+        return CreateMixAndCleanModBlockEntities.ELECTROLYZER.value();
     }
 
-    @Override
     public Direction.Axis getRotationAxis(BlockState state) {
         return state.getValue(HORIZONTAL_FACING).getAxis();
     }
 
-    @Override
-    public boolean hasShaftTowards(LevelReader world, BlockPos pos,
-                                    BlockState state, Direction face) {
+    public boolean hasShaftTowards(LevelReader level, BlockPos pos, BlockState state, Direction face) {
         return face.getAxis() == getRotationAxis(state);
     }
 
-    @Override
-    public int getLightBlock(BlockState state, BlockGetter world, BlockPos pos) {
+    public int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) {
         return 0;
     }
 
-    @Override
     public boolean hasAnalogOutputSignal(BlockState state) {
         return true;
     }
 
-    @Override
-    public int getAnalogOutputSignal(BlockState state, Level world, BlockPos pos) {
-        return getBlockEntityOptional(world, pos)
-                .map(be -> (int) (((float) be.getEnergyStored() / 10000f) * 15))
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+        return getBlockEntityOptional(level, pos)
+                .map(be -> (int) (be.getEnergyStored() / 10000F * 15F))
                 .orElse(0);
     }
 
-    @Override
-    public boolean triggerEvent(BlockState state, Level world,
-                              BlockPos pos, int eventID, int eventParam) {
-        super.triggerEvent(state, world, pos, eventID, eventParam);
-        return getBlockEntityOptional(world, pos)
-                .map(be -> be.triggerEvent(eventID, eventParam))
+    public boolean triggerEvent(BlockState state, Level level, BlockPos pos, int eventId, int eventParam) {
+        super.triggerEvent(state, level, pos, eventId, eventParam);
+        return getBlockEntityOptional(level, pos)
+                .map(be -> be.triggerEvent(eventId, eventParam))
                 .orElse(false);
     }
 }

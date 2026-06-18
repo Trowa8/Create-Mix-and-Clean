@@ -10,6 +10,6 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 
 public class LiquidAirBlock extends LiquidBlock {
 	public LiquidAirBlock() {
-		super(() -> CreateMixAndCleanModFluids.LIQUID_AIR.get(), BlockBehaviour.Properties.of().mapColor(MapColor.WATER).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
+		super(CreateMixAndCleanModFluids.LIQUID_AIR.get(), BlockBehaviour.Properties.of().mapColor(MapColor.WATER).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
 	}
 }

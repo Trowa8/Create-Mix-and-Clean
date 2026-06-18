@@ -14,7 +14,7 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 
 public class OxygenGasBlock extends LiquidBlock {
 	public OxygenGasBlock() {
-		super(() -> CreateMixAndCleanModFluids.OXYGEN_GAS.get(),
+		super(CreateMixAndCleanModFluids.OXYGEN_GAS.get(),
 				BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(99f).ignitedByLava().noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
 	}
 

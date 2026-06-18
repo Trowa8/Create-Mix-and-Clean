@@ -7,60 +7,76 @@ import net.mcreator.createmixandclean.fluid.types.NitrogenGasFluidType;
 import net.mcreator.createmixandclean.fluid.types.ChlorineGasFluidType;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModItems;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.client.event.RenderGuiOverlayEvent;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.fluids.FluidType;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.PostChain;
+import net.minecraft.client.renderer.PostPass;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.BlockAndTintGetter;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.level.material.FluidState;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.BufferUploader;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.Tesselator;
+import com.mojang.blaze3d.vertex.VertexFormat;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-@Mod.EventBusSubscriber(modid = "create_mix_and_clean")
+@EventBusSubscriber(modid = "create_mix_and_clean")
 public class HazardHelmetHandler {
 
     private static final int MAX_FILTER_DURABILITY = 120;
     private static final String FILTER_NBT = "FilterDurability";
     private static final Set<UUID> wasInGas = new HashSet<>();
-    private static final ResourceLocation VIGNETTE_TEXTURE = new ResourceLocation("create_mix_and_clean", "textures/screens/goggle_vignette.png");
-    private static final ResourceLocation GOGGLE_SHADER = new ResourceLocation("create_mix_and_clean", "shaders/post/goggle_effect.json");
-	private static boolean goggleShaderActive = false;
+    private static final ResourceLocation VIGNETTE_TEXTURE = ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "textures/screens/goggle_vignette.png");
+    private static final ResourceLocation GOGGLE_SHADER = ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "shaders/post/goggle_effect.json");
+    private static boolean goggleShaderActive = false;
 
     @SubscribeEvent
-    public static void onLivingTick(LivingEvent.LivingTickEvent event) {
+    public static void onLivingTick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof Player player)) return;
         if (player.level().isClientSide()) return;
 
         ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
         if (!helmet.is(CreateMixAndCleanModItems.HAZARD_PROTECTION_HELMET.get())) return;
-        helmet.getOrCreateTag().putBoolean("Unbreakable", true);
+        helmet.set(DataComponents.UNBREAKABLE, new Unbreakable(false));
 
         FluidState eyeFluid = player.level().getFluidState(BlockPos.containing(player.getEyePosition()));
         boolean inGas = isFilteredGas(eyeFluid);
@@ -104,12 +120,15 @@ public class HazardHelmetHandler {
         if (!held.is(CreateMixAndCleanModItems.GASMASK_FILTER.get())) return;
 
         int oldDurability = getFilterDurability(helmet);
-        int newDurability = held.hasTag() && held.getTag().contains(FILTER_NBT)
-            ? held.getTag().getInt(FILTER_NBT)
+        CustomData heldData = held.get(DataComponents.CUSTOM_DATA);
+        int newDurability = (heldData != null && heldData.contains(FILTER_NBT))
+            ? heldData.getUnsafe().getInt(FILTER_NBT)
             : MAX_FILTER_DURABILITY;
 
         ItemStack oldFilter = new ItemStack(CreateMixAndCleanModItems.GASMASK_FILTER.get());
-        oldFilter.getOrCreateTag().putInt(FILTER_NBT, oldDurability);
+        CompoundTag oldTag = new CompoundTag();
+        oldTag.putInt(FILTER_NBT, oldDurability);
+        oldFilter.set(DataComponents.CUSTOM_DATA, CustomData.of(oldTag));
         player.addItem(oldFilter);
 
         setFilterDurability(helmet, newDurability);
@@ -130,22 +149,21 @@ public class HazardHelmetHandler {
         if (mc.player == null) return false;
         ItemStack helmet = mc.player.getItemBySlot(EquipmentSlot.HEAD);
         if (helmet.isEmpty()) return false;
-        ResourceLocation key = ForgeRegistries.ITEMS.getKey(helmet.getItem());
+        ResourceLocation key = BuiltInRegistries.ITEM.getKey(helmet.getItem());
         if (key == null) return false;
         String path = key.getPath();
         return path.equals("ogi_helmet") || path.equals("hazard_protection_helmet");
     }
 
     private static boolean shouldApplyNightVision() {
-    	Minecraft mc = Minecraft.getInstance();
-    	if (mc.player == null) return false;
-    	ItemStack helmet = mc.player.getItemBySlot(EquipmentSlot.HEAD);
-    	if (helmet.isEmpty()) return false;
-    	ResourceLocation key = ForgeRegistries.ITEMS.getKey(helmet.getItem());
-    	if (key == null) return false;
-    	String path = key.getPath();
-    	return path.equals("hazard_protection_helmet");
-	}
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null) return false;
+        ItemStack helmet = mc.player.getItemBySlot(EquipmentSlot.HEAD);
+        if (helmet.isEmpty()) return false;
+        ResourceLocation key = BuiltInRegistries.ITEM.getKey(helmet.getItem());
+        if (key == null) return false;
+        return key.getPath().equals("hazard_protection_helmet");
+    }
 
     private static boolean isFilteredGas(FluidState state) {
         return state.getFluidType() instanceof AmmoniaFluidType
@@ -156,24 +174,27 @@ public class HazardHelmetHandler {
     }
 
     private static int getFilterDurability(ItemStack helmet) {
-        if (!helmet.hasTag() || !helmet.getTag().contains(FILTER_NBT)) return MAX_FILTER_DURABILITY;
-        return helmet.getTag().getInt(FILTER_NBT);
+        CustomData data = helmet.get(DataComponents.CUSTOM_DATA);
+        if (data == null || !data.contains(FILTER_NBT)) return MAX_FILTER_DURABILITY;
+        return data.getUnsafe().getInt(FILTER_NBT);
     }
 
     private static void setFilterDurability(ItemStack helmet, int value) {
-        helmet.getOrCreateTag().putInt(FILTER_NBT, Math.max(0, value));
+        helmet.update(DataComponents.CUSTOM_DATA, CustomData.EMPTY, existing -> {
+            CompoundTag tag = existing.copyTag();
+            tag.putInt(FILTER_NBT, Math.max(0, value));
+            return CustomData.of(tag);
+        });
     }
 
     private static String durabilityColor(int dur) {
         return dur > 40 ? "§a" : dur > 20 ? "§e" : "§c";
     }
 
-    @Mod.EventBusSubscriber(modid = "create_mix_and_clean", bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = "create_mix_and_clean", value = Dist.CLIENT)
     public static class ClientModSetup {
 
-        private static final List<String> GAS_NAMES = Arrays.asList(
-            "ammonia"
-        );
+        private static final List<String> GAS_NAMES = Arrays.asList("ammonia");
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
@@ -182,16 +203,14 @@ public class HazardHelmetHandler {
                     Field renderPropsField = FluidType.class.getDeclaredField("renderProperties");
                     renderPropsField.setAccessible(true);
 
-                    for (FluidType fluidType : ForgeRegistries.FLUID_TYPES.get()) {
-                        ResourceLocation registryName = ForgeRegistries.FLUID_TYPES.get().getKey(fluidType);
-                        if (registryName == null) continue;
+                    for (Map.Entry<ResourceKey<FluidType>, FluidType> entry : NeoForgeRegistries.FLUID_TYPES.entrySet()) {
+                        FluidType fluidType = entry.getValue();
+                        ResourceLocation registryName = entry.getKey().location();
 
                         String namespace = registryName.getNamespace();
                         String path = registryName.getPath();
 
-                        if ((namespace.equals("create_mix_and_clean"))
-                                && GAS_NAMES.contains(path)) {
-
+                        if (namespace.equals("create_mix_and_clean") && GAS_NAMES.contains(path)) {
                             Object originalProps = renderPropsField.get(fluidType);
                             if (!(originalProps instanceof IClientFluidTypeExtensions originalExtensions)) continue;
 
@@ -209,14 +228,14 @@ public class HazardHelmetHandler {
                                 @Override
                                 public ResourceLocation getStillTexture(FluidState state, BlockAndTintGetter world, BlockPos pos) {
                                     if (isWearingProtectiveGear())
-                                        return new ResourceLocation(namespace + ":block/ogi_gas_still");
+                                        return ResourceLocation.fromNamespaceAndPath(namespace, "block/ogi_gas_still");
                                     return originalExtensions.getStillTexture(state, world, pos);
                                 }
 
                                 @Override
                                 public ResourceLocation getFlowingTexture(FluidState state, BlockAndTintGetter world, BlockPos pos) {
                                     if (isWearingProtectiveGear())
-                                        return new ResourceLocation(namespace + ":block/ogi_gas_flow");
+                                        return ResourceLocation.fromNamespaceAndPath(namespace, "block/ogi_gas_flow");
                                     return originalExtensions.getFlowingTexture(state, world, pos);
                                 }
 
@@ -250,132 +269,129 @@ public class HazardHelmetHandler {
         }
     }
 
-    @Mod.EventBusSubscriber(modid = "create_mix_and_clean", bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
-	public static class ClientForgeEvents {
+    @EventBusSubscriber(modid = "create_mix_and_clean", value = Dist.CLIENT)
+    public static class ClientForgeEvents {
 
-    	private static boolean wasWearingProtection = false;
-    	private static java.lang.reflect.Field POST_EFFECT_FIELD;
-    	private static java.lang.reflect.Field PASSES_FIELD;
+        private static boolean wasWearingProtection = false;
+        private static Field POST_EFFECT_FIELD;
+        private static Field PASSES_FIELD;
 
-    	static {
-        	try {
-            	POST_EFFECT_FIELD = net.minecraft.client.renderer.GameRenderer.class.getDeclaredField("postEffect");
-            	POST_EFFECT_FIELD.setAccessible(true);
-            	PASSES_FIELD = net.minecraft.client.renderer.PostChain.class.getDeclaredField("passes");
-            	PASSES_FIELD.setAccessible(true);
-        	} catch (Exception e) {
-        	    e.printStackTrace();
-        	}
-    	}
+        static {
+            try {
+                POST_EFFECT_FIELD = GameRenderer.class.getDeclaredField("postEffect");
+                POST_EFFECT_FIELD.setAccessible(true);
+                PASSES_FIELD = PostChain.class.getDeclaredField("passes");
+                PASSES_FIELD.setAccessible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
-    	@SubscribeEvent
-    	public static void onTooltip(ItemTooltipEvent event) {
-     	   ItemStack stack = event.getItemStack();
-     	   if (stack.is(CreateMixAndCleanModItems.HAZARD_PROTECTION_HELMET.get())) {
-            	int dur = getFilterDurability(stack);
-            	event.getToolTip().add(Component.literal(durabilityColor(dur) + "Filter: " + dur + "/" + MAX_FILTER_DURABILITY));
-        	}
-        	if (stack.is(CreateMixAndCleanModItems.GASMASK_FILTER.get())) {
-            	int dur = stack.hasTag() && stack.getTag().contains(FILTER_NBT)
-                	? stack.getTag().getInt(FILTER_NBT)
-                	: MAX_FILTER_DURABILITY;
-            	event.getToolTip().add(Component.literal(durabilityColor(dur) + "Durability: " + dur + "/" + MAX_FILTER_DURABILITY));
-        	}
-    	}
+        @SubscribeEvent
+        public static void onTooltip(ItemTooltipEvent event) {
+            ItemStack stack = event.getItemStack();
+            if (stack.is(CreateMixAndCleanModItems.HAZARD_PROTECTION_HELMET.get())) {
+                int dur = getFilterDurability(stack);
+                event.getToolTip().add(Component.literal(durabilityColor(dur) + "Filter: " + dur + "/" + MAX_FILTER_DURABILITY));
+            }
+            if (stack.is(CreateMixAndCleanModItems.GASMASK_FILTER.get())) {
+                CustomData data = stack.get(DataComponents.CUSTOM_DATA);
+                int dur = (data != null && data.contains(FILTER_NBT))
+                    ? data.getUnsafe().getInt(FILTER_NBT)
+                    : MAX_FILTER_DURABILITY;
+                event.getToolTip().add(Component.literal(durabilityColor(dur) + "Durability: " + dur + "/" + MAX_FILTER_DURABILITY));
+            }
+        }
 
-    	@SubscribeEvent
-    	public static void onClientTick(TickEvent.ClientTickEvent event) {
-        	if (event.phase != TickEvent.Phase.END) return;
-        	Minecraft mc = Minecraft.getInstance();
-        	if (mc.player == null || mc.level == null) return;
+        @SubscribeEvent
+        public static void onClientTick(ClientTickEvent.Post event) {
+            Minecraft mc = Minecraft.getInstance();
+            if (mc.player == null || mc.level == null) return;
 
-        	boolean currentlyWearing = isWearingProtectiveGear();
+            boolean currentlyWearing = isWearingProtectiveGear();
 
-        	if (currentlyWearing != wasWearingProtection) {
-        	    wasWearingProtection = currentlyWearing;
-        	    goggleShaderActive = false;
-        	    mc.levelRenderer.allChanged();
-        	    if (!currentlyWearing) {
-        	        mc.gameRenderer.shutdownEffect();
-        	        mc.player.removeEffect(MobEffects.NIGHT_VISION);
-        	    }
-        	}
+            if (currentlyWearing != wasWearingProtection) {
+                wasWearingProtection = currentlyWearing;
+                goggleShaderActive = false;
+                mc.levelRenderer.allChanged();
+                if (!currentlyWearing) {
+                    mc.gameRenderer.shutdownEffect();
+                    mc.player.removeEffect(MobEffects.NIGHT_VISION);
+                }
+            }
 
-        	if (currentlyWearing) {
-        	    if (!goggleShaderActive) {
-        	        loadGoggleShader(mc);
-        	    }
-        	    updateShaderTime(mc);
+            if (currentlyWearing) {
+                if (!goggleShaderActive) {
+                    loadGoggleShader(mc);
+                }
+                updateShaderTime(mc);
 
-        	    if (shouldApplyNightVision()) {
-        	        if (!mc.player.hasEffect(MobEffects.NIGHT_VISION) || mc.player.getEffect(MobEffects.NIGHT_VISION).getDuration() <= 220) {
-         	           mc.player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 400, 0, false, false, false));
-         	       }
-         	   } else {
-         	        mc.player.removeEffect(MobEffects.NIGHT_VISION);
-        	    }
-        	}
-    	}
+                if (shouldApplyNightVision()) {
+                    if (!mc.player.hasEffect(MobEffects.NIGHT_VISION) || mc.player.getEffect(MobEffects.NIGHT_VISION).getDuration() <= 220) {
+                        mc.player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 400, 0, false, false, false));
+                    }
+                } else {
+                    mc.player.removeEffect(MobEffects.NIGHT_VISION);
+                }
+            }
+        }
 
-    	private static void loadGoggleShader(Minecraft mc) {
-    	    try {
-    	        mc.gameRenderer.loadEffect(GOGGLE_SHADER);
-    	        goggleShaderActive = true;
-    	    } catch (Exception e) {
-    	        e.printStackTrace();
-    	        goggleShaderActive = false;
-    	    }
-    	}
+        private static void loadGoggleShader(Minecraft mc) {
+            try {
+                mc.gameRenderer.loadEffect(GOGGLE_SHADER);
+                goggleShaderActive = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                goggleShaderActive = false;
+            }
+        }
 
-    	@SuppressWarnings("unchecked")
-    	private static void updateShaderTime(Minecraft mc) {
-    	    if (POST_EFFECT_FIELD == null || PASSES_FIELD == null) return;
-    	    try {
-    	        net.minecraft.client.renderer.PostChain chain =
-     	           (net.minecraft.client.renderer.PostChain) POST_EFFECT_FIELD.get(mc.gameRenderer);
-     	       if (chain == null) {
-     	           goggleShaderActive = false;
-     	           return;
-     	       }
-     	       java.util.List<net.minecraft.client.renderer.PostPass> passes =
-     	           (java.util.List<net.minecraft.client.renderer.PostPass>) PASSES_FIELD.get(chain);
-     	       float time = (float)(mc.level.getGameTime() % 100000L) / 20.0f;
-     	       for (net.minecraft.client.renderer.PostPass pass : passes) {
-     	           pass.getEffect().safeGetUniform("Time").set(time);
-     	       }
-    	    } catch (Exception ignored) {}
-    	}
+        @SuppressWarnings("unchecked")
+        private static void updateShaderTime(Minecraft mc) {
+            if (POST_EFFECT_FIELD == null || PASSES_FIELD == null) return;
+            try {
+                PostChain chain = (PostChain) POST_EFFECT_FIELD.get(mc.gameRenderer);
+                if (chain == null) {
+                    goggleShaderActive = false;
+                    return;
+                }
+                List<PostPass> passes = (List<PostPass>) PASSES_FIELD.get(chain);
+                float time = (float) (mc.level.getGameTime() % 100000L) / 20.0f;
+                for (PostPass pass : passes) {
+                    pass.getEffect().safeGetUniform("Time").set(time);
+                }
+            } catch (Exception ignored) {}
+        }
 
-    	@SubscribeEvent
-    	public static void onRenderGuiOverlay(RenderGuiOverlayEvent.Post event) {
-    	    if (!event.getOverlay().id().getPath().equals("hotbar")) return;
-    	    if (!isWearingProtectiveGear()) return;
+        @SubscribeEvent
+        public static void onRenderGuiOverlay(RenderGuiLayerEvent.Post event) {
+            if (!event.getName().equals(VanillaGuiLayers.HOTBAR)) return;
+            if (!isWearingProtectiveGear()) return;
 
-   	    	GuiGraphics graphics = event.getGuiGraphics();
-        	int width = event.getWindow().getGuiScaledWidth();
-        	int height = event.getWindow().getGuiScaledHeight();
+            Minecraft mc = Minecraft.getInstance();
+            GuiGraphics graphics = event.getGuiGraphics();
+            int width = mc.getWindow().getGuiScaledWidth();
+            int height = mc.getWindow().getGuiScaledHeight();
 
-        	RenderSystem.disableDepthTest();
-        	RenderSystem.depthMask(false);
-        	RenderSystem.enableBlend();
-        	RenderSystem.defaultBlendFunc();
+            RenderSystem.disableDepthTest();
+            RenderSystem.depthMask(false);
+            RenderSystem.enableBlend();
+            RenderSystem.defaultBlendFunc();
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderTexture(0, VIGNETTE_TEXTURE);
+            RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 0.85f);
 
-        	RenderSystem.setShader(net.minecraft.client.renderer.GameRenderer::getPositionTexShader);
-        	RenderSystem.setShaderTexture(0, VIGNETTE_TEXTURE);
-        	RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 0.85f);
+            BufferBuilder buf = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+            buf.addVertex(0, height, 0).setUv(0, 1);
+            buf.addVertex(width, height, 0).setUv(1, 1);
+            buf.addVertex(width, 0, 0).setUv(1, 0);
+            buf.addVertex(0, 0, 0).setUv(0, 0);
+            BufferUploader.drawWithShader(buf.buildOrThrow());
 
-        	com.mojang.blaze3d.vertex.BufferBuilder buf = com.mojang.blaze3d.vertex.Tesselator.getInstance().getBuilder();
-        	buf.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_TEX);
-        	buf.vertex(0, height, 0).uv(0, 1).endVertex();
-        	buf.vertex(width, height, 0).uv(1, 1).endVertex();
-        	buf.vertex(width, 0, 0).uv(1, 0).endVertex();
-        	buf.vertex(0, 0, 0).uv(0, 0).endVertex();
-        	com.mojang.blaze3d.vertex.BufferUploader.drawWithShader(buf.end());
-
-        	RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        	RenderSystem.disableBlend();
-        	RenderSystem.depthMask(true);
-        	RenderSystem.enableDepthTest();
-    	}
-	}
+            RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+            RenderSystem.disableBlend();
+            RenderSystem.depthMask(true);
+            RenderSystem.enableDepthTest();
+        }
+    }
 }

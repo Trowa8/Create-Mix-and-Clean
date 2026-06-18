@@ -1,6 +1,6 @@
 package net.mcreator.createmixandclean.fluid;
 
-import net.minecraftforge.fluids.ForgeFlowingFluid;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluid;
@@ -12,8 +12,8 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluidTypes;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlocks;
 
-public abstract class ChlorineGasFluid extends ForgeFlowingFluid {
-	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.CHLORINE_GAS_TYPE.get(), () -> CreateMixAndCleanModFluids.CHLORINE_GAS.get(),
+public abstract class ChlorineGasFluid extends BaseFlowingFluid {
+	public static final BaseFlowingFluid.Properties PROPERTIES = new BaseFlowingFluid.Properties(() -> CreateMixAndCleanModFluidTypes.CHLORINE_GAS_TYPE.get(), () -> CreateMixAndCleanModFluids.CHLORINE_GAS.get(),
 			() -> CreateMixAndCleanModFluids.FLOWING_CHLORINE_GAS.get()).explosionResistance(100f).slopeFindDistance(1).bucket(() -> CreateMixAndCleanModItems.CHLORINE_GAS_BUCKET.get())
 			.block(() -> (LiquidBlock) CreateMixAndCleanModBlocks.CHLORINE_GAS.get());
 

@@ -6,8 +6,11 @@ import net.minecraft.resources.ResourceLocation;
 public class CreateMixAndCleanPartialModels {
 
     public static final PartialModel ELECTROLYZER_HEAD =
-            PartialModel.of(new ResourceLocation(
-                    "create_mix_and_clean", "block/electrolyzer_head"));
+            PartialModel.of(ResourceLocation.fromNamespaceAndPath(
+                    "create_mix_and_clean",
+                    "block/electrolyzer_head"
+            ));
 
-    public static void init() {}
+    public static void init() {
+    }
 }

@@ -1,115 +1,119 @@
 package net.mcreator.createmixandclean.recipe;
 
-import com.google.gson.*;
-import net.minecraft.network.FriendlyByteBuf;
+import com.mojang.datafixers.util.Either;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.Dynamic;
+import com.mojang.serialization.JsonOps;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.fluids.FluidStack;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ElectrolyzerRecipeSerializer
         implements RecipeSerializer<ElectrolyzerRecipe> {
 
+    public static final Codec<FluidStack> FLAT_FLUID_CODEC = RecordCodecBuilder.create(inst -> inst.group(
+            ResourceLocation.CODEC.fieldOf("fluid").forGetter(fs -> BuiltInRegistries.FLUID.getKey(fs.getFluid())),
+            Codec.INT.optionalFieldOf("amount", 1000).forGetter(FluidStack::getAmount)
+    ).apply(inst, (id, amount) -> new FluidStack(BuiltInRegistries.FLUID.get(id), amount)));
+
+    public static final Codec<ElectrolyzerRecipe.SizedIngredient> FLAT_ITEM_INGREDIENT_CODEC = Codec.PASSTHROUGH.flatXmap(
+            dynamic -> {
+                int count = dynamic.get("count").asInt(1);
+                return Ingredient.CODEC_NONEMPTY.parse(dynamic)
+                        .map(ing -> new ElectrolyzerRecipe.SizedIngredient(ing, count));
+            },
+            sizedIng -> Ingredient.CODEC_NONEMPTY.encodeStart(JsonOps.INSTANCE, sizedIng.getIngredient())
+                    .map(elem -> {
+                        if (elem.isJsonObject() && sizedIng.getCount() > 1) {
+                            elem.getAsJsonObject().addProperty("count", sizedIng.getCount());
+                        }
+                        return new Dynamic<>(JsonOps.INSTANCE, elem);
+                    })
+    );
+
+    public static final Codec<ElectrolyzerRecipe.ChanceResult> FLAT_CHANCE_RESULT_CODEC = Codec.PASSTHROUGH.flatXmap(
+            dynamic -> {
+                float chance = dynamic.get("chance").asFloat(1.0f);
+                return ItemStack.CODEC.parse(dynamic)
+                        .map(stack -> new ElectrolyzerRecipe.ChanceResult(stack, chance));
+            },
+            result -> ItemStack.CODEC.encodeStart(JsonOps.INSTANCE, result.getStack())
+                    .map(elem -> {
+                        if (elem.isJsonObject() && result.getChance() < 1.0f) {
+                            elem.getAsJsonObject().addProperty("chance", result.getChance());
+                        }
+                        return new Dynamic<>(JsonOps.INSTANCE, elem);
+                    })
+    );
+
+    public static final Codec<Either<FluidStack, ElectrolyzerRecipe.SizedIngredient>> MIXED_INGREDIENT_CODEC = Codec.either(FLAT_FLUID_CODEC, FLAT_ITEM_INGREDIENT_CODEC);
+    public static final Codec<Either<FluidStack, ElectrolyzerRecipe.ChanceResult>> MIXED_RESULT_CODEC = Codec.either(FLAT_FLUID_CODEC, FLAT_CHANCE_RESULT_CODEC);
+
+    public static final MapCodec<ElectrolyzerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
+            MIXED_INGREDIENT_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> {
+                List<Either<FluidStack, ElectrolyzerRecipe.SizedIngredient>> list = new ArrayList<>();
+                recipe.getFluidIngredients().forEach(f -> list.add(Either.left(f)));
+                recipe.getSizedIngredients().forEach(i -> list.add(Either.right(i)));
+                return list;
+            }),
+            MIXED_RESULT_CODEC.listOf().fieldOf("results").forGetter(recipe -> {
+                List<Either<FluidStack, ElectrolyzerRecipe.ChanceResult>> list = new ArrayList<>();
+                recipe.getFluidResults().forEach(f -> list.add(Either.left(f)));
+                recipe.getChanceResults().forEach(i -> list.add(Either.right(i)));
+                return list;
+            }),
+            Codec.INT.optionalFieldOf("processingTime", 200).forGetter(ElectrolyzerRecipe::getProcessingTime)
+    ).apply(inst, (ingredients, results, time) -> {
+        
+        List<ElectrolyzerRecipe.SizedIngredient> itemIngs = new ArrayList<>();
+        List<FluidStack> fluidIngs = new ArrayList<>();
+        for (var either : ingredients) {
+            either.ifLeft(fluidIngs::add).ifRight(itemIngs::add);
+        }
+
+        List<ElectrolyzerRecipe.ChanceResult> itemRes = new ArrayList<>();
+        List<FluidStack> fluidRes = new ArrayList<>();
+        for (var either : results) {
+            either.ifLeft(fluidRes::add).ifRight(itemRes::add);
+        }
+
+        return new ElectrolyzerRecipe(itemIngs, fluidIngs, itemRes, fluidRes, time);
+    }));
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, ElectrolyzerRecipe.SizedIngredient> SIZED_INGREDIENT_STREAM_CODEC = StreamCodec.composite(
+            Ingredient.CONTENTS_STREAM_CODEC, ElectrolyzerRecipe.SizedIngredient::getIngredient,
+            ByteBufCodecs.VAR_INT, ElectrolyzerRecipe.SizedIngredient::getCount,
+            ElectrolyzerRecipe.SizedIngredient::new
+    );
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, ElectrolyzerRecipe.ChanceResult> CHANCE_RESULT_STREAM_CODEC = StreamCodec.composite(
+            ItemStack.STREAM_CODEC, ElectrolyzerRecipe.ChanceResult::getStack,
+            ByteBufCodecs.FLOAT, ElectrolyzerRecipe.ChanceResult::getChance,
+            ElectrolyzerRecipe.ChanceResult::new
+    );
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, ElectrolyzerRecipe> STREAM_CODEC = StreamCodec.composite(
+            SIZED_INGREDIENT_STREAM_CODEC.apply(ByteBufCodecs.list()), ElectrolyzerRecipe::getSizedIngredients,
+            FluidStack.STREAM_CODEC.apply(ByteBufCodecs.list()), ElectrolyzerRecipe::getFluidIngredients,
+            CHANCE_RESULT_STREAM_CODEC.apply(ByteBufCodecs.list()), ElectrolyzerRecipe::getChanceResults,
+            FluidStack.STREAM_CODEC.apply(ByteBufCodecs.list()), ElectrolyzerRecipe::getFluidResults,
+            ByteBufCodecs.VAR_INT, ElectrolyzerRecipe::getProcessingTime,
+            ElectrolyzerRecipe::new
+    );
+
     @Override
-    public ElectrolyzerRecipe fromJson(ResourceLocation id, JsonObject json) {
-        List<ElectrolyzerRecipe.SizedIngredient> ingredients = new ArrayList<>();
-        List<FluidStack> fluidIngredients = new ArrayList<>();
-
-        for (JsonElement el : GsonHelper.getAsJsonArray(json, "ingredients")) {
-            JsonObject obj = el.getAsJsonObject();
-            if (obj.has("fluid")) {
-                ResourceLocation fluidId = new ResourceLocation(GsonHelper.getAsString(obj, "fluid"));
-                int amount = GsonHelper.getAsInt(obj, "amount", 1000);
-                var fluid = ForgeRegistries.FLUIDS.getValue(fluidId);
-                if (fluid != null)
-                    fluidIngredients.add(new FluidStack(fluid, amount));
-            } else {
-                int count = GsonHelper.getAsInt(obj, "count", 1);
-                ingredients.add(new ElectrolyzerRecipe.SizedIngredient(Ingredient.fromJson(el), count));
-            }
-        }
-
-        List<ElectrolyzerRecipe.ChanceResult> results = new ArrayList<>();
-        List<FluidStack> fluidResults = new ArrayList<>();
-        for (JsonElement el : GsonHelper.getAsJsonArray(json, "results")) {
-            JsonObject obj = el.getAsJsonObject();
-            if (obj.has("fluid")) {
-                ResourceLocation fluidId = new ResourceLocation(GsonHelper.getAsString(obj, "fluid"));
-                int amount = GsonHelper.getAsInt(obj, "amount", 1000);
-                var fluid = ForgeRegistries.FLUIDS.getValue(fluidId);
-                if (fluid != null)
-                    fluidResults.add(new FluidStack(fluid, amount));
-            } else {
-                ResourceLocation itemId = new ResourceLocation(GsonHelper.getAsString(obj, "item"));
-                int count = GsonHelper.getAsInt(obj, "count", 1);
-                float chance = GsonHelper.getAsFloat(obj, "chance", 1.0f);
-                results.add(new ElectrolyzerRecipe.ChanceResult(new ItemStack(ForgeRegistries.ITEMS.getValue(itemId), count), chance));
-            }
-        }
-
-        int processingTime = GsonHelper.getAsInt(json, "processingTime", 200);
-        return new ElectrolyzerRecipe(id, ingredients, fluidIngredients, results, fluidResults, processingTime);
-    }
-
-    @Nullable
+    public MapCodec<ElectrolyzerRecipe> codec() {return CODEC;}
     @Override
-    public ElectrolyzerRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
-        int ingCount = buf.readVarInt();
-        List<ElectrolyzerRecipe.SizedIngredient> ingredients = new ArrayList<>();
-        for (int i = 0; i < ingCount; i++) {
-            ingredients.add(new ElectrolyzerRecipe.SizedIngredient(Ingredient.fromNetwork(buf), buf.readVarInt()));
-        }
-
-        int fluidCount = buf.readVarInt();
-        List<FluidStack> fluidIngredients = new ArrayList<>();
-        for (int i = 0; i < fluidCount; i++)
-            fluidIngredients.add(FluidStack.readFromPacket(buf));
-
-        int resCount = buf.readVarInt();
-        List<ElectrolyzerRecipe.ChanceResult> results = new ArrayList<>();
-        for (int i = 0; i < resCount; i++) {
-            results.add(new ElectrolyzerRecipe.ChanceResult(buf.readItem(), buf.readFloat()));
-        }
-
-        int fluidResCount = buf.readVarInt();
-        List<FluidStack> fluidResults = new ArrayList<>();
-        for (int i = 0; i < fluidResCount; i++)
-            fluidResults.add(FluidStack.readFromPacket(buf));
-            
-        int processingTime = buf.readVarInt();
-
-        return new ElectrolyzerRecipe(id, ingredients, fluidIngredients, results, fluidResults, processingTime);
-    }
-
-    @Override
-    public void toNetwork(FriendlyByteBuf buf, ElectrolyzerRecipe recipe) {
-        buf.writeVarInt(recipe.getSizedIngredients().size());
-        for (ElectrolyzerRecipe.SizedIngredient ing : recipe.getSizedIngredients()) {
-            ing.getIngredient().toNetwork(buf);
-            buf.writeVarInt(ing.getCount());
-        }
-
-        buf.writeVarInt(recipe.getFluidIngredients().size());
-        for (FluidStack fs : recipe.getFluidIngredients())
-            fs.writeToPacket(buf);
-
-        buf.writeVarInt(recipe.getChanceResults().size());
-        for (ElectrolyzerRecipe.ChanceResult result : recipe.getChanceResults()) {
-            buf.writeItem(result.getStack());
-            buf.writeFloat(result.getChance());
-        }
-
-        buf.writeVarInt(recipe.getFluidResults().size());
-        for (FluidStack fs : recipe.getFluidResults())
-            fs.writeToPacket(buf);     
-            
-        buf.writeVarInt(recipe.getProcessingTime());
-    }
+    public StreamCodec<RegistryFriendlyByteBuf, ElectrolyzerRecipe> streamCodec() {return STREAM_CODEC;}
 }

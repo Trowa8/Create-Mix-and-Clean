@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "create_mix_and_clean:hazard_protection_helmet",
+    "create_mix_and_clean:ogi_helmet"
+  ]
+}

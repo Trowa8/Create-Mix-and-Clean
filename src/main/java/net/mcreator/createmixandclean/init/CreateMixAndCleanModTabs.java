@@ -3,8 +3,8 @@
  */
 package net.mcreator.createmixandclean.init;
 
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.CreativeModeTab;
@@ -15,7 +15,7 @@ import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
 public class CreateMixAndCleanModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateMixAndCleanMod.MODID);
-	public static final RegistryObject<CreativeModeTab> CREATE_MIX_AND_CLEAN = REGISTRY.register("create_mix_and_clean",
+	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATE_MIX_AND_CLEAN = REGISTRY.register("create_mix_and_clean",
 			() -> CreativeModeTab.builder().title(Component.translatable("item_group.create_mix_and_clean.create_mix_and_clean")).icon(() -> new ItemStack(CreateMixAndCleanModItems.WASTE_ROCK.get())).displayItems((parameters, tabData) -> {
 				tabData.accept(CreateMixAndCleanModItems.WASTE_ROCK.get());
 				tabData.accept(CreateMixAndCleanModItems.CAUSTIC_SODA.get());

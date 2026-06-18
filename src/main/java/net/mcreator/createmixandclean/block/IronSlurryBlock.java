@@ -10,6 +10,6 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 
 public class IronSlurryBlock extends LiquidBlock {
 	public IronSlurryBlock() {
-		super(() -> CreateMixAndCleanModFluids.IRON_SLURRY.get(), BlockBehaviour.Properties.of().mapColor(MapColor.WATER).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
+		super(CreateMixAndCleanModFluids.IRON_SLURRY.get(), BlockBehaviour.Properties.of().mapColor(MapColor.WATER).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
 	}
 }

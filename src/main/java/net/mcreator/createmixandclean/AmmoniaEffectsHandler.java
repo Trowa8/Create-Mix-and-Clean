@@ -1,10 +1,10 @@
 package net.mcreator.createmixandclean;
 
 import net.mcreator.createmixandclean.fluid.types.AmmoniaFluidType;
-
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.event.entity.living.LivingEvent;
+import net.mcreator.createmixandclean.init.CreateMixAndCleanModSounds;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber(modid = "create_mix_and_clean")
 public class AmmoniaEffectsHandler {
 
     private static final Map<UUID, Integer> exposure = new HashMap<>();
@@ -28,8 +28,8 @@ public class AmmoniaEffectsHandler {
     private static final Set<UUID> messageShown = new HashSet<>();
 
     @SubscribeEvent
-    public static void onLivingTick(LivingEvent.LivingTickEvent event) {
-        if (!(event.getEntity() instanceof Player player)) return;
+    public static void onPlayerTick(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
         if (player.level().isClientSide()) return;
 
         UUID id = player.getUUID();
@@ -47,7 +47,7 @@ public class AmmoniaEffectsHandler {
             }
 
             if (ticks >= nextSoundTick.getOrDefault(id, Integer.MAX_VALUE)) {
-                player.level().playSound(null, player, net.mcreator.createmixandclean.init.CreateMixAndCleanModSounds.COUGHING.get(), SoundSource.PLAYERS, 0.5f, 0.8f);
+                player.level().playSound(null, player, CreateMixAndCleanModSounds.COUGHING.get(), SoundSource.PLAYERS, 0.5f, 0.8f);
                 int interval = (3 + player.getRandom().nextInt(6)) * 20;
                 nextSoundTick.put(id, ticks + interval);
             }

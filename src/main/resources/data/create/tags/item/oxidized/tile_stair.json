@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "create:waxed_oxidized_copper_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "create:weathered_copper_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "create:oxidized_copper_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "create:waxed_exposed_copper_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "create:exposed_copper_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "create:waxed_weathered_copper_tile_stairs",
+      "required": false
+    }
+  ]
+}

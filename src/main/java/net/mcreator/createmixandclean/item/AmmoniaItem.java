@@ -1,8 +1,6 @@
 package net.mcreator.createmixandclean.item;
 
-import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-
+import net.neoforged.neoforge.fluids.capability.wrappers.FluidBucketWrapper;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
@@ -15,13 +13,11 @@ import javax.annotation.Nullable;
 
 public class AmmoniaItem extends BucketItem {
 	public AmmoniaItem() {
-		super(CreateMixAndCleanModFluids.AMMONIA, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)
-
+		super(CreateMixAndCleanModFluids.AMMONIA.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)
 		);
 	}
 
-	@Override
-	public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
+	public FluidBucketWrapper initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
 		return new FluidBucketWrapper(stack);
 	}
 }

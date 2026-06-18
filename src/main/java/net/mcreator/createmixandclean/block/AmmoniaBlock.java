@@ -14,7 +14,7 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 
 public class AmmoniaBlock extends LiquidBlock {
 	public AmmoniaBlock() {
-		super(() -> CreateMixAndCleanModFluids.AMMONIA.get(), BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(99f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
+		super(CreateMixAndCleanModFluids.AMMONIA.get(), BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(99f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
 	}
 
 	@Override

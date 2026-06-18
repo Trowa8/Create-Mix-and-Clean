@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class CreateMixAndCleanModBrewingRecipes implements IModPlugin {
 	@Override
 	public ResourceLocation getPluginUid() {
-		return new ResourceLocation("create_mix_and_clean", "brewing_recipes");
+		return ResourceLocation.parse("create_mix_and_clean:brewing_recipes");
 	}
 
 	@Override

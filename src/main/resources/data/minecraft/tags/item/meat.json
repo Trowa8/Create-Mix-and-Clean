@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "create_mix_and_clean:table_salt",
     "create_mix_and_clean:caustic_soda"
   ]
 }

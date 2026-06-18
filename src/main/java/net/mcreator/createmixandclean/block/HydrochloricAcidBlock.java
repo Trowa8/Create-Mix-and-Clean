@@ -15,8 +15,7 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModFluids;
 
 public class HydrochloricAcidBlock extends LiquidBlock {
 	public HydrochloricAcidBlock() {
-		super(() -> CreateMixAndCleanModFluids.HYDROCHLORIC_ACID.get(),
-				BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
+		super(CreateMixAndCleanModFluids.HYDROCHLORIC_ACID.get(), BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(100f).noCollission().noLootTable().liquid().pushReaction(PushReaction.DESTROY).sound(SoundType.EMPTY).replaceable());
 	}
 
 	@Override
