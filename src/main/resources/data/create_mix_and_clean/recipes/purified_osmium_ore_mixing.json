@@ -14,7 +14,7 @@
   ],
   "results": [
     {
-      "item": "create_mix_and_clean:purified_osmium_ore"
+      "id": "create_mix_and_clean:purified_osmium_ore"
     },
     {
       "chance": 0.25,

@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedNickelOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.NICKEL_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedNickelOre",
+    "smeltingReturnStack": "Items.NICKEL_INGOT",
     "name": "combined_nickel_smelting_ie",
     "namespace": "mod"
   }

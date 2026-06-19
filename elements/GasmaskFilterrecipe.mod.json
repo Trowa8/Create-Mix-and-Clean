@@ -1,17 +1,13 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 1,
     "group": "",
     "unlockingItems": [
-      {
-        "value": "Items.COAL#1"
-      },
-      {
-        "value": "Items.PAPER"
-      }
+      "Items.COAL#1",
+      "Items.PAPER"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -19,37 +15,17 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": ""
-      },
-      {
-        "value": "Items.PAPER"
-      },
-      {
-        "value": "Items.COAL#1"
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      }
+      "",
+      "Items.PAPER",
+      "Items.COAL#1",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:GasmaskFilter"
-    },
+    "recipeReturnStack": "CUSTOM:GasmaskFilter",
     "name": "gasmask_filterrecipe",
     "namespace": "mod"
   }

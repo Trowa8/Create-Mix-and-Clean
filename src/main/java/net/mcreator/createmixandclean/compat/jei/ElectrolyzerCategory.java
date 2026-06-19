@@ -3,7 +3,7 @@ package net.mcreator.createmixandclean.compat.jei;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
 
-import mezz.jei.api.forge.ForgeTypes;
+import mezz.jei.api.neoforge.NeoForgeTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
@@ -110,7 +110,7 @@ public class ElectrolyzerCategory implements mezz.jei.api.recipe.category.IRecip
         List<FluidStack> fluids = recipe.getFluidIngredients();
         for (int i = 0; i < fluids.size(); i++) {
             builder.addSlot(RecipeIngredientRole.INPUT, 20, 40 + i * 19)
-                    .addIngredient(ForgeTypes.FLUID_STACK, fluids.get(i))
+                    .addIngredient(NeoForgeTypes.FLUID_STACK, fluids.get(i))
                     .setFluidRenderer(fluids.get(i).getAmount(), false, 16, 16);
         }
 
@@ -143,7 +143,7 @@ public class ElectrolyzerCategory implements mezz.jei.api.recipe.category.IRecip
             
             builder.addSlot(RecipeIngredientRole.OUTPUT, xOut, yOut)
                     .setBackground(CreateRecipeCategory.getRenderedSlot(), -1, -1)
-                    .addIngredient(ForgeTypes.FLUID_STACK, fluidResults.get(i))
+                    .addIngredient(NeoForgeTypes.FLUID_STACK, fluidResults.get(i))
                     .setFluidRenderer(fluidResults.get(i).getAmount(), false, 16, 16);
             outIndex++;
         }

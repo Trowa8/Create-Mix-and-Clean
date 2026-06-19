@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "fluid",
   "definition": {
     "name": "Hydrochloric Acid",
@@ -24,9 +24,7 @@
     "levelDecrease": 1,
     "slopeFindDistance": 3,
     "spawnParticles": false,
-    "dripParticle": {
-      "value": "ASH"
-    },
+    "dripParticle": "ASH",
     "flowStrength": 0.5,
     "luminosity": 0,
     "density": 1100,
@@ -36,13 +34,9 @@
     "generateBucket": true,
     "textureBucket": "hydrochloric_acid_bucket_texture",
     "creativeTabs": [
-      {
-        "value": "CUSTOM:CreateMixAndClean"
-      }
+      "CUSTOM:CreateMixAndClean"
     ],
-    "emptySound": {
-      "value": ""
-    },
+    "emptySound": "",
     "rarity": "COMMON",
     "specialInformation": {
       "fixedValue": []
@@ -56,8 +50,6 @@
     "flammability": 0,
     "fireSpreadSpeed": 0,
     "colorOnMap": "AIR",
-    "onEntityCollides": {
-      "name": "HydrogenGasMobplayerCollidesBlock"
-    }
+    "onEntityCollides": "HydrogenGasMobplayerCollidesBlock"
   }
 }

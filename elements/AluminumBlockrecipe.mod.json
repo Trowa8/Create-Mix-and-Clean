@@ -1,14 +1,12 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 1,
     "group": "",
     "unlockingItems": [
-      {
-        "value": "CUSTOM:AluminumIngot"
-      }
+      "CUSTOM:AluminumIngot"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -16,37 +14,17 @@
     "craftingBookCategory": "BUILDING",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      },
-      {
-        "value": "CUSTOM:AluminumIngot"
-      }
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot",
+      "CUSTOM:AluminumIngot"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:AluminumBlock"
-    },
+    "recipeReturnStack": "CUSTOM:AluminumBlock",
     "name": "aluminum_block",
     "namespace": "mod"
   }

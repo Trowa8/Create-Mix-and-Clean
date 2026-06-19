@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:CombinedGold"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.GOLD_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:CombinedGold",
+    "smeltingReturnStack": "Items.GOLD_INGOT",
     "name": "combined_gold_smelting",
     "namespace": "mod"
   }

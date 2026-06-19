@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedAluminumOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.ALUMINUM_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedAluminumOre",
+    "smeltingReturnStack": "Items.ALUMINUM_INGOT",
     "name": "purified_aluminum_smelting_ie",
     "namespace": "mod"
   }

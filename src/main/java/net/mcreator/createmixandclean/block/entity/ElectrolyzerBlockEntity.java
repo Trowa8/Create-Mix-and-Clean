@@ -11,16 +11,13 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.EnergyStorage;
-import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.items.IItemHandler;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.energy.EnergyStorage;
+import net.neoforged.neoforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.items.IItemHandler;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class ElectrolyzerBlockEntity extends KineticBlockEntity {
@@ -32,7 +29,6 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
     private static final int   RETURN_TICKS  = 32;
 
     private final EnergyStorage energyStorage = new EnergyStorage(BUFFER_SIZE);
-    private LazyOptional<IEnergyStorage> lazyEnergy = LazyOptional.empty();
     private float feAccumulator = 0f;
 
     private boolean processing    = false;
@@ -138,13 +134,11 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         setChanged();
 
         if (!currentRecipe.getFluidIngredients().isEmpty()) {
-            var basinBE = level.getBlockEntity(worldPosition.below(2));
-            if (basinBE != null) {
-                basinBE.getCapability(ForgeCapabilities.FLUID_HANDLER, Direction.UP)
-                        .ifPresent(tank -> {
-                            for (FluidStack fs : currentRecipe.getFluidIngredients())
-                                tank.drain(fs, net.minecraftforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
-                        });
+            BlockPos basinPos = worldPosition.below(2);
+            IFluidHandler tank = level.getCapability(Capabilities.FluidHandler.BLOCK, basinPos, Direction.UP);
+            if (tank != null) {
+                for (FluidStack fs : currentRecipe.getFluidIngredients())
+                    tank.drain(fs, IFluidHandler.FluidAction.EXECUTE);
             }
         }
 
@@ -221,70 +215,50 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
 
     private Optional<IItemHandler> getBasinInventory() {
         if (level == null) return Optional.empty();
-        var be = level.getBlockEntity(worldPosition.below(2));
-        if (be == null) return Optional.empty();
-        return be.getCapability(ForgeCapabilities.ITEM_HANDLER, Direction.UP).resolve();
+        BlockPos basinPos = worldPosition.below(2);
+        return Optional.ofNullable(level.getCapability(Capabilities.ItemHandler.BLOCK, basinPos, Direction.UP));
     }
 
     private Optional<ElectrolyzerRecipe> findRecipe() {
         Optional<IItemHandler> inv = getBasinInventory();
         if (inv.isEmpty() || level == null) return Optional.empty();
 
-        var basinBE = level.getBlockEntity(worldPosition.below(2));
-        var fluidTank = basinBE == null ? null :
-                basinBE.getCapability(ForgeCapabilities.FLUID_HANDLER, Direction.UP)
-                        .resolve().orElse(null);
+        BlockPos basinPos = worldPosition.below(2);
+        IFluidHandler fluidTank = level.getCapability(Capabilities.FluidHandler.BLOCK, basinPos, Direction.UP);
 
         return level.getRecipeManager()
                     .getAllRecipesFor(ElectrolyzerRecipe.TYPE)
                     .stream()
+                    .map(net.minecraft.world.item.crafting.RecipeHolder::value)
                     .filter(r -> r.matchesInventory(inv.get()) && r.matchesFluids(fluidTank))
                     .findFirst();
     }
 
     @Override
-    protected void read(CompoundTag tag, boolean clientPacket) {
-        super.read(tag, clientPacket);
+    protected void read(CompoundTag tag, net.minecraft.core.HolderLookup.Provider registries, boolean clientPacket) {
+        super.read(tag, registries, clientPacket);
         processing     = tag.getBoolean("Processing");
         returning      = tag.getBoolean("Returning");
         processingTick = tag.getInt("ProcessingTick");
         processingTime = tag.getInt("ProcessingTime");
         returnTick     = tag.getInt("ReturnTick");
         if (!clientPacket && tag.contains("Energy"))
-            energyStorage.deserializeNBT(tag.get("Energy"));
+            energyStorage.deserializeNBT(registries, tag.get("Energy"));
     }
 
     @Override
-    public void write(CompoundTag tag, boolean clientPacket) {
-        super.write(tag, clientPacket);
+    public void write(CompoundTag tag, net.minecraft.core.HolderLookup.Provider registries, boolean clientPacket) {
+        super.write(tag, registries, clientPacket);
         tag.putBoolean("Processing",    processing);
         tag.putBoolean("Returning",     returning);
         tag.putInt("ProcessingTick",    processingTick);
         tag.putInt("ProcessingTime",    processingTime);
         tag.putInt("ReturnTick",        returnTick);
         if (!clientPacket)
-            tag.put("Energy", energyStorage.serializeNBT());
+            tag.put("Energy", energyStorage.serializeNBT(registries));
     }
 
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyEnergy = LazyOptional.of(() -> energyStorage);
-    }
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyEnergy.invalidate();
-    }
-
-    @Nonnull
-    @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap,
-                                              @Nullable Direction side) {
-        if (cap == ForgeCapabilities.ENERGY) return lazyEnergy.cast();
-        return super.getCapability(cap, side);
-    }
+    public IEnergyStorage getEnergyStorage() { return energyStorage; }
 
     public boolean isProcessing() { return processing; }
     public int getEnergyStored()  { return energyStorage.getEnergyStored(); }

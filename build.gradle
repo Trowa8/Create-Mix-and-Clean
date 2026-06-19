@@ -9,7 +9,7 @@ base.archivesName = "modid"
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
-    version = "21.1.190"
+    version = "21.1.228"
 
     runs {
         client {
@@ -55,7 +55,7 @@ repositories {
 
 dependencies {
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
-    implementation("net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:${ponder_version}")
+    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
@@ -76,5 +76,59 @@ jar {
         ])
     }
 }
+
+tasks.register('patchMCreatorGeneratedSources') {
+    def blockEntitiesFile = file('src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlockEntities.java')
+    def blocksFile        = file('src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlocks.java')
+    def itemsFile         = file('src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModItems.java')
+
+    doLast {
+        // CreateMixAndCleanModBlockEntities.java
+        if (blockEntitiesFile.exists()) {
+            def text = blockEntitiesFile.text
+
+            if (!text.contains('import net.neoforged.neoforge.capabilities.Capabilities;')) {
+                text = text.replaceFirst('(package [^;]+;\\s*\\n)', '$1\nimport net.neoforged.neoforge.capabilities.Capabilities;\n')
+            }
+
+            text = text.replaceAll(
+                '(?m)^.*event\\.registerBlockEntity\\(Capabilities\\.ItemHandler\\.BLOCK,\\s*ELECTROLYZER\\.get\\(\\),\\s*SidedInvWrapper::new\\);\\s*\\n',
+                ''
+            )
+
+            text = text.replaceAll(
+                'import net\\.neoforged\\.neoforge\\.items\\.wrapper\\.SidedInvWrapper;\\s*\\n',
+                ''
+            )
+
+            blockEntitiesFile.text = text
+        }
+
+        // CreateMixAndCleanModBlocks.java
+        if (blocksFile.exists()) {
+            def text = blocksFile.text
+
+            text = text.replaceAll(
+                'REGISTRY\\.register\\("electrolyzer",\\s*ElectrolyzerBlock::new\\);',
+                'REGISTRY.register("electrolyzer", () -> new ElectrolyzerBlock());'
+            )
+
+            blocksFile.text = text
+        }
+
+        // CreateMixAndCleanModItems.java
+        if (itemsFile.exists()) {
+            def text = itemsFile.text
+
+            if (!text.contains('import net.neoforged.neoforge.capabilities.Capabilities;')) {
+                text = text.replaceFirst('(package [^;]+;\\s*\\n)', '$1\nimport net.neoforged.neoforge.capabilities.Capabilities;\n')
+            }
+
+            itemsFile.text = text
+        }
+    }
+}
+
+compileJava.dependsOn patchMCreatorGeneratedSources
 
 apply from: 'mcreator.gradle'

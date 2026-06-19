@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedUraniumOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.URANIUM_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedUraniumOre",
+    "smeltingReturnStack": "Items.URANIUM_INGOT",
     "name": "combined_uranium_smelting",
     "namespace": "mod"
   }

@@ -13,8 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import com.simibubi.create.content.kinetics.base.HorizontalKineticBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 
-public class ElectrolyzerRenderer
-        extends KineticBlockEntityRenderer<ElectrolyzerBlockEntity> {
+public class ElectrolyzerRenderer extends KineticBlockEntityRenderer<ElectrolyzerBlockEntity> {
 
     private static final float MAX_PLUNGE = 1.0f;
 

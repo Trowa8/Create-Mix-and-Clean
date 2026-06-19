@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedOstrumOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.OSTRUM_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedOstrumOre",
+    "smeltingReturnStack": "Items.OSTRUM_INGOT",
     "name": "combined_ostrum_smelting",
     "namespace": "mod"
   }

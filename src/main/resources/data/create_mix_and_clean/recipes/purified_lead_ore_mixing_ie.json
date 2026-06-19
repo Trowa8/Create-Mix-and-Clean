@@ -14,7 +14,7 @@
   ],
   "results": [
     {
-      "item": "create_mix_and_clean:purified_lead_ore"
+      "id": "create_mix_and_clean:purified_lead_ore"
     },
     {
       "chance": 0.25,

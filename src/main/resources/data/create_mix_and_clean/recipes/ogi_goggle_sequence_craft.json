@@ -6,7 +6,7 @@
   "loops": 2,
   "results": [
     {
-      "item": "create_mix_and_clean:ogi_helmet"
+      "id": "create_mix_and_clean:ogi_helmet"
     }
   ],
   "sequence": [

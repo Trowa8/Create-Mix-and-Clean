@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedCobaltOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.COBALT_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedCobaltOre",
+    "smeltingReturnStack": "Items.COBALT_INGOT",
     "name": "purified_cobalt_smelting",
     "namespace": "mod"
   }

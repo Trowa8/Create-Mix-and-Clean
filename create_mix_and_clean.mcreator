@@ -2577,7 +2577,7 @@
     {
       "name": "Electrolyzer",
       "type": "block",
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "registry_name": "electrolyzer",
       "metadata": {
@@ -3248,15 +3248,6 @@
     "ITEMS:forge:buckets/hydrogen": [
       "CUSTOM:HydrogenGas.bucket"
     ],
-    "BLOCKS:minecraft:replaceable": [
-      "~CUSTOM:NitrogenGas",
-      "~CUSTOM:LiquidAir",
-      "~CUSTOM:OxygenGas",
-      "~CUSTOM:IronSlurry",
-      "~CUSTOM:HydrochloricAcid",
-      "~CUSTOM:HydrogenGas",
-      "~CUSTOM:ChlorineGas"
-    ],
     "ITEMS:minecraft:colored_blocks/wool": [
       "Blocks.WOOL#1",
       "Blocks.WOOL#2",
@@ -3378,20 +3369,8 @@
       "Blocks.WAXED_WEATHERED_CUT_COPPER_STAIRS",
       "Blocks.WAXED_OXIDIZED_CUT_COPPER_STAIRS"
     ],
-    "ITEMS:minecraft:piglin_loved": [
-      "~CUSTOM:NetheriteCrystal"
-    ],
     "ITEMS:create:crushed_raw_materials": [
       "CUSTOM:CrushedRawCobalt"
-    ],
-    "ITEMS:minecraft:music_discs": [
-      "~CUSTOM:MusicDiscMyceliumMen"
-    ],
-    "BLOCKS:minecraft:mineable/pickaxe": [
-      "~CUSTOM:AluminumTrapdoor",
-      "~CUSTOM:AluminumDoor",
-      "~CUSTOM:AluminumBlock",
-      "~CUSTOM:Bauxite"
     ],
     "ITEMS:mod:recyclable/iron": [
       "Blocks.IRON_DOOR",
@@ -3408,17 +3387,8 @@
       "Items.IRON_BOOTS",
       "Items.IRON_HORSE_ARMOR"
     ],
-    "BLOCKS:minecraft:needs_stone_tool": [
-      "~CUSTOM:Bauxite"
-    ],
     "ITEMS:create:sandpaper": [
       "CUSTOM:AluminaSandPaper"
-    ],
-    "BLOCKS:minecraft:needs_iron_tool": [
-      "~CUSTOM:AluminumBlock"
-    ],
-    "BLOCKS:minecraft:doors": [
-      "~CUSTOM:AluminumDoor"
     ],
     "BLOCKS:forge:ores/aluminum": [
       "CUSTOM:Bauxite"
@@ -3426,22 +3396,52 @@
     "ITEMS:forge:ores/aluminum": [
       "CUSTOM:Bauxite"
     ],
-    "BLOCKS:minecraft:trapdoors": [
-      "~CUSTOM:AluminumTrapdoor"
+    "BLOCKS:minecraft:replaceable": [
+      "~NitrogenGas@CUSTOM:NitrogenGas",
+      "~LiquidAir@CUSTOM:LiquidAir",
+      "~OxygenGas@CUSTOM:OxygenGas",
+      "~IronSlurry@CUSTOM:IronSlurry",
+      "~HydrochloricAcid@CUSTOM:HydrochloricAcid",
+      "~HydrogenGas@CUSTOM:HydrogenGas",
+      "~ChlorineGas@CUSTOM:ChlorineGas"
     ],
     "ITEMS:minecraft:meat": [
-      "~CUSTOM:TableSalt",
-      "~CUSTOM:CausticSoda"
+      "~TableSalt@CUSTOM:TableSalt",
+      "~CausticSoda@CUSTOM:CausticSoda"
+    ],
+    "ITEMS:minecraft:piglin_loved": [
+      "~NetheriteCrystal@CUSTOM:NetheriteCrystal"
     ],
     "ITEMS:minecraft:chest_armor": [
-      "~CUSTOM:PeacockTail.body"
+      "~PeacockTail@CUSTOM:PeacockTail.body"
+    ],
+    "ITEMS:minecraft:music_discs": [
+      "~MusicDiscMyceliumMen@CUSTOM:MusicDiscMyceliumMen"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~AluminumTrapdoor@CUSTOM:AluminumTrapdoor",
+      "~AluminumDoor@CUSTOM:AluminumDoor",
+      "~AluminumBlock@CUSTOM:AluminumBlock",
+      "~Bauxite@CUSTOM:Bauxite"
+    ],
+    "BLOCKS:minecraft:needs_stone_tool": [
+      "~Bauxite@CUSTOM:Bauxite"
+    ],
+    "BLOCKS:minecraft:needs_iron_tool": [
+      "~AluminumBlock@CUSTOM:AluminumBlock"
+    ],
+    "BLOCKS:minecraft:doors": [
+      "~AluminumDoor@CUSTOM:AluminumDoor"
     ],
     "BLOCKS:minecraft:mob_interactable_doors": [
-      "~CUSTOM:AluminumDoor"
+      "~AluminumDoor@CUSTOM:AluminumDoor"
+    ],
+    "BLOCKS:minecraft:trapdoors": [
+      "~AluminumTrapdoor@CUSTOM:AluminumTrapdoor"
     ],
     "ITEMS:minecraft:head_armor": [
-      "~CUSTOM:HazardProtection.helmet",
-      "~CUSTOM:OGI.helmet"
+      "~HazardProtection@CUSTOM:HazardProtection.helmet",
+      "~OGI@CUSTOM:OGI.helmet"
     ]
   },
   "tab_element_order": {
@@ -3615,7 +3615,6 @@
     "files": [
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluidTypes.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluids.java",
-      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBrewingRecipes.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlocks.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlockEntities.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModItems.java",
@@ -3689,12 +3688,10 @@
     ],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [
-      "jei"
-    ],
+    "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.21.1",
     "credits": "Created using MCreator",
     "modElementsPackage": "net.mcreator.createmixandclean"
   },
-  "mcreatorVersion": 202600114619
+  "mcreatorVersion": 202600222416
 }

@@ -8,17 +8,21 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlocks;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModRecipeTypes;
+import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import com.simibubi.create.AllBlocks;
+
+import java.util.List;
 
 @JeiPlugin
 public class CreateMixAndCleanJEI implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(CreateMixAndCleanMod.MODID, "jei_plugin");
+        return ResourceLocation.fromNamespaceAndPath(CreateMixAndCleanMod.MODID, "jei_plugin");
     }
 
     @Override
@@ -30,8 +34,11 @@ public class CreateMixAndCleanJEI implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         var recipeManager = Minecraft.getInstance().level.getRecipeManager();
-        var recipes = recipeManager.getAllRecipesFor(
-                CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get());
+        List<ElectrolyzerRecipe> recipes = recipeManager.getAllRecipesFor(
+                CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get())
+                .stream()
+                .map(RecipeHolder::value)
+                .toList();
         registration.addRecipes(ElectrolyzerCategory.RECIPE_TYPE, recipes);
     }
 

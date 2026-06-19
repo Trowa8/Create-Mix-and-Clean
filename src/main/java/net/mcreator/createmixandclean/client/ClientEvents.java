@@ -2,15 +2,13 @@ package net.mcreator.createmixandclean.client;
 
 import net.mcreator.createmixandclean.client.renderer.ElectrolyzerRenderer;
 import net.mcreator.createmixandclean.init.CreateMixAndCleanModBlockEntities;
-import net.neoforged.neoforge.api.distmarker.Dist;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.eventbus.api.SubscribeEvent;
-import net.neoforged.neoforge.fml.common.Mod;
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 
-@EventBusSubscriber(modid = CreateMixAndCleanMod.MODID,
-                        bus = Mod.EventBusSubscriber.Bus.MOD,
-                        value = Dist.CLIENT)
+@EventBusSubscriber(modid = CreateMixAndCleanMod.MODID, value = Dist.CLIENT)
 public class ClientEvents {
 
     @SubscribeEvent

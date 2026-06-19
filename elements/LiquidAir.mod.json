@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "fluid",
   "definition": {
     "name": "Liquid Air",
@@ -20,9 +20,7 @@
     "levelDecrease": 1,
     "slopeFindDistance": 4,
     "spawnParticles": false,
-    "dripParticle": {
-      "value": "ASH"
-    },
+    "dripParticle": "ASH",
     "flowStrength": 0.30000000000000004,
     "luminosity": 0,
     "density": 870,
@@ -32,13 +30,9 @@
     "generateBucket": true,
     "textureBucket": "liquid_air_bucket",
     "creativeTabs": [
-      {
-        "value": "CUSTOM:CreateMixAndClean"
-      }
+      "CUSTOM:CreateMixAndClean"
     ],
-    "emptySound": {
-      "value": ""
-    },
+    "emptySound": "",
     "rarity": "COMMON",
     "specialInformation": {
       "fixedValue": []

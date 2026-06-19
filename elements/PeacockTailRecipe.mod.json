@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
@@ -12,37 +12,17 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": "Items.DYE#4"
-      },
-      {
-        "value": "Items.SLIME_BALL"
-      },
-      {
-        "value": "Items.DYE#4"
-      },
-      {
-        "value": "CUSTOM:NetheriteCrystal"
-      },
-      {
-        "value": "CUSTOM:HydrochloricAcid.bucket"
-      },
-      {
-        "value": "CUSTOM:NetheriteCrystal"
-      },
-      {
-        "value": "Items.DIAMOND"
-      },
-      {
-        "value": "Items.NETHERITE_INGOT"
-      },
-      {
-        "value": "Items.DIAMOND"
-      }
+      "Items.DYE#4",
+      "Items.SLIME_BALL",
+      "Items.DYE#4",
+      "CUSTOM:NetheriteCrystal",
+      "CUSTOM:HydrochloricAcid.bucket",
+      "CUSTOM:NetheriteCrystal",
+      "Items.DIAMOND",
+      "Items.NETHERITE_INGOT",
+      "Items.DIAMOND"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:PeacockTail.body"
-    },
+    "recipeReturnStack": "CUSTOM:PeacockTail.body",
     "name": "peacock_tail_recipe",
     "namespace": "mod"
   }

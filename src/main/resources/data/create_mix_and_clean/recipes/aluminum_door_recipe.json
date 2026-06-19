@@ -11,7 +11,7 @@
     }
   ],
   "result": {
-    "item": "create_mix_and_clean:aluminum_door",
+      "id": "create_mix_and_clean:aluminum_door",
     "count": 1
   }
 }

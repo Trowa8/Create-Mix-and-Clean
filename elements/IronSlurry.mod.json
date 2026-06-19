@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "fluid",
   "definition": {
     "name": "Iron Slurry",
@@ -24,9 +24,7 @@
     "levelDecrease": 1,
     "slopeFindDistance": 4,
     "spawnParticles": false,
-    "dripParticle": {
-      "value": "ASH"
-    },
+    "dripParticle": "ASH",
     "flowStrength": 1.0,
     "luminosity": 0,
     "density": 1400,
@@ -36,13 +34,9 @@
     "generateBucket": true,
     "textureBucket": "iron_slurry_bucket",
     "creativeTabs": [
-      {
-        "value": "CUSTOM:CreateMixAndClean"
-      }
+      "CUSTOM:CreateMixAndClean"
     ],
-    "emptySound": {
-      "value": "block.fungus.place"
-    },
+    "emptySound": "block.fungus.place",
     "rarity": "COMMON",
     "specialInformation": {
       "fixedValue": []

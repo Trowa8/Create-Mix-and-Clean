@@ -17,12 +17,12 @@
   "processingTime": 400,
   "results": [
     {
-      "item": "create_mix_and_clean:crushed_raw_cobalt",
+      "id": "create_mix_and_clean:crushed_raw_cobalt",
       "count": 9
     },
     {
       "chance": 0.75,
-      "item": "create:experience_nugget",
+      "id": "create:experience_nugget",
       "count": 9
     }
   ]

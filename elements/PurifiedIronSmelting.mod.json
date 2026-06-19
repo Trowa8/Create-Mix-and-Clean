@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedIronOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.IRON_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedIronOre",
+    "smeltingReturnStack": "Items.IRON_INGOT",
     "name": "purified_iron_smelting",
     "namespace": "mod"
   }

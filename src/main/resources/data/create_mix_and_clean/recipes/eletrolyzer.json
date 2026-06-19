@@ -18,7 +18,7 @@
     }
   },
   "result": {
-    "item": "create_mix_and_clean:electrolyzer",
+      "id": "create_mix_and_clean:electrolyzer",
     "count": 1
   }
 }

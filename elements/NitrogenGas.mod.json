@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "fluid",
   "definition": {
     "name": "Nitrogen Gas",
@@ -24,9 +24,7 @@
     "levelDecrease": 1,
     "slopeFindDistance": 1,
     "spawnParticles": false,
-    "dripParticle": {
-      "value": "ASH"
-    },
+    "dripParticle": "ASH",
     "flowStrength": 0.0,
     "luminosity": 0,
     "density": -1,
@@ -36,13 +34,9 @@
     "generateBucket": true,
     "textureBucket": "oxygen_gas_bucket",
     "creativeTabs": [
-      {
-        "value": "CUSTOM:CreateMixAndClean"
-      }
+      "CUSTOM:CreateMixAndClean"
     ],
-    "emptySound": {
-      "value": ""
-    },
+    "emptySound": "",
     "rarity": "COMMON",
     "specialInformation": {
       "fixedValue": []

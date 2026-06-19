@@ -11,12 +11,12 @@
   ],
   "results": [
     {
-      "item": "minecraft:paper",
+      "id": "minecraft:paper",
  	  "count": 3
     },
     {
       "chance": 0.20,
-      "item": "minecraft:paper",
+      "id": "minecraft:paper",
  	  "count": 4
     }
   ]

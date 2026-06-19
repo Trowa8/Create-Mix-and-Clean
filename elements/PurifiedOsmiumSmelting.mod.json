@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedOsmiumOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.OSMIUM_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedOsmiumOre",
+    "smeltingReturnStack": "Items.OSMIUM_INGOT",
     "name": "purified_osmium_smelting",
     "namespace": "mod"
   }

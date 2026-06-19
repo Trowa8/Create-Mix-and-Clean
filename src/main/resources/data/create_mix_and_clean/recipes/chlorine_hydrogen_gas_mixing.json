@@ -13,17 +13,17 @@
   ],
   "results": [
     {
-      "fluid": "create_mix_and_clean:chlorine_gas",
+      "id": "create_mix_and_clean:chlorine_gas",
       "amount": 350
     },
     {
-      "fluid": "create_mix_and_clean:hydrogen_gas",
+      "id": "create_mix_and_clean:hydrogen_gas",
       "amount": 350
     },
     {
       "chance": 0.6,
-	  "item": "create_mix_and_clean:caustic_soda",
-	  "count": 3
+	    "id": "create_mix_and_clean:caustic_soda",
+	    "count": 3
     }
   ]
 }

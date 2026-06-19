@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedLeadOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.LEAD_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedLeadOre",
+    "smeltingReturnStack": "Items.LEAD_INGOT",
     "name": "combined_lead_smelting",
     "namespace": "mod"
   }

@@ -8,7 +8,7 @@
   ],
   "results": [
     {
-      "item": "create_mix_and_clean:purified_iron_ore"
+      "id": "create_mix_and_clean:purified_iron_ore"
     },
     {
       "chance": 0.25,

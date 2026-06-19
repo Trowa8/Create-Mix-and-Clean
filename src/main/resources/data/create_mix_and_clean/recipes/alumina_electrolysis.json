@@ -15,10 +15,10 @@
   ],
   "results": [
 	{
-	  "item": "create_mix_and_clean:aluminum_ingot"
+	  "id": "create_mix_and_clean:aluminum_ingot"
 	},
 	{
-      "fluid": "create_mix_and_clean:oxygen_gas",
+      "id": "create_mix_and_clean:oxygen_gas",
       "amount": 200
     }
   ]

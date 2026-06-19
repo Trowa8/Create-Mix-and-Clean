@@ -10,7 +10,7 @@
   ],
   "results": [
     {
-      "fluid": "create_mix_and_clean:liquid_air",
+      "id": "create_mix_and_clean:liquid_air",
       "amount": 1000
     }
   ]

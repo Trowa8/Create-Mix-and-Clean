@@ -8,7 +8,7 @@
   ],
   "results": [
     {
-      "item": "create_mix_and_clean:purified_zinc_ore"
+      "id": "create_mix_and_clean:purified_zinc_ore"
     },
     {
       "chance": 0.25,

@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "armor",
   "definition": {
     "enableHelmet": false,
@@ -92,13 +92,9 @@
     "enchantability": 30,
     "toughness": 0.1,
     "knockbackResistance": 0.0,
-    "equipSound": {
-      "value": ""
-    },
+    "equipSound": "",
     "repairItems": [
-      {
-        "value": "CUSTOM:HydrochloricAcid.bucket"
-      }
+      "CUSTOM:HydrochloricAcid.bucket"
     ],
     "rarity": "COMMON"
   }

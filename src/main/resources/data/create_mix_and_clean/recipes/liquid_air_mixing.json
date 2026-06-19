@@ -9,11 +9,11 @@
   ],
   "results": [
     {
-      "fluid": "create_mix_and_clean:oxygen_gas",
+      "id": "create_mix_and_clean:oxygen_gas",
       "amount": 250
     },
     {
-	  "fluid": "create_mix_and_clean:nitrogen_gas",
+	    "id": "create_mix_and_clean:nitrogen_gas",
       "amount": 250
     }
   ]

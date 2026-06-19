@@ -8,7 +8,7 @@
   ],
   "results": [
     {
-      "item": "create_mix_and_clean:purified_gold_ore"
+      "id": "create_mix_and_clean:purified_gold_ore"
     },
     {
       "chance": 0.25,

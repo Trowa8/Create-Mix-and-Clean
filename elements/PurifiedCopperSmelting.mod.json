@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 86,
   "_type": "recipe",
   "definition": {
     "recipeType": "Smelting",
@@ -11,12 +11,8 @@
     "cookingTime": 140,
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
-    "smeltingInputStack": {
-      "value": "CUSTOM:PurifiedCopperOre"
-    },
-    "smeltingReturnStack": {
-      "value": "Items.COPPER_INGOT"
-    },
+    "smeltingInputStack": "CUSTOM:PurifiedCopperOre",
+    "smeltingReturnStack": "Items.COPPER_INGOT",
     "name": "purified_copper_smelting",
     "namespace": "mod"
   }
