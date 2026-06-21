@@ -18,11 +18,11 @@
   ],
   "results": [
 	{
-      "item": "ad_astra:ostrum_ingot"
+      "id": "ad_astra:ostrum_ingot"
     },
 	{
 	  "chance": 0.4,
-      "item": "ad_astra:ostrum_ingot",
+      "id": "ad_astra:ostrum_ingot",
       "count": 2
     }
   ]

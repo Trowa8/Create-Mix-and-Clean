@@ -18,11 +18,11 @@
   ],
   "results": [
 	{
-      "item": "mekanism:ingot_osmium"
+      "id": "mekanism:ingot_osmium"
     },
 	{
 	  "chance": 0.4,
-      "item": "mekanism:ingot_osmium",
+      "id": "mekanism:ingot_osmium",
       "count": 2
     }
   ]

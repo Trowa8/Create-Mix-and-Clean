@@ -9,11 +9,11 @@
   "results": [
     {
       "chance": 0.40,
-      "item": "create:roze_quartz"
+      "id": "create:roze_quartz"
     },
     {
       "chance": 0.65,
-      "item": "create:experience_nugget"
+      "id": "create:experience_nugget"
     }
   ]
 }

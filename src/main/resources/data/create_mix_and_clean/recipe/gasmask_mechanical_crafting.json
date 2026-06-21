@@ -30,7 +30,7 @@
   ],
   "result": {
     "count": 1,
-    "item": "create_mix_and_clean:hazard_protection_helmet"
+    "id": "create_mix_and_clean:hazard_protection_helmet"
   },
   "show_notification": false
 }

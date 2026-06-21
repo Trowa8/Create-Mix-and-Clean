@@ -17,7 +17,7 @@
     },
     {
       "chance": 0.35,
-	  "item": "create_mix_and_clean:dirty_combined_gold"
+	    "id": "create_mix_and_clean:dirty_combined_gold"
     }
   ]
 }

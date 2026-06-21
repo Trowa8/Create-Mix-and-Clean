@@ -3,7 +3,7 @@
   "heatRequirement": "heated",
   "ingredients": [
     {
-      "tag": "minecraft:music_discs"
+      "tag": "c:music_discs"
     },
     {
       "item": "minecraft:brown_mushroom"

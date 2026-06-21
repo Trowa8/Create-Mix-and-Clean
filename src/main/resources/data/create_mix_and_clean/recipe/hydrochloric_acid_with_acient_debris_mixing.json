@@ -12,12 +12,12 @@
   ],
   "results": [
 	{
-      "item": "create_mix_and_clean:netherite_crystal",
+      "id": "create_mix_and_clean:netherite_crystal",
       "count": 2
     },
 	{
 	  "chance": 0.2,
-      "item": "create_mix_and_clean:netherite_crystal",
+      "id": "create_mix_and_clean:netherite_crystal",
       "count": 2
     }
   ]

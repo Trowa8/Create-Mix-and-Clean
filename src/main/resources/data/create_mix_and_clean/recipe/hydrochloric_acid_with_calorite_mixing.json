@@ -18,11 +18,11 @@
   ],
   "results": [
 	{
-      "item": "ad_astra:calorite_ingot"
+      "id": "ad_astra:calorite_ingot"
     },
 	{
 	  "chance": 0.4,
-      "item": "ad_astra:calorite_ingot",
+      "id": "ad_astra:calorite_ingot",
       "count": 2
     }
   ]

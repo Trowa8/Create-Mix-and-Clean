@@ -12,11 +12,11 @@
   ],
   "results": [
 	{
-      "item": "minecraft:copper_ingot"
+      "id": "minecraft:copper_ingot"
     },
 	{
 	  "chance": 0.4,
-      "item": "minecraft:copper_ingot",
+      "id": "minecraft:copper_ingot",
       "count": 2
     }
   ]

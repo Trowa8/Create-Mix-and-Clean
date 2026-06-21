@@ -17,7 +17,7 @@
         { "item": "create_mix_and_clean:aluminum_sheet" }
       ],
       "results": [
-        { "item": "create_mix_and_clean:unfinished_ogi_goggles" }
+        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
       ]
     },
     {
@@ -27,7 +27,7 @@
         { "item": "minecraft:lime_dye" }
       ],
       "results": [
-        { "item": "create_mix_and_clean:unfinished_ogi_goggles" }
+        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
       ]
     },
     {
@@ -37,7 +37,7 @@
         { "item": "create:electron_tube" }
       ],
       "results": [
-        { "item": "create_mix_and_clean:unfinished_ogi_goggles" }
+        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
       ]
     },
     {
@@ -46,11 +46,11 @@
         { "item": "create_mix_and_clean:unfinished_ogi_goggles" }
       ],
       "results": [
-        { "item": "create_mix_and_clean:unfinished_ogi_goggles" }
+        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
       ]
     }
   ],
   "transitionalItem": {
-    "item": "create_mix_and_clean:unfinished_ogi_goggles"
+    "id": "create_mix_and_clean:unfinished_ogi_goggles"
   }
 }

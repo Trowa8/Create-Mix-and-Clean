@@ -11,11 +11,11 @@
   ],
   "results": [
 	{
-      "item": "minecraft:netherite_scrap"
+      "id": "minecraft:netherite_scrap"
     },
 	{
 	  "chance": 0.3,
-      "item": "minecraft:netherite_scrap"
+      "id": "minecraft:netherite_scrap"
     }
   ]
 }

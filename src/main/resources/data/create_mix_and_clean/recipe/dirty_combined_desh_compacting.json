@@ -23,7 +23,7 @@
     },
     {
       "chance": 0.35,
-	  "item": "create_mix_and_clean:dirty_combined_desh"
+	    "id": "create_mix_and_clean:dirty_combined_desh"
     }
   ]
 }

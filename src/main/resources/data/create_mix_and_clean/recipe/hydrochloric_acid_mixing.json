@@ -15,7 +15,7 @@
   ],
   "results": [
     {
-      "fluid": "create_mix_and_clean:hydrochloric_acid",
+     "id": "create_mix_and_clean:hydrochloric_acid",
      "type": "neoforge:single",
      "amount": 1000
     }

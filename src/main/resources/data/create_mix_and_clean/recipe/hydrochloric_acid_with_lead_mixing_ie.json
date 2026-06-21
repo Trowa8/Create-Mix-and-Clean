@@ -18,11 +18,11 @@
   ],
   "results": [
 	{
-      "item": "immersiveengineering:ingot_lead"
+      "id": "immersiveengineering:ingot_lead"
     },
 	{
 	  "chance": 0.4,
-      "item": "immersiveengineering:ingot_lead",
+      "id": "immersiveengineering:ingot_lead",
       "count": 2
     }
   ]

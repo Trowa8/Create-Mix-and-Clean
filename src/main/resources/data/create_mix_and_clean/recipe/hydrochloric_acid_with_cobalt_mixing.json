@@ -18,11 +18,11 @@
   ],
   "results": [
 	{
-      "item": "tconstruct:cobalt_ingot"
+      "id": "tconstruct:cobalt_ingot"
     },
 	{
 	  "chance": 0.4,
-      "item": "tconstruct:cobalt_ingot",
+      "id": "tconstruct:cobalt_ingot",
       "count": 2
     }
   ]

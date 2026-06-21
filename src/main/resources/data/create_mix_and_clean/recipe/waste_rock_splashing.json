@@ -8,27 +8,27 @@
   "results": [
     {
       "chance": 0.15,
-      "item": "minecraft:iron_nugget",
+      "id": "minecraft:iron_nugget",
       "count": 1
     },
     {
       "chance": 0.15,
-      "item": "create:copper_nugget",
+      "id": "create:copper_nugget",
       "count": 1
     },
     {
       "chance": 0.15,
-      "item": "minecraft:gold_nugget",
+      "id": "minecraft:gold_nugget",
       "count": 1
     },
     {
       "chance": 0.15,
-      "item": "create:zinc_nugget",
+      "id": "create:zinc_nugget",
       "count": 1
     },
     {
       "chance": 0.7,
-      "item": "minecraft:stone",
+      "id": "minecraft:stone",
       "count": 1
     }
   ]
