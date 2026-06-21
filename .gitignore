@@ -7,6 +7,7 @@
 .mcreator/tmp/
 .mcreator/plugins/*/build/
 .mcreator/generatorGradleCache
+.mcreator/localHistory/  
 
 # --- Minecraft runtime folders ---
 run/

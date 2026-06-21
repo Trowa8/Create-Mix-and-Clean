@@ -1,5 +1,5 @@
 {
-  "_fv": 86,
+  "_fv": 88,
   "_type": "armor",
   "definition": {
     "enableHelmet": false,
@@ -96,6 +96,7 @@
     "repairItems": [
       "CUSTOM:HydrochloricAcid.bucket"
     ],
-    "rarity": "COMMON"
+    "rarity": "COMMON",
+    "attributeModifiers": []
   }
 }

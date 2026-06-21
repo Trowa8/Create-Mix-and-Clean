@@ -22,7 +22,7 @@ description="A create addon that allows for ore refining, dye/oxidation removal 
 [[dependencies.create_mix_and_clean]]
     modId="neoforge"
     type="required"
-    versionRange="[21.1.228,)"
+    versionRange="[21.1.232,)"
     ordering="AFTER"
     side="BOTH"
 

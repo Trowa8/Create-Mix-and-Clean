@@ -184,14 +184,14 @@ public class CreateMixAndCleanModItems {
 	// End of user code block custom items
 	@SubscribeEvent
 	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), IRON_SLURRY_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), NITROGEN_GAS_BUCKET.get());
 		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), CHLORINE_GAS_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), AMMONIA_BUCKET.get());
+		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), LIQUID_AIR_BUCKET.get());
 		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), HYDROGEN_GAS_BUCKET.get());
 		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), HYDROCHLORIC_ACID_BUCKET.get());
-		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), IRON_SLURRY_BUCKET.get());
 		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), OXYGEN_GAS_BUCKET.get());
-		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), LIQUID_AIR_BUCKET.get());
-		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), NITROGEN_GAS_BUCKET.get());
-		event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FluidBucketWrapper(stack), AMMONIA_BUCKET.get());
 	}
 
 	private static DeferredItem<Item> block(DeferredHolder<Block, Block> block) {
