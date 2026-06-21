@@ -3245,9 +3245,6 @@
       "EXTERNAL:create:waxed_weathered_copper_shingles",
       "EXTERNAL:create:weathered_copper_shingles"
     ],
-    "ITEMS:forge:buckets/hydrogen": [
-      "CUSTOM:HydrogenGas.bucket"
-    ],
     "ITEMS:minecraft:colored_blocks/wool": [
       "Blocks.WOOL#1",
       "Blocks.WOOL#2",
@@ -3296,12 +3293,6 @@
       "Blocks.WAXED_EXPOSED_CUT_COPPER",
       "Blocks.WAXED_WEATHERED_CUT_COPPER",
       "Blocks.WAXED_OXIDIZED_CUT_COPPER"
-    ],
-    "ITEMS:forge:buckets/hydrochloric_acid": [
-      "CUSTOM:HydrochloricAcid.bucket"
-    ],
-    "ITEMS:forge:buckets/chlorine": [
-      "CUSTOM:ChlorineGas.bucket"
     ],
     "ITEMS:minecraft:colored_blocks/concrete": [
       "Blocks.CONCRETE#1",
@@ -3390,12 +3381,6 @@
     "ITEMS:create:sandpaper": [
       "CUSTOM:AluminaSandPaper"
     ],
-    "BLOCKS:forge:ores/aluminum": [
-      "CUSTOM:Bauxite"
-    ],
-    "ITEMS:forge:ores/aluminum": [
-      "CUSTOM:Bauxite"
-    ],
     "BLOCKS:minecraft:replaceable": [
       "~NitrogenGas@CUSTOM:NitrogenGas",
       "~LiquidAir@CUSTOM:LiquidAir",
@@ -3414,9 +3399,6 @@
     ],
     "ITEMS:minecraft:chest_armor": [
       "~PeacockTail@CUSTOM:PeacockTail.body"
-    ],
-    "ITEMS:minecraft:music_discs": [
-      "~MusicDiscMyceliumMen@CUSTOM:MusicDiscMyceliumMen"
     ],
     "BLOCKS:minecraft:mineable/pickaxe": [
       "~AluminumTrapdoor@CUSTOM:AluminumTrapdoor",
@@ -3442,6 +3424,15 @@
     "ITEMS:minecraft:head_armor": [
       "~HazardProtection@CUSTOM:HazardProtection.helmet",
       "~OGI@CUSTOM:OGI.helmet"
+    ],
+    "BLOCKS:neoforge:ores/aluminum": [
+      "CUSTOM:Bauxite"
+    ],
+    "ITEMS:neoforge:ores/aluminum": [
+      "CUSTOM:Bauxite"
+    ],
+    "ITEMS:c:music_discs": [
+      "CUSTOM:MusicDiscMyceliumMen"
     ]
   },
   "tab_element_order": {

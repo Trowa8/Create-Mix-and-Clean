@@ -5,7 +5,8 @@
       "tag": "create:oxidized/shingle_slab"
     },
     {
-      "amount": 125,
+     "type": "neoforge:single",
+     "amount": 125,
       "fluid": "create_mix_and_clean:hydrochloric_acid"
     }
   ],

@@ -5,12 +5,14 @@
   "cookingtime": 140,
   "conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "mekanism"
     }
   ],
   "ingredient": {
     "item": "create_mix_and_clean:purified_tin_ore"
   },
-  "result": "mekanism:ingot_tin"
+  "result": {
+    "id": "mekanism:ingot_tin"
+  }
 }

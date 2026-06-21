@@ -22,10 +22,12 @@ import java.util.List;
 public class ElectrolyzerRecipeSerializer
         implements RecipeSerializer<ElectrolyzerRecipe> {
 
-    public static final Codec<FluidStack> FLAT_FLUID_CODEC = RecordCodecBuilder.create(inst -> inst.group(
+    public static final Codec<FluidStack> INGREDIENT_FLUID_CODEC = RecordCodecBuilder.create(inst -> inst.group(
             ResourceLocation.CODEC.fieldOf("fluid").forGetter(fs -> BuiltInRegistries.FLUID.getKey(fs.getFluid())),
             Codec.INT.optionalFieldOf("amount", 1000).forGetter(FluidStack::getAmount)
     ).apply(inst, (id, amount) -> new FluidStack(BuiltInRegistries.FLUID.get(id), amount)));
+
+    public static final Codec<FluidStack> RESULT_FLUID_CODEC = FluidStack.CODEC;
 
     public static final Codec<ElectrolyzerRecipe.SizedIngredient> FLAT_ITEM_INGREDIENT_CODEC = Codec.PASSTHROUGH.flatXmap(
             dynamic -> {
@@ -57,8 +59,8 @@ public class ElectrolyzerRecipeSerializer
                     })
     );
 
-    public static final Codec<Either<FluidStack, ElectrolyzerRecipe.SizedIngredient>> MIXED_INGREDIENT_CODEC = Codec.either(FLAT_FLUID_CODEC, FLAT_ITEM_INGREDIENT_CODEC);
-    public static final Codec<Either<FluidStack, ElectrolyzerRecipe.ChanceResult>> MIXED_RESULT_CODEC = Codec.either(FLAT_FLUID_CODEC, FLAT_CHANCE_RESULT_CODEC);
+    public static final Codec<Either<FluidStack, ElectrolyzerRecipe.SizedIngredient>> MIXED_INGREDIENT_CODEC = Codec.either(INGREDIENT_FLUID_CODEC, FLAT_ITEM_INGREDIENT_CODEC);
+    public static final Codec<Either<FluidStack, ElectrolyzerRecipe.ChanceResult>> MIXED_RESULT_CODEC = Codec.either(RESULT_FLUID_CODEC, FLAT_CHANCE_RESULT_CODEC);
 
     public static final MapCodec<ElectrolyzerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
             MIXED_INGREDIENT_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> {

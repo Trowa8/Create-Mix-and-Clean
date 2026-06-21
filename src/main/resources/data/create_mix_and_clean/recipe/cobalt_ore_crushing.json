@@ -2,16 +2,16 @@
   "type": "create:crushing",
   "conditions": [
     {
-      "type": "forge:not",
+      "type": "neoforge:not",
       "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:raw_materials/cobalt"
+        "type": "neoforge:tag_empty",
+        "tag": "neoforge:raw_materials/cobalt"
       }
     }
   ],
   "ingredients": [
     {
-      "tag": "forge:raw_materials/cobalt"
+      "tag": "neoforge:raw_materials/cobalt"
     }
   ],
   "processingTime": 400,

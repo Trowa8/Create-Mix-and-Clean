@@ -2,8 +2,9 @@
   "type": "create_mix_and_clean:electrolysis",
   "processingTime": 300,
   "ingredients": [
-	{
+    {
       "fluid": "create_mix_and_clean:chlorine_gas",
+      "type": "neoforge:single",
       "amount": 250
     },
     {
@@ -14,11 +15,12 @@
     }
   ],
   "results": [
-	{
-	  "id": "create_mix_and_clean:aluminum_ingot"
-	},
-	{
+    {
+      "id": "create_mix_and_clean:aluminum_ingot"
+    },
+    {
       "id": "create_mix_and_clean:oxygen_gas",
+      "type": "neoforge:single",
       "amount": 200
     }
   ]

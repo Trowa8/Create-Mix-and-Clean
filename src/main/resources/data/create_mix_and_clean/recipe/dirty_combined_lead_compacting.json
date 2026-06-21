@@ -2,7 +2,7 @@
   "type": "create:compacting",
   "conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "mekanism"
     }
   ],
@@ -11,7 +11,8 @@
       "item": "create_mix_and_clean:purified_lead_ore"
     },
     {
-      "amount": 250,
+     "type": "neoforge:single",
+     "amount": 250,
       "fluid": "minecraft:lava",
       "nbt": {}
     }

@@ -2,16 +2,16 @@
   "type": "create:crushing",
   "conditions": [
     {
-      "type": "forge:not",
+      "type": "neoforge:not",
       "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:storage_blocks/raw_cobalt"
+        "type": "neoforge:tag_empty",
+        "tag": "neoforge:storage_blocks/raw_cobalt"
       }
     }
   ],
   "ingredients": [
     {
-      "tag": "forge:storage_blocks/raw_cobalt"
+      "tag": "neoforge:storage_blocks/raw_cobalt"
     }
   ],
   "processingTime": 400,

@@ -133,12 +133,15 @@ public class ElectrolyzerBlockEntity extends KineticBlockEntity {
         energyStorage.extractEnergy(FE_PER_RECIPE, false);
         setChanged();
 
-        if (!currentRecipe.getFluidIngredients().isEmpty()) {
-            BlockPos basinPos = worldPosition.below(2);
-            IFluidHandler tank = level.getCapability(Capabilities.FluidHandler.BLOCK, basinPos, Direction.UP);
-            if (tank != null) {
+        BlockPos basinPos = worldPosition.below(2);
+        IFluidHandler tank = level.getCapability(Capabilities.FluidHandler.BLOCK, basinPos, Direction.UP);
+        if (tank != null) {
+            if (!currentRecipe.getFluidIngredients().isEmpty()) {
                 for (FluidStack fs : currentRecipe.getFluidIngredients())
                     tank.drain(fs, IFluidHandler.FluidAction.EXECUTE);
+            }
+            if (!currentRecipe.getFluidResults().isEmpty()) {
+                currentRecipe.depositFluidResults(tank);
             }
         }
 

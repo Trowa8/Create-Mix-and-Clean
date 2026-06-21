@@ -3,7 +3,8 @@
   "ingredients": [
     {
       "fluid": "create_mix_and_clean:hydrochloric_acid",
-      "amount": 500
+     "type": "neoforge:single",
+     "amount": 500
     },
     {
       "item": "minecraft:ancient_debris"

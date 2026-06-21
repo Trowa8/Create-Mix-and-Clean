@@ -5,7 +5,8 @@
       "tag": "minecraft:colored_blocks/concrete"
     },
     {
-      "amount": 125,
+     "type": "neoforge:single",
+     "amount": 125,
       "fluid": "create_mix_and_clean:hydrochloric_acid"
     }
   ],

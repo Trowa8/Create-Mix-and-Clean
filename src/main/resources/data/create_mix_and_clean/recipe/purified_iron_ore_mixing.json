@@ -16,7 +16,7 @@
     },
     {
       "chance": 0.7,
-	  "item": "create_mix_and_clean:waste_rock"
+	    "item": "create_mix_and_clean:waste_rock"
     },
     {
       "chance": 0.6,

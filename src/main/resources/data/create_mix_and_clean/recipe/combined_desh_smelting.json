@@ -5,12 +5,14 @@
   "cookingtime": 140,
   "conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "ad_astra"
     }
   ],
   "ingredient": {
     "item": "create_mix_and_clean:combined_desh"
   },
-  "result": "ad_astra:desh_ingot"
+  "result": {
+    "id": "ad_astra:desh_ingot"
+  }
 }

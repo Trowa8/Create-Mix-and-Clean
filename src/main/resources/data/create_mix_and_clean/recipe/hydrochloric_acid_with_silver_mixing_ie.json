@@ -2,14 +2,15 @@
   "type": "create:mixing",
   "conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "immersiveengineering"
     }
   ],
   "ingredients": [
     {
       "fluid": "create_mix_and_clean:hydrochloric_acid",
-      "amount": 125
+     "type": "neoforge:single",
+     "amount": 125
     },
     {
       "item": "create_mix_and_clean:combined_silver"

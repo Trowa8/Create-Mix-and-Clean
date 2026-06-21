@@ -10,8 +10,9 @@
   ],
   "results": [
     {
-      "id": "create_mix_and_clean:liquid_air",
-      "amount": 1000
+     "id": "create_mix_and_clean:liquid_air",
+     "type": "neoforge:single",
+     "amount": 1000
     }
   ]
 }

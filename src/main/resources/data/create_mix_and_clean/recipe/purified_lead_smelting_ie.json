@@ -5,12 +5,14 @@
   "cookingtime": 140,
   "conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "immersiveengineering"
     }
   ],
   "ingredient": {
     "item": "create_mix_and_clean:purified_lead_ore"
   },
-  "result": "immersiveengineering:ingot_lead"
+  "result": {
+    "id": "immersiveengineering:ingot_lead"
+  }
 }

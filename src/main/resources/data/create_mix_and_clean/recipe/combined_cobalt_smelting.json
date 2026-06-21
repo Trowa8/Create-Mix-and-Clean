@@ -5,12 +5,14 @@
   "cookingtime": 140,
   "conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "tconstruct"
     }
   ],
   "ingredient": {
     "item": "create_mix_and_clean:combined_cobalt"
   },
-  "result": "tconstruct:cobalt_ingot"
+  "result": {
+    "id": "tconstruct:cobalt_ingot"
+  }
 }

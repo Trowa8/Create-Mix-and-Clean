@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "create_mix_and_clean:combined_zinc"
   },
-  "result": "create:zinc_ingot"
+  "result": {
+    "id": "create:zinc_ingot"
+  }
 }

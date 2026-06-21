@@ -14,16 +14,18 @@
   "results": [
     {
       "id": "create_mix_and_clean:chlorine_gas",
+      "type": "neoforge:single",
       "amount": 350
     },
     {
       "id": "create_mix_and_clean:hydrogen_gas",
+      "type": "neoforge:single",
       "amount": 350
     },
     {
-      "chance": 0.6,
-	    "id": "create_mix_and_clean:caustic_soda",
-	    "count": 3
+      "id": "create_mix_and_clean:caustic_soda",
+      "count": 3,
+      "chance": 0.6
     }
   ]
 }

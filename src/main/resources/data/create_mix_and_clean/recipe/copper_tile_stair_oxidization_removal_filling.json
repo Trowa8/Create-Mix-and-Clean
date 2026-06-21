@@ -5,7 +5,8 @@
       "tag": "create:oxidized/tile_stair"
     },
     {
-      "amount": 125,
+     "type": "neoforge:single",
+     "amount": 125,
       "fluid": "create_mix_and_clean:hydrochloric_acid"
     }
   ],

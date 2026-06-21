@@ -3,7 +3,8 @@
   "ingredients": [
     {
       "fluid": "create_mix_and_clean:hydrochloric_acid",
-      "amount": 25
+     "type": "neoforge:single",
+     "amount": 25
     },
     {
       "item": "create_mix_and_clean:caustic_soda"
