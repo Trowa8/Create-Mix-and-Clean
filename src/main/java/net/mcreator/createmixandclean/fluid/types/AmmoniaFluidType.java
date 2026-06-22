@@ -8,6 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.sounds.SoundEvents;
+import net.mcreator.createmixandclean.HazardHelmetHandler;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Consumer;
@@ -45,19 +46,9 @@ public class AmmoniaFluidType extends FluidType {
 
     @Override
     public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
-        consumer.accept(new IClientFluidTypeExtensions() {
-            private static final ResourceLocation STILL_TEXTURE = ResourceLocation.parse("create_mix_and_clean:block/ammonia");
-            private static final ResourceLocation FLOWING_TEXTURE = ResourceLocation.parse("create_mix_and_clean:block/ammonia");
-
-            @Override
-            public ResourceLocation getStillTexture() {
-                return STILL_TEXTURE;
-            }
-
-            @Override
-            public ResourceLocation getFlowingTexture() {
-                return FLOWING_TEXTURE;
-            }
-        });
+        consumer.accept(HazardHelmetHandler.createGasFluidExtensions(
+            ResourceLocation.parse("create_mix_and_clean:block/ammonia"),
+            ResourceLocation.parse("create_mix_and_clean:block/ammonia")
+        ));
     }
 }

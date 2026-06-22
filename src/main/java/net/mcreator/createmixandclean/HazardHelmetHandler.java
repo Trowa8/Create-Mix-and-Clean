@@ -10,7 +10,6 @@ import net.mcreator.createmixandclean.init.CreateMixAndCleanModItems;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
@@ -19,8 +18,6 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.FluidType;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -32,7 +29,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -52,10 +48,8 @@ import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexFormat;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -191,82 +185,42 @@ public class HazardHelmetHandler {
         return dur > 40 ? "§a" : dur > 20 ? "§e" : "§c";
     }
 
-    @EventBusSubscriber(modid = "create_mix_and_clean", value = Dist.CLIENT)
-    public static class ClientModSetup {
+    public static IClientFluidTypeExtensions createGasFluidExtensions(ResourceLocation defaultStill, ResourceLocation defaultFlow) {
+        return new IClientFluidTypeExtensions() {
+            private static final ResourceLocation OGI_STILL = ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "block/ogi_gas_still");
+            private static final ResourceLocation OGI_FLOW = ResourceLocation.fromNamespaceAndPath("create_mix_and_clean", "block/ogi_gas_flow");
 
-        private static final List<String> GAS_NAMES = Arrays.asList("ammonia");
+            @Override
+            public ResourceLocation getStillTexture() { return defaultStill; }
 
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            event.enqueueWork(() -> {
-                try {
-                    Field renderPropsField = FluidType.class.getDeclaredField("renderProperties");
-                    renderPropsField.setAccessible(true);
+            @Override
+            public ResourceLocation getFlowingTexture() { return defaultFlow; }
 
-                    for (Map.Entry<ResourceKey<FluidType>, FluidType> entry : NeoForgeRegistries.FLUID_TYPES.entrySet()) {
-                        FluidType fluidType = entry.getValue();
-                        ResourceLocation registryName = entry.getKey().location();
+            @Override
+            public ResourceLocation getStillTexture(FluidState state, BlockAndTintGetter world, BlockPos pos) {
+                return isWearingProtectiveGear() ? OGI_STILL : defaultStill;
+            }
 
-                        String namespace = registryName.getNamespace();
-                        String path = registryName.getPath();
+            @Override
+            public ResourceLocation getFlowingTexture(FluidState state, BlockAndTintGetter world, BlockPos pos) {
+                return isWearingProtectiveGear() ? OGI_FLOW : defaultFlow;
+            }
 
-                        if (namespace.equals("create_mix_and_clean") && GAS_NAMES.contains(path)) {
-                            Object originalProps = renderPropsField.get(fluidType);
-                            if (!(originalProps instanceof IClientFluidTypeExtensions originalExtensions)) continue;
+            @Override
+            public int getTintColor() {
+                return isWearingProtectiveGear() ? (255 << 24) | (230 << 16) | (230 << 8) | 230 : -1;
+            }
 
-                            renderPropsField.set(fluidType, new IClientFluidTypeExtensions() {
-                                @Override
-                                public ResourceLocation getStillTexture() {
-                                    return originalExtensions.getStillTexture();
-                                }
+            @Override
+            public int getTintColor(FluidState state, BlockAndTintGetter world, BlockPos pos) {
+                return isWearingProtectiveGear() ? (255 << 24) | (230 << 16) | (230 << 8) | 230 : -1;
+            }
 
-                                @Override
-                                public ResourceLocation getFlowingTexture() {
-                                    return originalExtensions.getFlowingTexture();
-                                }
-
-                                @Override
-                                public ResourceLocation getStillTexture(FluidState state, BlockAndTintGetter world, BlockPos pos) {
-                                    if (isWearingProtectiveGear())
-                                        return ResourceLocation.fromNamespaceAndPath(namespace, "block/ogi_gas_still");
-                                    return originalExtensions.getStillTexture(state, world, pos);
-                                }
-
-                                @Override
-                                public ResourceLocation getFlowingTexture(FluidState state, BlockAndTintGetter world, BlockPos pos) {
-                                    if (isWearingProtectiveGear())
-                                        return ResourceLocation.fromNamespaceAndPath(namespace, "block/ogi_gas_flow");
-                                    return originalExtensions.getFlowingTexture(state, world, pos);
-                                }
-
-                                @Override
-                                public int getTintColor() {
-                                    if (isWearingProtectiveGear())
-                                        return (255 << 24) | (230 << 16) | (230 << 8) | 230;
-                                    return originalExtensions.getTintColor();
-                                }
-
-                                @Override
-                                public int getTintColor(FluidStack stack) {
-                                    if (isWearingProtectiveGear())
-                                        return (255 << 24) | (230 << 16) | (230 << 8) | 230;
-                                    return originalExtensions.getTintColor(stack);
-                                }
-
-                                @Override
-                                public int getTintColor(FluidState state, BlockAndTintGetter world, BlockPos pos) {
-                                    if (isWearingProtectiveGear())
-                                        return (255 << 24) | (230 << 16) | (230 << 8) | 230;
-                                    return originalExtensions.getTintColor(state, world, pos);
-                                }
-                            });
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
-        }
+            @Override
+            public int getTintColor(FluidStack stack) {
+                return isWearingProtectiveGear() ? (255 << 24) | (230 << 16) | (230 << 8) | 230 : -1;
+            }
+        };
     }
 
     @EventBusSubscriber(modid = "create_mix_and_clean", value = Dist.CLIENT)

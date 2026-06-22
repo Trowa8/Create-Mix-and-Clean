@@ -13,31 +13,49 @@
     {
       "type": "create:deploying",
       "ingredients": [
-        { "item": "create_mix_and_clean:unfinished_ogi_goggles" },
-        { "item": "create_mix_and_clean:aluminum_sheet" }
+        { 
+          "item": "create_mix_and_clean:unfinished_ogi_goggles"
+        },
+        {
+          "item": "create_mix_and_clean:aluminum_sheet"
+        }
       ],
       "results": [
-        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
+        {
+          "id": "create_mix_and_clean:unfinished_ogi_goggles"
+        }
       ]
     },
     {
       "type": "create:deploying",
       "ingredients": [
-        { "item": "create_mix_and_clean:unfinished_ogi_goggles" },
-        { "item": "minecraft:lime_dye" }
+        {
+          "item": "create_mix_and_clean:unfinished_ogi_goggles"
+        },
+        {
+          "item": "minecraft:lime_dye"
+        }
       ],
       "results": [
-        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
+        {
+          "id": "create_mix_and_clean:unfinished_ogi_goggles"
+        }
       ]
     },
     {
       "type": "create:deploying",
       "ingredients": [
-        { "item": "create_mix_and_clean:unfinished_ogi_goggles" },
-        { "item": "create:electron_tube" }
+        {
+          "item": "create_mix_and_clean:unfinished_ogi_goggles"
+        },
+        {
+          "item": "create:electron_tube"
+        }
       ],
       "results": [
-        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
+        {
+          "id": "create_mix_and_clean:unfinished_ogi_goggles"
+        }
       ]
     },
     {
@@ -46,11 +64,13 @@
         { "item": "create_mix_and_clean:unfinished_ogi_goggles" }
       ],
       "results": [
-        { "id": "create_mix_and_clean:unfinished_ogi_goggles" }
+        {
+          "id": "create_mix_and_clean:unfinished_ogi_goggles"
+        }
       ]
     }
   ],
-  "transitionalItem": {
+  "transitional_item": {
     "id": "create_mix_and_clean:unfinished_ogi_goggles"
   }
 }
