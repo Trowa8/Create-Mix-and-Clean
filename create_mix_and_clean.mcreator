@@ -32,8 +32,8 @@
       "registry_name": "purified_iron_ore",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/purified_iron_ore.json",
-          "src/main/java/net/mcreator/createmixandclean/item/PurifiedIronOreItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedIronOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_iron_ore.json"
         ]
       },
       "path": "~/Items"
@@ -88,8 +88,8 @@
       "registry_name": "dirty_combined_iron",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_iron.json",
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedIronItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedIronItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_iron.json"
         ]
       },
       "path": "~/Items"
@@ -102,8 +102,8 @@
       "registry_name": "dirty_combined_gold",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedGoldItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_gold.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_gold.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedGoldItem.java"
         ]
       },
       "path": "~/Items"
@@ -172,8 +172,8 @@
       "registry_name": "combined_copper",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedCopperItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_copper.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_copper.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedCopperItem.java"
         ]
       },
       "path": "~/Items"
@@ -186,8 +186,8 @@
       "registry_name": "combined_zinc",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedZincItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_zinc.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_zinc.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedZincItem.java"
         ]
       },
       "path": "~/Items"
@@ -474,11 +474,11 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/createmixandclean/item/ChlorineGasItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/chlorine_gas_bucket.json",
           "src/main/resources/assets/create_mix_and_clean/blockstates/chlorine_gas.json",
           "src/main/java/net/mcreator/createmixandclean/fluid/ChlorineGasFluid.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/chlorine_gas_bucket.json",
-          "src/main/java/net/mcreator/createmixandclean/block/ChlorineGasBlock.java",
           "src/main/resources/assets/create_mix_and_clean/models/block/chlorine_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/block/ChlorineGasBlock.java",
           "src/main/java/net/mcreator/createmixandclean/fluid/types/ChlorineGasFluidType.java"
         ]
       }
@@ -491,13 +491,13 @@
       "registry_name": "hydrogen_gas",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/fluid/HydrogenGasFluid.java",
-          "src/main/java/net/mcreator/createmixandclean/item/HydrogenGasItem.java",
           "src/main/java/net/mcreator/createmixandclean/block/HydrogenGasBlock.java",
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrogenGasFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/item/HydrogenGasItem.java",
           "src/main/resources/assets/create_mix_and_clean/models/block/hydrogen_gas.json",
           "src/main/resources/assets/create_mix_and_clean/models/item/hydrogen_gas_bucket.json",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrogen_gas.json"
+          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrogen_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/HydrogenGasFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrogenGasFluidType.java"
         ]
       }
     },
@@ -531,13 +531,13 @@
       "registry_name": "hydrochloric_acid",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/hydrochloric_acid_bucket.json",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrochloric_acid.json",
-          "src/main/java/net/mcreator/createmixandclean/block/HydrochloricAcidBlock.java",
           "src/main/java/net/mcreator/createmixandclean/item/HydrochloricAcidItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/hydrochloric_acid_bucket.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/hydrochloric_acid.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/hydrochloric_acid.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrochloricAcidFluidType.java",
           "src/main/java/net/mcreator/createmixandclean/fluid/HydrochloricAcidFluid.java",
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrochloricAcidFluidType.java"
+          "src/main/java/net/mcreator/createmixandclean/block/HydrochloricAcidBlock.java"
         ]
       }
     },
@@ -890,8 +890,8 @@
       "registry_name": "purified_lead_ore",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/PurifiedLeadOreItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/purified_lead_ore.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_lead_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedLeadOreItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -960,8 +960,8 @@
       "registry_name": "dirty_combined_osmium",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_osmium.json",
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedOsmiumItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedOsmiumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_osmium.json"
         ]
       },
       "path": "~/Items/compat"
@@ -974,8 +974,8 @@
       "registry_name": "dirty_combined_tin",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedTinItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_tin.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_tin.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedTinItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -988,8 +988,8 @@
       "registry_name": "dirty_combined_uranium",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_uranium.json",
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedUraniumItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedUraniumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_uranium.json"
         ]
       },
       "path": "~/Items/compat"
@@ -1002,8 +1002,8 @@
       "registry_name": "combined_lead",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedLeadItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_lead.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_lead.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedLeadItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -1438,8 +1438,8 @@
       "registry_name": "dirty_combined_cobalt",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_cobalt.json",
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedCobaltItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedCobaltItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_cobalt.json"
         ]
       },
       "path": "~/Items/compat"
@@ -1452,8 +1452,8 @@
       "registry_name": "combined_cobalt",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedCobaltItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_cobalt.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_cobalt.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedCobaltItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -1557,8 +1557,8 @@
       "registry_name": "purified_aluminum_ore",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/PurifiedAluminumOreItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/purified_aluminum_ore.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_aluminum_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedAluminumOreItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -1571,8 +1571,8 @@
       "registry_name": "dirty_combined_aluminum",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedAluminumItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_aluminum.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_aluminum.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedAluminumItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -1585,8 +1585,8 @@
       "registry_name": "combined_aluminum",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedAluminumItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_aluminum.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_aluminum.json",
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedAluminumItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -1860,8 +1860,8 @@
       "registry_name": "dirty_combined_silver",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedSilverItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_silver.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_silver.json",
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedSilverItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -1888,8 +1888,8 @@
       "registry_name": "purified_nickel_ore",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/purified_nickel_ore.json",
-          "src/main/java/net/mcreator/createmixandclean/item/PurifiedNickelOreItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedNickelOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_nickel_ore.json"
         ]
       },
       "path": "~/Items/compat"
@@ -2034,8 +2034,8 @@
       "registry_name": "purified_platinum_ore",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/PurifiedPlatinumOreItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/purified_platinum_ore.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_platinum_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedPlatinumOreItem.java"
         ]
       },
       "path": "~/Items/compat"
@@ -2062,8 +2062,8 @@
       "registry_name": "combined_platinum",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_platinum.json",
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedPlatinumItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedPlatinumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_platinum.json"
         ]
       },
       "path": "~/Items/compat"
@@ -2154,8 +2154,8 @@
       "registry_name": "peacock_tail",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/peacock_tail_chestplate.json",
-          "src/main/java/net/mcreator/createmixandclean/item/PeacockTailItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/PeacockTailItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/peacock_tail_chestplate.json"
         ]
       },
       "path": "~/Items"
@@ -2181,9 +2181,9 @@
       "registry_name": "music_disc_mycelium_men",
       "metadata": {
         "files": [
+          "src/main/resources/assets/create_mix_and_clean/models/item/music_disc_mycelium_men.json",
           "src/main/java/net/mcreator/createmixandclean/item/MusicDiscMyceliumMenItem.java",
-          "src/main/resources/data/create_mix_and_clean/jukebox_song/music_disc_mycelium_men.json",
-          "src/main/resources/assets/create_mix_and_clean/models/item/music_disc_mycelium_men.json"
+          "src/main/resources/data/create_mix_and_clean/jukebox_song/music_disc_mycelium_men.json"
         ]
       },
       "path": "~/Items"
@@ -2300,8 +2300,8 @@
       "registry_name": "purified_desh_ore",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/purified_desh_ore.json",
-          "src/main/java/net/mcreator/createmixandclean/item/PurifiedDeshOreItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedDeshOreItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_desh_ore.json"
         ]
       },
       "path": "~/Items/compat/Ad Astra Compat"
@@ -2356,8 +2356,8 @@
       "registry_name": "dirty_combined_ostrum",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_ostrum.json",
-          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedOstrumItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/DirtyCombinedOstrumItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/dirty_combined_ostrum.json"
         ]
       },
       "path": "~/Items/compat/Ad Astra Compat"
@@ -2384,8 +2384,8 @@
       "registry_name": "purified_calorite_ore",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/PurifiedCaloriteOreItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/purified_calorite_ore.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/purified_calorite_ore.json",
+          "src/main/java/net/mcreator/createmixandclean/item/PurifiedCaloriteOreItem.java"
         ]
       },
       "path": "~/Items/compat/Ad Astra Compat"
@@ -2412,8 +2412,8 @@
       "registry_name": "combined_calorite",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/combined_calorite.json",
-          "src/main/java/net/mcreator/createmixandclean/item/CombinedCaloriteItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/CombinedCaloriteItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/combined_calorite.json"
         ]
       },
       "path": "~/Items/compat/Ad Astra Compat"
@@ -2577,7 +2577,7 @@
     {
       "name": "Electrolyzer",
       "type": "block",
-      "compiles": true,
+      "compiles": false,
       "locked_code": true,
       "registry_name": "electrolyzer",
       "metadata": {
@@ -2599,8 +2599,8 @@
       "registry_name": "table_salt",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/table_salt.json",
-          "src/main/java/net/mcreator/createmixandclean/item/TableSaltItem.java"
+          "src/main/java/net/mcreator/createmixandclean/item/TableSaltItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/table_salt.json"
         ]
       },
       "path": "~/Items"
@@ -2639,13 +2639,13 @@
       "registry_name": "iron_slurry",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/block/iron_slurry.json",
-          "src/main/resources/assets/create_mix_and_clean/models/item/iron_slurry_bucket.json",
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/IronSlurryFluidType.java",
           "src/main/java/net/mcreator/createmixandclean/fluid/IronSlurryFluid.java",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/iron_slurry.json",
           "src/main/java/net/mcreator/createmixandclean/item/IronSlurryItem.java",
           "src/main/java/net/mcreator/createmixandclean/block/IronSlurryBlock.java",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/iron_slurry.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/iron_slurry_bucket.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/iron_slurry.json",
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/IronSlurryFluidType.java"
         ]
       }
     },
@@ -2670,13 +2670,13 @@
       "registry_name": "oxygen_gas",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/oxygen_gas_bucket.json",
-          "src/main/java/net/mcreator/createmixandclean/block/OxygenGasBlock.java",
-          "src/main/java/net/mcreator/createmixandclean/fluid/OxygenGasFluid.java",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/oxygen_gas.json",
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/OxygenGasFluidType.java",
           "src/main/java/net/mcreator/createmixandclean/item/OxygenGasItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/block/oxygen_gas.json"
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/OxygenGasFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/fluid/OxygenGasFluid.java",
+          "src/main/java/net/mcreator/createmixandclean/block/OxygenGasBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/oxygen_gas.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/oxygen_gas_bucket.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/oxygen_gas.json"
         ]
       }
     },
@@ -2688,13 +2688,13 @@
       "registry_name": "bauxite",
       "metadata": {
         "files": [
-          "src/main/resources/data/create_mix_and_clean/loot_table/blocks/bauxite.json",
-          "src/main/resources/data/create_mix_and_clean/worldgen/placed_feature/bauxite.json",
+          "src/main/java/net/mcreator/createmixandclean/block/BauxiteBlock.java",
           "src/main/resources/data/create_mix_and_clean/worldgen/configured_feature/bauxite.json",
+          "src/main/resources/data/create_mix_and_clean/neoforge/biome_modifier/bauxite_biome_modifier.json",
+          "src/main/resources/data/create_mix_and_clean/loot_table/blocks/bauxite.json",
           "src/main/resources/assets/create_mix_and_clean/models/item/bauxite.json",
           "src/main/resources/assets/create_mix_and_clean/blockstates/bauxite.json",
-          "src/main/java/net/mcreator/createmixandclean/block/BauxiteBlock.java",
-          "src/main/resources/data/create_mix_and_clean/neoforge/biome_modifier/bauxite_biome_modifier.json",
+          "src/main/resources/data/create_mix_and_clean/worldgen/placed_feature/bauxite.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/bauxite.json"
         ]
       },
@@ -2757,7 +2757,7 @@
     {
       "name": "AluminaSandPaper",
       "type": "item",
-      "compiles": true,
+      "compiles": false,
       "locked_code": true,
       "registry_name": "alumina_sand_paper",
       "metadata": {
@@ -2776,10 +2776,10 @@
       "registry_name": "aluminum_block",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_block.json",
           "src/main/resources/data/create_mix_and_clean/loot_table/blocks/aluminum_block.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_block.json",
           "src/main/java/net/mcreator/createmixandclean/block/AluminumBlockBlock.java",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_block.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_block.json",
           "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_block.json"
         ]
       },
@@ -2793,18 +2793,18 @@
       "registry_name": "aluminum_door",
       "metadata": {
         "files": [
-          "src/main/resources/data/create_mix_and_clean/loot_table/blocks/aluminum_door.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_right_open.json",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_door.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_right_open.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_left.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_left.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_right.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_left_open.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_right_open.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_right.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_door.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_right_open.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_right.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_left_open.json",
-          "src/main/java/net/mcreator/createmixandclean/block/AluminumDoorBlock.java",
           "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_door.json",
-          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_right.json"
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_bottom_left.json",
+          "src/main/java/net/mcreator/createmixandclean/block/AluminumDoorBlock.java",
+          "src/main/resources/data/create_mix_and_clean/loot_table/blocks/aluminum_door.json",
+          "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_door_top_left.json"
         ]
       },
       "path": "~/Items"
@@ -2817,12 +2817,12 @@
       "registry_name": "aluminum_trapdoor",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_trapdoor.json",
-          "src/main/resources/data/create_mix_and_clean/loot_table/blocks/aluminum_trapdoor.json",
-          "src/main/java/net/mcreator/createmixandclean/block/AluminumTrapdoorBlock.java",
           "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_trapdoor.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/aluminum_trapdoor.json",
           "src/main/resources/assets/create_mix_and_clean/blockstates/aluminum_trapdoor.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_trapdoor_top.json",
+          "src/main/java/net/mcreator/createmixandclean/block/AluminumTrapdoorBlock.java",
+          "src/main/resources/data/create_mix_and_clean/loot_table/blocks/aluminum_trapdoor.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/aluminum_trapdoor_open.json"
         ]
       },
@@ -2890,13 +2890,13 @@
       "registry_name": "liquid_air",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/fluid/types/LiquidAirFluidType.java",
-          "src/main/java/net/mcreator/createmixandclean/item/LiquidAirItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/liquid_air_bucket.json",
           "src/main/resources/assets/create_mix_and_clean/models/block/liquid_air.json",
+          "src/main/resources/assets/create_mix_and_clean/models/item/liquid_air_bucket.json",
+          "src/main/resources/assets/create_mix_and_clean/blockstates/liquid_air.json",
+          "src/main/java/net/mcreator/createmixandclean/item/LiquidAirItem.java",
           "src/main/java/net/mcreator/createmixandclean/fluid/LiquidAirFluid.java",
-          "src/main/java/net/mcreator/createmixandclean/block/LiquidAirBlock.java",
-          "src/main/resources/assets/create_mix_and_clean/blockstates/liquid_air.json"
+          "src/main/java/net/mcreator/createmixandclean/fluid/types/LiquidAirFluidType.java",
+          "src/main/java/net/mcreator/createmixandclean/block/LiquidAirBlock.java"
         ]
       }
     },
@@ -2908,9 +2908,9 @@
       "registry_name": "nitrogen_gas",
       "metadata": {
         "files": [
-          "src/main/resources/assets/create_mix_and_clean/models/item/nitrogen_gas_bucket.json",
-          "src/main/java/net/mcreator/createmixandclean/item/NitrogenGasItem.java",
           "src/main/resources/assets/create_mix_and_clean/blockstates/nitrogen_gas.json",
+          "src/main/java/net/mcreator/createmixandclean/item/NitrogenGasItem.java",
+          "src/main/resources/assets/create_mix_and_clean/models/item/nitrogen_gas_bucket.json",
           "src/main/java/net/mcreator/createmixandclean/block/NitrogenGasBlock.java",
           "src/main/java/net/mcreator/createmixandclean/fluid/types/NitrogenGasFluidType.java",
           "src/main/resources/assets/create_mix_and_clean/models/block/nitrogen_gas.json",
@@ -2970,8 +2970,8 @@
       "registry_name": "ogi",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/OGIItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/ogi_helmet.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/ogi_helmet.json",
+          "src/main/java/net/mcreator/createmixandclean/item/OGIItem.java"
         ]
       },
       "path": "~/Items"
@@ -2996,8 +2996,8 @@
       "registry_name": "aluminum_blockrecipe",
       "metadata": {
         "files": [
-          "src/main/resources/data/create_mix_and_clean/recipe/aluminum_block.json",
-          "src/main/resources/data/create_mix_and_clean/advancement/recipes/aluminum_blockrecipe.json"
+          "src/main/resources/data/create_mix_and_clean/advancement/recipes/aluminum_blockrecipe.json",
+          "src/main/resources/data/create_mix_and_clean/recipe/aluminum_block.json"
         ]
       },
       "path": "~/Recipes"
@@ -3078,8 +3078,8 @@
       "registry_name": "gasmask_filter",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/GasmaskFilterItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/gasmask_filter.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/gasmask_filter.json",
+          "src/main/java/net/mcreator/createmixandclean/item/GasmaskFilterItem.java"
         ]
       },
       "path": "~/Items"
@@ -3131,8 +3131,8 @@
       "registry_name": "electrode",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/createmixandclean/item/ElectrodeItem.java",
-          "src/main/resources/assets/create_mix_and_clean/models/item/electrode.json"
+          "src/main/resources/assets/create_mix_and_clean/models/item/electrode.json",
+          "src/main/java/net/mcreator/createmixandclean/item/ElectrodeItem.java"
         ]
       },
       "path": "~/Items"
@@ -3607,19 +3607,19 @@
   },
   "metadata": {
     "files": [
-      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluidTypes.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluids.java",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModFluidTypes.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlocks.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModBlockEntities.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModItems.java",
-      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModSounds.java",
-      "src/main/resources/assets/create_mix_and_clean/sounds.json",
-      "src/main/resources/META-INF/neoforge.mods.toml",
-      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModTabs.java",
-      "src/main/java/net/mcreator/createmixandclean/network/CreateMixAndCleanModVariables.java",
+      "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/createmixandclean/CreateMixAndCleanMod.java",
       "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModModels.java",
-      "src/main/resources/pack.mcmeta"
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModTabs.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/resources/assets/create_mix_and_clean/sounds.json",
+      "src/main/java/net/mcreator/createmixandclean/init/CreateMixAndCleanModSounds.java",
+      "src/main/java/net/mcreator/createmixandclean/network/CreateMixAndCleanModVariables.java"
     ]
   },
   "foldersRoot": {
@@ -3670,7 +3670,7 @@
   "workspaceSettings": {
     "modid": "create_mix_and_clean",
     "modName": "Create: Mix And Clean",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "A create addon that allows for ore refining, dye/oxidation removal and adds 8 new fluids.",
     "author": "Trowa8",
     "websiteURL": "https://mcreator.net",
@@ -3687,5 +3687,5 @@
     "credits": "Created using MCreator",
     "modElementsPackage": "net.mcreator.createmixandclean"
   },
-  "mcreatorVersion": 202600225619
+  "mcreatorVersion": 202600233518
 }

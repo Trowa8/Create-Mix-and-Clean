@@ -1,5 +1,5 @@
 {
-  "_fv": 88,
+  "_fv": 89,
   "_type": "block",
   "definition": {
     "texture": "bauxite_side",
@@ -19,7 +19,6 @@
     "itemTexture": "",
     "particleTexture": "",
     "blockSetType": "OAK",
-    "pottedPlant": "",
     "leavesParticleChance": 0.0,
     "tintType": "No tint",
     "isItemTinted": false,
@@ -88,8 +87,8 @@
     "jumpFactor": 1.0,
     "reactionToPushing": "NORMAL",
     "isNotColidable": false,
-    "isCustomSoundType": false,
     "soundOnStep": "BASALT",
+    "isCustomSoundType": false,
     "breakSound": "",
     "fallSound": "",
     "hitSound": "",
@@ -141,7 +140,7 @@
     ],
     "generationShape": "TRIANGLE",
     "frequencyPerChunks": 18,
-    "frequencyOnChunk": 16,
+    "frequencyOnChunk": 9,
     "minGenerateHeight": 20,
     "maxGenerateHeight": 100
   }
