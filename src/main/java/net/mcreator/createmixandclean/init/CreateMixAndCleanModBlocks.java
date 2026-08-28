@@ -30,7 +30,7 @@ public class CreateMixAndCleanModBlocks {
 		CHLORINE_GAS = REGISTRY.register("chlorine_gas", ChlorineGasBlock::new);
 		HYDROGEN_GAS = REGISTRY.register("hydrogen_gas", HydrogenGasBlock::new);
 		HYDROCHLORIC_ACID = REGISTRY.register("hydrochloric_acid", HydrochloricAcidBlock::new);
-		ELECTROLYZER = REGISTRY.register("electrolyzer", ElectrolyzerBlock::new);
+		ELECTROLYZER = REGISTRY.register("electrolyzer", () -> new ElectrolyzerBlock());
 		IRON_SLURRY = REGISTRY.register("iron_slurry", IronSlurryBlock::new);
 		OXYGEN_GAS = REGISTRY.register("oxygen_gas", OxygenGasBlock::new);
 		BAUXITE = REGISTRY.register("bauxite", BauxiteBlock::new);

@@ -116,7 +116,7 @@ public class HazardHelmetHandler {
         int oldDurability = getFilterDurability(helmet);
         CustomData heldData = held.get(DataComponents.CUSTOM_DATA);
         int newDurability = (heldData != null && heldData.contains(FILTER_NBT))
-            ? heldData.getUnsafe().getInt(FILTER_NBT)
+            ? heldData.copyTag().getInt(FILTER_NBT)
             : MAX_FILTER_DURABILITY;
 
         ItemStack oldFilter = new ItemStack(CreateMixAndCleanModItems.GASMASK_FILTER.get());
@@ -170,7 +170,7 @@ public class HazardHelmetHandler {
     private static int getFilterDurability(ItemStack helmet) {
         CustomData data = helmet.get(DataComponents.CUSTOM_DATA);
         if (data == null || !data.contains(FILTER_NBT)) return MAX_FILTER_DURABILITY;
-        return data.getUnsafe().getInt(FILTER_NBT);
+        return data.copyTag().getInt(FILTER_NBT);
     }
 
     private static void setFilterDurability(ItemStack helmet, int value) {
@@ -251,7 +251,7 @@ public class HazardHelmetHandler {
             if (stack.is(CreateMixAndCleanModItems.GASMASK_FILTER.get())) {
                 CustomData data = stack.get(DataComponents.CUSTOM_DATA);
                 int dur = (data != null && data.contains(FILTER_NBT))
-                    ? data.getUnsafe().getInt(FILTER_NBT)
+                    ? data.copyTag().getInt(FILTER_NBT)
                     : MAX_FILTER_DURABILITY;
                 event.getToolTip().add(Component.literal(durabilityColor(dur) + "Durability: " + dur + "/" + MAX_FILTER_DURABILITY));
             }
@@ -323,7 +323,6 @@ public class HazardHelmetHandler {
             if (!isWearingProtectiveGear()) return;
 
             Minecraft mc = Minecraft.getInstance();
-            GuiGraphics graphics = event.getGuiGraphics();
             int width = mc.getWindow().getGuiScaledWidth();
             int height = mc.getWindow().getGuiScaledHeight();
 

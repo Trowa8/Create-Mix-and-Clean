@@ -9,7 +9,9 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.fml.util.thread.SidedThreadGroups;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.IEventBus;
 
@@ -21,6 +23,10 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.mcreator.createmixandclean.recipe.ElectrolyzerRecipe;
 import net.mcreator.createmixandclean.network.CreateMixAndCleanModVariables;
 import net.mcreator.createmixandclean.init.*;
+import net.mcreator.createmixandclean.gas.init.GasBlocks;
+import net.mcreator.createmixandclean.gas.init.GasBlockEntities;
+import net.mcreator.createmixandclean.gas.config.CreateMixAndCleanGasConfig;
+import net.mcreator.createmixandclean.gas.GasFluidLookup;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Queue;
@@ -39,6 +45,7 @@ public class CreateMixAndCleanMod {
 
 	public CreateMixAndCleanMod(IEventBus modEventBus) {
 		// Start of user code block mod constructor
+		ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.COMMON, CreateMixAndCleanGasConfig.SPEC, "create_mix_and_clean/Gas/gas-common.toml");
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
@@ -51,6 +58,8 @@ public class CreateMixAndCleanMod {
 		CreateMixAndCleanModFluids.REGISTRY.register(modEventBus);
 		CreateMixAndCleanModFluidTypes.REGISTRY.register(modEventBus);
 		// Start of user code block mod init
+		GasBlocks.REGISTRY.register(modEventBus);
+		GasBlockEntities.REGISTRY.register(modEventBus);
 		CreateMixAndCleanModRecipeTypes.SERIALIZERS.register(modEventBus);
 		CreateMixAndCleanModRecipeTypes.TYPES.register(modEventBus);
 		if (net.neoforged.fml.loading.FMLEnvironment.dist.isClient()) {
@@ -64,6 +73,8 @@ public class CreateMixAndCleanMod {
 	private void commonSetup(net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent event) {
 		ElectrolyzerRecipe.TYPE = CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get();
 		ElectrolyzerRecipe.SERIALIZER = CreateMixAndCleanModRecipeTypes.ELECTROLYZING_SERIALIZER.get();
+		GasBlocks.bindLookups();
+		GasFluidLookup.init();
 	}
 
 	// End of user code block mod methods

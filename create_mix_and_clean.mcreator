@@ -481,7 +481,8 @@
           "src/main/java/net/mcreator/createmixandclean/block/ChlorineGasBlock.java",
           "src/main/java/net/mcreator/createmixandclean/fluid/types/ChlorineGasFluidType.java"
         ]
-      }
+      },
+      "path": "~/Fluids/Gasses"
     },
     {
       "name": "HydrogenGas",
@@ -499,7 +500,8 @@
           "src/main/java/net/mcreator/createmixandclean/fluid/HydrogenGasFluid.java",
           "src/main/java/net/mcreator/createmixandclean/fluid/types/HydrogenGasFluidType.java"
         ]
-      }
+      },
+      "path": "~/Fluids/Gasses"
     },
     {
       "name": "HydrogenGasMobplayerCollidesBlock",
@@ -539,7 +541,8 @@
           "src/main/java/net/mcreator/createmixandclean/fluid/HydrochloricAcidFluid.java",
           "src/main/java/net/mcreator/createmixandclean/block/HydrochloricAcidBlock.java"
         ]
-      }
+      },
+      "path": "~/Fluids"
     },
     {
       "name": "CausticSoda",
@@ -2577,7 +2580,7 @@
     {
       "name": "Electrolyzer",
       "type": "block",
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "registry_name": "electrolyzer",
       "metadata": {
@@ -2647,7 +2650,8 @@
           "src/main/resources/assets/create_mix_and_clean/models/block/iron_slurry.json",
           "src/main/java/net/mcreator/createmixandclean/fluid/types/IronSlurryFluidType.java"
         ]
-      }
+      },
+      "path": "~/Fluids"
     },
     {
       "name": "IronSlurryElectrolysis",
@@ -2678,7 +2682,8 @@
           "src/main/resources/assets/create_mix_and_clean/models/item/oxygen_gas_bucket.json",
           "src/main/resources/assets/create_mix_and_clean/blockstates/oxygen_gas.json"
         ]
-      }
+      },
+      "path": "~/Fluids/Gasses"
     },
     {
       "name": "Bauxite",
@@ -2757,7 +2762,7 @@
     {
       "name": "AluminaSandPaper",
       "type": "item",
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "registry_name": "alumina_sand_paper",
       "metadata": {
@@ -2898,7 +2903,8 @@
           "src/main/java/net/mcreator/createmixandclean/fluid/types/LiquidAirFluidType.java",
           "src/main/java/net/mcreator/createmixandclean/block/LiquidAirBlock.java"
         ]
-      }
+      },
+      "path": "~/Fluids"
     },
     {
       "name": "NitrogenGas",
@@ -2916,7 +2922,8 @@
           "src/main/resources/assets/create_mix_and_clean/models/block/nitrogen_gas.json",
           "src/main/java/net/mcreator/createmixandclean/fluid/NitrogenGasFluid.java"
         ]
-      }
+      },
+      "path": "~/Fluids/Gasses"
     },
     {
       "name": "LiquidAirMixing",
@@ -2960,7 +2967,8 @@
           "src/main/java/net/mcreator/createmixandclean/block/AmmoniaBlock.java",
           "src/main/resources/assets/create_mix_and_clean/models/item/ammonia_bucket.json"
         ]
-      }
+      },
+      "path": "~/Fluids/Gasses"
     },
     {
       "name": "OGI",
@@ -3392,12 +3400,12 @@
     ],
     "BLOCKS:minecraft:replaceable": [
       "~NitrogenGas@CUSTOM:NitrogenGas",
-      "~LiquidAir@CUSTOM:LiquidAir",
       "~OxygenGas@CUSTOM:OxygenGas",
-      "~IronSlurry@CUSTOM:IronSlurry",
-      "~HydrochloricAcid@CUSTOM:HydrochloricAcid",
       "~HydrogenGas@CUSTOM:HydrogenGas",
-      "~ChlorineGas@CUSTOM:ChlorineGas"
+      "~ChlorineGas@CUSTOM:ChlorineGas",
+      "~LiquidAir@CUSTOM:LiquidAir",
+      "~IronSlurry@CUSTOM:IronSlurry",
+      "~HydrochloricAcid@CUSTOM:HydrochloricAcid"
     ],
     "ITEMS:minecraft:meat": [
       "~TableSalt@CUSTOM:TableSalt",
@@ -3662,6 +3670,15 @@
                 "children": []
               }
             ]
+          }
+        ]
+      },
+      {
+        "name": "Fluids",
+        "children": [
+          {
+            "name": "Gasses",
+            "children": []
           }
         ]
       }
