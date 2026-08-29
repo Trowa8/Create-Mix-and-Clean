@@ -12,8 +12,8 @@ public class CreateMixAndCleanGasConfig {
             BUILDER.comment("Enable atmospheric gas simulation entirely").define("masterEnabled", true);
 
     public static final ModConfigSpec.EnumValue<CellModel> CELL_MODEL =
-            BUILDER.comment("Gas cell data model, switchable mid-save, triggers migration on chunk load")
-                    .defineEnum("cellModel", CellModel.SINGLE);
+            BUILDER.comment("Gas cell data model. SINGLE = one gas type per cell, MIXTURE = multiple gas types per cell")
+                    .defineEnum("cellModel", CellModel.MIXTURE);
 
     public static final ModConfigSpec.BooleanValue WIND_AWARENESS =
             BUILDER.define("windAwareness", true);

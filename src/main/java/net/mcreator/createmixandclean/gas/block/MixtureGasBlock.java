@@ -1,6 +1,5 @@
 package net.mcreator.createmixandclean.gas.block;
 
-import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 import net.mcreator.createmixandclean.gas.GasType;
 import net.mcreator.createmixandclean.gas.block.entity.GasCellBlockEntity;
 import net.mcreator.createmixandclean.gas.client.GasTextureColorSampler;
@@ -83,8 +82,6 @@ public class MixtureGasBlock extends Block implements EntityBlock {
         }
         if (dominant == null) return;
         if (random.nextFloat() > (best / 15f) * 0.5f) return;
-
-        CreateMixAndCleanMod.LOGGER.info("Mixture gas tick at {} dominant={} best={}", pos, dominant, best);
     
         double x = pos.getX() + random.nextDouble();
         double y = pos.getY() + random.nextDouble();
@@ -92,13 +89,11 @@ public class MixtureGasBlock extends Block implements EntityBlock {
     
         float[] color = GasTextureColorSampler.sampleColor(dominant, random);
         if (color == null || color.length < 3) {
-            CreateMixAndCleanMod.LOGGER.info("Mixture gas fallback color used at {} for {}", pos, dominant);
             color = dominant.getFallbackColor();
         }
 
         level.addParticle(new DustParticleOptions(new Vector3f(color[0], color[1], color[2]), 1.0f),
                 x, y, z, 0.0, 0.01, 0.0);
         level.addParticle(ParticleTypes.CLOUD, x, y, z, 0.0, 0.0, 0.0);
-        CreateMixAndCleanMod.LOGGER.info("Mixture particle emitted at {} color={}", pos, java.util.Arrays.toString(color));
     }
 }

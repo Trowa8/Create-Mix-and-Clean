@@ -1,6 +1,5 @@
 package net.mcreator.createmixandclean.gas;
 
-import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 import net.mcreator.createmixandclean.gas.block.DiffusingGasBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelAccessor;
@@ -32,7 +31,7 @@ public class SingleGasCellAccess implements GasCellAccess {
     @Override
     public void setConcentration(GasType gasType, float value) {
         BlockState state = level.getBlockState(pos);
-        int clamped = Math.max(0, Math.min(15, Math.round(value)));
+        int clamped = Math.max(0, Math.min(15, (int) value));
 
         if (state.getBlock() instanceof DiffusingGasBlock gasBlock) {
             if (gasBlock.getGasType() != gasType) {
@@ -43,13 +42,12 @@ public class SingleGasCellAccess implements GasCellAccess {
             }
             if (clamped <= 0) {
                 level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+                GasCellRegistry.remove(level, pos);
             } else {
                 level.setBlock(pos, state.setValue(DiffusingGasBlock.LEVEL, clamped), 3);
+                GasCellRegistry.add(level, pos);
             }
-            return;
-        }
-
-        if (clamped > 0 && state.isAir()) {
+        }else if (clamped > 0 && state.isAir()) {
             placeGas(gasType, clamped);
         }
     }
@@ -58,8 +56,8 @@ public class SingleGasCellAccess implements GasCellAccess {
         DiffusingGasBlock block = GasRegistry.getBlock(gasType);
         if (block == null) return;
         BlockState newState = block.defaultBlockState().setValue(DiffusingGasBlock.LEVEL, amount);
-        CreateMixAndCleanMod.LOGGER.info("Placing gas block for {} at {}", gasType, pos);
         level.setBlock(pos, newState, 3);
+        GasCellRegistry.add(level, pos);
     }
 
     @Override
@@ -85,5 +83,6 @@ public class SingleGasCellAccess implements GasCellAccess {
     @Override
     public void clear() {
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+        GasCellRegistry.remove(level, pos);
     }
 }

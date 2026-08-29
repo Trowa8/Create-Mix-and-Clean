@@ -15,6 +15,7 @@ public class MixtureGasCellAccess implements GasCellAccess {
 
     private final Level level;
     private final BlockPos pos;
+    private static final float PURGE_THRESHOLD = 0.001f;
 
     public MixtureGasCellAccess(Level level, BlockPos pos) {
         this.level = level;
@@ -34,16 +35,22 @@ public class MixtureGasCellAccess implements GasCellAccess {
     @Override
     public void setConcentration(GasType gasType, float value) {
         BlockState state = level.getBlockState(pos);
+        float sanitizedValue = value <= PURGE_THRESHOLD ? 0f : value;
+
         if (!(state.getBlock() instanceof MixtureGasBlock)) {
-            if (value <= 0f) return;
+            if (sanitizedValue <= 0f) return;
             if (!state.isAir()) return;
             level.setBlock(pos, GasBlocks.MIXTURE_GAS.get().defaultBlockState(), 3);
         }
+
         GasCellBlockEntity be = be();
         if (be != null) {
-            be.set(gasType, value);
-            if (be.isEmpty()) {
-                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+            be.set(gasType, sanitizedValue);
+            
+            if (be.isEmpty() || getTotalLevel() <= PURGE_THRESHOLD) {
+                clear();
+            } else {
+                GasCellRegistry.add(level, pos);
             }
         }
     }
@@ -66,12 +73,16 @@ public class MixtureGasCellAccess implements GasCellAccess {
 
     @Override
     public boolean isEmpty() {
-        GasCellBlockEntity be = be();
-        return be == null || be.isEmpty();
+        return getTotalLevel() <= PURGE_THRESHOLD;
     }
 
     @Override
     public void clear() {
+        GasCellBlockEntity be = be();
+        if (be != null) {
+            be.clear();
+        }
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+        GasCellRegistry.remove(level, pos);
     }
 }

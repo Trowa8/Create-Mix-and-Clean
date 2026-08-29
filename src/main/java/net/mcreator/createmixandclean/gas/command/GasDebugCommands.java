@@ -60,7 +60,7 @@ public class GasDebugCommands {
         }
         composition.forEach((gas, frac) ->
                 source.sendSuccess(() -> Component.literal(
-                        gas.name() + ": " + String.format("%.1f", frac * 100) + "% VOL"), false));
+                        gas.name() + ": " + String.format("%.7f", frac * 100) + "% VOL"), false));
         return 1;
     }
 

@@ -8,12 +8,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
 
 public class GasCellBlockEntity extends BlockEntity {
 
     private final Map<GasType, Float> concentrations = new EnumMap<>(GasType.class);
+    private static final float EPSILON = 0.001f;
 
     public GasCellBlockEntity(BlockPos pos, BlockState state) {
         super(GasBlockEntities.MIXTURE_GAS_CELL.get(), pos, state);
@@ -24,7 +26,7 @@ public class GasCellBlockEntity extends BlockEntity {
     }
 
     public void set(GasType type, float value) {
-        if (value <= 0f) {
+        if (value <= EPSILON) {
             concentrations.remove(type);
         } else {
             concentrations.put(type, Math.min(15f, value));
@@ -33,7 +35,12 @@ public class GasCellBlockEntity extends BlockEntity {
     }
 
     public Map<GasType, Float> getAll() {
-        return concentrations;
+        return Collections.unmodifiableMap(concentrations);
+    }
+
+    public void clear() {
+        concentrations.clear();
+        setChanged();
     }
 
     public boolean isEmpty() {

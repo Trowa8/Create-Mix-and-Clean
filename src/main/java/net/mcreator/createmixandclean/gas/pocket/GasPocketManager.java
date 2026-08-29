@@ -165,4 +165,15 @@ public class GasPocketManager {
             manager.recompute(serverLevel, pocket, tick);
         }
     }
+
+    public Set<GasPocket> getPockets() {
+        return new HashSet<>(pocketByCell.values());
+    }
+
+    @SubscribeEvent
+    public static void onLevelUnload(net.neoforged.neoforge.event.level.LevelEvent.Unload event) {
+        if (event.getLevel() instanceof ServerLevel serverLevel) {
+            INSTANCES.remove(serverLevel);
+        }
+    }
 }

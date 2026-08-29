@@ -10,7 +10,7 @@ public enum GasType {
     HYDROGEN(() -> CreateMixAndCleanModFluidTypes.HYDROGEN_GAS_TYPE.get(), 0xE8E8E8),
     OXYGEN(() -> CreateMixAndCleanModFluidTypes.OXYGEN_GAS_TYPE.get(), 0x9FD8FF),
     NITROGEN(() -> CreateMixAndCleanModFluidTypes.NITROGEN_GAS_TYPE.get(), 0xC7C7FF),
-    AMMONIA(() -> CreateMixAndCleanModFluidTypes.AMMONIA_TYPE.get(), 0xB9E36B);
+    AMMONIA(() -> CreateMixAndCleanModFluidTypes.AMMONIA_TYPE.get(), 0x3597330f);
 
     private final Supplier<FluidType> fluidType;
     private final int color;
