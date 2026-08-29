@@ -81,19 +81,28 @@ public class DiffusingGasBlock extends Block {
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         int amount = levelOf(state);
         if (amount <= 0) return;
-        if (random.nextFloat() > (amount / 15f) * 0.5f) return;
 
-        double x = pos.getX() + random.nextDouble();
-        double y = pos.getY() + random.nextDouble();
-        double z = pos.getZ() + random.nextDouble();
+        float expectedParticles = (amount / 15f) * 1.2f;
+        int count = (int) expectedParticles;
+        if (random.nextFloat() < (expectedParticles - count)) {
+            count++;
+        }
+
+        if (count <= 0) return;
 
         float[] color = GasTextureColorSampler.sampleColor(gasType, random);
         if (color == null || color.length < 3) {
             color = gasType.getFallbackColor();
         }
 
-        level.addParticle(new DustParticleOptions(new Vector3f(color[0], color[1], color[2]), 1.0f),
-                x, y, z, 0.0, 0.01, 0.0);
-        level.addParticle(ParticleTypes.CLOUD, x, y, z, 0.0, 0.0, 0.0);
+        for (int i = 0; i < count; i++) {
+            double x = pos.getX() + random.nextDouble();
+            double y = pos.getY() + random.nextDouble();
+            double z = pos.getZ() + random.nextDouble();
+
+            level.addParticle(new DustParticleOptions(new Vector3f(color[0], color[1], color[2]), 1.0f),
+                    x, y, z, 0.0, 0.01, 0.0);
+            level.addParticle(ParticleTypes.CLOUD, x, y, z, 0.0, 0.0, 0.0);
+        }
     }
 }

@@ -89,7 +89,7 @@ public class GasTickScheduler {
             cellsToCheck.addAll(neighbors);
 
             for (BlockPos cellPos : cellsToCheck) {
-                if (ThreadLocalRandom.current().nextBoolean()) continue;
+                if (ThreadLocalRandom.current().nextInt(10) != 0) continue;
 
                 GasCellAccess access = GasCellFactory.at(serverLevel, cellPos);
                 if (access == null || access.isEmpty()) continue;

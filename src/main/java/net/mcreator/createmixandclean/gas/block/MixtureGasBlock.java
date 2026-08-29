@@ -71,7 +71,7 @@ public class MixtureGasBlock extends Block implements EntityBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (!(level.getBlockEntity(pos) instanceof GasCellBlockEntity be) || be.isEmpty()) return;
-    
+
         GasType dominant = null;
         float best = -1f;
         for (Entry<GasType, Float> entry : be.getAll().entrySet()) {
@@ -81,19 +81,27 @@ public class MixtureGasBlock extends Block implements EntityBlock {
             }
         }
         if (dominant == null) return;
-        if (random.nextFloat() > (best / 15f) * 0.5f) return;
-    
-        double x = pos.getX() + random.nextDouble();
-        double y = pos.getY() + random.nextDouble();
-        double z = pos.getZ() + random.nextDouble();
-    
+
+        float expectedParticles = (best / 15f) * 1.2f;
+        int count = (int) expectedParticles;
+        if (random.nextFloat() < (expectedParticles - count)) {
+            count++;
+        }
+
+        if (count <= 0) return;
         float[] color = GasTextureColorSampler.sampleColor(dominant, random);
         if (color == null || color.length < 3) {
             color = dominant.getFallbackColor();
         }
 
-        level.addParticle(new DustParticleOptions(new Vector3f(color[0], color[1], color[2]), 1.0f),
-                x, y, z, 0.0, 0.01, 0.0);
-        level.addParticle(ParticleTypes.CLOUD, x, y, z, 0.0, 0.0, 0.0);
+        for (int i = 0; i < count; i++) {
+            double x = pos.getX() + random.nextDouble();
+            double y = pos.getY() + random.nextDouble();
+            double z = pos.getZ() + random.nextDouble();
+
+            level.addParticle(new DustParticleOptions(new Vector3f(color[0], color[1], color[2]), 1.0f),
+                    x, y, z, 0.0, 0.01, 0.0);
+            level.addParticle(ParticleTypes.CLOUD, x, y, z, 0.0, 0.0, 0.0);
+        }
     }
 }
