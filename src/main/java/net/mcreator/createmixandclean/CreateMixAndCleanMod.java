@@ -26,7 +26,7 @@ import net.mcreator.createmixandclean.init.*;
 import net.mcreator.createmixandclean.gas.init.GasBlocks;
 import net.mcreator.createmixandclean.gas.init.GasBlockEntities;
 import net.mcreator.createmixandclean.gas.config.CreateMixAndCleanGasConfig;
-import net.mcreator.createmixandclean.gas.GasFluidLookup;
+import net.mcreator.createmixandclean.gas.GasRegistry;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Queue;
@@ -74,7 +74,7 @@ public class CreateMixAndCleanMod {
 		ElectrolyzerRecipe.TYPE = CreateMixAndCleanModRecipeTypes.ELECTROLYZING.get();
 		ElectrolyzerRecipe.SERIALIZER = CreateMixAndCleanModRecipeTypes.ELECTROLYZING_SERIALIZER.get();
 		GasBlocks.bindLookups();
-		GasFluidLookup.init();
+		GasRegistry.init();
 	}
 
 	// End of user code block mod methods

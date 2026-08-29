@@ -20,6 +20,7 @@ public final class GasDiffuseStep {
         GasCellAccess self = GasCellFactory.at(level, pos);
         if (self == null || self.isEmpty()) return;
 
+        boolean changed = false;
         Set<GasType> gases = self.getPresentGases();
         Direction windBias = CreateMixAndCleanGasConfig.WIND_AWARENESS.get()
                 ? GasWindHelper.getBias(level, pos)
@@ -46,26 +47,33 @@ public final class GasDiffuseStep {
                 self.setConcentration(gas, myConc - transfer);
                 neighbor.setConcentration(gas, neighborConc + transfer);
                 myConc -= transfer;
+                changed = true;
             }
         }
 
         if (CreateMixAndCleanGasConfig.OUTDOOR_DISSIPATION.get()) {
-            applyOutdoorDecay(level, pos, self);
+            changed |= applyOutdoorDecay(level, pos, self);
         }
 
         if (self.isEmpty()) {
             self.clear();
         }
 
-        GasPocketManager.get(level).markDirty(pos);
+        if (changed) {
+            GasPocketManager.get(level).markDirty(pos);
+        }
     }
 
-    private static void applyOutdoorDecay(Level level, BlockPos pos, GasCellAccess self) {
-        if (!level.canSeeSky(pos)) return;
+    private static boolean applyOutdoorDecay(Level level, BlockPos pos, GasCellAccess self) {
+        if (!level.canSeeSky(pos)) return false;
         float rate = CreateMixAndCleanGasConfig.OUTDOOR_DECAY_RATE.get().floatValue();
+        if (rate <= 0f) return false;
+        boolean changed = false;
         for (GasType gas : self.getPresentGases()) {
             float current = self.getConcentration(gas);
             self.setConcentration(gas, current - rate);
+            changed = true;
         }
+        return changed;
     }
 }

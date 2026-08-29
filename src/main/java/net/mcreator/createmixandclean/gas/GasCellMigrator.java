@@ -10,12 +10,24 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.level.ChunkEvent;
 
 import java.util.Map;
 
+@EventBusSubscriber(modid = "create_mix_and_clean")
 public final class GasCellMigrator {
 
     private GasCellMigrator() {}
+
+    @SubscribeEvent
+    public static void onChunkLoad(ChunkEvent.Load event) {
+        if (!CreateMixAndCleanGasConfig.MASTER_ENABLED.get()) return;
+        if (event.getLevel() instanceof ServerLevel level && event.getChunk() instanceof LevelChunk chunk) {
+            migrateChunk(level, chunk);
+        }
+    }
 
     public static void migrateChunk(ServerLevel level, LevelChunk chunk) {
         boolean wantMixture = CreateMixAndCleanGasConfig.CELL_MODEL.get()
@@ -57,7 +69,7 @@ public final class GasCellMigrator {
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
             return;
         }
-        DiffusingGasBlock block = GasBlockRegistryLookup.get(dominant);
+        DiffusingGasBlock block = GasRegistry.getBlock(dominant);
         if (block == null) return;
         BlockState newState = block.defaultBlockState()
                 .setValue(DiffusingGasBlock.LEVEL, Math.round(Math.min(15f, best)));

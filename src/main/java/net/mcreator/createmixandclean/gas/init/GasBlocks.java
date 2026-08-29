@@ -1,7 +1,7 @@
 package net.mcreator.createmixandclean.gas.init;
 
 import net.mcreator.createmixandclean.CreateMixAndCleanMod;
-import net.mcreator.createmixandclean.gas.GasBlockRegistryLookup;
+import net.mcreator.createmixandclean.gas.GasRegistry;
 import net.mcreator.createmixandclean.gas.GasType;
 import net.mcreator.createmixandclean.gas.block.DiffusingGasBlock;
 import net.mcreator.createmixandclean.gas.block.MixtureGasBlock;
@@ -27,10 +27,10 @@ public class GasBlocks {
             REGISTRY.register("ammonia_gas_cell", () -> new DiffusingGasBlock(GasType.AMMONIA));
 
     public static void bindLookups() {
-        GasBlockRegistryLookup.register(GasType.CHLORINE, CHLORINE_CELL.get());
-        GasBlockRegistryLookup.register(GasType.HYDROGEN, HYDROGEN_CELL.get());
-        GasBlockRegistryLookup.register(GasType.OXYGEN, OXYGEN_CELL.get());
-        GasBlockRegistryLookup.register(GasType.NITROGEN, NITROGEN_CELL.get());
-        GasBlockRegistryLookup.register(GasType.AMMONIA, AMMONIA_CELL.get());
+        GasRegistry.registerBlock(GasType.CHLORINE, CHLORINE_CELL.get());
+        GasRegistry.registerBlock(GasType.HYDROGEN, HYDROGEN_CELL.get());
+        GasRegistry.registerBlock(GasType.OXYGEN, OXYGEN_CELL.get());
+        GasRegistry.registerBlock(GasType.NITROGEN, NITROGEN_CELL.get());
+        GasRegistry.registerBlock(GasType.AMMONIA, AMMONIA_CELL.get());
     }
 }

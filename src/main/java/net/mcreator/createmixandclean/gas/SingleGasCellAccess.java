@@ -1,5 +1,6 @@
 package net.mcreator.createmixandclean.gas;
 
+import net.mcreator.createmixandclean.CreateMixAndCleanMod;
 import net.mcreator.createmixandclean.gas.block.DiffusingGasBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelAccessor;
@@ -54,9 +55,10 @@ public class SingleGasCellAccess implements GasCellAccess {
     }
 
     private void placeGas(GasType gasType, int amount) {
-        DiffusingGasBlock block = GasBlockRegistryLookup.get(gasType);
+        DiffusingGasBlock block = GasRegistry.getBlock(gasType);
         if (block == null) return;
         BlockState newState = block.defaultBlockState().setValue(DiffusingGasBlock.LEVEL, amount);
+        CreateMixAndCleanMod.LOGGER.info("Placing gas block for {} at {}", gasType, pos);
         level.setBlock(pos, newState, 3);
     }
 
