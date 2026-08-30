@@ -17,6 +17,8 @@ public class GasPocket {
     public long lastRecomputeTick = 0L;
     public int stableStreak = 0;
     public boolean capped = false;
+    public boolean wantsToExpand = false;
+    public long nextExpansionTick = 0L;
 
     public int cellCount() {
         return cells.size();

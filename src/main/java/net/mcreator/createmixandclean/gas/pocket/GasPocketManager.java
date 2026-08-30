@@ -41,16 +41,75 @@ public class GasPocketManager {
         }
     }
 
+    private boolean isRebuilding = false;
+
     public void invalidateAround(ServerLevel level, BlockPos changedPos) {
-        for (Direction dir : Direction.values()) {
-            BlockPos neighbor = changedPos.relative(dir);
-            GasPocket pocket = pocketByCell.get(neighbor);
-            if (pocket != null) {
-                dissolvePocket(pocket);
-                for (BlockPos cell : pocket.cells) {
-                    GasTickScheduler.wake(level, cell);
+        if (isRebuilding) return;
+        isRebuilding = true;
+    
+        try {
+            Set<GasPocket> affectedPockets = new HashSet<>();
+            
+            for (int dx = -2; dx <= 2; dx++) {
+                for (int dy = -2; dy <= 2; dy++) {
+                    for (int dz = -2; dz <= 2; dz++) {
+                        BlockPos checkPos = changedPos.offset(dx, dy, dz);
+                        GasPocket pocket = pocketByCell.get(checkPos.immutable());
+                        if (pocket != null) {
+                            affectedPockets.add(pocket);
+                        }
+                    }
                 }
             }
+            
+            if (!affectedPockets.isEmpty()) {
+                net.mcreator.createmixandclean.CreateMixAndCleanMod.LOGGER.info(
+                    "Invalidating {} gas pockets around block change at {}", 
+                    affectedPockets.size(), changedPos
+                );
+            }
+            
+            for (GasPocket pocket : affectedPockets) {
+                pocket.settled = false;
+                pocket.stableStreak = 0;
+                
+                net.mcreator.createmixandclean.CreateMixAndCleanMod.LOGGER.info(
+                    "Waking {} cells in pocket due to topology change",
+                    pocket.cellCount()
+                );
+    
+                java.util.List<BlockPos> boundaryFirst = new java.util.ArrayList<>();
+                java.util.List<BlockPos> interior = new java.util.ArrayList<>();
+                
+                for (BlockPos cell : pocket.cells) {
+                    double distSq = changedPos.distSqr(cell);
+                    if (distSq <= 3) {
+                        boundaryFirst.add(cell);
+                    } else {
+                        interior.add(cell);
+                    }
+                }
+                
+                dissolvePocket(pocket);
+    
+                for (BlockPos cell : boundaryFirst) {
+                    GasTickScheduler.wake(level, cell);
+                }
+                
+                for (BlockPos cell : interior) {
+                    GasTickScheduler.enqueue(level, cell);
+                }
+            }
+            
+            GasPocket rebuiltPocket = getOrBuildPocket(level, changedPos);
+            markDirty(changedPos);
+            net.mcreator.createmixandclean.CreateMixAndCleanMod.LOGGER.info(
+                "Rebuilt pocket at {} with {} cells after topology change",
+                changedPos, rebuiltPocket.cellCount()
+            );
+            
+        } finally {
+            isRebuilding = false;
         }
     }
 
@@ -67,9 +126,61 @@ public class GasPocketManager {
         return floodFill(level, seed);
     }
 
+    private GasType getPredominantGas(ServerLevel level, BlockPos pos) {
+        GasCellAccess access = GasCellFactory.at(level, pos);
+        if (access == null) return null;
+        GasType dominant = null;
+        float max = -1f;
+        for (GasType type : access.getPresentGases()) {
+            float conc = access.getConcentration(type);
+            if (conc > max) {
+                max = conc;
+                dominant = type;
+            }
+        }
+        return dominant;
+    }
+
+    private Direction[] getSortedDirections(GasType type) {
+        Direction[] dirs = Direction.values().clone();
+        if (type == null) return dirs;
+
+        if (type.getMolarMass() < 25f) {
+            return new Direction[]{Direction.UP, Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST, Direction.DOWN};
+        } 
+        else if (type.getMolarMass() > 35f) {
+            return new Direction[]{Direction.DOWN, Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST, Direction.UP};
+        }
+        return dirs;
+    }
+
+    private void equalizePocket(ServerLevel level, GasPocket pocket) {
+        Map<GasType, Float> totals = new HashMap<>();
+        for (BlockPos cell : pocket.cells) {
+            GasCellAccess access = GasCellFactory.at(level, cell);
+            if (access == null) continue;
+            for (GasType gas : access.getPresentGases()) {
+                totals.merge(gas, access.getConcentration(gas), Float::sum);
+            }
+        }
+        if (totals.isEmpty()) return;
+    
+        for (BlockPos cell : pocket.cells) {
+            GasCellAccess access = GasCellFactory.at(level, cell);
+            if (access == null) continue;
+            for (Map.Entry<GasType, Float> entry : totals.entrySet()) {
+                float avg = entry.getValue() / pocket.cellCount();
+                access.setConcentration(entry.getKey(), avg);
+            }
+            GasTickScheduler.wake(level, cell);
+        }
+    }
+
     private GasPocket floodFill(ServerLevel level, BlockPos seed) {
         GasPocket pocket = new GasPocket();
         int cap = CreateMixAndCleanGasConfig.MAX_POCKET_CELLS.get();
+        int maxAirPerTick = 4; 
+        int airClaimed = 0;
 
         Set<BlockPos> visited = new HashSet<>();
         ArrayDeque<BlockPos> queue = new ArrayDeque<>();
@@ -77,17 +188,34 @@ public class GasPocketManager {
         queue.add(seedImmutable);
         visited.add(seedImmutable);
 
+        GasType predominant = getPredominantGas(level, seedImmutable);
+        Direction[] searchDirs = getSortedDirections(predominant);
+
         while (!queue.isEmpty() && pocket.cellCount() < cap) {
             BlockPos current = queue.poll();
             BlockState state = level.getBlockState(current);
-            boolean passable = state.isAir() || GasCellFactory.at(level, current) != null;
+            GasCellAccess access = GasCellFactory.at(level, current);
+            
+            boolean isExistingGas = access != null && !access.isEmpty();
+            boolean passable = state.isAir() || access != null;
+            
             if (!passable) continue;
+
+            if (!isExistingGas) {
+                if (airClaimed >= maxAirPerTick) {
+                    pocket.wantsToExpand = true;
+                    continue;
+                }
+                airClaimed++;
+            }
 
             pocket.cells.add(current);
             if (level.canSeeSky(current)) pocket.skyExposed = true;
 
-            for (Direction dir : Direction.values()) {
+            for (Direction dir : searchDirs) {
                 BlockPos next = current.relative(dir).immutable();
+                // Prevent freezing at chunk borders
+                if (!level.isLoaded(next)) continue; 
                 if (visited.add(next)) {
                     queue.add(next);
                 }
@@ -98,6 +226,7 @@ public class GasPocketManager {
         for (BlockPos cell : pocket.cells) {
             pocketByCell.put(cell, pocket);
         }
+        equalizePocket(level, pocket);
         return pocket;
     }
 
@@ -128,9 +257,21 @@ public class GasPocketManager {
         if (CreateMixAndCleanGasConfig.SETTLING_ENABLED.get()
                 && pocket.stableStreak >= CreateMixAndCleanGasConfig.SETTLE_STABLE_CYCLES.get()
                 && !pocket.settled) {
-            pocket.settled = true;
-            for (BlockPos cell : pocket.cells) {
-                GasTickScheduler.markSettled(level, cell);
+            boolean allCellsCaughtUp = pocket.cells.stream().allMatch(cell -> {
+                GasCellAccess access = GasCellFactory.at(level, cell);
+                if (access == null) return true;
+                float total = access.getTotalLevel();
+                float expectedShare = totals.values().stream().reduce(0f, Float::sum) / pocket.cellCount();
+                return Math.abs(total - expectedShare) <= CreateMixAndCleanGasConfig.SETTLE_EPSILON.get().floatValue() * 15f;
+            });
+        
+            if (allCellsCaughtUp) {
+                pocket.settled = true;
+                for (BlockPos cell : pocket.cells){
+                    GasTickScheduler.markSettled(level, cell);
+                }
+            } else {
+                pocket.stableStreak = 0;
             }
         }
     }
@@ -158,10 +299,19 @@ public class GasPocketManager {
         if (!CreateMixAndCleanGasConfig.MASTER_ENABLED.get()) return;
 
         GasPocketManager manager = INSTANCES.get(serverLevel);
-        if (manager == null || manager.dirtyPockets.isEmpty()) return;
-
+        if (manager == null) return;
+        
         long tick = serverLevel.getGameTime();
-        for (GasPocket pocket : new HashSet<>(manager.dirtyPockets)) {
+
+        for (GasPocket pocket : manager.getPockets()) {
+            if (pocket.wantsToExpand && tick >= pocket.nextExpansionTick) {
+                pocket.nextExpansionTick = tick + 20;
+                manager.expandPocket(serverLevel, pocket, 4);
+            }
+        }
+
+        if (manager.dirtyPockets.isEmpty()) return;
+        for (GasPocket pocket : new java.util.HashSet<>(manager.dirtyPockets)) {
             manager.recompute(serverLevel, pocket, tick);
         }
     }
@@ -175,5 +325,75 @@ public class GasPocketManager {
         if (event.getLevel() instanceof ServerLevel serverLevel) {
             INSTANCES.remove(serverLevel);
         }
+    }
+
+    public void expandPocket(ServerLevel level, GasPocket pocket, int amountToAdd) {
+    int cap = CreateMixAndCleanGasConfig.MAX_POCKET_CELLS.get();
+    if (pocket.cells.size() >= cap) {
+        pocket.wantsToExpand = false;
+        pocket.capped = true;
+        return;
+    }
+
+    float totalGas = 0f;
+    for (BlockPos cell : pocket.cells) {
+        GasCellAccess access = GasCellFactory.at(level, cell);
+        if (access != null) totalGas += access.getTotalLevel();
+    }
+    
+    if (totalGas / (pocket.cells.size() + 1) < 1.0f) {
+        pocket.wantsToExpand = false;
+        return;
+    }
+
+    GasType predominant = null;
+    for (BlockPos p : pocket.cells) {
+        predominant = getPredominantGas(level, p);
+        if (predominant != null) break;
+    }
+    
+    Direction[] searchDirs = getSortedDirections(predominant);
+    
+    java.util.List<BlockPos> sortedCells = new java.util.ArrayList<>(pocket.cells);
+    if (predominant != null) {
+        if (predominant.getMolarMass() < 25f) {
+            sortedCells.sort((p1, p2) -> Integer.compare(p2.getY(), p1.getY()));
+        } else if (predominant.getMolarMass() > 35f) {
+            sortedCells.sort((p1, p2) -> Integer.compare(p1.getY(), p2.getY()));
+        }
+    }
+
+    boolean foundSpace = false;
+    java.util.List<BlockPos> newCells = new java.util.ArrayList<>();
+    for (BlockPos cell : sortedCells) {
+        for (Direction dir : searchDirs) {
+                BlockPos next = cell.relative(dir).immutable();
+                if (!level.isLoaded(next) || pocket.cells.contains(next) || newCells.contains(next)) continue;
+
+                BlockState state = level.getBlockState(next);
+                GasCellAccess access = GasCellFactory.at(level, next);
+                
+                if (state.isAir() || access != null) {
+                    newCells.add(next);
+                    foundSpace = true;
+                    if (newCells.size() >= amountToAdd) break;
+                }
+            }
+            if (newCells.size() >= amountToAdd) break;
+        }
+
+        if (!foundSpace) {
+            pocket.wantsToExpand = false;
+            return;
+        }
+
+        for (BlockPos next : newCells) {
+            pocket.cells.add(next);
+            pocketByCell.put(next, pocket);
+            if (level.canSeeSky(next)) pocket.skyExposed = true;
+        }
+
+        pocket.wantsToExpand = true; 
+        equalizePocket(level, pocket);
     }
 }

@@ -5,6 +5,7 @@ import net.mcreator.createmixandclean.gas.block.MixtureGasBlock;
 import net.mcreator.createmixandclean.gas.block.entity.GasCellBlockEntity;
 import net.mcreator.createmixandclean.gas.config.CreateMixAndCleanGasConfig;
 import net.mcreator.createmixandclean.gas.init.GasBlocks;
+import net.mcreator.createmixandclean.gas.tick.GasTickScheduler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -26,7 +27,18 @@ public final class GasCellMigrator {
         if (!CreateMixAndCleanGasConfig.MASTER_ENABLED.get()) return;
         if (event.getLevel() instanceof ServerLevel level && event.getChunk() instanceof LevelChunk chunk) {
             migrateChunk(level, chunk);
+            rewakeGasCells(level, chunk);
         }
+    }
+    
+    private static void rewakeGasCells(ServerLevel level, LevelChunk chunk) {
+        chunk.getBlockEntities().forEach((pos, be) -> {
+            BlockState state = level.getBlockState(pos);
+            if (state.getBlock() instanceof MixtureGasBlock || state.getBlock() instanceof DiffusingGasBlock) {
+                GasCellRegistry.add(level, pos);
+                GasTickScheduler.wake(level, pos);
+            }
+        });
     }
 
     public static void migrateChunk(ServerLevel level, LevelChunk chunk) {
@@ -49,7 +61,7 @@ public final class GasCellMigrator {
     private static void convertSingleToMixture(ServerLevel level, BlockPos pos, BlockState state) {
         if (!(state.getBlock() instanceof DiffusingGasBlock gasBlock)) return;
         float amount = DiffusingGasBlock.levelOf(state);
-        level.setBlock(pos, GasBlocks.MIXTURE_GAS.get().defaultBlockState(), 3);
+        level.setBlock(pos, GasBlocks.MIXTURE_GAS.get().defaultBlockState(), 2);
         if (level.getBlockEntity(pos) instanceof GasCellBlockEntity be) {
             be.set(gasBlock.getGasType(), amount);
         }
@@ -66,13 +78,13 @@ public final class GasCellMigrator {
             }
         }
         if (dominant == null) {
-            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
             return;
         }
         DiffusingGasBlock block = GasRegistry.getBlock(dominant);
         if (block == null) return;
         BlockState newState = block.defaultBlockState()
                 .setValue(DiffusingGasBlock.LEVEL, Math.round(Math.min(15f, best)));
-        level.setBlock(pos, newState, 3);
+        level.setBlock(pos, newState, 2);
     }
 }

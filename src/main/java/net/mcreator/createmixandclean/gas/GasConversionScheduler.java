@@ -39,7 +39,7 @@ public final class GasConversionScheduler {
             GasType gasType = GasRegistry.getGasType(fluid);
             if (gasType == null) continue;
 
-            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 
             GasCellAccess access = GasCellFactory.at(level, pos);
             if (access != null) {

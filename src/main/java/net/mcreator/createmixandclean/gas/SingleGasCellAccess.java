@@ -41,10 +41,10 @@ public class SingleGasCellAccess implements GasCellAccess {
                 return;
             }
             if (clamped <= 0) {
-                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
                 GasCellRegistry.remove(level, pos);
             } else {
-                level.setBlock(pos, state.setValue(DiffusingGasBlock.LEVEL, clamped), 3);
+                level.setBlock(pos, state.setValue(DiffusingGasBlock.LEVEL, clamped), 2);
                 GasCellRegistry.add(level, pos);
             }
         }else if (clamped > 0 && state.isAir()) {
@@ -56,7 +56,7 @@ public class SingleGasCellAccess implements GasCellAccess {
         DiffusingGasBlock block = GasRegistry.getBlock(gasType);
         if (block == null) return;
         BlockState newState = block.defaultBlockState().setValue(DiffusingGasBlock.LEVEL, amount);
-        level.setBlock(pos, newState, 3);
+        level.setBlock(pos, newState, 2);
         GasCellRegistry.add(level, pos);
     }
 
@@ -82,7 +82,7 @@ public class SingleGasCellAccess implements GasCellAccess {
 
     @Override
     public void clear() {
-        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
         GasCellRegistry.remove(level, pos);
     }
 }

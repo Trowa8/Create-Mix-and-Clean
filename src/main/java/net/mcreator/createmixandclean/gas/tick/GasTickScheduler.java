@@ -41,9 +41,33 @@ public class GasTickScheduler {
     }
 
     public static void wake(ServerLevel level, BlockPos pos) {
+        BlockPos immutable = pos.immutable();
+        
+        // Remove from settled status
         Set<BlockPos> settled = SETTLED.get(level);
-        if (settled != null) settled.remove(pos.immutable());
-        enqueue(level, pos);
+        if (settled != null) settled.remove(immutable);
+        
+        Set<BlockPos> queuedSet = QUEUED_SET.get(level);
+        if (queuedSet != null) queuedSet.remove(immutable);
+        
+        ArrayDeque<BlockPos> queue = QUEUES.get(level);
+        if (queue != null) queue.remove(immutable);
+        
+        if (queuedSet != null) {
+            queuedSet.add(immutable);
+        } else {
+            queuedSet = new HashSet<>();
+            queuedSet.add(immutable);
+            QUEUED_SET.put(level, queuedSet);
+        }
+        
+        if (queue != null) {
+            queue.addFirst(immutable);
+        } else {
+            queue = new ArrayDeque<>();
+            queue.addFirst(immutable);
+            QUEUES.put(level, queue);
+        }
     }
 
     private static boolean isSettled(ServerLevel level, BlockPos pos) {

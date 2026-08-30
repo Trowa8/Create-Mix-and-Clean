@@ -6,39 +6,28 @@ import net.neoforged.neoforge.fluids.FluidType;
 import java.util.function.Supplier;
 
 public enum GasType {
-    CHLORINE(() -> CreateMixAndCleanModFluidTypes.CHLORINE_GAS_TYPE.get(), 0xC8CC32),
-    HYDROGEN(() -> CreateMixAndCleanModFluidTypes.HYDROGEN_GAS_TYPE.get(), 0xE8E8E8),
-    OXYGEN(() -> CreateMixAndCleanModFluidTypes.OXYGEN_GAS_TYPE.get(), 0x9FD8FF),
-    NITROGEN(() -> CreateMixAndCleanModFluidTypes.NITROGEN_GAS_TYPE.get(), 0xC7C7FF),
-    AMMONIA(() -> CreateMixAndCleanModFluidTypes.AMMONIA_TYPE.get(), 0x3597330f);
+    CHLORINE(() -> CreateMixAndCleanModFluidTypes.CHLORINE_GAS_TYPE.get(), 0xC8CC32, 71f),
+    OXYGEN(() -> CreateMixAndCleanModFluidTypes.OXYGEN_GAS_TYPE.get(), 0x9FD8FF, 32f),
+    NITROGEN(() -> CreateMixAndCleanModFluidTypes.NITROGEN_GAS_TYPE.get(), 0xC7C7FF, 28f),
+    AMMONIA(() -> CreateMixAndCleanModFluidTypes.AMMONIA_TYPE.get(), 0x3597330f, 17f),
+    HYDROGEN(() -> CreateMixAndCleanModFluidTypes.HYDROGEN_GAS_TYPE.get(), 0xE8E8E8, 2f);
 
     private final Supplier<FluidType> fluidType;
     private final int color;
+    private final float molarMass;
 
-    GasType(Supplier<FluidType> fluidType, int color) {
+    GasType(Supplier<FluidType> fluidType, int color, float molarMass) {
         this.fluidType = fluidType;
         this.color = color;
+        this.molarMass = molarMass;
     }
 
-    public FluidType getFluidType() {
-        return fluidType.get();
-    }
-
-    public float getRed() {
-        return ((color >> 16) & 0xFF) / 255f;
-    }
-
-    public float getGreen() {
-        return ((color >> 8) & 0xFF) / 255f;
-    }
-
-    public float getBlue() {
-        return (color & 0xFF) / 255f;
-    }
-
-    public float[] getFallbackColor() {
-        return new float[]{getRed(), getGreen(), getBlue()};
-    }
+    public FluidType getFluidType() { return fluidType.get(); }
+    public float getRed() { return ((color >> 16) & 0xFF) / 255f; }
+    public float getGreen() { return ((color >> 8) & 0xFF) / 255f; }
+    public float getBlue() { return (color & 0xFF) / 255f; }
+    public float[] getFallbackColor() { return new float[]{getRed(), getGreen(), getBlue()}; }
+    public float getMolarMass() { return molarMass; }
 
     public static GasType byName(String name) {
         for (GasType type : values()) {

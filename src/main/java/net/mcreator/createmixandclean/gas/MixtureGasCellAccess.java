@@ -40,7 +40,7 @@ public class MixtureGasCellAccess implements GasCellAccess {
         if (!(state.getBlock() instanceof MixtureGasBlock)) {
             if (sanitizedValue <= 0f) return;
             if (!state.isAir()) return;
-            level.setBlock(pos, GasBlocks.MIXTURE_GAS.get().defaultBlockState(), 3);
+            level.setBlock(pos, GasBlocks.MIXTURE_GAS.get().defaultBlockState(), 2);
         }
 
         GasCellBlockEntity be = be();
@@ -82,7 +82,7 @@ public class MixtureGasCellAccess implements GasCellAccess {
         if (be != null) {
             be.clear();
         }
-        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
         GasCellRegistry.remove(level, pos);
     }
 }
