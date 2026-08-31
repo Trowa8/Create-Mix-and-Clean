@@ -75,4 +75,6 @@ gradle-app.setting
 .eclipse
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
 .mcreator/generatorGradleCache
+.mcreator/userSettings

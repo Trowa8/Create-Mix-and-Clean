@@ -211,10 +211,14 @@ public class GasPocketManager {
 
             pocket.cells.add(current);
             if (level.canSeeSky(current)) pocket.skyExposed = true;
+            if (level.canSeeSky(current)) {
+                pocket.skyExposed = true;
+                pocket.settled = false;
+                pocket.stableStreak = 0;
+            }
 
             for (Direction dir : searchDirs) {
                 BlockPos next = current.relative(dir).immutable();
-                // Prevent freezing at chunk borders
                 if (!level.isLoaded(next)) continue; 
                 if (visited.add(next)) {
                     queue.add(next);
@@ -255,6 +259,7 @@ public class GasPocketManager {
         pocket.stableStreak = stable ? pocket.stableStreak + 1 : 0;
 
         if (CreateMixAndCleanGasConfig.SETTLING_ENABLED.get()
+                && !(pocket.skyExposed && CreateMixAndCleanGasConfig.OUTDOOR_DISSIPATION.get())
                 && pocket.stableStreak >= CreateMixAndCleanGasConfig.SETTLE_STABLE_CYCLES.get()
                 && !pocket.settled) {
             boolean allCellsCaughtUp = pocket.cells.stream().allMatch(cell -> {

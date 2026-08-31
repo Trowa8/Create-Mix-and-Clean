@@ -22,8 +22,7 @@ public class GasEventListeners {
         if (event.getLevel() instanceof ServerLevel level) {
             BlockState state = level.getBlockState(event.getPos());
             
-            // 1. Break the loop: Do NOT invalidate topology if the block updating is already gas
-            if (state.getBlock() instanceof net.mcreator.createmixandclean.gas.block.DiffusingGasBlock || 
+            if (state.getBlock() instanceof net.mcreator.createmixandclean.gas.block.DiffusingGasBlock ||
                 state.getBlock() instanceof net.mcreator.createmixandclean.gas.block.MixtureGasBlock) {
                 return;
             }
@@ -32,7 +31,9 @@ public class GasEventListeners {
             GasType gasType = GasRegistry.getGasType(fluid);
             if (gasType != null) {
                 GasConversionScheduler.enqueue(level, event.getPos());
-                CreateMixAndCleanMod.LOGGER.info("Queued gas conversion at {}", event.getPos());
+            }
+            if (GasCellRegistry.consumeSelfCleared(level, event.getPos())) {
+                return;
             }
             
             GasPocketManager.get(level).invalidateAround(level, event.getPos());

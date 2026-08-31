@@ -34,4 +34,15 @@ public final class GasCellRegistry {
     public static void onLevelUnload(LevelEvent.Unload event) {
         ACTIVE.remove(event.getLevel());
     }
+
+    private static final Map<LevelAccessor, Set<BlockPos>> SUPPRESS_NEXT = new HashMap<>();
+    
+    public static void markSelfCleared(LevelAccessor level, BlockPos pos) {
+        SUPPRESS_NEXT.computeIfAbsent(level, l -> new HashSet<>()).add(pos.immutable());
+    }
+    
+    public static boolean consumeSelfCleared(LevelAccessor level, BlockPos pos) {
+        Set<BlockPos> set = SUPPRESS_NEXT.get(level);
+        return set != null && set.remove(pos.immutable());
+    }
 }

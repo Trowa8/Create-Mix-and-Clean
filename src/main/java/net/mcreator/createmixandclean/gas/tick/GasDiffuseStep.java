@@ -74,12 +74,14 @@ public final class GasDiffuseStep {
         }
 
         if (self.isEmpty() || self.getTotalLevel() <= PURGE_THRESHOLD) {
+            GasCellRegistry.markSelfCleared(level, pos);
             self.clear();
             if (level instanceof ServerLevel serverLevel) {
                 Set<BlockPos> registry = GasCellRegistry.get(serverLevel);
                 if (registry != null) {
                     registry.remove(pos.immutable());
                 }
+                GasPocketManager.get(level).markDirty(pos);
             }
         } else if (changed && level instanceof ServerLevel serverLevel) {
             GasPocketManager.get(level).markDirty(pos);
